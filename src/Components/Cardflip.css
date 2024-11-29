@@ -1,0 +1,170 @@
+/* Flip Card Container */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    padding: 20px;
+    flex-direction: column;
+    background-color: #f7f7f7;
+}
+
+/* Header text above the card */
+.card-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card-header p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Flip Card */
+.flip-card {
+    perspective: 1000px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flip-card-back {
+    background-color: #f4f4f4;
+    color: #333;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card-info {
+    font-size: 20px;
+    text-align: center;
+}
+
+.card-title {
+    margin-top: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Modal Overlay */
+.modal-overlay1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center; /* Horizontally center the modal */
+    align-items: center;     /* Vertically center the modal */
+    z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content1 {
+    position: relative;
+    width: 90%; /* Full width for smaller screens */
+    max-width: 900px; /* Limit maximum width */
+    max-height: 400vh; /* Limit maximum height */
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    overflow-y: auto; /* Add scrolling if content exceeds max-height */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow for focus */
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: black !important;
+    cursor: pointer;
+    z-index: 2000;
+}
+
+.close-button:hover {
+    color: red;
+}
+
+/* Gallery Container */
+.gallery-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gallery-item {
+    text-align: center;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    max-width: 500px;
+    max-height: 400px;
+}
+
+.gallery-title {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Navigation Arrows */
+.prev-button,
+.next-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    font-size: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.prev-button:hover,
+.next-button:hover {
+    background-color: #555;
+}

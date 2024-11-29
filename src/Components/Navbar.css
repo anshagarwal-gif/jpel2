@@ -1,0 +1,59 @@
+/* General styling for the navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 19px 30px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo img {
+  height: 70px;
+}
+
+/* Styling for the menu links */
+.navbar-links ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-links li {
+  margin-left: 20px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 10px;
+  transition: color 0.3s ease;
+  
+}
+
+.navbar-links a:hover {
+  color: #e74c3c; /* Hover color */
+}
+
+/* Styling for the social media icons */
+.navbar-social {
+  display: flex;
+}
+
+.navbar-social .social-icon {
+  margin-left: 30px;
+  font-size: 24px; /* Adjust icon size */
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+}
+
+.navbar-social .social-icon:hover {
+  color: #e74c3c; /* Hover color for social icons */
+}

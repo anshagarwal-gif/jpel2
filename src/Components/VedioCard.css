@@ -1,0 +1,140 @@
+/* Video Card Styles */
+.video-card {
+    width: 500px;
+    text-align: center;
+    margin: 20px;
+    position: relative;
+    
+  }
+  .card {
+    width: 500px; /* Increase the width */
+    height: 450px; /* Increase the height */
+    margin: 20px; /* Adjust the spacing around the card */
+    padding: 10px; /* Adjust internal spacing */
+}
+  
+  .video-thumbnail {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .thumbnail-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .play-button-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .play-button {
+    font-size: 24px;
+    color: #ff0000;
+  }
+  
+  /* Video Title */
+  .video-title {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Modal Styles */
+  .video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+  }
+  
+  .modal-overlay {
+    position: fixed; /* Use fixed to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dim background with transparency */
+    z-index: 1000; /* Ensure it is on top of other elements */
+    display: flex; /* Allows centering content inside */
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1001; /* Keeps the modal content above the overlay */
+}
+
+.modal-overlay.hidden {
+    display: none; /* Hide modal overlay when inactive */
+    opacity: 0;
+}
+  
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Increased width for a larger modal */
+    max-width: 1200px; /* Maximum width */
+    height: 100vh; /* Increased height */
+    max-height: 90vh; /* Maximum height */
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+  
+  .close-button2 {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+  }
+  @media (max-width: 768px) {
+    .video-card {
+      width: 90%;
+    }
+    
+    .thumbnail-image {
+      height: 150px;
+    }
+    
+    .modal-content {
+      width: 95%;
+      height: 80vh;
+    }
+  }
+  .video-card:hover .thumbnail-image {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+  }
+  
+  .play-button-overlay {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .video-thumbnail:hover .play-button-overlay {
+    opacity: 1;
+  }
+    

@@ -1,0 +1,106 @@
+/* Wrapper for the spinning cards and the logo */
+.wrapper4 {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-image: url('../assets/1-removebg.png'); /* Background image stays */
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Inner spinning container */
+.inner2 {
+  --w: 510px;
+  --h: 250px;
+  --translateZ: calc((var(--w) + var(--h)) + 200px);
+  --rotateX: -5deg;
+  --perspective: 1900px;
+  position: relative;
+  width: var(--w);
+  height: var(--h);
+  z-index: 2;
+  transform-style: preserve-3d;
+  transform: perspective(var(--perspective));
+  animation: rotating 23s linear infinite;
+}
+
+/* Centered logo */
+.logo-center {
+  position: absolute;
+  z-index: 5; /* Higher than the spinning cards */
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.logo-center img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Spinning cards */
+.card15 {
+  position: absolute;
+  border: 2px solid;
+  border-radius: 12px;
+  overflow: hidden;
+  inset: 0;
+  transform: rotateY(calc((360deg / var(--quantity)) * var(--index)))
+    translateZ(var(--translateZ));
+  backface-visibility: hidden; /* Prevent cards from showing back faces */
+  z-index: 1; /* Ensure cards behind are hidden */
+}
+
+/* Cards appear/disappear logic */
+.card15 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Hide the card when behind the logo */
+.card15[style*="rotateY(180deg)"] {
+  opacity: 0;
+}
+
+/* Ensures smooth reappearance */
+.card15[style*="rotateY(0deg)"],
+.card15[style*="rotateY(360deg)"] {
+  opacity: 1;
+}
+
+/* Adjust for image styling */
+.img15 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: radial-gradient(
+    circle,
+    rgba(var(--color-card), 0.2) 0%,
+    rgba(var(--color-card), 0.6) 80%,
+    rgba(var(--color-card), 0.9) 100%
+  );
+}
+
+/* Rotation animation */
+@keyframes rotating {
+  from {
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(0);
+  }
+  to {
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX))
+      rotateY(1turn);
+  }
+}

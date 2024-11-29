@@ -1,0 +1,164 @@
+/* Magazine Layout Container */
+.magazine-layout {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color:white;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Left Column (Magazine Viewer) */
+  .magazine-viewer {
+    position: relative;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .magazine-image {
+    width: 100%;
+    max-width: 800px; /* Increased width */
+    height: auto;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .magazine-image:hover {
+    transform: scale(1.05); /* Stylish zoom-in effect on hover */
+  }
+  
+  .nav-button {
+    position: absolute;
+    top: 50%; /* Aligns arrows vertically to the center */
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 28px;
+    padding: 12px;
+    cursor: pointer;
+    z-index: 10;
+    
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-button.prev {
+    left: 50px; /* Adjusted position */
+  }
+  
+  .nav-button.next {
+    right: 90px; /* Adjusted position */
+  }
+  
+  .nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .magazine-title {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+   
+  }
+  
+  /* Right Column (PDF List) */
+  .pdf-list {
+    flex: 0.9;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+  .pdf-list ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 10px;
+    margin: 0;
+  }
+  
+  
+  .pdf-list h2 {
+    font-size: 50px;
+    margin-bottom: 15px;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .pdf-item {
+    position: relative;
+    margin-bottom: 30px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-left: 20px;
+  }
+  .pdf-icon {
+    color: red;
+    margin-right: 19px; /* Space between icon and text */
+    font-size: 24px; /* Adjust size of the icon */
+    transition: transform 0.3s ease;
+    
+  }
+  
+  .pdf-item a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .pdf-item a:hover {
+    color: red;
+    transform: scale(1.1); /* Slight zoom effect */
+  }
+  
+  /* Tooltip on hover */
+  .pdf-tooltip {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 120%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    background-color: #333;
+    color: white;
+    font-size: 34px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    z-index: 5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .pdf-item:hover .pdf-tooltip {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(10px); /* Smooth pop-out transition */
+  }
+  
+  /* Additional Hover Effect on PDF Links */
+  .pdf-item a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: red;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+  }
+  
+  .pdf-item a:hover::after {
+    width: 100%; /* Expanding underline effect */
+  }
+  
