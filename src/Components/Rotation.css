@@ -21,7 +21,7 @@
   --h: 250px;
   --translateZ: calc((var(--w) + var(--h)) + 200px);
   --rotateX: -5deg;
-  --perspective: 2200px;
+  --perspective: 4200px;
   position: relative;
   width: var(--w);
   height: var(--h);
