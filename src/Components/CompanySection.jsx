@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import ReactGA from "react-ga4";
 import styled from "styled-components";
-
 // Initialize Google Analytics
 ReactGA.initialize("G-4G63P3V3DN", { debugMode: true });
-// Replace with your Measurement ID
 
 const CompanySection = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -35,18 +33,60 @@ const CompanySection = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Log event to Google Analytics
+  
+    // Fetch the user's IP address
+    let visitorIP = "";
+    try {
+      const Response = await fetch("https://api.ipify.org?format=json");
+      const Data = await Response.json();
+      visitorIP = Data.ip; // Extract IP address
+    } catch (error) {
+      console.error("Error fetching IP:", error);
+    }
+  
+    // Get the current URL and extract the text of the end URL
+    const currentURL = window.location.href;
+    const endText = currentURL.split("/").pop(); // Get the last part of the URL
+  
+    const extendedFormData = {
+      ...formData,
+      endText,
+      currentURL,
+      
+      visitorIP
+    };
+  
+    console.log("Form Data with IP and URL: ", extendedFormData);
+  
+    // Log the event to Google Analytics
     ReactGA.event({
       category: "Form",
       action: "Download Catalogue",
       label: "Catalogue Form Submission",
-      value: 1, // Optional value for analytics
+      value: 1,
     });
-
-    alert("Form Submitted Successfully!");
+  
+    // Send form data to the backend
+    fetch("http://localhost:5000/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(extendedFormData),
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert("Form submitted successfully and email sent!");
+        } else {
+          alert("Failed to send email. Please try again.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error submitting form:", error);
+        alert("An error occurred. Please try again.");
+      });
+  
+    // Reset form fields
     setFormData({
       name: "",
       companyName: "",
@@ -59,6 +99,7 @@ const CompanySection = () => {
     });
     setModalOpen(false);
   };
+
   return (
     <StyledWrapper>
       {/* Left Section */}
@@ -107,27 +148,89 @@ const CompanySection = () => {
         </div>
       </div>
 
-       {/* Modal */}
-       {isModalOpen && (
+      {/* Modal */}
+      {isModalOpen && (
         <div className="modal-overlay">
           <div className="modal-content">
             <h2>Download Catalogue</h2>
             <form onSubmit={handleSubmit}>
-              <label>Name: <input type="text" name="name" value={formData.name} onChange={handleChange} required /></label>
-              <label>Company Name: <input type="text" name="companyName" value={formData.companyName} onChange={handleChange} required /></label>
-              <label>Email: <input type="email" name="email" value={formData.email} onChange={handleChange} required /></label>
-              <label>Contact Number: <input type="tel" name="contactNumber" value={formData.contactNumber} onChange={handleChange} required /></label>
-              <label>City: <input type="text" name="city" value={formData.city} onChange={handleChange} required /></label>
-              <label>State: <input type="text" name="state" value={formData.state} onChange={handleChange} required /></label>
-              <label>Country: <input type="text" name="country" value={formData.country} onChange={handleChange} required /></label>
-              <label>Message: <textarea name="message" value={formData.message} onChange={handleChange} required /></label>
+              <label>Name: 
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+              <label>Company Name: 
+                <input
+                  type="text"
+                  name="companyName"
+                  value={formData.companyName}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+              <label>Email: 
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+              <label>Contact Number: 
+                <input
+                  type="tel"
+                  name="contactNumber"
+                  value={formData.contactNumber}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+              <label>City: 
+                <input
+                  type="text"
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+              <label>State: 
+                <input
+                  type="text"
+                  name="state"
+                  value={formData.state}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+              <label>Country: 
+                <input
+                  type="text"
+                  name="country"
+                  value={formData.country}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+              <label>Message: 
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
               <button type="submit" className="submit-btn">Submit</button>
               <button type="button" className="close-btn" onClick={handleCloseModal}>Close</button>
             </form>
           </div>
         </div>
       )}
-      
     </StyledWrapper>
   );
 };
@@ -245,21 +348,19 @@ const StyledWrapper = styled.div`
 
         .download-btn {
           padding: 15px 30px; /* Larger button size */
-          background-color: #f2f2f2;
-          border: 1px solid #ccc; /* Thinner border */
-          font-size: 18px; /* Larger font size */
-          cursor: pointer;
-          font-weight: bold;
-          text-transform: uppercase;
+          background-color:black;
+        color: white;
+        border: none;
+        margin-top: 10px;
+        cursor: pointer;
+        text-transform: uppercase;
 
-          &:hover {
-            background-color: #d8d8d8;
-          }
+        &:hover {
+          background-color: #444;
         }
       }
     }
   }
-
   .modal-overlay {
     position: fixed;
     top: 0;
@@ -325,33 +426,6 @@ const StyledWrapper = styled.div`
       }
     }
   }
-.blob {
-  position: absolute;
-  z-index: 0;
-  top: 50%;
-  left: 50%;
-  width: 10px; /* Thinner width */
-  height: 250px; /* Taller height */
-  border-radius: 50px; /* Elongated border radius */
-  background: linear-gradient(to bottom, #ff0000, transparent); /* Gradient for fading */
-  opacity: 1;
-  filter: blur(6px); /* Slight blur for smoothness */
-  animation: blob-slide 5s infinite ease;
-}
-
-@keyframes blob-slide {
-  0% {
-    transform: translate(-50%, -50%) scaleY(1);
-  }
-  50% {
-    transform: translate(-50%, -60%) scaleY(1.2); /* Slight stretch vertically */
-  }
-  100% {
-    transform: translate(-50%, -50%) scaleY(1);
-  }
-}
-
 `;
-
 
 export default CompanySection;
