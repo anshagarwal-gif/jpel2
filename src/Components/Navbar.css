@@ -22,7 +22,7 @@
 }
 
 .navbar-links li {
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
 .navbar-links a {
@@ -30,7 +30,7 @@
   color: #333;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 10px;
   letter-spacing: 1px;
   padding: 10px;
   transition: color 0.3s ease;
@@ -46,8 +46,8 @@
 }
 
 .navbar-social .social-icon {
-  margin-left: 20px;
-  font-size: 18px; /* Adjust icon size */
+  margin-left: 15px;
+  font-size: 14px; /* Adjust icon size */
   color: #333;
   text-decoration: none;
   transition: color 0.3s ease;
