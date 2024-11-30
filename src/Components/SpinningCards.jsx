@@ -1,11 +1,30 @@
-import React from "react";
-import "./Rotation.css"; // Import your CSS file
+import React, { useState } from "react";
+import "./Rotation.css";
 import logo from "../assets/1-removebg.png";
 
 const SpinningCards = () => {
+  const [rotateY, setRotateY] = useState(0); // State to track Y-axis rotation
+  const rotationStep = 35; // Degree of rotation per click
+
+  // Handle left and right arrow clicks
+  const rotateLeft = () => {
+    setRotateY((prev) => prev - rotationStep);
+  };
+
+  const rotateRight = () => {
+    setRotateY((prev) => prev + rotationStep);
+  };
+
   return (
     <div className="wrapper4">
-      <div className="inner2" style={{ "--quantity": 11 }}>
+      {/* Left Arrow */}
+      <button className="arrow left" onClick={rotateLeft} aria-label="Rotate Left"></button>
+
+      {/* Spinning Cards */}
+      <div
+        className="inner2"
+        style={{ "--quantity": 11, "--rotateY": `${rotateY}deg` }}
+      >
         {[...Array(11)].map((_, index) => (
           <div
             key={index}
@@ -24,6 +43,9 @@ const SpinningCards = () => {
           </div>
         ))}
       </div>
+
+      {/* Right Arrow */}
+      <button className="arrow right" onClick={rotateRight} aria-label="Rotate Right"></button>
     </div>
   );
 };
