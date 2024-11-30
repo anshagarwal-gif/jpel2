@@ -505,70 +505,38 @@ const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  
   z-index: 1000;
 }
 
 .modal-content {
-  display: flex;
+ display: flex;
   justify-content: center;
   align-items: center;
   min-height: 350px;
-  width: 80vw; /* Use viewport width to ensure modal scales */
-  max-width: 900px;
+  width: 900px;
   flex-direction: column;
   gap: 35px;
+
   border-radius: 8px;
-  padding: 20px; /* Added padding to avoid edge touching */
 }
 
 @media (max-width: 768px) {
   .modal-content {
-    width: 90vw; /* Reduce width on smaller screens */
-  }
-
-  .modal-content h2 {
-    font-size: 2rem; /* Smaller font size for heading */
-  }
-
-  .inputBox input,
-  .inputBox textarea {
-    padding: 12px; /* Adjust padding for smaller screens */
-  }
-
-  .submit-btn,
-  .close-btn {
-    width: 48%; /* Keep buttons aligned */
-    font-size: 14px;
+    max-width: 90%; /* Use more width on smaller screens */
   }
 }
 
 @media (max-width: 480px) {
   .modal-content {
-    width: 95vw; /* Maximize modal width on very small screens */
-    padding: 10px; /* Less padding on small screens */
-  }
-
-  .modal-content h2 {
-    font-size: 1.5rem; /* Further reduce heading font size */
-  }
-
-  .inputBox input,
-  .inputBox textarea {
-    padding: 10px; /* Smaller padding */
-  }
-
-  .submit-btn,
-  .close-btn {
-    width: 100%; /* Stack buttons vertically */
-    font-size: 12px;
+    padding: 20px; /* Less padding on very small screens */
   }
 }
-
 /* Modal Header */
 .modal-content h2 {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
-  font-size: 2.5rem; /* Use relative font size for scalability */
+  font-size: 43px;
   font-weight: bold;
   color: #000;
   text-transform: uppercase;
@@ -581,6 +549,7 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   gap: 20px;
   width: 100%;
+  
 }
 
 /* Label and Input Styling */
@@ -591,7 +560,7 @@ const StyledWrapper = styled.div`
 
 .inputBox input,
 .inputBox textarea {
-  width: 100%; /* Ensure full width usage */
+   width: 90%;
   padding: 17px;
   outline: none;
   border: none;
@@ -601,9 +570,20 @@ const StyledWrapper = styled.div`
   border-left: 2px solid #000;
   border-bottom: 2px solid #000;
   transition: 0.1s;
-  border-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
+@media (max-width: 768px) {
+  .inputBox input,
+  .inputBox textarea {
+    padding: 8px; /* Adjust padding for smaller screens */
+  }
 
+  .submit-btn,
+  .close-btn {
+  width: 50%;
+    font-size: 14px; /* Reduce font size on smaller screens */
+  }
+}
 .inputBox input:valid~span,
 .inputBox input:focus~span,
 .inputBox textarea:valid~span,
@@ -616,18 +596,17 @@ const StyledWrapper = styled.div`
   letter-spacing: 0.2em;
   color: #fff;
 }
-
-.inputBox input:valid,
+  .inputBox input:valid,
 .inputBox input:focus {
   border: 2px solid #000;
   border-radius: 8px;
 }
 
 .uiverse {
-  margin-top: 5px;
+ margin-top: 5px;
   position: absolute;
   left: 0;
-  transform: translateY(-60px);
+  transform: translateY(-7px);
   margin-left: 17px;
   padding: 10px;
   pointer-events: none;
@@ -642,21 +621,20 @@ const StyledWrapper = styled.div`
 textarea {
   resize: vertical;
   height: 120px;
-  width: 100%;
 }
 
 /* Submit and Close Button Styling */
 .submit-btn,
 .close-btn {
   height: 45px;
-  width: 48%;
+  width: 48%; /* Set width to 48% to keep both buttons on the same line */
   border-radius: 5px;
   border: 2px solid #000;
   cursor: pointer;
   background-color: transparent;
   transition: 0.5s;
   text-transform: uppercase;
-  font-size: 14px; /* Adjusted for clarity */
+  font-size: 10px;
   letter-spacing: 2px;
   margin-top: 10px;
 }
@@ -683,13 +661,11 @@ textarea {
 .close-btn:focus {
   outline: none;
 }
-
 /* Container for buttons */
 .submitbtn-container {
   display: flex;
-  gap: 20px;
-  width: 100%;
-  justify-content: space-between; /* Keep buttons aligned */
+  gap: 20px; /* Optional: Adjust the gap between the buttons */
+  width: 100%; /* Ensure it takes up full width */
 }
 `;
 
