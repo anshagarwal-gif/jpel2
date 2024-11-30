@@ -3,6 +3,7 @@ import ReactGA from "react-ga4";
 import styled from "styled-components";
 import logorevised from "../assets/JP GROUP LOGO 2024 Revised.jpg"
 import { FaDownload } from "react-icons/fa";
+import logonewversion from "../assets/logonewversion.jpg"
 // Initialize Google Analytics
 ReactGA.initialize("G-4G63P3V3DN", { debugMode: true });
 
@@ -109,7 +110,22 @@ const CompanySection = () => {
         <h1>
           MANUFACTURER AND EXPORTER OF PLASTIC PROCESSING MACHINERY, SINCE 1987
         </h1>
-        <button className="about-btn">ABOUT COMPANY</button>
+
+<button class="animated-button">
+  <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+    ></path>
+  </svg>
+  <span class="text">About Company</span>
+  <span class="circle"></span>
+  <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+    ></path>
+  </svg>
+</button>
+
       </div>
 
       {/* Center Section */}
@@ -134,15 +150,17 @@ const CompanySection = () => {
       {/* Right Section */}
       <div className="right-section">
         <div className="card">
-          <div className="bg" />
-          <div className="blob" />
           <div className="content">
+          <img
+              src={logonewversion }
+              alt="JP Logo"
+              className="main-logo"
+            />
             <img
               src={logorevised }
               alt="JP Logo"
               className="main-logo"
             />
-            <p>SINCE 1987</p>
             <div className="download-btn-container">
             <button className="download-btn" onClick={handleOpenModal}>
            
@@ -151,7 +169,7 @@ const CompanySection = () => {
               
               
             </button>
-            <span>DOWNLOAD CATALOGUE</span>
+            <span className="span1">DOWNLOAD CATALOGUE</span>
               </div>
           </div>
         </div>
@@ -161,84 +179,101 @@ const CompanySection = () => {
       {isModalOpen && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <h2>Download Catalogue</h2>
-            <form onSubmit={handleSubmit}>
-              <label>Name: 
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-              <label>Company Name: 
-                <input
-                  type="text"
-                  name="companyName"
-                  value={formData.companyName}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-              <label>Email: 
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-              <label>Contact Number: 
-                <input
-                  type="tel"
-                  name="contactNumber"
-                  value={formData.contactNumber}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-              <label>City: 
-                <input
-                  type="text"
-                  name="city"
-                  value={formData.city}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-              <label>State: 
-                <input
-                  type="text"
-                  name="state"
-                  value={formData.state}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-              <label>Country: 
-                <input
-                  type="text"
-                  name="country"
-                  value={formData.country}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-              <label>Message: 
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-              <button type="submit" className="submit-btn">Submit</button>
-              <button type="button" className="close-btn" onClick={handleCloseModal}>Close</button>
-            </form>
-          </div>
-        </div>
+           <h2>Download Catalogue</h2>
+       <form onSubmit={handleSubmit}>
+   <div className="inputBox">
+       <input
+        type="text"
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+        required
+      />
+      <span className="uiverse">Name</span>
+    </div>
+    
+    <div className="inputBox">
+      <input
+        type="text"
+        name="companyName"
+        value={formData.companyName}
+        onChange={handleChange}
+        required
+      />
+      <span className="uiverse">Company Name</span>
+    </div>
+    
+    <div className="inputBox">
+      <input
+        type="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        required
+      />
+      <span className="uiverse">Email</span>
+    </div>
+    
+    <div className="inputBox">
+      <input
+        type="tel"
+        name="contactNumber"
+        value={formData.contactNumber}
+        onChange={handleChange}
+        required
+      />
+      <span className="uiverse">Contact Number</span>
+    </div>
+    
+    <div className="inputBox">
+      <input
+        type="text"
+        name="city"
+        value={formData.city}
+        onChange={handleChange}
+        required
+      />
+      <span className="uiverse">City</span>
+    </div>
+
+    <div className="inputBox">
+      <input
+        type="text"
+        name="state"
+        value={formData.state}
+        onChange={handleChange}
+        required
+      />
+      <span className="uiverse">State</span>
+    </div>
+
+    <div className="inputBox">
+      <input
+        type="text"
+        name="country"
+        value={formData.country}
+        onChange={handleChange}
+        required
+      />
+      <span className="uiverse">Country</span>
+    </div>
+
+    <div className="inputBox">
+      <textarea
+        name="message"
+        value={formData.message}
+        onChange={handleChange}
+        required
+      />
+      <span className="uiverse">Message</span>
+    </div>
+<div className="submitbtn-container">
+    <button type="submit" className="submit-btn">Submit</button>
+    <button type="button" className="close-btn" onClick={handleCloseModal}>Close</button>
+    </div>
+  </form>
+</div>
+ </div>
       )}
     </StyledWrapper>
   );
@@ -262,21 +297,96 @@ const StyledWrapper = styled.div`
       line-height: 1.5;
       margin: 0;
     }
+   }
 
-    .about-btn {
-      padding: 12px 24px;
-      border: 1px solid black;
-      background-color: white;
-      cursor: pointer;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin-top: 20px;
+.animated-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 19px 36px;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: black;
+  box-shadow: 0 0 0 2px black;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
 
-      &:hover {
-        background-color: black;
-        color: white;
-      }
-    }
+.animated-button svg {
+  position: absolute;
+  width: 24px;
+  fill: black;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+  right: 16px;
+}
+
+.animated-button .arr-2 {
+  left: -25%;
+}
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: white;
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 16px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(12px);
+}
+
+.animated-button:hover svg {
+  fill: white;
+}
+
+.animated-button:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px greenyellow;
+}
+
+.animated-button:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+
   }
 
   .center-section {
@@ -296,8 +406,8 @@ const StyledWrapper = styled.div`
 .right-section {
   .card {
     position: relative;
-    width: 400px; /* Adjusted card size */
-    height: 700px;
+    width: 500px; /* Adjusted card size */
+    height: 900px;
     background: white;
     border-radius: 30px;
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
@@ -310,26 +420,27 @@ const StyledWrapper = styled.div`
   }
 
   .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center logos horizontally */
+  justify-content: center; /* Optional: center logos vertically */
+  padding: 20px;
+  
+  
+}
     .main-logo {
-      width: 370px; /* Adjusted logo size */
-      margin-bottom: 10px;
+      width: 390px; /* Adjusted logo size */
+      margin-top:30px;
+      margin-bottom: 30px;
     }
-
-    p {
-      font-size: 18px;
-      font-weight: bold;
-    }
-  }
+   
 
   .download-btn-container {
    display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;    
+  margin-top:30px;
 
     .download-btn {
       width: 80px;
@@ -362,7 +473,7 @@ const StyledWrapper = styled.div`
       }
     }
 
-    span {
+    .span1 {
       margin-top: 10px;
       font-size: 16px;
       font-weight: bold;
@@ -394,68 +505,168 @@ const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  
   z-index: 1000;
+}
 
+.modal-content {
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 350px;
+  width: 900px;
+  flex-direction: column;
+  gap: 35px;
+
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
   .modal-content {
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    max-width: 500px; /* Increased modal size for larger screens */
-    width: 100%;
-
-    h2 {
-      margin-bottom: 30px;
-      text-align: center;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-
-      label {
-        margin-bottom: 20px;
-        font-size: 16px;
-      }
-
-      input,
-      textarea {
-        width: 100%;
-        padding: 12px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
-
-      .submit-btn {
-        margin-top: 30px;
-        padding: 15px;
-        background: black;
-        color: white;
-        border: none;
-        cursor: pointer;
-        font-weight: bold;
-        font-size: 16px;
-        text-transform: uppercase;
-        border-radius: 5px;
-      }
-
-      .close-btn {
-        margin-top: 10px;
-        padding: 15px;
-        background: gray;
-        color: white;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-        text-transform: uppercase;
-        border-radius: 5px;
-      }
-    }
+    max-width: 90%; /* Use more width on smaller screens */
   }
 }
 
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 20px; /* Less padding on very small screens */
+  }
+}
+/* Modal Header */
+.modal-content h2 {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 43px;
+  font-weight: bold;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Styling for the form */
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  
+}
+
+/* Label and Input Styling */
+.inputBox {
+  position: relative;
+  width: 100%;
+}
+
+.inputBox input,
+.inputBox textarea {
+   width: 90%;
+  padding: 17px;
+  outline: none;
+  border: none;
+  color: #000;
+  font-size: 1em;
+  background: transparent;
+  border-left: 2px solid #000;
+  border-bottom: 2px solid #000;
+  transition: 0.1s;
+  border-bottom-left-radius: 8px;
+}
+@media (max-width: 768px) {
+  .inputBox input,
+  .inputBox textarea {
+    padding: 8px; /* Adjust padding for smaller screens */
+  }
+
+  .submit-btn,
+  .close-btn {
+  width: 50%;
+    font-size: 14px; /* Reduce font size on smaller screens */
+  }
+}
+.inputBox input:valid~span,
+.inputBox input:focus~span,
+.inputBox textarea:valid~span,
+.inputBox textarea:focus~span {
+  transform: translateX(113px) translateY(-15px);
+  font-size: 0.8em;
+  padding: 7px 15px;
+  margin-left: 10px;
+  background: #000;
+  letter-spacing: 0.2em;
+  color: #fff;
+}
+  .inputBox input:valid,
+.inputBox input:focus {
+  border: 2px solid #000;
+  border-radius: 8px;
+}
+
+.uiverse {
+ margin-top: 5px;
+  position: absolute;
+  left: 0;
+  transform: translateY(-7px);
+  margin-left: 17px;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 12px;
+  color: #000;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 3px;
+  border-radius: 8px;
+}
+
+textarea {
+  resize: vertical;
+  height: 120px;
+}
+
+/* Submit and Close Button Styling */
+.submit-btn,
+.close-btn {
+  height: 45px;
+  width: 48%; /* Set width to 48% to keep both buttons on the same line */
+  border-radius: 5px;
+  border: 2px solid #000;
+  cursor: pointer;
+  background-color: transparent;
+  transition: 0.5s;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-top: 10px;
+}
+
+.submit-btn {
+  background-color: #000;
+  color: white;
+}
+
+.submit-btn:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+.close-btn {
+  background-color: gray;
+  color: white;
+}
+
+.close-btn:hover {
+  background-color: #555;
+}
+
+.submit-btn:focus,
+.close-btn:focus {
+  outline: none;
+}
+/* Container for buttons */
+.submitbtn-container {
+  display: flex;
+  gap: 20px; /* Optional: Adjust the gap between the buttons */
+  width: 100%; /* Ensure it takes up full width */
+}
 `;
 
 export default CompanySection;

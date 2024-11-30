@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // Basic Swiper CSS
 import "swiper/css/navigation"; // Navigation styles
@@ -8,14 +8,24 @@ import Banner from '../Components/Banner';
 import ProductSection from '../Components/PrroductLine';
 import CompanySection from '../Components/CompanySection';
 import Rotation from '../Components/SpinningCards';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Home = () => {
+   // Initialize AOS
+   useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration (1 second)
+      easing: 'ease-in-out', // Easing function
+      once: true, // Only trigger animation once when scrolling
+    });
+  }, []);
   return (
     <div>
-      <Banner/>
-      <CompanySection/>
+      <Banner data-aos="fade-left" />
+      <CompanySection data-aos="fade-right" />
       <img className="ExportSection" alt='ExportSection' src={ require('../assets/ISO.png') } />
        {/* Statistics Section */}
-       <div className="export-stats">
+       <div className="export-stats" data-aos="fade-right"  >
         <div className="stat-item">
           <h1>
             37<span className="plus-symbol">+</span>
@@ -37,7 +47,7 @@ const Home = () => {
           <p>INSTALLATIONS</p>
         </div>
       </div>
-      <Rotation/>
+      <Rotation data-aos="fade-left" />
      
 </div>
   )

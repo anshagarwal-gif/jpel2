@@ -1,0 +1,22 @@
+.export-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-item h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+  
+  .divider {
+    width: 1px;
+    height: 50px;
+    background-color: gray;
+    margin: 0 20px;
+  }
+  
