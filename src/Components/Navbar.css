@@ -8,6 +8,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Logo styling */
 .navbar-logo img {
   height: 70px;
 }
@@ -33,7 +34,6 @@
   letter-spacing: 1px;
   padding: 10px;
   transition: color 0.3s ease;
-  
 }
 
 .navbar-links a:hover {
@@ -46,14 +46,60 @@
 }
 
 .navbar-social .social-icon {
-  margin-left: 30px;
+  margin-left: 20px;
   font-size: 24px; /* Adjust icon size */
   color: #333;
   text-decoration: none;
   transition: color 0.3s ease;
-
 }
 
 .navbar-social .social-icon:hover {
   color: #e74c3c; /* Hover color for social icons */
+}
+
+/* Responsive Styling */
+@media (max-width: 1380px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .navbar-logo img {
+    height: 50px; /* Adjust logo size for smaller screens */
+  }
+
+  .navbar-links ul {
+    flex-direction: column;
+    width: 100%; /* Ensure full width for links */
+    margin-top: 10px;
+  }
+
+  .navbar-links li {
+    margin-left: 0; /* Remove margin between links */
+    margin-bottom: 10px; /* Add spacing between vertical links */
+  }
+
+  .navbar-links a {
+    font-size: 16px; /* Increase link font size for better readability */
+  }
+
+  .navbar-social {
+    margin-top: 10px;
+  }
+
+  .navbar-social .social-icon {
+    margin-left: 12px; /* Reduce spacing between icons */
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-links a {
+    font-size: 14px; /* Further adjust link size for small screens */
+    text-align: left; /* Align links for better usability */
+  }
+
+  .navbar-social .social-icon {
+    font-size: 20px; /* Adjust icon size for small screens */
+  }
 }

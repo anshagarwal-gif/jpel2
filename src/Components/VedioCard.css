@@ -87,8 +87,7 @@
     display: none; /* Hide modal overlay when inactive */
     opacity: 0;
 }
-  
-  .modal-content {
+   .modal-content {
     position: absolute;
     top: 50%;
     left: 50%;
