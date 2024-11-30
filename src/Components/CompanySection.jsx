@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import ReactGA from "react-ga4";
 import styled from "styled-components";
+import logorevised from "../assets/JP GROUP LOGO 2024 Revised.jpg"
+import { FaDownload } from "react-icons/fa";
 // Initialize Google Analytics
 ReactGA.initialize("G-4G63P3V3DN", { debugMode: true });
 
@@ -136,14 +138,21 @@ const CompanySection = () => {
           <div className="blob" />
           <div className="content">
             <img
-              src="./assets/logo-red.png"
+              src={logorevised }
               alt="JP Logo"
               className="main-logo"
             />
             <p>SINCE 1987</p>
+            <div className="download-btn-container">
             <button className="download-btn" onClick={handleOpenModal}>
-              ⬇ DOWNLOAD CATALOGUE
+           
+                <FaDownload className="download-icon" />
+                <div className="signal" />
+              
+              
             </button>
+            <span>DOWNLOAD CATALOGUE</span>
+              </div>
           </div>
         </div>
       </div>
@@ -284,103 +293,121 @@ const StyledWrapper = styled.div`
       line-height: 1.5;
     }
   }
-
-  .right-section {
-    flex: 1;
+.right-section {
+  .card {
+    position: relative;
+    width: 400px; /* Adjusted card size */
+    height: 700px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
     padding: 20px;
-    text-align: center;
+  }
 
-    .card {
-      position: relative;
-      width: 600px; /* Increased width */
-      height: 700px; /* Increased height */
-      border-radius: 14px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-      .bg {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        width: 500px; /* Adjusted to match the larger card */
-        height: 580px; /* Adjusted to match the larger card */
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(24px);
-        border-radius: 10px;
-        overflow: hidden;
-        outline: 1px solid white; /* Thinner outline */
-        z-index: 1;
-      }
+    .main-logo {
+      width: 370px; /* Adjusted logo size */
+      margin-bottom: 10px;
+    }
 
-      .blob {
-        position: absolute;
-        z-index: 0;
-        top: 50%;
-        left: 50%;
-        width: 50px; /* Adjusted to fit larger card */
-        height: 220px; /* Adjusted to fit larger card */
-        border-radius: 50;
-        background-color: #ff0000;
-        opacity: 1;
-        filter: blur(12px);
-        animation: blob-bounce 5s infinite ease;
-      }
-
-      .content {
-        z-index: 2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        .main-logo {
-          width: 200px; /* Increased logo size */
-          margin-bottom: 10px;
-        }
-
-        p {
-          margin-bottom: 20px;
-          font-weight: bold;
-        }
-
-        .download-btn {
-          padding: 15px 30px; /* Larger button size */
-          background-color:black;
-        color: white;
-        border: none;
-        margin-top: 10px;
-        cursor: pointer;
-        text-transform: uppercase;
-
-        &:hover {
-          background-color: #444;
-        }
-      }
+    p {
+      font-size: 18px;
+      font-weight: bold;
     }
   }
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+  .download-btn-container {
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;    
+
+    .download-btn {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+
+      .download-icon {
+        color: white;
+        font-size: 30px;
+        z-index: 2;
+      }
+
+      .signal {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100px;
+        height: 100px;
+        border: 2px solid rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        animation: pulse 2s infinite;
+        z-index: 1;
+      }
+    }
+
+    span {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: black;
+      text-transform: uppercase;
+    }
   }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 
   .modal-content {
     background: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 500px; /* Increased modal size for larger screens */
+    width: 100%;
 
     h2 {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
     }
 
     form {
@@ -388,44 +415,47 @@ const StyledWrapper = styled.div`
       flex-direction: column;
 
       label {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
+        font-size: 16px;
       }
 
-      input {
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px;
         margin-top: 5px;
-        padding: 8px;
         border: 1px solid #ccc;
-        border-radius: 4px;
+        border-radius: 5px;
       }
 
       .submit-btn {
-        padding: 10px;
-        background-color: black;
+        margin-top: 30px;
+        padding: 15px;
+        background: black;
         color: white;
         border: none;
-        margin-top: 10px;
         cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
         text-transform: uppercase;
-
-        &:hover {
-          background-color: #444;
-        }
+        border-radius: 5px;
       }
 
       .close-btn {
         margin-top: 10px;
-        padding: 10px;
-        background-color: #ccc;
+        padding: 15px;
+        background: gray;
+        color: white;
         border: none;
         cursor: pointer;
+        font-size: 16px;
         text-transform: uppercase;
-
-        &:hover {
-          background-color: #999;
-        }
+        border-radius: 5px;
       }
     }
   }
+}
+
 `;
 
 export default CompanySection;
