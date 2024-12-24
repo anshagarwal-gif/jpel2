@@ -1,0 +1,385 @@
+/* Wrapper */
+.styled-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    position: relative;
+  }
+  
+  /* Left Section */
+  .left-section {
+    flex: 1;
+    padding: 20px;
+    margin-top: 30px;
+  }
+  
+  .left-section h1 {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  /* Animated Button */
+  .animated-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 19px 36px;
+    border: 4px solid transparent;
+    font-size: 16px;
+    top: 10%;
+    background-color: inherit;
+    border-radius: 100px;
+    font-weight: 600;
+    color: black;
+    box-shadow: 0 0 0 2px black;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button svg {
+    position: absolute;
+    width: 24px;
+    fill: black;
+    z-index: 9;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button .arr-1 {
+    right: 16px;
+  }
+  
+  .animated-button .arr-2 {
+    left: -25%;
+  }
+  
+  .animated-button .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button .text {
+    position: relative;
+    z-index: 1;
+    transform: translateX(-12px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button:hover {
+    box-shadow: 0 0 0 12px transparent;
+    color: white;
+    border-radius: 12px;
+  }
+  
+  .animated-button:hover .arr-1 {
+    right: -25%;
+  }
+  
+  .animated-button:hover .arr-2 {
+    left: 16px;
+  }
+  
+  .animated-button:hover .text {
+    transform: translateX(12px);
+  }
+  
+  .animated-button:hover svg {
+    fill: white;
+  }
+  
+  .animated-button:hover .circle {
+    width: 220px;
+    height: 220px;
+    opacity: 1;
+  }
+  
+  .animated-button:active {
+    scale: 0.95;
+    box-shadow: 0 0 0 4px greenyellow;
+  }
+  
+  /* Center Section */
+  .center-section {
+    flex: 2;
+    padding: 20px;
+  }
+  
+  .center-section h3 {
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .center-section p {
+    margin: 10px 0;
+    line-height: 1.5;
+    font-size: 18px;
+  }
+  
+  /* Right Section */
+  .right-section .card {
+    position: relative;
+    width: 500px;
+    height: 900px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+  }
+  
+  .right-section .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .right-section .main-logo {
+    width: 390px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .download-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+  }
+  
+  .download-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .download-btn .download-icon {
+    color: white;
+    font-size: 30px;
+    z-index: 2;
+  }
+  
+  .download-btn .signal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 2s infinite;
+    z-index: 1;
+  }
+  
+  .span1 {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1.5);
+      opacity: 0;
+    }
+  }
+  
+  /* Modal Styles */
+  .modal-overlay2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    overflow: hidden;
+  }
+  
+  .modal-content2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 35px;
+    padding: 20px;
+    max-width: 90vw;
+    max-height: 90vh;
+    width: 900px;
+    min-height: 350px;
+    border-radius: 8px;
+    background: #fff;
+    overflow: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  @media (max-width: 768px) {
+    .modal-content2 {
+      max-width: 95vw;
+      max-height: 90vh;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .modal-content2 {
+      padding: 15px;
+    }
+  }
+  
+  .modal-content2 h2 {
+    margin-bottom: 1px;
+    
+    font-size: 38px;
+    font-weight: bold;
+    color: #232323;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: left  !important;
+    border-bottom: 2px solid #000; /* Add a line below the heading */
+    padding-bottom: 5px; /* Add some spacing below the text */
+  }
+  .modal-content2 h4{
+    font-size: 24px; /* Adjust the font size */
+    color: #444; /* Subtle color for subheading */
+    margin-top: 5px;
+    text-align: left; /* Align the content to the left */
+    font-weight: 100;
+  }
+  
+  /* Form Styles */
+  .modal-content2 form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+  }
+  
+  .inputBox {
+    position: relative;
+    width: 100%;
+  }
+  
+  .inputBox input,
+  .inputBox textarea {
+    width: 95%;
+    padding:11px;
+    outline: none;
+    border: none;
+    color: #000;
+    font-size: 1em;
+    background: transparent;
+    border-left: 2px solid #000;
+    border-bottom: 2px solid #000;
+    transition: 0.1s;
+    border-bottom-left-radius: 8px;
+  }
+  
+  .inputBox .uiverse {
+    position: absolute;
+    top: 5%;
+    left: 17px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 1rem;
+    color: #000;
+    text-transform: uppercase;
+    transition: 0.3s;
+    letter-spacing: 3px;
+  }
+  /* Expand the textarea on hover or focus */
+
+.inputBox textarea:focus {
+  width: 100%;
+  height: 150px;
+  background: #f9f9f9; /* Add a light background on hover/focus */
+  border: 2px solid #000;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+  .inputBox input:focus ~ .uiverse,
+  .inputBox textarea:focus ~ .uiverse,
+  .inputBox input:valid ~ .uiverse,
+  .inputBox textarea:valid ~ .uiverse {
+    top: -19px; /* Move the label above the field */
+  left: 40px; /* Optional: Adjust horizontal alignment */
+  font-size: 0.8em;
+  background: #000; /* Add background to prevent overlap */
+  padding: 0 5px; /* Match the padding */
+  color:#fff ; /* Change color for better contrast */
+  transition: all 0.3s ease-in-out;
+  border-radius: 12px;
+  }
+  
+  .submit-btn,
+  .close-btn {
+    height: 45px;
+    width: 48%;
+    border-radius: 5px;
+    border: 2px solid #000;
+    cursor: pointer;
+    background-color: transparent;
+    transition: 0.5s;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 10px;
+  }
+  
+  .submit-btn {
+    background-color: #000;
+    color: white;
+  }
+  
+  .submit-btn:hover {
+    background-color: rgb(0, 0, 0);
+  }
+  
+  .close-btn {
+    background-color: gray;
+    color: white;
+  }
+  
+  .close-btn:hover {
+    background-color: #555;
+  }
+  
+  .submitbtn-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
