@@ -1,10 +1,15 @@
 footer {
-    background: #121212;
-    color: #fff;
+    background: #232323;
+    color: #888888;
     padding: 40px 20px;
-    font-size: 14px;
+    font-size: 17px;
   }
-  
+  .footer-logo{
+    height: auto;
+    width: 350px;
+    margin-top: 35px;
+    
+  }
   footer .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -16,12 +21,14 @@ footer {
   footer .container > div {
     flex: 1 1 30%;
     margin-bottom: 20px;
+    
   }
   
   footer h3,
   footer h4 {
     color: #fff;
     margin-bottom: 10px;
+    font-size: 20px;
   }
   
   footer ul {
@@ -29,9 +36,15 @@ footer {
     padding: 0;
     line-height: 1.8;
   }
+  footer li:hover{
+    color: white;
+  }
   
   footer p {
     margin: 5px 0;
+  }
+  footer p:hover{
+    color: white;
   }
   
   footer .footer-bottom {
@@ -46,11 +59,15 @@ footer {
   }
   
   footer .footer-social a {
-    color: #fff;
+    color: #888888;
     margin: 0 10px;
     text-decoration: none;
+    
   }
   
+  footer .footer-social a:hover{
+    color: white;
+  }
   footer .footer-social a:hover {
     text-decoration: underline;
   }

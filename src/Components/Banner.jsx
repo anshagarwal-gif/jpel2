@@ -59,78 +59,7 @@ const Banner = () => {
           >
           </div>
         </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className="banner-slide"
-            style={{
-              backgroundImage: `url(${image4})`,
-            }}
-          >
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className="banner-slide"
-            style={{
-              backgroundImage: `url(${image5})`,
-            }}
-          >
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className="banner-slide"
-            style={{
-              backgroundImage: `url(${image6})`,
-            }}
-          >
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className="banner-slide"
-            style={{
-              backgroundImage: `url(${image7})`,
-            }}
-          >
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className="banner-slide"
-            style={{
-              backgroundImage: `url(${image8})`,
-            }}
-          >
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className="banner-slide"
-            style={{
-              backgroundImage: `url(${image9})`,
-            }}
-          >
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className="banner-slide"
-            style={{
-              backgroundImage: `url(${image10})`,
-            }}
-          >
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className="banner-slide"
-            style={{
-              backgroundImage: `url(${image11})`,
-            }}
-          >
-          </div>
-        </SwiperSlide>
+      
 
       </Swiper>
     </section>

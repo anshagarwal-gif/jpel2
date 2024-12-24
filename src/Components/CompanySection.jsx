@@ -19,7 +19,7 @@ const CompanySection = () => {
     country: "",
     message: "",
   });
-
+  
   const handleOpenModal = () => {
     setModalOpen(true);
   };
@@ -35,7 +35,11 @@ const CompanySection = () => {
       [name]: value,
     }));
   };
-
+const handleOverlayClick = (e) => {
+  if (e.target.className === "modal-overlay") {
+    handleCloseModal();
+  }
+};
   const handleSubmit = async (e) => {
     e.preventDefault();
   
@@ -132,18 +136,15 @@ const CompanySection = () => {
       <div className="center-section">
         <h3>ABOUT J P EXTRUSIONTECH</h3>
         <p>
-          Founded in 1987, J P Extrusiontech (Pvt) Ltd. manufactures Plastic
-          Processing Machinery & Equipment and is situated in one of the
-          largest industrial estates of Asia at Ankleshwar in Gujarat State,
-          India around 360 kilometers away from Mumbai having state-of-the-art
-          manufacturing facilities with a total covered area of 70,000 sq.
-          meters equipped with the most modern machine tools.
+        Established in 1987, J P Extrusiontech Pvt. Ltd. has been at the forefront of manufacturing and exporting world-class plastic processing machinery and equipment. Located in Ankleshwar, Gujarat—one of Asia’s largest and most prominent industrial hubs—the company benefits from its strategic proximity to Mumbai, just 360 kilometers away. With a sprawling manufacturing facility covering 70,000 square meters, equipped with cutting-edge machine tools and advanced technology, we deliver precision-engineered solutions to meet global industry standards.
         </p>
         <p>
-          The company is well-managed by a group of professionals and is
-          manufacturing extrusion machines and allied equipment for Plastic
-          Processing and packaging industry. We offer a wide range of machinery
-          in every segment depending upon the need of the end product.
+        For over three decades, J P Extrusiontech has built a reputation for excellence by delivering innovative and reliable machinery. Our state-of-the-art production processes, backed by a team of skilled professionals, ensure we stay ahead of the evolving demands in the plastic processing and packaging industries. Our commitment to quality and customer satisfaction drives us to continually improve and expand our product offerings.
+        </p>
+        <p>
+        We specialize in the design and manufacture of extrusion machines and auxiliary equipment, offering a comprehensive range of solutions tailored to the specific requirements of our clients. Whether you need machinery for film extrusion, pipe and profile production, or advanced packaging solutions, J P Extrusiontech provides end-to-end support to meet your operational goals.
+
+
         </p>
       </div>
 
@@ -177,7 +178,7 @@ const CompanySection = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="modal-overlay">
+        <div className="modal-overlay" onClick={(e) => handleOverlayClick(e)}>
           <div className="modal-content">
            <h2>Download Catalogue</h2>
        <form onSubmit={handleSubmit}>
@@ -257,6 +258,7 @@ const CompanySection = () => {
       />
       <span className="uiverse">Country</span>
     </div>
+    
 
     <div className="inputBox">
       <textarea
@@ -290,6 +292,7 @@ const StyledWrapper = styled.div`
   .left-section {
     flex: 1;
     padding: 20px;
+    margin-top:30px;
 
     h1 {
       font-size: 28px;
@@ -308,6 +311,7 @@ const StyledWrapper = styled.div`
   border: 4px solid;
   border-color: transparent;
   font-size: 16px;
+  top:10%;
   background-color: inherit;
   border-radius: 100px;
   font-weight: 600;
@@ -394,13 +398,14 @@ const StyledWrapper = styled.div`
     padding: 20px;
 
     h3 {
-      font-size: 20px;
+      font-size: 28px;
       font-weight: bold;
     }
 
     p {
       margin: 10px 0;
       line-height: 1.5;
+      font-size:18px;
     }
   }
 .right-section {
@@ -505,36 +510,39 @@ const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
   z-index: 1000;
+  overflow: hidden; /* Prevent extra scrolling */
 }
-
 .modal-content {
- display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 350px;
-  width: 900px;
   flex-direction: column;
   gap: 35px;
-
+  padding: 20px;
+  max-width: 90vw; /* Ensures it fits the viewport width */
+  max-height: 90vh; /* Ensures it fits the viewport height */
+  width: 900px;
+  min-height: 350px;
   border-radius: 8px;
+  background: #fff; /* Add a background color */
+  overflow: auto; /* Enable scrolling if content exceeds available space */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
 }
-
 @media (max-width: 768px) {
   .modal-content {
-    max-width: 90%; /* Use more width on smaller screens */
+    max-width: 95vw; /* Further limit width on smaller screens */
+    max-height: 90vh; /* Maintain responsiveness for height */
   }
 }
-
 @media (max-width: 480px) {
   .modal-content {
-    padding: 20px; /* Less padding on very small screens */
+    padding: 15px; /* Adjust padding for very small screens */
   }
 }
 /* Modal Header */
 .modal-content h2 {
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   text-align: center;
   font-size: 43px;
   font-weight: bold;
@@ -548,20 +556,19 @@ const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 100%;
+  width: 90%;
+  
   
 }
 
-/* Label and Input Styling */
 .inputBox {
   position: relative;
   width: 100%;
 }
-
 .inputBox input,
 .inputBox textarea {
-   width: 90%;
-  padding: 17px;
+  width: 90%;
+  padding: 7px;
   outline: none;
   border: none;
   color: #000;
@@ -572,29 +579,43 @@ const StyledWrapper = styled.div`
   transition: 0.1s;
   border-bottom-left-radius: 8px;
 }
-@media (max-width: 768px) {
-  .inputBox input,
-  .inputBox textarea {
-    padding: 8px; /* Adjust padding for smaller screens */
-  }
 
+.inputBox .uiverse {
+  position: absolute;
+  top: 5%; /* Position label vertically in the middle */
+  left: 17px; /* Adjust for consistent horizontal alignment */
+  transform: translateY(-50%); /* Center vertically */
+  pointer-events: none;
+  font-size: 8px;
+  color: #000;
+  text-transform: uppercase;
+  transition: 0.3s; /* Smooth transition for animation */
+  letter-spacing: 3px;
+  background: transparent;
+  padding: 0 5px; /* Optional: Add a small padding for aesthetics */
+}
+
+/* Ensure input and button elements also scale well */
+.inputBox input,
+.inputBox textarea {
+  width: calc(100% - 20px); /* Adjust width to account for padding */
+}
   .submit-btn,
   .close-btn {
   width: 50%;
     font-size: 14px; /* Reduce font size on smaller screens */
   }
 }
-.inputBox input:valid~span,
-.inputBox input:focus~span,
-.inputBox textarea:valid~span,
-.inputBox textarea:focus~span {
-  transform: translateX(113px) translateY(-15px);
+.inputBox input:focus ~ .uiverse,
+.inputBox textarea:focus ~ .uiverse,
+.inputBox input:valid ~ .uiverse,
+.inputBox textarea:valid ~ .uiverse {
+  bottom: -15px; /* Move the label above the field */
+  left: 10px; /* Optional: Adjust horizontal alignment */
   font-size: 0.8em;
-  padding: 7px 15px;
-  margin-left: 10px;
-  background: #000;
-  letter-spacing: 0.2em;
-  color: #fff;
+  background: #fff; /* Add background to prevent overlap */
+  padding: 0 5px; /* Match the padding */
+  color: #000; /* Change color for better contrast */
 }
   .inputBox input:valid,
 .inputBox input:focus {
@@ -603,7 +624,7 @@ const StyledWrapper = styled.div`
 }
 
 .uiverse {
- margin-top: 5px;
+
   position: absolute;
   left: 0;
   transform: translateY(-7px);
@@ -616,8 +637,10 @@ const StyledWrapper = styled.div`
   transition: 0.5s;
   letter-spacing: 3px;
   border-radius: 8px;
+  
 }
 
+/* Textarea-specific adjustments */
 textarea {
   resize: vertical;
   height: 120px;
@@ -661,11 +684,15 @@ textarea {
 .close-btn:focus {
   outline: none;
 }
-/* Container for buttons */
+  .submit-btn,
+.close-btn {
+  height: 45px;
+  width: 100%; /* Ensure buttons span full width in narrow spaces */
+  max-width: 48%; /* Keep them side-by-side when space allows */
+}
 .submitbtn-container {
-  display: flex;
-  gap: 20px; /* Optional: Adjust the gap between the buttons */
-  width: 100%; /* Ensure it takes up full width */
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  justify-content: space-between;
 }
 `;
 

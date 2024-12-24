@@ -47,7 +47,7 @@ const Home = () => {
           <p>INSTALLATIONS</p>
         </div>
       </div>
-      <Rotation data-aos="fade-left" />
+      {/* <Rotation data-aos="fade-left" /> */}
      
 </div>
   )

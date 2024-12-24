@@ -1,10 +1,11 @@
 import React from "react";
 import "./Footer.css"; // Import the CSS file
-import logo from '../assets/JPELlogo.jpg'; // Replace this with the actual path to your logo image
+import logo from '../assets/footer-logo.jpg'; // Replace this with the actual path to your logo image
 
 const Footer = () => {
   return (
     <footer>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"></link>
       <div className="container">
         {/* Left Section */}
         <div>
@@ -51,10 +52,10 @@ const Footer = () => {
       <div className="footer-bottom">
         <p>&copy; 2024 JP Extrusiontech (Pvt) Ltd. All Rights Reserved.</p>
         <div className="footer-social">
-          <a href="#">Facebook</a>
-          <a href="#">Instagram</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">YouTube</a>
+        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
+    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
     </footer>
