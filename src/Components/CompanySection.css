@@ -335,7 +335,7 @@
   .inputBox input:valid ~ .uiverse,
   .inputBox textarea:valid ~ .uiverse {
     top: -19px; /* Move the label above the field */
-  left: 40px; /* Optional: Adjust horizontal alignment */
+  left: 120px; /* Optional: Adjust horizontal alignment */
   font-size: 0.8em;
   background: #000; /* Add background to prevent overlap */
   padding: 0 5px; /* Match the padding */
