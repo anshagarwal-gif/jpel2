@@ -17,7 +17,7 @@ const Navbar = () => {
       <li><Link to="/news">NEWS & EVENTS</Link></li>
       <li><Link to="/Exhibition">EXHIBITIONS</Link></li>
       <li><Link to="/careers">CAREERS</Link></li>
-      <li><Link to="/contact">CONTACT US</Link></li>
+      <li><Link to="ContactUs">CONTACT US</Link></li>
         </ul>
       </div>
       <div className="navbar-social">

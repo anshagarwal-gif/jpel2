@@ -10,6 +10,8 @@ import CompanySection from '../Components/CompanySection';
 import Rotation from '../Components/SpinningCards';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+
+import Homepageanimation from '../Components/Homepageanimation';
 const Home = () => {
    // Initialize AOS
    useEffect(() => {
@@ -22,6 +24,7 @@ const Home = () => {
   return (
     <div>
       <Banner data-aos="fade-left" />
+      <Homepageanimation/>
       <CompanySection data-aos="fade-right" />
       <img className="ExportSection" alt='ExportSection' src={ require('../assets/ISO.png') } />
        {/* Statistics Section */}
@@ -48,6 +51,9 @@ const Home = () => {
         </div>
       </div>
       {/* <Rotation data-aos="fade-left" /> */}
+      
+
+
      
 </div>
   )

@@ -1,0 +1,170 @@
+/* Design.css */
+body {
+    
+  }
+  
+  .design-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    
+    background: #ffffff;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .design-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 40%;
+  }
+  
+  .company-logo {
+    position: absolute;
+    width: 1920px;
+    height: 1000px;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 1s ease;
+    top: -400px;
+    
+  }
+  
+
+  
+  .design-content {
+    width: 75%;
+    text-align: center;
+    font-size: 36.3px;
+    z-index: 2;
+    margin-right: 80px;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 1s ease;
+    
+  }
+  
+  .company-name {
+    font-weight: bold;
+    color: #333333;
+    font-size: 3rem;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  .design-content p {
+    font-size: 36.3px;
+    color: #555555;
+    line-height: 1.6;
+    font-family: Montserrat;
+  }
+  
+  .join-link {
+    color: #e63946;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .join-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Animation on scroll */
+  .fade-in .company-logo {
+    opacity: 1;
+    transform: translateX(0);
+  }
+    /* Animation on scroll */
+    .fade-in .design-content {
+      opacity: 1;
+      transform: translateX(0);
+    }
+/* Keyframes for Fade-in Animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+
+/* Medium Screens (Tablets) */
+@media (max-width: 1024px) {
+  .design-container {
+      flex-direction: column;
+      justify-content: center;
+  }
+
+  .design-header {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+  }
+
+  .design-content {
+      width: 90%;
+      margin-right: 0;
+      margin-top: 20px;
+      text-align: center;
+  }
+
+  .company-name {
+      font-size: 2.5rem;
+  }
+
+  .design-content p {
+      font-size: 1.2rem;
+  }
+}
+
+/* Small Screens (Mobile Phones) */
+@media (max-width: 768px) {
+  .design-container {
+      padding: 20px;
+  }
+
+  .design-header {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+
+  .design-content {
+      width: 100%;
+  }
+
+  .company-name {
+      font-size: 2rem;
+  }
+
+  .design-content p {
+      font-size: 1rem;
+  }
+
+  .join-link {
+      font-size: 1rem;
+  }
+}
+
+/* Extra Small Screens */
+@media (max-width: 480px) {
+  .company-name {
+      font-size: 1.5rem;
+  }
+
+  .design-content p {
+      font-size: 0.9rem;
+  }
+
+  .join-link {
+      font-size: 0.9rem;
+  }
+}
+
+  

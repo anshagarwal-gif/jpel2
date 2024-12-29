@@ -1,0 +1,150 @@
+/* Center the entire container */
+.imageContainer1 {
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+    width: 100%;  /* Ensure that container takes full width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Centers image and title box */
+    justify-content: center;  /* Vertically centers the content */
+  }
+  .contact-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 90px;
+    background-color: #fff;
+  }
+  
+  .contact-item {
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+  .contact-item .icon {
+    font-size: 32px;
+    color: #e53935;
+    margin-bottom: 10px;
+  }
+  
+  .contact-item h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .contact-item p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  .contact-item a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #e53935;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .contact-item a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .contact-section {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .contact-item {
+      margin-bottom: 20px;
+    }
+  }
+  .cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    height: 200px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    
+  }
+  
+  .card .icon-container {
+    font-size: 40px;
+    color: #e53935;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .card h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .card a {
+    color: #e53935;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+  
+  .card a:hover {
+    text-decoration: underline;
+  }
+  .card .phone-number {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+  }
+
+  .card:hover .phone-number {
+    opacity: 1;
+    transform: translateY(0);
+  }  
+  .card p {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .card:hover .icon-container {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  
+  .card:hover h3,
+  .card:hover a,
+  .card:hover p {
+    transform: translateY(-10px);
+  }
+  
+  
