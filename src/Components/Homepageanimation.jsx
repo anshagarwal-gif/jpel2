@@ -36,7 +36,7 @@ const Homepageanimation = () => {
       <div className="design-content">
         
         <p>
-        <span className="company-name">J P Extrusiontech Pvt. Ltd.</span>stands at the forefront of innovation, proudly leading the way in the
+        <span className="company-name">J P Extrusiontech Pvt. Ltd.</span>   stands at the forefront of innovation, proudly leading the way in the
           manufacturing and export of high-quality plastic processing machinery
           and equipment. Our commitment to excellence ensures that we deliver
           cutting-edge solutions that empower industries and enhance
