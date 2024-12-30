@@ -1,31 +1,67 @@
 .imageContainer2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: auto;
-    text-align: center;
-    margin-bottom: 20px;
-  
-  }
-  .service-content{
-    display: flex; /* Enable flexbox */
-    flex-direction: column; /* Stack the content vertically */
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
-    text-align: left; /* Align text to the center */
-    font-size: 26.7px; /* Keep the font size */
-    padding: 20px;
-    font-family: 'Roboto';
-    max-width: 1700px;
-    margin: 0 auto; /* Center within the page */
-    min-height: 50vh; /* Ensure enough height for vertical centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
 
+.service-content {
+  display: flex; /* Enable flexbox */
+  flex-direction: column; /* Stack the content vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  text-align: left; /* Align text to the left for readability */
+  font-size: 26.7px; /* Default font size */
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  max-width: 1700px;
+  margin: 0 auto; /* Center within the page */
+  min-height: 50vh; /* Ensure enough height for vertical centering */
+}
+
+.service-card {
+  display: flex; /* Enable flexbox */
+  flex-direction: column; /* Stack the content vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .service-content {
+    font-size: 22px; /* Adjust font size for smaller screens */
+    padding: 15px; /* Reduce padding */
   }
-  .service-card{
-    display: flex; /* Enable flexbox */
-    flex-direction: column; /* Stack the content vertically */
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
+}
+
+@media (max-width: 768px) {
+  .service-content {
+    font-size: 18px; /* Further reduce font size */
+    text-align: center; /* Align text to the center on smaller screens */
+    padding: 10px;
   }
+
+  .imageContainer2 img {
+    width: 90%; /* Scale the image to fit smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .service-content {
+    font-size: 16px; /* Adjust font size for mobile */
+    padding: 5px; /* Minimal padding for mobile screens */
+  }
+
+  .imageContainer2 img {
+    width: 100%; /* Full-width image for small devices */
+  }
+
+  .service-card {
+    flex-direction: column; /* Ensure stacked layout */
+    align-items: stretch; /* Use full width */
+  }
+}

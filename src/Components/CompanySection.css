@@ -152,10 +152,25 @@
   }
   
   .right-section .main-logo {
-    width: 390px;
+    width: 100%; /* Make the logo width responsive */
+    max-width: 300px; /* Limit the maximum width */
     margin-top: 30px;
     margin-bottom: 30px;
   }
+  /* Responsive Adjustments */
+@media (max-width: 768px) {
+  .right-section .main-logo {
+    max-width: 200px; /* Reduce the logo size for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .right-section .main-logo {
+    max-width: 150px; /* Further reduce logo size for mobile devices */
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+} 
   
   .download-btn-container {
     display: flex;

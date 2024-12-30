@@ -52,7 +52,7 @@ const Home = () => {
         </div>
       </div>
       {/* <Rotation data-aos="fade-left" /> */}
-      <SpinningCards/>
+      
 
 
      
