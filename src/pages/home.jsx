@@ -32,21 +32,21 @@ const Home = () => {
        <div className="export-stats" data-aos="fade-right"  >
         <div className="stat-item">
           <h1>
-            37<span className="plus-symbol">+</span>
+            44<span className="plus-symbol">+</span>
           </h1>
           <p>COUNTRIES EXPORTED</p>
         </div>
         <div className="divider"></div>
         <div className="stat-item">
           <h1>
-            35<span className="plus-symbol">+</span>
+            38<span className="plus-symbol">+</span>
           </h1>
           <p>YEARS OF EXPERIENCE</p>
         </div>
         <div className="divider"></div>
         <div className="stat-item">
           <h1>
-            6533<span className="plus-symbol">+</span>
+            7500<span className="plus-symbol">+</span>
           </h1>
           <p>INSTALLATIONS</p>
         </div>
