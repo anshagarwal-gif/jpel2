@@ -37,8 +37,7 @@ const ContactUs = () => {
       </div>
       <div className="contact-section">
       <div className="contact-item">
-      <div class="bg"></div>
-      <div class="blob"></div>
+
         <div className="icon">
           <i className="fas fa-map-marker-alt"></i>
         </div>
@@ -71,8 +70,8 @@ const ContactUs = () => {
           <i className="fas fa-headset"></i>
         </div>
         <h3>LET'S TALK</h3>
-        <p>+91 99090 47164</p>
-        <p>+91 99242 02307</p>
+        <a href="tel:+919909047164">+91 99090 47164</a>
+  <a href="tel:+919924202307">+91 99242 02307</a>
       </div>
 
       <div className="contact-item">
@@ -80,9 +79,9 @@ const ContactUs = () => {
           <i className="fas fa-envelope"></i>
         </div>
         <h3>E-MAIL US</h3>
-        <p>info@jpel.in</p>
-        <p>services@jpel.in</p>
-        <p>spares@jpel.in</p>
+        <a href="mailto:info@jpel.in">info@jpel.in</a>
+  <a href="mailto:services@jpel.in">services@jpel.in</a>
+  <a href="mailto:spares@jpel.in">spares@jpel.in</a>
       </div>
     </div>
     <div className="cards-container">

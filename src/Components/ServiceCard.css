@@ -1,205 +1,241 @@
 .card {
-    width: 300px;
-    height: 200px;
-    background: #ffffff;
-    position: relative;
-    display: grid;
-    place-content: center;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: all 0.5s ease-in-out;
-  }
-  
-  #logo-main,
-  #logo-second {
-    height: 100%;
-  }
-  
- 
+  width: 300px;
+  height: 200px;
+  background: #ffffff;
+  position: relative;
+  display: grid;
+  place-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+#logo-main,
+#logo-second {
+  height: 100%;
+}
+
 #fab-icon {
   font-size: 2rem; /* Adjust the icon size */
   color: #ff0000; /* Set the icon color */
   margin-bottom: 30px; /* Add space below the icon */
 }
-  
-  #logo-second {
-    padding-bottom: 10px;
-    fill: none;
-    stroke: #ff0000;
-    stroke-width: 1px;
+
+#logo-second {
+  padding-bottom: 10px;
+  fill: none;
+  stroke: #ff0000;
+  stroke-width: 1px;
+}
+
+.border {
+  position: absolute;
+  inset: 0px;
+  border: 2px solid #ff0000;
+  opacity: 0;
+  transform: rotate(10deg);
+  transition: all 0.5s ease-in-out;
+}
+
+.bottom-text {
+  position: absolute;
+  left: 50%;
+  bottom: 13px;
+  transform: translateX(-50%);
+  font-size: 8px;
+  text-transform: uppercase;
+  padding: 0px 5px 0px 8px;
+  color: #ff0000;
+  background: #ffffff;
+  opacity: 0;
+  letter-spacing: 7px;
+  transition: all 0.5s ease-in-out;
+}
+
+.content {
+  transition: all 0.5s ease-in-out;
+}
+
+.content .logo {
+  height: 35px;
+  position: relative;
+  width: 33px;
+  overflow: hidden;
+  transition: all 1s ease-in-out;
+}
+
+.content .logo .logo1 {
+  height: 33px;
+  position: absolute;
+  left: 0;
+}
+
+.content .logo .logo2 {
+  height: 33px;
+  position: absolute;
+  left: 33px;
+}
+
+.content .logo .trail {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+}
+
+.contact-info {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  margin-top: 58px;
+  opacity: 0;
+  transition: all 0.5s ease-in-out 0.5s;
+}
+
+.contact-info .email {
+  font-size: 17px;
+}
+
+.contact-info a {
+  display: block;
+  font-size: 15px;
+  color: #ff0000;
+  text-decoration: none;
+  margin: 8px 0;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.card:hover .contact-info {
+  opacity: 1;
+}
+
+.card:hover {
+  border-radius: 0;
+  transform: scale(1.1);
+}
+
+.card:hover .logo {
+  width: 134px;
+  animation: opacity 1s ease-in-out;
+}
+
+.card:hover .border {
+  inset: 15px;
+  opacity: 1;
+  transform: rotate(0);
+}
+
+.card:hover .bottom-text {
+  letter-spacing: 3px;
+  opacity: 1;
+  transform: translateX(-50%);
+}
+
+.card:hover .content .content-info {
+  opacity: 1;
+  letter-spacing: 9.5px;
+  margin-top: 30px;
+}
+
+.card:hover .trail {
+  animation: trail 1s ease-in-out;
+}
+
+/* Keyframes remain unchanged */
+@keyframes opacity {
+  0% {
+      border-right: 1px solid transparent;
   }
-  
-  .border {
-    position: absolute;
-    inset: 0px;
-    border: 2px solid #ff0000;
-    opacity: 0;
-    transform: rotate(10deg);
-    transition: all 0.5s ease-in-out;
+
+  10% {
+      border-right: 1px solid #ff0000;
   }
-  
-  .bottom-text {
-    position: absolute;
-    left: 50%;
-    bottom: 13px;
-    transform: translateX(-50%);
-    font-size: 8px;
-    text-transform: uppercase;
-    padding: 0px 5px 0px 8px;
-    color: #ff0000;
-    background: #ffffff;
-    opacity: 0;
-    letter-spacing: 7px;
-    transition: all 0.5s ease-in-out;
+
+  80% {
+      border-right: 1px solid #ff0000;
   }
-  
-  .content {
-    transition: all 0.5s ease-in-out;
+
+  100% {
+      border-right: 1px solid transparent;
   }
-  
-  .content .logo {
-    height: 35px;
-    position: relative;
-    width: 33px;
-    overflow: hidden;
-    transition: all 1s ease-in-out;
+}
+
+@keyframes trail {
+  0% {
+      background: linear-gradient(
+          90deg,
+          rgba(189, 159, 103, 0) 90%,
+          rgb(189, 159, 103) 100%
+      );
+      opacity: 0;
   }
-  
-  .content .logo .logo1 {
-    height: 33px;
-    position: absolute;
-    left: 0;
+
+  30% {
+      background: linear-gradient(
+          90deg,
+          rgba(189, 159, 103, 0) 70%,
+          rgb(189, 159, 103) 100%
+      );
+      opacity: 1;
   }
-  
-  .content .logo .logo2 {
-    height: 33px;
-    position: absolute;
-    left: 33px;
+
+  70% {
+      background: linear-gradient(
+          90deg,
+          rgba(189, 159, 103, 0) 70%,
+          rgb(189, 159, 103) 100%
+      );
+      opacity: 1;
   }
-  
-  .content .logo .trail {
-    position: absolute;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
+
+  95% {
+      background: linear-gradient(
+          90deg,
+          rgba(189, 159, 103, 0) 90%,
+          rgb(189, 159, 103) 100%
+      );
+      opacity: 0;
   }
-  
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .card {
+      width: 90%; /* Use full width with padding */
+      height: auto;
+  }
+
   .contact-info {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    margin-top: 58px;
-    opacity: 0;
-    transition: all 0.5s ease-in-out 0.5s;
+      font-size: 14px;
+      margin-top: 40px;
   }
-  .contact-info .email{
-    font-size: 17px;
+
+  #fab-icon {
+      font-size: 1.5rem; /* Reduce icon size */
   }
-  
-  .contact-info a {
-    display: block;
-    font-size: 15px;
-    color: #ff0000;
-    text-decoration: none;
-    margin: 8px 0;
+
+  .bottom-text {
+      font-size: 6px; /* Adjust text size for smaller screens */
   }
-  
-  .contact-info a:hover {
-    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .card {
+      transform: none; /* Disable hover effects on very small devices */
+      width: 100%;
   }
-  
-  .card:hover .contact-info {
-    opacity: 1;
-  }
-  
+
   .card:hover {
-    border-radius: 0;
-    transform: scale(1.1);
+      transform: none;
   }
-  
-  .card:hover .logo {
-    width: 134px;
-    animation: opacity 1s ease-in-out;
+
+  .bottom-text {
+      font-size: 5px; /* Further reduce text size */
   }
-  
-  .card:hover .border {
-    inset: 15px;
-    opacity: 1;
-    transform: rotate(0);
-  }
-  
-  .card:hover .bottom-text {
-    letter-spacing: 3px;
-    opacity: 1;
-    transform: translateX(-50%);
-  }
-  
-  .card:hover .content .content-info {
-    opacity: 1;
-    letter-spacing: 9.5px;
-    margin-top: 30px;
-  }
-  
-  .card:hover .trail {
-    animation: trail 1s ease-in-out;
-  }
-  
-  @keyframes opacity {
-    0% {
-      border-right: 1px solid transparent;
-    }
-  
-    10% {
-      border-right: 1px solid #ff0000;
-    }
-  
-    80% {
-      border-right: 1px solid #ff0000;
-    }
-  
-    100% {
-      border-right: 1px solid transparent;
-    }
-  }
-  
-  @keyframes trail {
-    0% {
-      background: linear-gradient(
-        90deg,
-        rgba(189, 159, 103, 0) 90%,
-        rgb(189, 159, 103) 100%
-      );
-      opacity: 0;
-    }
-  
-    30% {
-      background: linear-gradient(
-        90deg,
-        rgba(189, 159, 103, 0) 70%,
-        rgb(189, 159, 103) 100%
-      );
-      opacity: 1;
-    }
-  
-    70% {
-      background: linear-gradient(
-        90deg,
-        rgba(189, 159, 103, 0) 70%,
-        rgb(189, 159, 103) 100%
-      );
-      opacity: 1;
-    }
-  
-    95% {
-      background: linear-gradient(
-        90deg,
-        rgba(189, 159, 103, 0) 90%,
-        rgb(189, 159, 103) 100%
-      );
-      opacity: 0;
-    }
-  }
-  
+}
