@@ -1,7 +1,8 @@
 import React  from "react";  
 
 import "../ContactUs/ContactUs.css"
-
+import Card from '../../Components/ServiceCard';
+import HoverCard from "../../Components/HoverCard";
 
 const ContactUs = () => {
 
@@ -36,6 +37,8 @@ const ContactUs = () => {
       </div>
       <div className="contact-section">
       <div className="contact-item">
+      <div class="bg"></div>
+      <div class="blob"></div>
         <div className="icon">
           <i className="fas fa-map-marker-alt"></i>
         </div>
@@ -83,23 +86,85 @@ const ContactUs = () => {
       </div>
     </div>
     <div className="cards-container">
-      {cards.map((card, index) => (
-        <div className="card" key={index}>
-          <div className="icon-container">
-            <i className="fas fa-info-circle"></i>
-          </div>
-          <h3>{card.title}:</h3>
-          <a href={`mailto:${card.email.replace(/\s+/g, "").toLowerCase()}@example.com`}>
-            {card.email}
-          </a>
-          <p className="phone-number">{card.phone}</p>
-        </div>
-      ))}
+      
+   
+
+    <Card email="info@jpel.in" phone="+91 9426813311" theme="Sales & Marketing"/>
+    <Card email="services@jpel.in" phone="+91 9924131008" theme="Customer Services" />
+    <Card email="spares@jpel.in" phone="+91 9909047116" theme="Spare Parts" />
     </div>
-
-
-
-
+<h4 className="network">OUR NETWORK</h4>
+    <div className="hover-card-container">
+      <HoverCard 
+        title="Ankleshwar"
+        subtitle="Corporate Office, C1B - 1034 to 1037 GIDC Industrial Estate, Ankleshwar, Gujarat - 393002. " 
+        phone1= "+91 9909047164"
+        phone2="+91 9924202307"
+        emails={["info@jpel.in,", "export@jpel.in,", "sales@jpel.in"]} 
+        
+      />
+      <HoverCard 
+        title="Ahmedabad" 
+        subtitle="606/607, Aaron Spectra, Rajpath Rangoli Rd, behind Rajpath club, Bodakdev, Ahmedabad, Gujarat 380054."
+        linkText="Learn More" 
+        phone1="+91 9924823700"
+        emails={["marketing@jpel.in"]  }
+        linkUrl="https://anotherexample.com" 
+      />
+      <HoverCard 
+        title="MUMBAI" 
+        subtitle="A-34, Virwani Industrial Estate, Western Express Highway, Goregaon (E) Mumbai – 400 063"
+        linkText="Learn More" 
+        phone1="+91 2261363900"
+        emails={["mumbai@jpel.in"]  }
+        linkUrl="https://anotherexample.com" 
+      />
+      <HoverCard 
+        title="KOLKATA" 
+        subtitle="23 Gangadhar Babu Lane, 1B Imex Lohia, Kolkata - 700 012."
+        linkText="Learn More" 
+        phone1="+91 3322706740"
+        phone2="+91 9830170833"
+        phone3="+91 3325799434"
+        emails={["kolkata@jpel.in"]  }
+        linkUrl="https://anotherexample.com" 
+      />
+      <HoverCard 
+        title="DELHI" 
+        subtitle=""
+        linkText="" 
+        phone1="+91 9426813311"
+        phone2="+91 7203034171"
+        emails={["delhi@jpel.in"]  }
+        linkUrl="https://anotherexample.com" 
+      />
+       <HoverCard 
+        title="SOUTH INDIA" 
+        subtitle=""
+        linkText="" 
+        phone1="+91 9620678479"
+        emails={["south@jpel.in"]  }
+        linkUrl="https://anotherexample.com" 
+      />
+      <HoverCard 
+        title="INDORE" 
+        subtitle=""
+        linkText="" 
+        phone1="+91 9826915344"
+        emails={["indore@jpel.in"]  }
+        linkUrl="https://anotherexample.com" 
+      />
+       <HoverCard 
+        title="OVERSEAS-RUSSIA" 
+        subtitle="AVK-Polymer Group
+Moscow region 141402, Khimki, Spartakovskaya Street House 5/7, Entrance 4, Office 8 Russia."
+        linkText="" 
+        phone1="+7 9267178402"
+        phone2="+7 4959337907"
+        emails={["vit@avk-polymer.ru"]  }
+        linkUrl="https://anotherexample.com" 
+      />
+    </div>
 
         </div>
 

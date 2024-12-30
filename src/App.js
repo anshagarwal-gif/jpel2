@@ -7,6 +7,7 @@ import Footer from './Components/Footer';
 import EXHIBITION from './pages/Exhibition';
 import News from './pages/News';
 import ContactUs from './pages/ContactUs/ContactUs';
+import Service from './Components/ServiceCard'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path='/Exhibition' element={<EXHIBITION/>}/>
             <Route path='/News' element={<News/>}/>
             <Route path='/ContactUs' element={<ContactUs/>}/>
+            <Route path='/Service' element={<Service/>}/>
           </Routes>
           
           <Footer/>
