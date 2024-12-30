@@ -12,6 +12,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import Homepageanimation from '../Components/Homepageanimation';
+import SpinningCards from '../Components/SpinningCards';
 const Home = () => {
    // Initialize AOS
    useEffect(() => {
@@ -51,7 +52,7 @@ const Home = () => {
         </div>
       </div>
       {/* <Rotation data-aos="fade-left" /> */}
-      
+      <SpinningCards/>
 
 
      

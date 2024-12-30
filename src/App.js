@@ -7,7 +7,7 @@ import Footer from './Components/Footer';
 import EXHIBITION from './pages/Exhibition';
 import News from './pages/News';
 import ContactUs from './pages/ContactUs/ContactUs';
-import Service from './Components/ServiceCard'
+import Service from "./pages/Services/Service"
 
 function App() {
   return (

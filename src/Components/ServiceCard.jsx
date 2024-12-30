@@ -1,7 +1,7 @@
 import React from 'react';
 import './ServiceCard.css';
 import { FaInfoCircle } from 'react-icons/fa';
-
+import logoImage from "../assets/2.jpg"
 const ServiceCard = ({ email, phone,theme }) => {
   return (
     <div className="card">
@@ -12,6 +12,7 @@ const ServiceCard = ({ email, phone,theme }) => {
             <FaInfoCircle id="fab-icon" />
           </div>
           <div className="logo2">
+          <img src={logoImage} alt="Connect with us" id="custom-logo" />
             <svg
               viewBox="0 0 101.014 23.535"
               xmlns="http://www.w3.org/2000/svg"
