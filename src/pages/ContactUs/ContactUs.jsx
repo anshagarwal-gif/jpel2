@@ -95,7 +95,7 @@ const ContactUs = () => {
 <h4 className="network">OUR NETWORK</h4>
     <div className="hover-card-container">
       <HoverCard 
-        title="Ankleshwar"
+        title="ANKLESHWAR"
         subtitle="Corporate Office, C1B - 1034 to 1037 GIDC Industrial Estate, Ankleshwar, Gujarat - 393002. " 
         phone1= "+91 9909047164"
         phone2="+91 9924202307"
@@ -103,12 +103,12 @@ const ContactUs = () => {
         
       />
       <HoverCard 
-        title="Ahmedabad" 
+        title="AHMEDABAD" 
         subtitle="606/607, Aaron Spectra, Rajpath Rangoli Rd, behind Rajpath club, Bodakdev, Ahmedabad, Gujarat 380054."
         linkText="Learn More" 
         phone1="+91 9924823700"
         emails={["marketing@jpel.in"]  }
-        linkUrl="https://anotherexample.com" 
+        linkUrl="" 
       />
       <HoverCard 
         title="MUMBAI" 
@@ -116,7 +116,7 @@ const ContactUs = () => {
         linkText="Learn More" 
         phone1="+91 2261363900"
         emails={["mumbai@jpel.in"]  }
-        linkUrl="https://anotherexample.com" 
+        linkUrl="" 
       />
       <HoverCard 
         title="KOLKATA" 
@@ -126,7 +126,7 @@ const ContactUs = () => {
         phone2="+91 9830170833"
         phone3="+91 3325799434"
         emails={["kolkata@jpel.in"]  }
-        linkUrl="https://anotherexample.com" 
+        linkUrl="" 
       />
       <HoverCard 
         title="DELHI" 
@@ -135,7 +135,7 @@ const ContactUs = () => {
         phone1="+91 9426813311"
         phone2="+91 7203034171"
         emails={["delhi@jpel.in"]  }
-        linkUrl="https://anotherexample.com" 
+        linkUrl="" 
       />
        <HoverCard 
         title="SOUTH INDIA" 
@@ -143,7 +143,7 @@ const ContactUs = () => {
         linkText="" 
         phone1="+91 9620678479"
         emails={["south@jpel.in"]  }
-        linkUrl="https://anotherexample.com" 
+        linkUrl="" 
       />
       <HoverCard 
         title="INDORE" 
@@ -151,7 +151,7 @@ const ContactUs = () => {
         linkText="" 
         phone1="+91 9826915344"
         emails={["indore@jpel.in"]  }
-        linkUrl="https://anotherexample.com" 
+        linkUrl="" 
       />
        <HoverCard 
         title="OVERSEAS-RUSSIA" 
@@ -161,7 +161,7 @@ Moscow region 141402, Khimki, Spartakovskaya Street House 5/7, Entrance 4, Offic
         phone1="+7 9267178402"
         phone2="+7 4959337907"
         emails={["vit@avk-polymer.ru"]  }
-        linkUrl="https://anotherexample.com" 
+        linkUrl="" 
       />
     </div>
     

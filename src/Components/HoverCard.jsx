@@ -8,7 +8,7 @@ const HoverCard = ({
     phone3,
     emails = [],
     linkText = 'Learn More',
-    linkUrl = '#',
+    linkUrl = '#contact',
   }) =>  {
   return (
     <div className="hover-card">
