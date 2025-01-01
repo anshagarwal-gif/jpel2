@@ -1,42 +1,37 @@
-/* General styling for the navbar */
+/* Navbar container */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 19px 30px;
+  padding: 10px 20px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
 }
 
 /* Logo styling */
-.navbar-logo {
-  flex: 1; /* Ensure the logo stays on the left */
-}
-
 .navbar-logo img {
-  width: 340px;
   height: 70px;
 }
 
-/* Styling for the menu links and social icons container */
-.navbar-right {
+/* Links container */
+.navbar-links {
   display: flex;
-  align-items: center;
-  justify-content: flex-end; /* Align links and icons to the right */
-  gap: 20px; /* Add spacing between links and social icons */
-  flex: 1; /* Push this container to the right */
+  flex: 1;
+  justify-content: flex-end;
 }
 
-/* Styling for the menu links */
 .navbar-links ul {
   display: flex;
-  list-style-type: none;
-  padding-right: 50px;
+  list-style: none;
   margin: 0;
+  padding: 0;
+  gap: 20px; /* Space between links */
 }
 
 .navbar-links li {
-  margin-left: 25px;
+  margin: 0;
 }
 
 .navbar-links a {
@@ -51,75 +46,50 @@
 }
 
 .navbar-links a:hover {
-  color: #e74c3c; /* Hover color */
+  color: #e74c3c;
 }
 
-/* Styling for the social media icons */
+/* Social icons container */
 .navbar-social {
   display: flex;
+  gap: 15px; /* Space between icons */
 }
 
 .navbar-social .social-icon {
-  margin-left: 17px;
-  font-size: 16px; /* Adjust icon size */
+  font-size: 18px;
   color: #333;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .navbar-social .social-icon:hover {
-  color: #e74c3c; /* Hover color for social icons */
+  color: #e74c3c;
 }
 
-/* Responsive Styling */
-@media (max-width: 1180px) {
+/* Responsive Design */
+@media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px 20px;
   }
 
-  .navbar-logo img {
-    height: 50px; /* Adjust logo size for smaller screens */
+  .navbar-logo {
+    margin-bottom: 10px;
   }
 
-  .navbar-right {
+  .navbar-links {
+    order: 2;
     width: 100%;
-    justify-content: flex-end; /* Keep links and icons aligned to the right */
-    margin-top: 10px;
+    justify-content: flex-start;
   }
 
   .navbar-links ul {
     flex-direction: column;
-    width: auto; /* Stack links vertically */
-    margin-top: 10px;
-  }
-
-  .navbar-links li {
-    margin-left: 0; /* Remove margin between links */
-    margin-bottom: 10px; /* Add spacing between vertical links */
-  }
-
-  .navbar-links a {
-    font-size: 16px; /* Increase link font size for better readability */
+    gap: 10px;
   }
 
   .navbar-social {
+    order: 3;
     margin-top: 10px;
-  }
-
-  .navbar-social .social-icon {
-    margin-left: 12px; /* Reduce spacing between icons */
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar-links a {
-    font-size: 14px; /* Further adjust link size for small screens */
-    text-align: left; /* Align links for better usability */
-  }
-
-  .navbar-social .social-icon {
-    font-size: 20px; /* Adjust icon size for small screens */
   }
 }
