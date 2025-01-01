@@ -17,33 +17,6 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-}
-
-.navbar .logo img {
-  height: 50px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-}
-
-.nav-links li {
-  display: inline;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-}
 
 .banner {
   position: relative;
@@ -88,16 +61,16 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  padding: 20px 0;
+  padding: 0px 0;
 }
 
 .stat-item {
   text-align: center;
-  margin: 0 20px;
+  margin: 0 50px;
 }
 
 .stat-item h1 {
-  font-size: 48px;
+  font-size: 78px;
   font-weight: bold;
   color: #000;
   margin: 0;
