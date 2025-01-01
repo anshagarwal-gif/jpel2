@@ -1,0 +1,87 @@
+/* Machinery Range Container */
+.machinery-range {
+    text-align: left; /* Align text to the left */
+    padding: 50px; /* Add padding for content */
+    color: #fff;
+    position: relative;
+    background-image: url("../assets/machinerange.jpg"); /* Full image as background */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 3600px; /* Increase height to fit content */
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content at the top */
+  }
+  
+  /* Title Styling */
+  .machinery-title {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #fff;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); /* Add shadow for better contrast */
+  }
+  
+  /* Sections Container */
+  .machinery-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 350px;
+  }
+  
+  /* Individual Section Styling */
+  .machinery-section {
+  /* Semi-transparent background for contrast */
+    margin-top: 37%;
+    padding: 15px;
+    border-radius: 8px;
+  
+    max-width: 400px; /* Limit width of content */
+  }
+  
+  /* Section Content Styling */
+  .machinery-content h2 {
+    font-size: 54.1px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  /* Button Styling */
+  .explore-button {
+    text-decoration: none;
+    color: #fff;
+    background-color: #e74c3c;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .explore-button:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .machinery-range {
+      height: 700px; /* Increase height for smaller screens */
+      padding: 20px;
+    }
+  
+    .machinery-title {
+      font-size: 2rem;
+    }
+  
+    .machinery-content h2 {
+      font-size: 1.5rem;
+    }
+  
+    .explore-button {
+      font-size: 0.9rem;
+      padding: 8px 16px;
+    }
+  }
+  

@@ -6,6 +6,8 @@
   padding: 19px 30px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative; /* Ensure the navbar is positioned correctly */
+  z-index: 1;
 }
 
 /* Logo styling */
@@ -102,4 +104,55 @@
   .navbar-social .social-icon {
     font-size: 20px; /* Adjust icon size for small screens */
   }
+}
+/* Dropdown container */
+.dropdown {
+  position: relative; /* Important for positioning the dropdown menu */
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  width: 500px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.dropdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dropdown-content th,
+.dropdown-content td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  color: #000;
+}
+
+.dropdown-content th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* Ensure dropdown doesn't get clipped */
+body {
+  overflow: visible; /* Ensure dropdown isn't clipped by body or parent elements */
+}
+.dropdown-content table a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.dropdown-content table a:hover {
+  color: #e74c3c; /* Change color on hover */
 }

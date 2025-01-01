@@ -13,6 +13,7 @@ import 'aos/dist/aos.css';
 
 import Homepageanimation from '../Components/Homepageanimation';
 import SpinningCards from '../Components/SpinningCards';
+import MachineRange from '../Components/MachineRange';
 const Home = () => {
    // Initialize AOS
    useEffect(() => {
@@ -53,7 +54,7 @@ const Home = () => {
       </div>
       {/* <Rotation data-aos="fade-left" /> */}
       
-
+    <MachineRange/>
 
      
 </div>
