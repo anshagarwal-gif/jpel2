@@ -9,20 +9,33 @@
 }
 
 /* Logo styling */
+.navbar-logo {
+  flex: 1; /* Ensure the logo stays on the left */
+}
+
 .navbar-logo img {
   height: 70px;
+}
+
+/* Styling for the menu links and social icons container */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align links and icons to the right */
+  gap: 20px; /* Add spacing between links and social icons */
+  flex: 1; /* Push this container to the right */
 }
 
 /* Styling for the menu links */
 .navbar-links ul {
   display: flex;
   list-style-type: none;
-  padding: 0;
+  padding-right: 50px;
   margin: 0;
 }
 
 .navbar-links li {
-  margin-left: 15px;
+  margin-left: 25px;
 }
 
 .navbar-links a {
@@ -30,7 +43,7 @@
   color: #333;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 16px;
   letter-spacing: 1px;
   padding: 10px;
   transition: color 0.3s ease;
@@ -46,8 +59,8 @@
 }
 
 .navbar-social .social-icon {
-  margin-left: 15px;
-  font-size: 14px; /* Adjust icon size */
+  margin-left: 17px;
+  font-size: 16px; /* Adjust icon size */
   color: #333;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -69,9 +82,15 @@
     height: 50px; /* Adjust logo size for smaller screens */
   }
 
+  .navbar-right {
+    width: 100%;
+    justify-content: flex-end; /* Keep links and icons aligned to the right */
+    margin-top: 10px;
+  }
+
   .navbar-links ul {
     flex-direction: column;
-    width: 100%; /* Ensure full width for links */
+    width: auto; /* Stack links vertically */
     margin-top: 10px;
   }
 
