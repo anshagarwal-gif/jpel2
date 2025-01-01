@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa'; // Import icons
-import './Navbar.css';
+import './NavbarXYZ.css';
+
 import { Link } from "react-router-dom";
 import navlogo from '../assets/JPELlogo.jpg';
 const Navbar = () => {
