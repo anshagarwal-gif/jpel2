@@ -1,40 +1,81 @@
 /* Machinery Range Container */
 .machinery-range {
     text-align: left; /* Align text to the left */
-    padding: 50px; /* Add padding for content */
+     /* Add padding for content */
     color: #fff;
     position: relative;
     background-image: url("../assets/machinerange.jpg"); /* Full image as background */
-    background-size: cover;
+    background-size: contain; /* Ensure the entire image is visible */
     background-position: center;
     background-repeat: no-repeat;
-    height: 3600px; /* Increase height to fit content */
-   
+    height: 3600px; /* Adjust height to fit content */
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* Align content at the top */
   }
   
+  
   /* Title Styling */
   .machinery-title {
-    font-size: 50px;
+    font-size: 70px;
     font-weight: bold;
     margin-bottom: 30px;
     color: #fff;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); /* Add shadow for better contrast */
+   
+    margin-top: 7%;
+    margin-left: 45px;
   }
   
   /* Sections Container */
   .machinery-sections {
     display: flex;
     flex-direction: column;
-    gap: 350px;
+    
   }
   
+/* First Title and Button */
+.machinery-section:nth-child(1) h2 {
+    margin-left: 30px;
+    margin-top: 180%;
+  }
+  
+  .machinery-section:nth-child(1) .button {
+    margin-left: 30px;
+  }
+  
+  /* Second Title and Button */
+  .machinery-section:nth-child(2) h2 {
+    margin-left: 30px;
+    margin-top: 120%;
+  }
+  
+  .machinery-section:nth-child(2) .button {
+    margin-left: 30px;
+  }
+  
+  /* Third Title and Button */
+  .machinery-section:nth-child(3) h2 {
+    margin-left: 30px;
+    margin-top: 110%;
+  }
+  
+  .machinery-section:nth-child(3) .button {
+    margin-left: 30px;
+  }
+  
+  /* Fourth Title and Button */
+  .machinery-section:nth-child(4) h2 {
+    margin-left: 30px;
+    margin-top: 105%;
+  }
+  
+  .machinery-section:nth-child(4) .button {
+    margin-left: 30px;
+  }
   /* Individual Section Styling */
   .machinery-section {
   /* Semi-transparent background for contrast */
-    margin-top: 37%;
+    
     padding: 15px;
     border-radius: 8px;
   
@@ -54,9 +95,9 @@
     color: #fff;
     background-color: #e74c3c;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 30px;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 2rem;
     transition: background-color 0.3s ease;
   }
   
@@ -84,4 +125,48 @@
       padding: 8px 16px;
     }
   }
-  
+
+  .button {
+    width: 170px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    background-color: rgb(255, 36, 36);
+    border-radius: 30px;
+    color: rgb(255, 255, 255);
+    font-weight: 800;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.116);
+    padding-left: 20px;
+    transition-duration: 0.5s;
+    font-size: 20px;
+  }
+
+  .svgIcon {
+    height: 30px;
+    transition-duration: 1.5s;
+  }
+
+  .bell path {
+    fill: rgb(255, 255, 255);
+  }
+
+  .button:hover {
+    background-color: rgb(255, 0, 0);
+    transition-duration: 0.5s;
+  }
+
+  .button:active {
+    transform: scale(0.97);
+    transition-duration: 0.2s;
+  }
+
+  .button:hover .svgIcon {
+    transform: rotate(250deg);
+    transition-duration: 1.5s;
+  };
