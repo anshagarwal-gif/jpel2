@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import navlogo from '../assets/JPELlogo.jpg';
 const Navbar = () => {
   return (
-    <nav className="navbar">
+    <nav className="navbar" id='navbar'>
       <div className="navbar-logo">
         <img src={navlogo} alt="J P ExtrusionTech Pvt Ltd" /> 
       </div>
