@@ -3,12 +3,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+ 
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 10;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 
 /* Logo styling */
 .navbar-logo img {
@@ -51,9 +57,11 @@
 
 /* Social icons container */
 .navbar-social {
+  margin-left: auto; /* Push social icons to the right */
   display: flex;
   gap: 15px; /* Space between icons */
 }
+
 
 .navbar-social .social-icon {
   font-size: 18px;

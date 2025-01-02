@@ -7,12 +7,12 @@ import "swiper/css/autoplay";
 import Banner from '../Components/Banner';
 import ProductSection from '../Components/PrroductLine';
 import CompanySection from '../Components/CompanySection';
-import Rotation from '../Components/SpinningCards';
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import Homepageanimation from '../Components/Homepageanimation';
-import SpinningCards from '../Components/SpinningCards';
+
 import MachineRange from '../Components/MachineRange';
 const Home = () => {
    // Initialize AOS
