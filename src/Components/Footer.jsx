@@ -5,6 +5,7 @@ import logo from '../assets/footer-logo.jpg'; // Replace this with the actual pa
 const Footer = () => {
   return (
     <footer>
+      <link href="C:\Users\HP\Desktop\JPEL-2\my-app\src\Components\Footer.css" rel="stylesheet"></link>
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"></link>
       <div className="container">
         {/* Left Section */}

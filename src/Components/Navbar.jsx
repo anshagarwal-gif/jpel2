@@ -42,7 +42,7 @@ const Navbar = () => {
       color: isHovered ? '#e74c3c' : '#333', // Change color on hover
       fontWeight: 'bold',
       textTransform: 'uppercase',
-      fontSize: '14px',
+      fontSize: '12px',
       letterSpacing: '1px',
       padding: '10px',
       
