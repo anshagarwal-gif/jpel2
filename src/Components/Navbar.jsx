@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa'; // Import icons
 import { Link } from "react-router-dom";
 import navlogo from '../assets/JPELlogo.jpg';
 
 const Navbar = () => {
+  const [hoveredIcon, setHoveredIcon] = useState(null);
+  const [hoveredLink, setHoveredLink] = useState(null);
+
   const styles = {
     navbar: {
       display: 'flex',
@@ -26,40 +29,36 @@ const Navbar = () => {
     linksList: {
       display: 'flex',
       listStyle: 'none',
-      margin: 0,
+      
       padding: 0,
-      gap: '20px',
+      gap: '30px',
+      marginRight:'20%',
     },
     linkItem: {
       margin: 0,
     },
-    link: {
+    link: (isHovered) => ({
       textDecoration: 'none',
-      color: '#333',
+      color: isHovered ? '#e74c3c' : '#333', // Change color on hover
       fontWeight: 'bold',
       textTransform: 'uppercase',
       fontSize: '14px',
       letterSpacing: '1px',
       padding: '10px',
+      
       transition: 'color 0.3s ease',
-    },
-    linkHover: {
-      color: '#e74c3c',
-    },
+    }),
     socialContainer: {
       marginLeft: 'auto',
       display: 'flex',
-      gap: '15px',
+      gap: '25px', // Space between social icons
     },
-    socialIcon: {
-      fontSize: '18px',
-      color: '#333',
+    socialIcon: (isHovered) => ({
+      fontSize: '24px', // Adjusted size for visibility
+      color: isHovered ? '#e74c3c' : '#333', // Change color on hover
       textDecoration: 'none',
       transition: 'color 0.3s ease',
-    },
-    socialIconHover: {
-      color: '#e74c3c',
-    },
+    }),
   };
 
   return (
@@ -69,56 +68,45 @@ const Navbar = () => {
       </div>
       <div style={styles.linksContainer}>
         <ul style={styles.linksList}>
-          <li style={styles.linkItem}>
-            <Link to="/about" style={styles.link}>
-              ABOUT US
-            </Link>
-          </li>
-          <li style={styles.linkItem}>
-            <Link to="/product" style={styles.link}>
-              PRODUCT LINE
-            </Link>
-          </li>
-          <li style={styles.linkItem}>
-            <Link to="/Service" style={styles.link}>
-              SERVICES
-            </Link>
-          </li>
-          <li style={styles.linkItem}>
-            <Link to="/news" style={styles.link}>
-              NEWS & EVENTS
-            </Link>
-          </li>
-          <li style={styles.linkItem}>
-            <Link to="/Exhibition" style={styles.link}>
-              EXHIBITIONS
-            </Link>
-          </li>
-          <li style={styles.linkItem}>
-            <Link to="/careers" style={styles.link}>
-              CAREERS
-            </Link>
-          </li>
-          <li style={styles.linkItem}>
-            <Link to="ContactUs" style={styles.link}>
-              CONTACT US
-            </Link>
-          </li>
+          {[
+            { to: '/about', label: 'ABOUT US' },
+            { to: '/product', label: 'PRODUCT LINE' },
+            { to: '/Service', label: 'SERVICES' },
+            { to: '/news', label: 'NEWS & EVENTS' },
+            { to: '/Exhibition', label: 'EXHIBITIONS' },
+            { to: '/careers', label: 'CAREERS' },
+            { to: '/ContactUs', label: 'CONTACT US' },
+          ].map((link, index) => (
+            <li style={styles.linkItem} key={index}>
+              <Link
+                to={link.to}
+                style={styles.link(hoveredLink === index)}
+                onMouseEnter={() => setHoveredLink(index)}
+                onMouseLeave={() => setHoveredLink(null)}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
       <div style={styles.socialContainer}>
-        <a href="https://facebook.com" style={styles.socialIcon}>
-          <FaFacebookF />
-        </a>
-        <a href="https://instagram.com" style={styles.socialIcon}>
-          <FaInstagram />
-        </a>
-        <a href="https://linkedin.com" style={styles.socialIcon}>
-          <FaLinkedinIn />
-        </a>
-        <a href="https://youtube.com" style={styles.socialIcon}>
-          <FaYoutube />
-        </a>
+        {[
+          { href: 'https://facebook.com', icon: <FaFacebookF />, id: 'facebook' },
+          { href: 'https://instagram.com', icon: <FaInstagram />, id: 'instagram' },
+          { href: 'https://linkedin.com', icon: <FaLinkedinIn />, id: 'linkedin' },
+          { href: 'https://youtube.com', icon: <FaYoutube />, id: 'youtube' },
+        ].map((social, index) => (
+          <a
+            key={index}
+            href={social.href}
+            style={styles.socialIcon(hoveredIcon === social.id)}
+            onMouseEnter={() => setHoveredIcon(social.id)}
+            onMouseLeave={() => setHoveredIcon(null)}
+          >
+            {social.icon}
+          </a>
+        ))}
       </div>
     </nav>
   );
