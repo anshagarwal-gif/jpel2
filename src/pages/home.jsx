@@ -54,7 +54,7 @@ const Home = () => {
       </div>
       {/* <Rotation data-aos="fade-left" /> */}
       
-    <MachineRange/>
+   
 
      
 </div>
