@@ -103,6 +103,14 @@ const PlasticRecycling= () => {
           description: "Industrial shredding machines"
         }
       ];
+      const sections6 = [
+          {
+            subtitle: "Battery Box Recycling",
+            image: require("../PlasticRecycling/Assets/recycling3.jpg"),
+            link: "/products/hdpe-recycling",
+            description: "Complete HDPE recycling solutions"
+        },
+      ];
       
       
     return(
@@ -127,6 +135,13 @@ const PlasticRecycling= () => {
   id="Plastic21"
   title="Plastic Recycling" 
   sections={sections}
+  className="custom-class"
+  titleClassName="custom-title-class"
+/>
+<ScrollTransition 
+  id="Plastic22"
+  title="Plastic Recycling" 
+  sections={sections6}
   className="custom-class"
   titleClassName="custom-title-class"
 />
