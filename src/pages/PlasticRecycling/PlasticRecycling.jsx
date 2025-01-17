@@ -21,13 +21,13 @@ const PlasticRecycling= () => {
             image: require("../PlasticRecycling/Assets/recycling3.jpg"),
             link: "/products/hdpe-recycling",
             description: "Complete HDPE recycling solutions"
-          },
-          {
-            subtitle: "Film Recycling Line",
-            image: require("../PlasticRecycling/Assets/recycling4.jpg"),
-            link: "/products/bottle-shredding",
-            description: "Industrial shredding machines"
-          }
+        },
+          // {
+          //   subtitle: "Film Recycling Line",
+          //   image: require("../PlasticRecycling/Assets/recycling4.jpg"),
+          //   link: "/products/bottle-shredding",
+          //   description: "Industrial shredding machines"
+          // }
         // ... more sections
       ];
    
