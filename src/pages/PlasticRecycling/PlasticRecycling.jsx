@@ -50,26 +50,6 @@ const PlasticRecycling= () => {
             image: require("../PlasticRecycling/Assets/recycling-1.jpg"),
             link: "/products/hdpe-recycling",
             description: "Complete HDPE recycling solutions"
-          },
-          {
-            subtitle: "Extrusion Coating",
-            image: require("../PlasticRecycling/Assets/recycling0.jpg"),
-            link: "/products/bottle-shredding",
-            description: "Industrial shredding machines"
-          }
-          ,
-          {
-            subtitle: "Printing Machines",
-            image: require("../PlasticRecycling/Assets/recycling-4.jpg"),
-            link: "/products/bottle-shredding",
-            description: "Industrial shredding machines"
-          }
-          ,
-          {
-            subtitle: "Bag Conversion Machines",
-            image: require("../PlasticRecycling/Assets/recycling-5.jpg"),
-            link: "/products/bottle-shredding",
-            description: "Industrial shredding machines"
           }
         // ... more sections
       ];
@@ -101,6 +81,28 @@ const PlasticRecycling= () => {
             description: "Advanced PET bottle washing systems"
           },
       ];
+      const sections5 = [
+        {
+          subtitle: "Extrusion Coating",
+          image: require("../PlasticRecycling/Assets/recycling0.jpg"),
+          link: "/products/bottle-shredding",
+          description: "Industrial shredding machines"
+        }
+        ,
+        {
+          subtitle: "Printing Machines",
+          image: require("../PlasticRecycling/Assets/recycling-4.jpg"),
+          link: "/products/bottle-shredding",
+          description: "Industrial shredding machines"
+        }
+        ,
+        {
+          subtitle: "Bag Conversion Machines",
+          image: require("../PlasticRecycling/Assets/recycling-5.jpg"),
+          link: "/products/bottle-shredding",
+          description: "Industrial shredding machines"
+        }
+      ];
       
       
     return(
@@ -110,6 +112,13 @@ const PlasticRecycling= () => {
  id="woven12"
   title="Woven Packaging" 
   sections={sections1}
+  className="custom-class"
+  titleClassName="custom-title-class"
+/>
+<ScrollTransition 
+ id="woven13"
+  title="Woven Packaging" 
+  sections={sections5}
   className="custom-class"
   titleClassName="custom-title-class"
 />
