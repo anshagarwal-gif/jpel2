@@ -1,0 +1,165 @@
+.imageContainer3 {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.ExportSection {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Timeline styles */
+.timeline-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+}
+
+.milestone-section {
+  margin-bottom: 4rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Timeline segment styling */
+.timeline-segment {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  background-color: #ff0000;
+  height: calc(100% - 50px); /* Adjust based on your year header height */
+  top: 130px; /* Start after the year header */
+  z-index: -1;
+}
+
+.year-header {
+  text-align: center;
+  font-size: 2.7rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #000;
+  background-color: white;
+  padding: 0 1rem;
+  z-index: 1;
+  background: linear-gradient(to right, #e31e29 0, #232323 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.milestone-content {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin: 0 2rem;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.8s ease-out;
+  width: 100%;
+}
+
+.milestone-content.left {
+  flex-direction: row;
+  transform: translateX(-100px);
+}
+
+.milestone-content.right {
+  flex-direction: row-reverse;
+  transform: translateX(100px);
+}
+
+.milestone-content.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.image-container {
+  flex: 0 0 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 12px solid #ff0000;
+  position: relative;
+}
+.image-container::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border: 12px solid white;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.milestone-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.description-container {
+  flex: 1;
+  padding: 1  .5rem;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.milestone-description {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.video-link {
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.link-text {
+  color: #0066cc;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .milestone-content {
+    flex-direction: column !important;
+    gap: 1rem;
+  }
+
+  .image-container {
+    flex: 0 0 200px;
+    height: 200px;
+  }
+
+  .timeline-segment {
+    left: 20px;
+  }
+
+  .year-header {
+    font-size: 2rem;
+    margin-left: 2rem;
+    text-align: left;
+    align-self: flex-start;
+  }
+
+  .milestone-content.left,
+  .milestone-content.right {
+    transform: translateX(-50px);
+  }
+
+  .milestone-content.visible {
+    transform: translateX(0);
+  }
+}

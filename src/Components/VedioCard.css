@@ -41,14 +41,19 @@
   }
   
   .play-button {
-    font-size: 24px;
-    color: #ff0000;
+  
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 21px solid #ff0000; /* This makes the triangle point right */
+    
   }
   
   /* Video Title */
   .video-title {
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 19px;
     font-weight: bold;
     color: #333;
   }

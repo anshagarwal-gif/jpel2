@@ -1,170 +1,196 @@
-/* Flip Card Container */
-.card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    padding: 20px;
-    flex-direction: column;
-    background-color: #f7f7f7;
-}
+    /* Flip Card Container */
+    .card-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        padding: 20px;
+        flex-direction: column;
+        background-color: #f7f7f7;
+    }
 
-/* Header text above the card */
-.card-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
+    /* Header text above the card */
+    .card-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-.card-header p {
-    margin: 0;
-    font-size: 16px;
-    font-weight: bold;
-    color: #555;
-}
+    .card-header p {
+        margin: 0;
+        font-size: 16px;
+        font-weight: bold;
+        color: #555;
+    }
 
-/* Flip Card */
-.flip-card {
-    perspective: 1000px;
-    text-align: center;
-    cursor: pointer;
-}
+    /* Flip Card */
+    .flip-card {
+        perspective: 1000px;
+        text-align: center;
+        cursor: pointer;
+    }
 
-.flip-card-inner {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
-}
+    .flip-card-inner {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+    }
 
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
 
 
-.flip-card-front,
-.flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-}
+    .flip-card-front,
+    .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+    }
 
-.flip-card-front img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+    .flip-card-front img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-.flip-card-back {
-    background-color: #f4f4f4;
-    color: #333;
-    transform: rotateY(180deg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
+    .flip-card-back {
+        background-color: #f4f4f4;
+        color: #333;
+        transform: rotateY(180deg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
 
-.card-info {
-    font-size: 20px;
-    text-align: center;
-}
+    .card-info {
+        font-size: 20px;
+        text-align: center;
+    }
 
-.card-title {
-    margin-top: 10px;
-    font-size: 22px;
-    font-weight: bold;
-    color: #333;
-}
+    .card-title {
+        margin-top: 10px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #333;
+    }
 
-/* Modal Overlay */
-.modal-overlay1 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center; /* Horizontally center the modal */
-    align-items: center;     /* Vertically center the modal */
-    z-index: 1000;
-}
+    /* Modal Overlay */
+    .modal-overlay1 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        cursor: pointer; /* Indicates clickable area */
+    }
 
-/* Modal Content */
-.modal-content1 {
-    position: relative;
-    width: 90%; /* Full width for smaller screens */
-    max-width: 900px; /* Limit maximum width */
-    max-height: 400vh; /* Limit maximum height */
-    background: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    text-align: center;
-    overflow-y: auto; /* Add scrolling if content exceeds max-height */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow for focus */
-}
+    /* Modal Content */
+    .modal-content1 {
+        position: relative;
+        width: 90vw;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-/* Close Button */
-.close-button {
-    position: absolute;
-    top: 10px;
+    /* Optional: Adjust Close Button Position for Fullscreen */
+    .close-button {
+        position: fixed;
+    top: 20px;
     right: 20px;
     font-size: 30px;
-    color: black !important;
-    cursor: pointer;
+    color: white;
     z-index: 2000;
-}
-
-.close-button:hover {
-    color: red;
-}
-
-/* Gallery Container */
-.gallery-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-
-.gallery-item {
-    text-align: center;
-}
-
-.gallery-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-    max-width: 500px;
-    max-height: 400px;
-}
-
-.gallery-title {
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-}
-
-/* Navigation Arrows */
-.prev-button,
-.next-button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    font-size: 30px;
-    padding: 10px 20px;
-    cursor: pointer;
+    padding: 10px;
     border-radius: 50%;
+    cursor: pointer;
+    
+    }
+    .close-button:hover {
+        color: red;
+    
+    }
+    /* Gallery Container */
+    .gallery-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .gallery-item {
+        text-align: center;
+    }
+
+    /* Make the Image Fullscreen Inside the Modal */
+    .gallery-image {
+        width: 90vw;
+    height: 90vh;
+    object-fit: contain;
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    }
+
+    .gallery-title {
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Navigation Arrows */
+    .prev-button,
+    .next-button {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(128, 128, 128, 0.5);
+        color: #fff;
+        border: 2px ;
+        width: 70px;  /* Fixed width */
+        height: 70px; /* Fixed height - same as width for perfect circle */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 50px;
+        cursor: pointer;
+        border-radius: 50%; /* Use 50% instead of fixed pixels for perfect circle */
+        z-index: 2000;
+        transition: all 0.3s ease;
+        
+        line-height: 2; /* Helps center the arrow character */
+}
+.prev-button {
+    left: 60px;
 }
 
-.prev-button:hover,
-.next-button:hover {
-    background-color: #555;
+.next-button {
+    right: 60px;
+}
+
+    .prev-button:hover,
+    .next-button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        transform: translateY(-50%) scale(1.1); /* Add slight scale on hover */
+    }
+/* Optional: Add transition for smooth closing */
+.modal-overlay1 {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modal-overlay1.closing {
+    opacity: 0;
 }

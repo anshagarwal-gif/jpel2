@@ -7,25 +7,21 @@ const MagazineLayout = () => {
   // Array of magazine images
   const magazines = [
     {
-      src: require("../assets/Exhibition.png"),
+      src: require("../assets/newevent7.jpg"),
       title: "Plastic Today - April 2021",
     },
     {
-      src: require("../assets/Exhibition2.png"),
-      title: "Polymers Communiqué - May 2021",
-    },
-    {
-      src: require("../assets/Exhibition.png"),
-      title: "Economic Times Polymers - June 2021",
+      src: require("../assets/newevent8.jpg"),
+      title: "Plastic Today - April 2021",
     },
   ];
 
   // Array of PDF links
   const pdfs = [
-    { title: "Plastic Today", link: "/pdf/plastic-today.pdf" },
-    { title: "Polymers Communiqué", link: "/pdf/polymers-communique.pdf" },
-    { title: "The Economic Times – Polymers", link: "/pdf/economic-times.pdf" },
-    { title: "Modern Plastics India", link: "/pdf/modern-plastics.pdf" },
+    { title: "Plastic Today", link: "/plastic-today-p-k-patkar-2021.pdf" },
+    { title: "Polymers Communiqué", link: "/polymer-communique-2017.pdf" },
+    { title: "The Economic Times – Polymers", link: "/the-economic-times-polymers-2017.pdf" },
+    { title: "Modern Plastics India", link: "/modern-plastics-india-2017.pdf" },
   ];
 
   const handleNext = () => {

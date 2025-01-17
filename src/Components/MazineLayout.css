@@ -18,16 +18,13 @@
   
   .magazine-image {
     width: 100%;
-    max-width: 800px; /* Increased width */
+    max-width: 650px; /* Increased width */
     height: auto;
     border: 2px solid #ddd;
     border-radius: 12px;
     transition: transform 0.3s ease-in-out;
   }
-  
-  .magazine-image:hover {
-    transform: scale(1.05); /* Stylish zoom-in effect on hover */
-  }
+
   /* Base styles for arrows */
 .nav-button {
   position: absolute;
@@ -55,12 +52,12 @@
 
 /* Left arrow position */
 .nav-button.prev {
-  left: 20px;
+  left: 80px;
 }
 
 /* Right arrow position */
 .nav-button.next {
-  right: 20px;
+  right: 80px;
 }
 
 /* Arrow content (optional icons) */
@@ -108,9 +105,9 @@
   .pdf-list {
     flex: 0.9;
     padding: 20px;
-    background-color: #f7f7f7;
+    background-color: transparent;
     border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    
   }
   .pdf-list ul {
     list-style: none; /* Remove default bullet points */
@@ -201,3 +198,100 @@
     width: 100%; /* Expanding underline effect */
   }
   
+/* Responsive Media Queries */
+@media screen and (max-width: 1024px) {
+  .pdf-list h2 {
+    font-size: 40px;
+  }
+  
+  .pdf-item {
+    font-size: 20px;
+  }
+  
+  .nav-button {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .nav-button.prev {
+    left: 40px;
+  }
+  
+  .nav-button.next {
+    right: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .magazine-layout {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .magazine-viewer {
+    margin-bottom: 30px;
+  }
+  
+  .pdf-list {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .pdf-list h2 {
+    font-size: 32px;
+    text-align: center;
+  }
+  
+  .pdf-item {
+    font-size: 18px;
+    margin-left: 0;
+  }
+  
+  .pdf-tooltip {
+    display: none !important;
+  }
+  
+  .nav-button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .nav-button.prev {
+    left: 10px;
+  }
+  
+  .nav-button.next {
+    right: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .magazine-layout {
+    padding: 5px;
+  }
+  
+  .pdf-list h2 {
+    font-size: 28px;
+  }
+  
+  .pdf-item {
+    font-size: 16px;
+  }
+  
+  .magazine-title {
+    font-size: 16px;
+  }
+  
+  .nav-button {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .nav-button::before {
+    border-width: 8px 12px 8px 0;
+  }
+  
+  .nav-button.next::before {
+    border-width: 8px 0 8px 12px;
+  }
+}

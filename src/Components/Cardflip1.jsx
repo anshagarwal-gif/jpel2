@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import "./Cardflip.css";
 
 const Cardflip = ({
@@ -10,6 +10,38 @@ const Cardflip = ({
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  
+  // Handle escape key press
+  const handleEscapeKey = useCallback((event) => {
+    if (event.key === 'Escape' && isModalOpen) {
+      setIsModalOpen(false);
+    }
+  }, [isModalOpen]);
+  
+  // Add and remove event listeners
+  useEffect(() => {
+    if (isModalOpen) {
+      document.addEventListener('keydown', handleEscapeKey);
+      // Prevent body scrolling when modal is open
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.removeEventListener('keydown', handleEscapeKey);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isModalOpen, handleEscapeKey]);
+  
+  // Handle image click
+  const handleImageClick = (e) => {
+    e.stopPropagation(); // Prevent modal from closing when clicking the image
+  };
+  // Handle click outside
+  const handleOverlayClick = (e) => {
+    if (e.target.classList.contains("modal-overlay1")) {
+      closeModal();
+    }
+  };
+
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -54,11 +86,7 @@ const Cardflip = ({
       {isModalOpen && (
         <div
           className="modal-overlay1"
-          onClick={(e) => {
-            if (e.target.classList.contains("modal-overlay1")) {
-              setIsModalOpen(false);
-            }
-          }}
+          onClick={handleOverlayClick}
         >
           <div className="modal-content1">
             <span className="close-button" onClick={closeModal}>
@@ -73,6 +101,7 @@ const Cardflip = ({
                   src={galleryImages[currentIndex].src}
                   alt={galleryImages[currentIndex].title}
                   className="gallery-image"
+                  onClick={handleImageClick}
                 />
                 <p className="gallery-title">
                   {galleryImages[currentIndex].title}

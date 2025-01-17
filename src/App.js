@@ -8,6 +8,9 @@ import EXHIBITION from './pages/Exhibition';
 import News from './pages/News';
 import ContactUs from './pages/ContactUs/ContactUs';
 import Service from "./pages/Services/Service"
+import Woven from './pages/Woven/Woven';
+import PlasticRecycling from './pages/PlasticRecycling/PlasticRecycling';
+import Aboutus from './pages/Aboutus/Aboutus';
 
 function App() {
   return (
@@ -26,6 +29,9 @@ function App() {
             <Route path='/News' element={<News/>}/>
             <Route path='/ContactUs' element={<ContactUs/>}/>
             <Route path='/Service' element={<Service/>}/>
+            <Route path="/Woven" element={<Woven />} />
+            <Route path="/PlasticRecycling" element={<PlasticRecycling />} />
+            <Route path='/AboutUs' element={<Aboutus/>}/>
           </Routes>
           
           <Footer/>

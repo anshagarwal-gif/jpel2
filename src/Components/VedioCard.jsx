@@ -19,7 +19,7 @@ const VedioCard = ({ videoTitle, videoThumbnail, videoUrl }) => {
       <div className="video-thumbnail" onClick={openVideo}>
         <img src={videoThumbnail} alt={videoTitle} className="thumbnail-image" />
         <div className="play-button-overlay">
-          <span className="play-button">&#9658;</span>
+          <span className="play-button"></span>
         </div>
       </div>
       <div className="video-title">{videoTitle}</div>

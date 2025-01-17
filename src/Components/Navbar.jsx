@@ -69,7 +69,7 @@ const Navbar = () => {
       <div style={styles.linksContainer}>
         <ul style={styles.linksList}>
           {[
-            { to: '/about', label: 'ABOUT US' },
+            { to: '/Aboutus', label: 'ABOUT US' },
             { to: '/product', label: 'PRODUCT LINE' },
             { to: '/Service', label: 'SERVICES' },
             { to: '/news', label: 'NEWS & EVENTS' },
