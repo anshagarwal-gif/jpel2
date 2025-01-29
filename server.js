@@ -44,13 +44,13 @@ app.post("/send-email", (req, res) => {
   // Define the email content
   const mailOptions = {
     from: process.env.EMAIL,  // Sender email from the environment variable
-    to: "dorikdarshan2004@gmail.com",  // Replace with your recipient email address
+    to: "aash.rishikesh@gmail.com",  // Replace with your recipient email address
     subject: "Download Catalogue |  J P Extrusiontech Private Limited",
       html: `
         <div style="font-family: Arial, sans-serif; border: 2px dashed #000; padding: 20px; max-width: 600px; margin: auto; background-color: #F7F7F7;">
   <!-- Logo -->
   <div style="text-align: center; margin-bottom: 20px;">
-    <img src="https://jpel2.vercel.app/logojpel1.jpg" alt="JP Group Logo" style="max-width: 400px;">
+    <img src="" alt="JP Group Logo" style="max-width: 400px;">
   </div>
   
   <!-- Form Content -->

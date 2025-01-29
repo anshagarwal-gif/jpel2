@@ -11,6 +11,9 @@ import Service from "./pages/Services/Service"
 import Woven from './pages/Woven/Woven';
 import PlasticRecycling from './pages/PlasticRecycling/PlasticRecycling';
 import Aboutus from './pages/Aboutus/Aboutus';
+import TapeExtrusion from './pages/TapeExtrusion/TapeExtrusion';
+import CircularLoom from './pages/CircularLoom/CircularLoon';
+import PrintingMachine from './pages/PrintingMachines/PrintingMachine';
 
 function App() {
   return (
@@ -32,6 +35,9 @@ function App() {
             <Route path="/Woven" element={<Woven />} />
             <Route path="/PlasticRecycling" element={<PlasticRecycling />} />
             <Route path='/AboutUs' element={<Aboutus/>}/>
+            <Route path='/TapeExtrusion' element={<TapeExtrusion/>}/>
+            <Route path='/CircularLoom' element={<CircularLoom/>}/>
+            <Route path='/PrintingMachine' element={<PrintingMachine/>}/>
           </Routes>
           
           <Footer/>

@@ -1,0 +1,227 @@
+/* Navigation.css */
+.tab-navigation {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .tab-button {
+    padding: 0.75rem 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    color: #4b5563;
+    transition: all 0.3s ease;
+  }
+  
+  .tab-button:hover {
+    color: #dc2626;
+  }
+  
+  .tab-button.active {
+    color: #dc2626;
+  }
+  
+  .tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #dc2626;
+  }
+  
+  /* ProductImage.css */
+  .product-image {
+    width: 100%;
+    height: auto;
+    background-color: #f5f5f5;
+  }
+  
+  .product-description {
+    padding: 1rem 2rem;
+    color: #666;
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+  
+  /* SpecsTable.css */
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+  }
+  
+  .specs-table th, .specs-table td {
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .specs-table th:not(:first-child), 
+  .specs-table td:not(:first-child) {
+    text-align: center;
+  }
+  
+  .specs-table tr:first-child {
+    background-color: #dc2626;
+    color: white;
+  }
+  
+  .specs-table tr:nth-child(even) {
+    background-color: #f3f4f6;
+  }
+  
+  /* Applications.css */
+  .applications {
+    padding: 2rem;
+  }
+  
+  .applications h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  
+  .applications-content {
+    display: flex;
+    gap: 2.6rem;
+    font-size: 1.5rem;
+
+  }
+  
+  .applications-slideshow {
+    width: 700px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+  }
+  @media (max-width: 600px) {
+    .applications-slideshow {
+      width: 550px;
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+    }
+    .applications-content {
+      display: flex;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+  
+    }
+    
+  }
+  .slideshow-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .slideshow-image.active {
+    opacity: 1;
+  }
+  
+  .applications-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .applications-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+  
+  .applications-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #dc2626;
+  }
+  .product-with-download-catalogue {
+    position: relative;
+  }
+  
+  .download-catalogue-button {
+    position: absolute;
+    bottom: 9rem;
+    right: 6rem;
+    
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #e30613;
+    color: #fff;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  
+  .download-catalogue-button img {
+    height: 1.5rem;
+    width: 1.5rem;
+    
+    display: block;
+  }
+  
+  .download-catalogue-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+  }
+  
+  .download-catalogue-modal-content {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 24rem;
+    width: 100%;
+  }
+  
+  .download-catalogue-modal-content h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .download-catalogue-modal-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .download-catalogue-modal-form input,
+  .download-catalogue-modal-form textarea {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+  }
+  
+  .download-catalogue-modal-form textarea {
+    resize: vertical;
+  }
+  
+  .download-catalogue-modal-form button {
+    background-color: #e30613;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }

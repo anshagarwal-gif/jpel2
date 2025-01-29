@@ -15,13 +15,7 @@ const PlasticRecycling= () => {
             image: require("../PlasticRecycling/Assets/recycling2.jpg"), 
             link: "/products/pet-washing",
             description: "Advanced PET bottle washing systems"
-          },
-          {
-            subtitle: "Battery Box Recycling",
-            image: require("../PlasticRecycling/Assets/recycling3.jpg"),
-            link: "/products/hdpe-recycling",
-            description: "Complete HDPE recycling solutions"
-        },
+          }
           // {
           //   subtitle: "Film Recycling Line",
           //   image: require("../PlasticRecycling/Assets/recycling4.jpg"),
@@ -36,7 +30,7 @@ const PlasticRecycling= () => {
         {
             subtitle: "Tape Extrusion",
             image: require("../PlasticRecycling/Assets/recycling-3.jpg"),
-            link: "/products/woven-sacks",
+            link: "TapeExtrusion",
             description: "Industrial grade woven sacks" // optional
           },
           {
@@ -48,7 +42,7 @@ const PlasticRecycling= () => {
           {
             subtitle: "Circular Looms",
             image: require("../PlasticRecycling/Assets/recycling-1.jpg"),
-            link: "/products/hdpe-recycling",
+            link: "CircularLoom",
             description: "Complete HDPE recycling solutions"
           }
         // ... more sections
@@ -92,10 +86,10 @@ const PlasticRecycling= () => {
         {
           subtitle: "Printing Machines",
           image: require("../PlasticRecycling/Assets/recycling-4.jpg"),
-          link: "/products/bottle-shredding",
+          link: "PrintingMachine",
           description: "Industrial shredding machines"
         }
-        ,
+        , 
         {
           subtitle: "Bag Conversion Machines",
           image: require("../PlasticRecycling/Assets/recycling-5.jpg"),
