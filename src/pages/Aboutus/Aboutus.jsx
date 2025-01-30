@@ -189,10 +189,47 @@ Co-Ex Lamination for Flexible Packaging having Extruders of 90+70 and width 1450
         <img
           className="ExportSection"
           alt="ExportSection"
-          src={require('../Aboutus/Assets/aboutusheader.png')}
+          src={require('../Aboutus/Assets/milestones.jpg')}
+        />
+      </div>
+      <div className="product-layout1">
+      <div className="image-section1">
+        <img 
+          src={require('./Assets/leftbanner.jpg')} 
+          alt="Jaiko Industries Machine" 
+          className="product-image1"
         />
       </div>
       
+      <div className="content-section1">
+
+        <div className="description1">
+          <h1>Hon' Mr. Jagannath Patkar </h1>
+          <h3>Founder and Mentor</h3>
+          <p>
+          The journey of JP Extrusiontech (Pvt.) Ltd. is a testament to the shared vision, determination, and unwavering efforts of its pioneering founders and their families, rooted in the inspiring leadership of Mr. Jagannath Kashiram Patkar , Mr. Nathubhai Jamu Dorik , and Mr. Chaggan Kashiram Patkar. Their entrepreneurial journey began in 1968 in Mumbai with ventures like Durga Plastic and expanded on 11th November 1978 with the establishment of Plastochem Industries in Ankleshwar, Gujarat, which pioneered the production of polypropylene bags, plastic tarpaulin, bottle printing, and packaging materials.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div className="product-layout2">
+    <div className="content-section2">
+        <div className="description2">
+          <p>
+          Guided by the wisdom and values of Mr. Jagannath Patkar and Mrs. Hirabaija Patkar, whose principles of hard work and the ethos of Vasudhaiva Kutumbakam—the world as one family—fueled their success, the company grew from humble beginnings into a legacy of excellence. Their dedication and integrity continue to inspire generations, and today, JP Extrusiontech (Pvt.) Ltd. remains a symbol of innovation and quality, honoring its founders’ vision and commitment to progress.
+          </p>
+        </div>
+      </div>
+      <div className="image-section2">
+        <img 
+          src={require('./Assets/rightbanner.jpg')} 
+          alt="Jaiko Industries Machine" 
+          className="product-image2"
+        />
+      </div>
+      
+     
+    </div>
       <div className="timeline-container">
         {milestones.map((milestone, index) => (
           <div key={milestone.year} className="milestone-section">
