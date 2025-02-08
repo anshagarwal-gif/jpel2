@@ -41,7 +41,7 @@ const Homepageanimation = () => {
           and equipment. Our commitment to excellence ensures that we deliver
           cutting-edge solutions that empower industries and enhance
           productivity.{" "}
-          <a href="/join-us" className="join-link">
+          <a href="/ContactUs" className="join-link">
             Join us
           </a>{" "}
           in shaping the future of plastic processing!
