@@ -14,6 +14,8 @@ import Aboutus from './pages/Aboutus/Aboutus';
 import TapeExtrusion from './pages/TapeExtrusion/TapeExtrusion';
 import CircularLoom from './pages/CircularLoom/CircularLoon';
 import PrintingMachine from './pages/PrintingMachines/PrintingMachine';
+import WindingMachine from './pages/WindingMachine/WindingMachine';
+import ExtrusionCoating from './pages/ExtrusionCoating/ExtrusionCoating';
 
 function App() {
   return (
@@ -38,6 +40,8 @@ function App() {
             <Route path='/TapeExtrusion' element={<TapeExtrusion/>}/>
             <Route path='/CircularLoom' element={<CircularLoom/>}/>
             <Route path='/PrintingMachine' element={<PrintingMachine/>}/>
+            <Route path='/WindingMachine' element={<WindingMachine/>}/>
+            <Route path='/ExtrusionCoating' element={<ExtrusionCoating/>}/>
           </Routes>
           
           <Footer/>

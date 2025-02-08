@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow } from '../../Components/ProductFormat/ReusableComponents';
-import "../TapeExtrusion/TapeExtrusion.css"
+import "../WindingMachine/WindingMachine.css"
 
-const TapeExtrusion = () => {
+const WindingMachine = () => {
     const [activeTab, setActiveTab] = useState('Tab 1');
 
     // Tab-specific content
@@ -36,7 +36,7 @@ const TapeExtrusion = () => {
         <div className="product-layout">
       <div className="image-section">
         <img 
-          src={require('./Assets/leftbanner.jpg')} 
+          src="" 
           alt="Jaiko Industries Machine" 
           className="product-image2"
         />
@@ -93,4 +93,4 @@ const TapeExtrusion = () => {
       </div>
     );
   };
-export default TapeExtrusion;   
+export default WindingMachine;   

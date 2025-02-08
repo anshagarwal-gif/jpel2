@@ -36,7 +36,7 @@ const PlasticRecycling= () => {
           {
             subtitle: "Tape Winding",
             image: require("../PlasticRecycling/Assets/recycling-2.jpg"), 
-            link: "/products/pet-washing",
+            link: "WindingMachine",
             description: "Advanced PET bottle washing systems"
           },
           {
@@ -79,7 +79,7 @@ const PlasticRecycling= () => {
         {
           subtitle: "Extrusion Coating",
           image: require("../PlasticRecycling/Assets/recycling0.jpg"),
-          link: "/products/bottle-shredding",
+          link: "/ExtrusionCoating",
           description: "Industrial shredding machines"
         }
         ,

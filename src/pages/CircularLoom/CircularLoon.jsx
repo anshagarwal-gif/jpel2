@@ -3,13 +3,18 @@ import { Navigation, SpecsTable, Applications, ProductWithDownloadCatalogue } fr
 import './CircularLoom.css'
 const CircularLoom = () => {
   const [activeTab, setActiveTab] = useState('4-shuttle');
-
+  const images = [
+    require("../CircularLoom/Assets/grid3.jpg"),
+    require("../CircularLoom/Assets/grid2.jpg"),
+    require("../CircularLoom/Assets/grid1.jpg"),
+    require("../CircularLoom/Assets/grid4.jpg")
+  ];
     // Tab-specific content
     const tabContent = {
       '4-shuttle': {
         image: require("../CircularLoom/Assets/4.jpg"),
-        description: 'JAIKO INDUSTRIES (A JP Group Company) offers a range of circular looms for weaving light to heavy weight tubular or flat PP/HDPE fabrics for a wide variety of end applications. Jaiko’s loom ranges from 4 shuttle for open mesh (leno weave) packaging fabric for fruits & vegetable, to 6 shuttle for a wide range of packaging applications such as cement, fertilizer, polymer granules, chemicals, grains, animal feed, seeds and husk and 8 shuttle for the production of wide width fabric for Jumbo bags (FIBC’s), tarpaulins and Geo & agro textiles. It has advantages of the latest technology – higher operating efficiencies, excellent weaving quality, lower wastage, lower energy consumption, lower maintenance etc. Our looms are available under machine models: Jaiko 4, Vega 6, Vega HS, Jaiko 6 LN, Jaiko 608, Jaiko 810, Jaiko 811, Jaiko 812 LF, Jaiko 812 HF, Jaiko 814 LF and Jaiko 814 HF, Jaiko 1014, LF and Jaiko 1014 HF, Jaiko 1016 LF and 1016 HF.',
-        tableHeaders: ['Technical Specifications'],
+        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+        tableHeaders: ['Technical Specifications',''],
         tableRows: [
           ['Working width - Double Flat', '20 to 80 cm*'],
           ['Weft insertion rate', 'upto 720ppm*'],
@@ -24,7 +29,7 @@ const CircularLoom = () => {
       '6-shuttle': {
         image: require("../CircularLoom/Assets/5.jpg"),
         description: 'This is the description for Tab 2.',
-        tableHeaders: ['Technical Specifications'],
+        tableHeaders: ['Technical Specifications',''],
         tableRows: [
           ['Working width - Double Flat', '30 to 140 cm*'],
           ['Weft insertion rate', 'upto 1200 ppm*'],
@@ -38,7 +43,7 @@ const CircularLoom = () => {
       '8-shuttle': {
         image: require("../CircularLoom/Assets/6.jpg"),
         description: 'This is the description for Tab 3.',
-        tableHeaders: ['Technical Specifications'],
+        tableHeaders: ['Technical Specifications',''],
         tableRows: [
           ['Working width - Double Flat', '100 to 225 cm*'],
           ['Weft insertion rate', 'upto 740 ppm*'],
@@ -50,7 +55,7 @@ const CircularLoom = () => {
       '10-shuttle': {
         image: require("../CircularLoom/Assets/7.jpg"),
         description: 'This is the description for Tab 2.',
-        tableHeaders: ['Technical Specifications'],
+        tableHeaders: ['Technical Specifications',''],
         tableRows: [
           ['Working width - Double Flat', '175 to 255 cm*'],
           ['Weft insertion rate', 'upto 700 ppm*'],
@@ -62,7 +67,7 @@ const CircularLoom = () => {
       '12-shuttle': {
         image: require("../CircularLoom/Assets/8.jpg"),
         description: 'This is the description for Tab 2.',
-        tableHeaders: ['Technical Specifications'],
+        tableHeaders: ['Technical Specifications',''],
         tableRows: [
           ['Working width - Double Flat', '250 to 295 cm*'],
           ['Weft insertion rate', 'upto 650 ppm*'],
@@ -74,7 +79,7 @@ const CircularLoom = () => {
       'IL': {
         image:require("../CircularLoom/Assets/9.jpg"),
         description: 'This is the description for Tab 2.',
-        tableHeaders: ['Technical Specifications'],
+        tableHeaders: ['Technical Specifications',''],
         tableRows: [
           ['Working width (Without Liner)', '30 to 90 cm*'],
           ['Working width (With Liner)', '30 to 70 cm*'],
@@ -153,16 +158,36 @@ const CircularLoom = () => {
         description={currentContent.description}
         tabId={activeTab}
         tabContent={tabContent}
+        enableSlideshow={false}
       />
         <SpecsTable
           headers={currentContent.tableHeaders}
           rows={currentContent.tableRows}
         />
+        <p className="description2">*depending on machine models and specifications</p>
         <Applications
           title={`Applications for ${activeTab}`}
           images={currentContent.slideshowImages}
           points={currentContent.applicationPoints}
         />
+      <div className="grid-container">
+      <div className="top-image">
+        <img src={images[0]} alt="Industrial machinery top view" />
+      </div>
+      <div className="bottom-section">
+        <div className="bottom-left">
+          <img src={images[1]} alt="Industrial machinery left view" />
+        </div>
+        <div className="bottom-right">
+          <div>
+            <img src={images[2]} alt="Industrial machinery center view" />
+          </div>
+          <div>
+            <img src={images[3]} alt="Industrial machinery right view" />
+          </div>
+        </div>
+      </div>
+    </div>
       </div>
     );
     

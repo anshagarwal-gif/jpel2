@@ -17,13 +17,48 @@ export const Navigation = ({ tabs, activeTab, onTabChange }) => (
 );
 
 // Product Image Component
-export const ProductImage = ({ image, description }) => (
-  <div>
-    <img src={image} alt="Product" className="product-image" />
-    {description && <p className="product-description">{description}</p>}
-   
-  </div>
-);
+export const ProductImage = ({ image, images, description }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Check if we have multiple images
+  const hasMultipleImages = Array.isArray(images) && images.length > 1;
+
+  useEffect(() => {
+    if (hasMultipleImages) {
+      const timer = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }, 3000); // Change slide every 3 seconds
+
+      return () => clearInterval(timer);
+    }
+  }, [hasMultipleImages, images]);
+
+  if (hasMultipleImages) {
+    return (
+      <div className="product-slideshow-container">
+        <div className="product-slideshow">
+          {images.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              alt={`Product ${index + 1}`}
+              className={`product-slide ${index === currentIndex ? 'active' : ''}`}
+            />
+          ))}
+        </div>
+        {description && <p className="product-description">{description}</p>}
+      </div>
+    );
+  }
+
+  // Render single image if no multiple images provided
+  return (
+    <div>
+      <img src={image} alt="Product" className="product-image" />
+      {description && <p className="product-description">{description}</p>}
+    </div>
+  );
+};
 
 // Specifications Table Component
 export const SpecsTable = ({ headers, rows }) => (
@@ -219,12 +254,12 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
   );
 };
 
-export const ProductWithDownloadCatalogue = ({ image, description, tabId, tabContent }) => {
+export const ProductWithDownloadCatalogue = ({ image, images, description, tabId, tabContent }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <div className="product-with-download-catalogue">
-      <ProductImage image={image} description={description} />
+      <ProductImage image={image} images={images} description={description} />
       <button
         className="download-catalogue-button"
         onClick={() => setShowModal(true)}
@@ -234,14 +269,13 @@ export const ProductWithDownloadCatalogue = ({ image, description, tabId, tabCon
       </button>
       {showModal && (
         <div className="download-catalogue-modal">
-           <DownloadCatalogueModal
-          onClose={() => setShowModal(false)}
-          activeTab={tabId}
-          tabContent={tabContent}
-        />
+          <DownloadCatalogueModal
+            onClose={() => setShowModal(false)}
+            activeTab={tabId}
+            tabContent={tabContent}
+          />
         </div>
       )}
     </div>
   );
 };
-
