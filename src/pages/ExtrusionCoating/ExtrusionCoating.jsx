@@ -17,26 +17,31 @@ const ExtrusionCoating = () => {
             require("../ExtrusionCoating/Assets/wown2.jpg"),
             require("../ExtrusionCoating/Assets/wown1.jpg")
           ],
-        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+        description: ['Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.                                                      TD - tandem, L - Leno fabric lamination'],
         tableHeaders: ['Technical Specifications','850/TD','1200/L','1450','1600','1800','2000'],
         tableRows: [
           ['Die-Width (mm)', '900 x 2Nos','450','1450','1600','1800','2000 x 2Nos.'],
           ['Coating Width (Min. - Max., in mm) ', '400-750','120 - 300','800-1350','800-1500','1200-1650','1200-1850'],
         ],
-        slideshowImages: [require("../CircularLoom/Assets/1.jpg"), require("../CircularLoom/Assets/2.jpg")],
+        
+        slideshowImages: [ require("../ExtrusionCoating/Assets/wown5.jpg"),  require("../ExtrusionCoating/Assets/wown4.jpg")],
         applicationPoints: ['Industrial: Durable packaging for sugar, cement, and food grain bags.',
 'Retail: Reliable and sturdy shopping bags for consumer use.','Medical: Laminated materials that are safe and hygienic for medical purposes (such as PPE kits, aprons, masks, etc.).'],
         catalogue: '/path-to-tab1-catalogue.pdf',
       },
       'FIBC': {
-        image: require("../CircularLoom/Assets/5.jpg"),
-        description: 'This is the description for Tab 2.',
+        images: [
+            require("../ExtrusionCoating/Assets/fibc1.jpg"),
+            require("../ExtrusionCoating/Assets/fibc2.jpg"),
+           
+          ],
+        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
         tableHeaders: ['Technical Specifications','2000','2200','2650','3300'],
         tableRows: [
           ['Die-Width (mm)', '2000','2200','2650','3300'],
           ['Coating Width (Min. - Max., in mm) ', '1200-1850','1200-2050','1600-2500','2400-3150'],
         ],
-        slideshowImages: [require("../CircularLoom/Assets/3.jpg"), require("../CircularLoom/Assets/4_1.jpg")],
+        slideshowImages: [ require("../ExtrusionCoating/Assets/fibc3.jpg"),  require("../ExtrusionCoating/Assets/fibc4.jpg")],
         applicationPoints: ['Provides moisture resistance.',
 'Enhances strength and durability.',
 'Creates a smooth surface for printing.',
@@ -46,14 +51,18 @@ const ExtrusionCoating = () => {
 
       },
       'Tarpaulin': {
-        image: require("../CircularLoom/Assets/6.jpg"),
-        description: 'This is the description for Tab 3.',
+        images: [
+            require("../ExtrusionCoating/Assets/Tamp1.jpg"),
+            require("../ExtrusionCoating/Assets/Tamp2.jpg"),
+           
+          ],
+        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
         tableHeaders: ['Technical Specifications','2000','2200','2650','3300','3800','4300','5200','6000'],
         tableRows: [
           ['Die-Width (mm)', '2000','2200','2650','3300','3800','4300','5200','6000'],
           ['Coating Width (Min. - Max., in mm) ', '1200-1850','2050 - 2200','1600 - 2500','2400 - 3150','3150 - 3650','3650 - 4150','4000-5000','4600-5800'],
         ],
-        slideshowImages: [require("../CircularLoom/Assets/5_1.jpg"), require("../CircularLoom/Assets/6_1.jpg")],
+        slideshowImages: [  require("../ExtrusionCoating/Assets/Tamp1.jpg"),   require("../ExtrusionCoating/Assets/Tamp1.jpg")],
         applicationPoints: ['Industrial: Weatherproof tarpaulins for construction, agriculture, and transport.',
 'Retail: Durable, waterproof covers for vehicles and outdoor use.'],
         catalogue: '/path-to-tab1-catalogue.pdf',
@@ -61,14 +70,19 @@ const ExtrusionCoating = () => {
 
 
       'High-Speed Lamination': {
-        image: require("../CircularLoom/Assets/7.jpg"),
-        description: 'This is the description for Tab 2.',
+        images: [
+            require("../ExtrusionCoating/Assets/hspeed.jpg"),
+            require("../ExtrusionCoating/Assets/hspeed1.jpg"),
+           
+          ],
+        description: ['Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.                                                                    TD - tandem'],
+        
         tableHeaders: ['Technical Specifications','850/TD','1600','1800','2000'],
         tableRows: [
           ['Die-Width (mm)', '900 x 2Nos','1650','1800','2000'],
           ['Coating Width (Min. - Max., in mm) ', '400-750','300 - 750(Tubular fabric) 600 - 1500(Flat fabric)','350 - 800(Tubular fabric) 600 - 1600 (Flat fabric)','1200 - 1850'],
         ],
-        slideshowImages: [require("../CircularLoom/Assets/7_1.jpg"), require("../CircularLoom/Assets/8_1.jpg")],
+        slideshowImages: [require("../ExtrusionCoating/Assets/hspeed2.jpg"), require("../ExtrusionCoating/Assets/hspeed3.jpg")],
         applicationPoints: ['Industrial: Durable packaging & weatherproof tarpaulins for construction and transport.',
 'Retail: Sturdy shopping bags & waterproof covers for outdoor use.',
 'Medical: Hygienic, moisture-reasistant laminates for PPE kits & medical gear.',
@@ -144,10 +158,44 @@ const ExtrusionCoating = () => {
         tabContent={tabContent}
         
       />
-        <SpecsTable
-          headers={currentContent.tableHeaders}
-          rows={currentContent.tableRows}
-        />
+        <SpecsTable 
+   headers={currentContent.tableHeaders}
+   rows={currentContent.tableRows}
+/>
+<style>
+    
+  {`
+    .specs-table {
+      width: 100%;
+      max-width: 1200px;
+      border-collapse: collapse;
+      margin: 1rem auto;
+      table-layout: auto;
+    }
+
+    .specs-table th, .specs-table td {
+      padding: 0.8rem 1.5rem;
+      text-align: center;
+      border: 2px solid #e5e7eb;
+      white-space: nowrap;
+      font-size: 19px;
+    }
+
+    .specs-table thead tr {
+      background-color: #dc2626;
+      color: white;
+    }
+
+    .specs-table tbody tr:nth-child(odd) {
+      background-color: #f3f4f6;
+    }
+
+    .specs-table tbody tr:nth-child(even) {
+      background-color: white;
+    }
+  `}
+</style>
+
         <p className="description2">*depending on machine models and specifications</p>
         <Applications
           title={`Applications for ${activeTab}`}

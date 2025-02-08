@@ -7,7 +7,7 @@ const PlasticRecycling= () => {
         {
             subtitle: "Woven Sacks",
             image: require("../PlasticRecycling/Assets/recycling1.jpg"),
-            link: "/products/woven-sacks",
+            link: "/WovenSack",
             description: "Industrial grade woven sacks" // optional
           },
           {
@@ -65,7 +65,7 @@ const PlasticRecycling= () => {
         {
             subtitle: "Sheet Extrusion Line",
             image: require("../PlasticRecycling/Assets/recycling7.jpg"),
-            link: "/products/woven-sacks",
+            link: "/WovenSacks",
             description: "Industrial grade woven sacks" // optional
           },
           {
@@ -101,7 +101,7 @@ const PlasticRecycling= () => {
           {
             subtitle: "Battery Box Recycling",
             image: require("../PlasticRecycling/Assets/recycling3.jpg"),
-            link: "/products/hdpe-recycling",
+            link: "/BatteryBox",
             description: "Complete HDPE recycling solutions"
         },
       ];

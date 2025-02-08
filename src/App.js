@@ -16,6 +16,8 @@ import CircularLoom from './pages/CircularLoom/CircularLoon';
 import PrintingMachine from './pages/PrintingMachines/PrintingMachine';
 import WindingMachine from './pages/WindingMachine/WindingMachine';
 import ExtrusionCoating from './pages/ExtrusionCoating/ExtrusionCoating';
+import WovenSack from './pages/WovenSack/WovenSack';
+import BatteryBox from './pages/BatteryBox/BatteryBox';
 
 function App() {
   return (
@@ -42,6 +44,8 @@ function App() {
             <Route path='/PrintingMachine' element={<PrintingMachine/>}/>
             <Route path='/WindingMachine' element={<WindingMachine/>}/>
             <Route path='/ExtrusionCoating' element={<ExtrusionCoating/>}/>
+            <Route path='/WovenSack' element={<WovenSack/>}/>
+            <Route path='/BatteryBox' element={<BatteryBox/>}/>
           </Routes>
           
           <Footer/>

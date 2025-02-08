@@ -8,7 +8,7 @@
   
   .tab-button {
     padding: 0.75rem 0;
-    font-size: 1.125rem;
+    font-size: 1.225rem;
     font-weight: 600;
     background: none;
     border: none;
@@ -47,16 +47,17 @@
     padding: 1rem 2rem;
     color: #666;
     font-size: 18px;
+    
     font-style: italic;
   }
   
 /* SpecsTable.css */
 .specs-table {
   width: 90%; /* Increased width for better responsiveness */
-  max-width: 900px; /* Set a max width */
+  max-width: 1000px; /* Set a max width */
   border-collapse: collapse;
   margin: 2rem auto;
-  table-layout: fixed; /* Ensures uniform column width */
+  table-layout:auto; /* Ensures uniform column width */
 }
 
 /* Reduce column width */
@@ -318,4 +319,6 @@
   margin-top: 1rem;
   font-size: 1rem;
   color: #666;
+  
+  
 }
