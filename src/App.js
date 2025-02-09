@@ -18,6 +18,7 @@ import WindingMachine from './pages/WindingMachine/WindingMachine';
 import ExtrusionCoating from './pages/ExtrusionCoating/ExtrusionCoating';
 import WovenSack from './pages/WovenSack/WovenSack';
 import BatteryBox from './pages/BatteryBox/BatteryBox';
+import Carrer from './pages/Carrer/Carrer';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path='/News' element={<News/>}/>
             <Route path='/ContactUs' element={<ContactUs/>}/>
             <Route path='/Service' element={<Service/>}/>
+            <Route path='/Carrer' element={<Carrer/>}/>
             <Route path="/Woven" element={<Woven />} />
             <Route path="/PlasticRecycling" element={<PlasticRecycling />} />
             <Route path='/AboutUs' element={<Aboutus/>}/>

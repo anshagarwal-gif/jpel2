@@ -16,7 +16,7 @@ const Navbar = () => {
     { to: '/Service', label: 'SERVICES' },
     { to: '/news', label: 'NEWS & EVENTS' },
     { to: '/Exhibition', label: 'EXHIBITIONS' },
-    { to: '/careers', label: 'CAREERS' },
+    { to: '/Carrer', label: 'CAREERS' },
     { to: '/ContactUs', label: 'CONTACT US' },
   ];
 
