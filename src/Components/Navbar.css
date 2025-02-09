@@ -148,7 +148,8 @@
     .menu-toggle {
         display: none;
         cursor: pointer;
-        font-size: 24px;
+        font-size: 18px;
+        margin-left:30px;
     }
     
     @media screen and (max-width: 1200px) {

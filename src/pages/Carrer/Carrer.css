@@ -1,10 +1,160 @@
-.imageContainer1 {
-    display: flex;
-    flex-direction: column;
+.career-container {
+  max-width: 930px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.panel-heading {
+  width: 930px;
+  height: 60.13px;
+  color: #828282;
+  font-family: Roboto, sans-serif;
+  font-size: 22px;
+  margin: 0px 0px -1px;
+  padding: 15px 25px 15px 0px;
+}
+
+.career-container h1 {
+  text-align: center;
+  color: #333;
+  font-family: popins, sans-serif;
+  font-size: 29.9px;
+  margin: 15px;
+  padding: 15px 25px 15px 0px;
+}
+
+.openings-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.job-item {
+  border-top: 0.8px solid rgb(130, 130, 130);
+  border-bottom: 0.8px solid rgb(130, 130, 130);
+  margin-bottom: -1px;
+  background: transparent;
+  transition: background-color 0.3s;
+}
+
+.job-item.active {
+  background-color: rgba(173, 216, 230, 0.2); /* Light blue background when active */
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px 15px 0px;
+  font-family: popins, sans-serif;
+  font-size: 20px;
+  color: rgb(35, 35, 35);
+  cursor: pointer;
+}
+
+.toggle-icon {
+  font-size: 22px;
+  color:  rgb(35, 35, 35);
+  margin-left: 20px;
+}
+
+.job-details {
+  padding: 20px 25px;
+  background-color: #fff;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section h3 {
+  color: rgb(130, 130, 130);
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.section ul {
+  list-style: none;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.section li {
+  color: rgb(130, 130, 130);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.section li::before {
+  content: "•";
+  position: absolute;
+  left: -20px;
+  color: rgb(130, 130, 130);
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #fff;
+  border: 1px solid rgb(130, 130, 130);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.back-to-top:hover {
+  opacity: 1;
+}
+.carrerdivider{
+  height: 90px;
+}
+.apply-now-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  background-color: transparent;
+  border: 1px solid #333;
+  color: #333;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.apply-now-btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.apply-now-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.2);
+}
+
+.apply-now-btn:active {
+  transform: translateY(1px);
+}
+.imagecontainer3{
+  display: flex;
+  flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%; /* Ensure full width */
     text-align: center;
     margin-bottom: 20px;
     cursor: pointer;
-  }
+
+}
