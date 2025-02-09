@@ -51,13 +51,13 @@ const PlasticRecycling= () => {
         {
             subtitle: "Monofilament Line/Danline",
             image: require("../PlasticRecycling/Assets/recycling5.jpg"),
-            link: "/products/woven-sacks",
+            link: "/Monofilament",
             description: "Industrial grade woven sacks" // optional
           },
           {
             subtitle: "Box-Strapping Line",
             image: require("../PlasticRecycling/Assets/recycling6.jpg"), 
-            link: "/products/pet-washing",
+            link: "/BoxStrapping",
             description: "Advanced PET bottle washing systems"
           },
       ];
@@ -65,13 +65,13 @@ const PlasticRecycling= () => {
         {
             subtitle: "Sheet Extrusion Line",
             image: require("../PlasticRecycling/Assets/recycling7.jpg"),
-            link: "/WovenSacks",
+            link: "/SheetExtrusion",
             description: "Industrial grade woven sacks" // optional
           },
           {
             subtitle: "Cast Film Line",
             image: require("../PlasticRecycling/Assets/recycling8.jpg"), 
-            link: "/products/pet-washing",
+            link: "/CastLine",
             description: "Advanced PET bottle washing systems"
           },
       ];

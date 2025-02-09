@@ -1,34 +1,36 @@
 /* ProductDisplay.css */
-.product-layout {
+.product-layoutFila {
     display: flex;
     max-width: 1800px;
     margin: 0 auto;
-    padding: 40px;
+    padding: 30px;
     gap: 40px;
   }
   
-  .image-section {
+  .image-sectionFila {
     flex: 1;
     min-width: 300px;
+    
     animation: slideIn 1s ease-in-out; /* Apply the animation */
   }
   
-  .product-image {
+  .product-imageFila {
     width: 100%;
     height: auto;
     border-radius: 8px;
-  
+   
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  .content-section {
+  .content-sectionFila {
     flex: 2;
     min-width: 300px;
     max-width: 900px;
+    margin-top: 70px;
     
   }
   
-  .description p {
+  .descriptionFila p {
     margin: 0 0 16px 0;
     line-height: 1.4;
     color: #444;
@@ -50,14 +52,14 @@
   
   /* Responsive Design */
   @media (max-width: 768px) {
-    .product-layout {
+    .product-layoutFila {
       flex-direction: column;
       padding: 16px;
       gap: 24px;
     }
   
-    .image-section,
-    .content-section {
+    .image-sectionFila,
+    .content-sectionFila {
       width: 100%;
     }
   
