@@ -5,10 +5,17 @@ import logorevised from "../assets/JP GROUP LOGO 2024 Revised.jpg"
 import { FaDownload } from "react-icons/fa";
 import logonewversion from "../assets/logonewversion.jpg"
 import "../Components/CompanySection.css"
+import { useNavigate } from "react-router-dom";
+
+
+
+
+
 // Initialize Google Analytics
 ReactGA.initialize("G-4G63P3V3DN", { debugMode: true });
 
 const CompanySection = () => {
+  const navigate = useNavigate();
   const [isModalOpen, setModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -116,7 +123,7 @@ const handleOverlayClick = (e) => {
           MANUFACTURER AND EXPORTER OF PLASTIC PROCESSING MACHINERY, SINCE 1987
         </h1>
 
-<button class="animated-button">
+<button class="animated-button" onClick={() => navigate("/AboutUs")}>
   <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"

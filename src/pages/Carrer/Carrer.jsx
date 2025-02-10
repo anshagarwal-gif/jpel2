@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import "../Carrer/Carrer.css"
+import "../Carrer/Carrer.css";
 
 const Career = () => {
   const [openJob, setOpenJob] = useState('Customer Service and Spare Parts Manager');
+  const [showForm, setShowForm] = useState(false);
+  const [selectedJob, setSelectedJob] = useState('');
 
+  // Job details object (unchanged from your original code)
   const jobDetails = {
     'Customer Service and Spare Parts Manager': {
       profile: [
@@ -47,8 +50,20 @@ const Career = () => {
     'Draughtsman-Mechanical'
   ];
 
+  // Form handling
+  const handleApplyNow = (job) => {
+    setSelectedJob(job);
+    setShowForm(true);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission logic here
+    setShowForm(false);
+  };
+
   return (
-    <div>
+    <div className="career-page">
       <div className="imageContainer3">
         <img
           className="ExportSection1"
@@ -59,6 +74,7 @@ const Career = () => {
 
       <div className='carrerdivider'></div>
 
+      {/* Job Listings Section */}
       <div className="career-container">
         <h1>CURRENT OPENINGS</h1>
         <div className="openings-list">
@@ -98,14 +114,59 @@ const Career = () => {
                       <p>Details coming soon...</p>
                     </div>
                   )}
-                  <button className="apply-now-btn">APPLY NOW</button>
+                  <button className="apply-now-btn" onClick={() => handleApplyNow(job)}>APPLY NOW</button>
                 </div>
               )}
             </div>
           ))}
         </div>
-        <div className='carrerdivider'></div>
       </div>
+
+      {/* Application Form Section */}
+      {showForm && (
+        <div className="form-overlay">
+          <div className="application-form">
+            <h2>APPLYING FOR: <span className="job-title">{selectedJob}</span></h2>
+            <p className="form-instruction">Request you to kindly fill all the required details.</p>
+            
+            <form onSubmit={handleSubmit}>
+              <div className="form-columns">
+                <div className="form-column">
+                  <div className="form-group">
+                    <input type="text" placeholder="Name" required />
+                  </div>
+                  <div className="form-group">
+                    <input type="email" placeholder="Email ID" required />
+                  </div>
+                  <div className="form-group">
+                    <input type="tel" placeholder="Contact No" required />
+                  </div>
+                  <div className="form-group">
+                    <input type="text" placeholder="Qualification" required />
+                  </div>
+                </div>
+                
+                <div className="form-column">
+                  <div className="form-group">
+                    <input type="file" className="resume-upload" accept=".pdf,.doc,.docx" required />
+                    <label className="file-label">Upload Resume</label>
+                  </div>
+                  <div className="form-group">
+                    <textarea placeholder="Message" rows="6" required></textarea>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="form-actions">
+                <button type="submit" className="send-message-btn">SEND MESSAGE</button>
+                <button type="button" className="close-form-btn" onClick={() => setShowForm(false)}>✕</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+      
+      <div className='carrerdivider'></div>
     </div>
   );
 };

@@ -1,3 +1,4 @@
+/* Original styles - kept unchanged */
 .career-container {
   max-width: 930px;
   margin: 0 auto;
@@ -38,7 +39,7 @@
 }
 
 .job-item.active {
-  background-color: rgba(173, 216, 230, 0.2); /* Light blue background when active */
+  background-color: rgba(173, 216, 230, 0.2);
 }
 
 .job-header {
@@ -54,7 +55,7 @@
 
 .toggle-icon {
   font-size: 22px;
-  color:  rgb(35, 35, 35);
+  color: rgb(35, 35, 35);
   margin-left: 20px;
 }
 
@@ -94,7 +95,6 @@
   color: rgb(130, 130, 130);
 }
 
-/* Back to top button */
 .back-to-top {
   position: fixed;
   bottom: 20px;
@@ -115,9 +115,11 @@
 .back-to-top:hover {
   opacity: 1;
 }
-.carrerdivider{
+
+.carrerdivider {
   height: 90px;
 }
+
 .apply-now-btn {
   display: inline-block;
   padding: 12px 30px;
@@ -125,6 +127,7 @@
   margin-bottom: 30px;
   background-color: transparent;
   border: 1px solid #333;
+  border-radius: 25px;
   color: #333;
   font-family: Roboto, sans-serif;
   font-size: 14px;
@@ -147,14 +150,309 @@
 .apply-now-btn:active {
   transform: translateY(1px);
 }
-.imagecontainer3{
+
+.imagecontainer3 {
   display: flex;
   flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%; /* Ensure full width */
-    text-align: center;
-    margin-bottom: 20px;
-    cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
 
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.application-form {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 930px;
+  position: relative;
+  font-family: Roboto, sans-serif;
+  box-sizing: border-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.application-form h2 {
+  font-family: popins, sans-serif;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.job-title {
+  color: #e31e24;
+  font-weight: 500;
+}
+
+.form-instruction {
+  color: #828282;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.form-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.form-column {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #828282;
+  border-radius: 8px;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.resume-upload {
+  display: none;
+}
+
+.file-label {
+  display: block;
+  padding: 12px 15px;
+  background-color: #fff;
+  border: 1px solid #828282;
+  border-radius: 8px;
+  color: #828282;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: left;
+  transition: all 0.3s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.file-label:hover {
+  border-color: #333;
+  color: #333;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.send-message-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #333;
+  border: 1px solid #333;
+  border-radius: 0px;
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.send-message-btn:hover {
+  background-color: #ff0000;
+  color: #fff;
+  border: #fff;
+}
+
+.close-form-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #828282;
+  cursor: pointer;
+  transition: color 0.3s;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-form-btn:hover {
+  color: #333;
+  background-color: rgba(130, 130, 130, 0.1);
+}
+
+/* Responsive styles */
+@media (max-width: 960px) {
+  .career-container,
+  .panel-heading {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .panel-heading {
+    height: auto;
+    min-height: 60.13px;
+  }
+
+  .career-container h1 {
+    font-size: 24px;
+    padding: 15px 0;
+  }
+
+  .job-header {
+    padding: 15px 0;
+  }
+
+  .application-form {
+    padding: 30px;
+    width: 95%;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .career-container h1 {
+    font-size: 22px;
+  }
+
+  .job-header {
+    font-size: 18px;
+  }
+
+  .section h3 {
+    font-size: 16px;
+  }
+
+  .section li {
+    font-size: 14px;
+  }
+
+  .form-columns {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .application-form {
+    padding: 25px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .file-label {
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .application-form h2 {
+    font-size: 20px;
+  }
+
+  .form-instruction {
+    font-size: 14px;
+  }
+
+  .apply-now-btn,
+  .send-message-btn {
+    padding: 10px 20px;
+    font-size: 12px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .career-container h1 {
+    font-size: 20px;
+  }
+
+  .job-header {
+    font-size: 16px;
+  }
+
+  .toggle-icon {
+    font-size: 18px;
+  }
+
+  .section h3 {
+    font-size: 15px;
+  }
+
+  .section li {
+    font-size: 13px;
+  }
+
+  .application-form {
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .form-columns {
+    gap: 15px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .application-form h2 {
+    font-size: 18px;
+  }
+
+  .form-instruction {
+    font-size: 13px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .file-label {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .send-message-btn,
+  .apply-now-btn {
+    padding: 8px 16px;
+    font-size: 11px;
+  }
 }
