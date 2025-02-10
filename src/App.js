@@ -19,6 +19,10 @@ import ExtrusionCoating from './pages/ExtrusionCoating/ExtrusionCoating';
 import WovenSack from './pages/WovenSack/WovenSack';
 import BatteryBox from './pages/BatteryBox/BatteryBox';
 import Carrer from './pages/Carrer/Carrer';
+import BoxStrapping from './pages/Box-Strapping/BoxStrapping';
+import Monofilament from './pages/Monofilament/Monofilament';
+import SheetExtrusion from './pages/SheetExtrusion/SheetExtrusion';
+import CastLine from './pages/CastLine/CastLine';
 
 function App() {
   return (
@@ -48,6 +52,10 @@ function App() {
             <Route path='/ExtrusionCoating' element={<ExtrusionCoating/>}/>
             <Route path='/WovenSack' element={<WovenSack/>}/>
             <Route path='/BatteryBox' element={<BatteryBox/>}/>
+            <Route path='/BoxStrapping' element={<BoxStrapping/>}/>
+            <Route path='/Monofilament' element={<Monofilament/>}/>
+            <Route path='/SheetExtrusion' element={<SheetExtrusion/>}/>
+            <Route path='/CastLine' element={<CastLine/>}/>
           </Routes>
           
           <Footer/>
