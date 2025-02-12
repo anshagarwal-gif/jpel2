@@ -3,6 +3,7 @@ import React  from "react";
 import "../ContactUs/ContactUs.css"
 import Card from '../../Components/ServiceCard';
 import HoverCard from "../../Components/HoverCard";
+import InquiryForm from "../../Components/InquiryForm";
 
 const ContactUs = () => {
 
@@ -84,6 +85,8 @@ const ContactUs = () => {
   <a href="mailto:spares@jpel.in">spares@jpel.in</a>
       </div>
     </div>
+    <InquiryForm/>
+    
     <div className="cards-container">
       
    
