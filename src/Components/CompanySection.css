@@ -448,15 +448,17 @@
   }
 
   .left-section h1 {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .center-section h3 {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .center-section p {
-    font-size: 16px;
+    font-size: 10px;
+    text-align: left;
+    padding-right: 12px;
   }
 
   .modal-content2 {
@@ -474,5 +476,10 @@
   .right-section .main-logo {
     max-width: 150px;
     margin: 20px 0;
+  }
+  .right-section .card {
+    width: 82%;
+    max-width: 443px;
+    margin: 0 auto;
   }
 }
