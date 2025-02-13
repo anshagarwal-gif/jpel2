@@ -149,7 +149,7 @@ const Career = () => {
                 <div className="form-column">
                   <div className="form-group">
                     <input type="file" className="resume-upload" accept=".pdf,.doc,.docx" required />
-                    <label className="file-label">Upload Resume</label>
+                    <label type="file" accept=".pdf,.doc,.docx" className="file-label">Upload Resume</label>
                   </div>
                   <div className="form-group">
                     <textarea placeholder="Message" rows="6" required></textarea>

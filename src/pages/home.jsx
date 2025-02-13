@@ -15,6 +15,7 @@ import Homepageanimation from '../Components/Homepageanimation';
 
 import MachineRange from '../Components/MachineRange';
 import CoperateFilm from '../Components/CoperateFilm/CoperateFilm';
+import BannerGIF from '../Components/BannerGIF/BannerGIF';
 const Home = () => {
    // Initialize AOS
    useEffect(() => {
@@ -26,7 +27,7 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <Banner data-aos="fade-left" />
+      <BannerGIF/>
       
       <Homepageanimation/>
       <CompanySection data-aos="fade-right" />

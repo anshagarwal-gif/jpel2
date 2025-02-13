@@ -153,16 +153,25 @@
 /* Extra Small Screens */
 @media (max-width: 480px) {
   .company-name {
-      font-size: 1.5rem;
+      font-size: 8px;
   }
 
   .design-content p {
-      font-size: 0.9rem;
+    font-size: 8px;
   }
 
   .join-link {
-      font-size: 0.9rem;
+    font-size: 8px;
   }
+  .company-logo {
+    position: absolute;
+    top: -236px;
+    left: -59px;
+    width: 306%; /* Adjust the width to keep the left part visible */
+    height: 69vh; /* Make it cover the full height */
+    object-fit: cover; /* Ensure the image fits properly */ /* Place it behind the text */
+}
+
 }
 
   
