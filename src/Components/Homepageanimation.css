@@ -154,14 +154,17 @@
 @media (max-width: 480px) {
   .company-name {
       font-size: 8px;
+      text-align: right;
   }
 
   .design-content p {
     font-size: 8px;
+    text-align: right;
   }
 
   .join-link {
     font-size: 8px;
+    text-align: right;
   }
   .company-logo {
     position: absolute;
