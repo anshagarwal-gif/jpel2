@@ -1,4 +1,4 @@
-/* Original styles - kept unchanged */
+/* Base Container Styles */
 .career-container {
   max-width: 930px;
   margin: 0 auto;
@@ -36,6 +36,8 @@
   margin-bottom: -1px;
   background: transparent;
   transition: background-color 0.3s;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .job-item.active {
@@ -46,17 +48,33 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 25px 15px 0px;
+  padding: 15px 40px 15px 15px;
   font-family: popins, sans-serif;
   font-size: 20px;
   color: rgb(35, 35, 35);
   cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .toggle-icon {
   font-size: 22px;
   color: rgb(35, 35, 35);
   margin-left: 20px;
+  min-width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.job-item.active .toggle-icon {
+  transform: translateY(-50%) rotate(180deg);
 }
 
 .job-details {
@@ -164,47 +182,10 @@
 }
 
 .ExportSection1 {
-  width: 100%;  /* Ensures the image fills the container width */
-   /* Limits maximum width on large screens */
-  height: auto; /* Maintains aspect ratio */
-  border-radius: 10px; /* Optional: Adds smooth edges */
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
-
-/* Medium Screens (Tablets) */
-@media (max-width: 1024px) {
-  .imagecontainer3 {
-    padding: 15px;
-  }
-
-  .ExportSection1 {
-    max-width: 90%; /* Adjusts image size for tablets */
-  }
-}
-
-/* Small Screens (Mobile Phones) */
-@media (max-width: 768px) {
-  .imagecontainer3 {
-    padding: 10px;
-  }
-
-  .ExportSection1 {
-    max-width: 95%; /* Ensures the image scales down properly */
-  }
-}
-
-/* Extra Small Screens */
-@media (max-width: 480px) {
-  .imagecontainer3 {
-    padding: 5px;
-    margin-bottom: 5px;
-  }
-
-  .ExportSection1 {
-    max-width: 100%;
-    border-radius: 5px; /* Slightly rounded corners */
-  }
-}
-
 
 .form-overlay {
   position: fixed;
@@ -364,7 +345,17 @@
   background-color: rgba(130, 130, 130, 0.1);
 }
 
-/* Responsive styles */
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .imagecontainer3 {
+    padding: 15px;
+  }
+
+  .ExportSection1 {
+    max-width: 90%;
+  }
+}
+
 @media (max-width: 960px) {
   .career-container,
   .panel-heading {
@@ -372,6 +363,7 @@
     max-width: 100%;
     padding-left: 15px;
     padding-right: 15px;
+    box-sizing: border-box;
   }
 
   .panel-heading {
@@ -385,7 +377,12 @@
   }
 
   .job-header {
-    padding: 15px 0;
+    padding: 15px 40px 15px 15px;
+    font-size: 18px;
+  }
+
+  .toggle-icon {
+    right: 15px;
   }
 
   .application-form {
@@ -396,12 +393,26 @@
 }
 
 @media (max-width: 768px) {
+  .imagecontainer3 {
+    padding: 10px;
+  }
+
+  .ExportSection1 {
+    max-width: 95%;
+  }
+
   .career-container h1 {
     font-size: 22px;
   }
 
   .job-header {
+    padding: 12px 35px 12px 15px;
+    font-size: 16px;
+  }
+
+  .toggle-icon {
     font-size: 18px;
+    right: 12px;
   }
 
   .section h3 {
@@ -446,16 +457,32 @@
 }
 
 @media (max-width: 480px) {
+  .imagecontainer3 {
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+
+  .ExportSection1 {
+    max-width: 100%;
+    border-radius: 5px;
+  }
+
   .career-container h1 {
     font-size: 20px;
   }
 
   .job-header {
-    font-size: 16px;
+    padding: 10px 30px 10px 12px;
+    font-size: 15px;
   }
 
   .toggle-icon {
-    font-size: 18px;
+    font-size: 16px;
+    right: 10px;
+  }
+
+  .section {
+    margin-bottom: 15px;
   }
 
   .section h3 {
