@@ -86,8 +86,8 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         background-color: rgba(0, 0, 0, 0.9);
         display: flex;
         justify-content: center;
@@ -128,10 +128,17 @@
         position: relative;
         width: 100%;
         height: 100%;
+        justify-content: center;
+    align-items: center;
     }
 
     .gallery-item {
         text-align: center;
+         flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     }
 
     /* Make the Image Fullscreen Inside the Modal */
@@ -193,4 +200,190 @@
 
 .modal-overlay1.closing {
     opacity: 0;
+}
+/* Medium screens */
+@media screen and (max-width: 768px) {
+    .flip-card-inner {
+        width: 300px;
+        height: 300px;
+    }
+
+    .gallery-image {
+        width: 100vw;
+        height: 80vh;
+        object-fit: contain;
+    }
+
+    .prev-button,
+    .next-button {
+        width: 50px;
+        height: 50px;
+        font-size: 35px;
+    }
+
+    .prev-button {
+        left: 20px;
+    }
+
+    .next-button {
+        right: 20px;
+    }
+
+    .close-button {
+        top: 15px;
+        right: 15px;
+        font-size: 25px;
+        padding: 8px;
+    }
+
+    .modal-content1 {
+        width: 100vw;
+        height: 100vh;
+        padding: 10px;
+    }
+
+    .gallery-title {
+        font-size: 14px;
+        color: white;
+    }
+}
+
+/* Small screens */
+@media screen and (max-width: 480px) {
+    .card-container {
+        margin-top: 20px;
+        padding: 10px;
+    }
+
+    .flip-card-inner {
+        width: 250px;
+        height: 250px;
+    }
+
+    .card-info {
+        font-size: 16px;
+    }
+
+    .card-title {
+        font-size: 18px;
+    }
+
+    /* Adjust modal for mobile */
+    .modal-overlay1 {
+        padding: 0;
+        
+    }
+
+    .modal-content1 {
+        width: 100%;
+        height: 100%;
+       
+    }
+    
+
+    .gallery-image {
+        width: 90vw;
+        height: 50vh;
+        object-fit: contain;
+    }
+
+    /* Smaller navigation buttons */
+    .prev-button,
+    .next-button {
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .prev-button {
+        left: 10px;
+    }
+
+    .next-button {
+        right: 10px;
+    }
+
+    /* Adjust close button */
+    .close-button {
+        top: 10px;
+        right: 20px;
+        font-size: 22px;
+        padding: 6px;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .gallery-title {
+        font-size: 12px;
+        margin-top: 5px;
+        color: white;
+    }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 360px) {
+    .flip-card-inner {
+        width: 220px;
+        height: 220px;
+    }
+
+    .gallery-image {
+        height: 60vh;
+    }
+
+    .prev-button,
+    .next-button {
+        width: 35px;
+        height: 35px;
+        font-size: 25px;
+    }
+
+    .prev-button {
+        left: 5px;
+    }
+
+    .next-button {
+        right: 5px;
+    }
+}
+
+/* Handle landscape orientation on mobile */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+    .gallery-image {
+        height: 90vh;
+        width: 90vw;
+    }
+
+    .prev-button,
+    .next-button {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .close-button {
+        top: 5px;
+        right: 5px;
+    }
+
+    .gallery-title {
+        margin-top: 2px;
+    }
+}
+
+/* Improve touch targets on mobile */
+@media (hover: none) and (pointer: coarse) {
+    .prev-button,
+    .next-button,
+    .close-button {
+        padding: 12px;
+    }
+
+    .prev-button:active,
+    .next-button:active {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .close-button:active {
+        color: red;
+    }
 }

@@ -9,7 +9,7 @@ const BannerGIF = () => {
         Your browser does not support the video tag.
       </video>
       <div className="gif-overlay">
-        <h1 className="gif-text">Welcome to Our Website</h1>
+        <h1 className="gif-text">Redefining Plastic Processing with Innovative Engineering.</h1>
       </div>
     </div>
   );

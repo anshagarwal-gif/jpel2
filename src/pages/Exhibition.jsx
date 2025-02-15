@@ -188,6 +188,18 @@ const EXHIBITION = () => {
     { src: require("../assets/K-2019/k-2019-1.jpg"), title: "K-GERMANY 2019" },
     { src: require("../assets/K-2019/k-2019-2.jpg"), title: "K-GERMANY 2019" },
   ];
+  const Cardimage2022 = [
+    { src: require("../assets/K-2022/K-1.jpg"), title: "K-GERMANY 2022" },
+    { src: require("../assets/K-2022/K-2.jpg"), title: "K-GERMANY 2022" },
+    { src: require("../assets/K-2022/K-3.jpg"), title: "K-GERMANY 2022" },
+    { src: require("../assets/K-2022/K-4.jpg"), title: "K-GERMANY 2022" },
+    { src: require("../assets/K-2022/K-5.jpg"), title: "K-GERMANY 2022" },
+    { src: require("../assets/K-2022/K-6.jpg"), title: "K-GERMANY 2022" },
+    { src: require("../assets/K-2022/K-7.jpg"), title: "K-GERMANY 2022" },
+    { src: require("../assets/K-2022/K-8.jpg"), title: "K-GERMANY 2022" },
+    { src: require("../assets/K-2022/K-9.jpg"), title: "K-GERMANY 2022" },
+
+  ];
   const openModal = (imageSrc, title) => {
     setModalImage(imageSrc);
     setModalTitle(title);
@@ -210,7 +222,7 @@ const EXHIBITION = () => {
       </div>
 
       {/* Second Image and Title */}
-      <div className="imageContainer">
+      {/* <div className="imageContainer">
         <h1 className="centerText" style={{fontSize:'22px',color:'red'}}>UPCOMING</h1>
         <h2 className="centerText" style={{fontSize:'42px'}}>EXHIBITIONS</h2>
         <img
@@ -222,7 +234,7 @@ const EXHIBITION = () => {
         <div className="titleBox" onClick={() => openModal(require('../assets/Exhibition2.png'), "Exhibition 2")}>
           UPCOMING EXHIBITION 2024
         </div>
-      </div>
+      </div> */}
 
       {/* Modal */}
       {isModalOpen && (
@@ -346,8 +358,11 @@ const EXHIBITION = () => {
       <div className="card-wrapper" >
      
      
-      <Cardflip1/>
-      <Cardflip1/>
+      <Cardflip1
+       cardInfo="Click to explore K-GERMANY 2022"
+       cardTitle="K-GERMANY 2022"
+       thumbnailImage={require("../assets/K-2022/K-cover.jpg")}
+       galleryImages={Cardimage2022}/>
       <Cardflip1
        cardInfo="Click to explore K-GERMANY 2019"
        cardTitle="K-GERMANY 2019"

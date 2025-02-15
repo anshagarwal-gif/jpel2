@@ -2,7 +2,7 @@
 .styled-wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 40px;
+
   font-family: Arial, sans-serif;
   position: relative;
   width: 100%;
@@ -12,7 +12,7 @@
 /* Left Section */
 .left-section {
   flex: 1;
-  padding: 20px;
+  
   margin-top: 30px;
   display: flex;
   flex-direction: column;
@@ -118,7 +118,7 @@
 /* Center Section */
 .center-section {
   flex: 2;
-  padding: 20px;
+  padding-left: 20px;
 }
 
 .center-section h3 {
@@ -133,6 +133,10 @@
 }
 
 /* Right Section */
+.right-section{
+  position: relative;
+  right: 2%;
+}
 .right-section .card {
   position: relative;
   width: 500px;
@@ -145,7 +149,7 @@
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
-  padding: 20px;
+  
 }
 
 .right-section .content {
@@ -378,9 +382,7 @@
 
 /* Responsive Breakpoints */
 @media (max-width: 1200px) {
-  .styled-wrapper {
-    padding: 20px;
-  }
+ 
   
   .right-section .card {
     width: 450px;
@@ -397,8 +399,8 @@
 
   .left-section,
   .center-section {
-    width: 100%;
-    padding: 10px;
+    width:  91%;
+   
     text-align: center;
   }
 
@@ -443,9 +445,7 @@
 }
 
 @media (max-width: 480px) {
-  .styled-wrapper {
-    padding: 10px;
-  }
+  
 
   .left-section h1 {
     font-size: 20px;
@@ -459,11 +459,10 @@
     font-size: 10px;
     text-align: left;
     padding-right: 12px;
+    /* padding: 10px; */
   }
 
-  .modal-content2 {
-    padding: 15px;
-  }
+ 
 
   .modal-content2 h2 {
     font-size: 28px;
@@ -472,7 +471,7 @@
   .modal-content2 h4 {
     font-size: 20px;
   }
-
+  
   .right-section .main-logo {
     max-width: 150px;
     margin: 20px 0;

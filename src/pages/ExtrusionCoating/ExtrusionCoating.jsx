@@ -62,7 +62,7 @@ const ExtrusionCoating = () => {
           ['Die-Width (mm)', '2000','2200','2650','3300','3800','4300','5200','6000'],
           ['Coating Width (Min. - Max., in mm) ', '1200-1850','2050 - 2200','1600 - 2500','2400 - 3150','3150 - 3650','3650 - 4150','4000-5000','4600-5800'],
         ],
-        slideshowImages: [  require("../ExtrusionCoating/Assets/Tamp1.jpg"),   require("../ExtrusionCoating/Assets/Tamp1.jpg")],
+        slideshowImages: [  require("../ExtrusionCoating/Assets/Tamp3.jpg"),   require("../ExtrusionCoating/Assets/Tamp4.jpg")],
         applicationPoints: ['Industrial: Weatherproof tarpaulins for construction, agriculture, and transport.',
 'Retail: Durable, waterproof covers for vehicles and outdoor use.'],
         catalogue: '/path-to-tab1-catalogue.pdf',

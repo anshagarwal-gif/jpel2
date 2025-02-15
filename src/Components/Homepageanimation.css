@@ -28,13 +28,14 @@
     transition: all 1s ease;
     top: -400px;
     
+    
   }
   
 
   
   .design-content {
     width: 75%;
-    text-align: center;
+    text-align: justify;
     font-size: 36.3px;
     z-index: 2;
     margin-right: 80px;
@@ -42,6 +43,7 @@
     transform: translateX(100%);
     transition: all 1s ease;
     margin-top: 40px;
+
     
   }
   
