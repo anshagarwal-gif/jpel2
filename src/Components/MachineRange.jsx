@@ -5,22 +5,22 @@ import { Link } from "react-router-dom";
 const MachineRange = () => {
   const sections = [
     {
-      title: "Woven Packaging",
-      link: "/Woven",
+        title: "Woven Packaging",
+        link: "/PlasticRecycling/woven-packaging",
     },
     {
-      title: "Plastic Recycling",
-      link: "/PlasticRecycling",
+        title: "Plastic Recycling",
+        link: "/PlasticRecycling/plastic-recycling",
     },
     {
-      title: "Profile Extrusion",
-      link: "/profile-extrusion",
+        title: "Profile Extrusion",
+        link: "/PlasticRecycling/profile-extrusion",
     },
     {
-      title: "Sheet/Film Extrusion",
-      link: "/sheet-film-extrusion",
+        title: "Sheet/Film Extrusion",
+        link: "/PlasticRecycling/sheet-film-extrusion",
     },
-  ];
+];
 
   return (
     <div className="machinery-range">

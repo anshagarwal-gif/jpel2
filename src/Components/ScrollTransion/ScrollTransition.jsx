@@ -9,12 +9,16 @@ const ScrollTransition = ({
   titleClassName = '' 
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
   
     const handleScroll = () => {
-      
+      if (!id || sections.length === 0) {
+        return;
+      }
       const transitionSection = document.getElementById(id);
+      
 
 
        // Use the unique ID
@@ -23,10 +27,27 @@ const ScrollTransition = ({
         return;
       }
       const rect = transitionSection.getBoundingClientRect();
+      const isInView = rect.top < window.innerHeight && rect.bottom > 0;
       
-      if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
-        const progress = Math.abs(rect.top) / (rect.height - window.innerHeight);
-        const newIndex = Math.floor(progress * sections.length);
+      // Update visibility state
+      if (isInView !== isVisible) {
+        setIsVisible(isInView);
+      }
+
+      // Only calculate progress if section is in view
+      if (isInView) {
+        // Calculate progress based on how much of the section has been scrolled
+        const totalHeight = rect.height - window.innerHeight;
+        const scrolledHeight = Math.abs(rect.top);
+        const progress = Math.min(Math.max(scrolledHeight / totalHeight, 0), 1);
+        
+        // Calculate new index based on progress
+        const newIndex = Math.min(
+          Math.floor(progress * sections.length),
+          sections.length - 1
+        );
+
+        // Only update if index has changed and is valid
         if (newIndex !== activeIndex && newIndex >= 0 && newIndex < sections.length) {
           setActiveIndex(newIndex);
         }
@@ -35,10 +56,15 @@ const ScrollTransition = ({
 
     window.addEventListener('scroll', handleScroll);
     
-    return () => 
-      window.removeEventListener('scroll', handleScroll);
+    // Initial check
+    handleScroll();
     
-  }, [activeIndex, sections, id]);
+    // Cleanup
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [activeIndex, sections, id, isVisible]);
+  if (!id || sections.length === 0) {
+    return null;
+  }
 
   return (
     <section id={id} className={`transition-section ${className}`}>

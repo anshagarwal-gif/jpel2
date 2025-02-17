@@ -1,4 +1,3 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
@@ -7,7 +6,7 @@ import Footer from './Components/Footer';
 import EXHIBITION from './pages/Exhibition';
 import News from './pages/News';
 import ContactUs from './pages/ContactUs/ContactUs';
-import Service from "./pages/Services/Service"
+import Service from "./pages/Services/Service";
 import Woven from './pages/Woven/Woven';
 import PlasticRecycling from './pages/PlasticRecycling/PlasticRecycling';
 import Aboutus from './pages/Aboutus/Aboutus';
@@ -26,41 +25,40 @@ import CastLine from './pages/CastLine/CastLine';
 
 function App() {
   return (
-    
     <Router>
       <link
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-  rel="stylesheet"
-/>
-
-        <div className='flex flex-1 items-center'>
-          <Navbar />
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        rel="stylesheet"
+      />
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path='/Exhibition' element={<EXHIBITION/>}/>
-            <Route path='/News' element={<News/>}/>
-            <Route path='/ContactUs' element={<ContactUs/>}/>
-            <Route path='/Service' element={<Service/>}/>
-            <Route path='/Carrer' element={<Carrer/>}/>
+            <Route path="/Exhibition" element={<EXHIBITION />} />
+            <Route path="/News" element={<News />} />
+            <Route path="/ContactUs" element={<ContactUs />} />
+            <Route path="/Service" element={<Service />} />
+            <Route path="/Carrer" element={<Carrer />} />
             <Route path="/Woven" element={<Woven />} />
             <Route path="/PlasticRecycling" element={<PlasticRecycling />} />
-            <Route path='/AboutUs' element={<Aboutus/>}/>
-            <Route path='/TapeExtrusion' element={<TapeExtrusion/>}/>
-            <Route path='/CircularLoom' element={<CircularLoom/>}/>
-            <Route path='/PrintingMachine' element={<PrintingMachine/>}/>
-            <Route path='/WindingMachine' element={<WindingMachine/>}/>
-            <Route path='/ExtrusionCoating' element={<ExtrusionCoating/>}/>
-            <Route path='/WovenSack' element={<WovenSack/>}/>
-            <Route path='/BatteryBox' element={<BatteryBox/>}/>
-            <Route path='/BoxStrapping' element={<BoxStrapping/>}/>
-            <Route path='/Monofilament' element={<Monofilament/>}/>
-            <Route path='/SheetExtrusion' element={<SheetExtrusion/>}/>
-            <Route path='/CastLine' element={<CastLine/>}/>
+            <Route path="/PlasticRecycling/:category" element={<PlasticRecycling />} />
+            <Route path="/AboutUs" element={<Aboutus />} />
+            <Route path="/TapeExtrusion" element={<TapeExtrusion />} />
+            <Route path="/CircularLoom" element={<CircularLoom />} />
+            <Route path="/PrintingMachine" element={<PrintingMachine />} />
+            <Route path="/WindingMachine" element={<WindingMachine />} />
+            <Route path="/ExtrusionCoating" element={<ExtrusionCoating />} />
+            <Route path="/WovenSack" element={<WovenSack />} />
+            <Route path="/BatteryBox" element={<BatteryBox />} />
+            <Route path="/BoxStrapping" element={<BoxStrapping />} />
+            <Route path="/Monofilament" element={<Monofilament />} />
+            <Route path="/SheetExtrusion" element={<SheetExtrusion />} />
+            <Route path="/CastLine" element={<CastLine />} />
           </Routes>
-          
-          <Footer/>
-          
-        </div>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }

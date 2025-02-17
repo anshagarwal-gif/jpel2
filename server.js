@@ -44,7 +44,7 @@ app.post("/send-email", (req, res) => {
   // Define the email content
   const mailOptions = {
     from: process.env.EMAIL,  // Sender email from the environment variable
-    to: "aash.rishikesh@gmail.com",  // Replace with your recipient email address
+    to: "krishnarajbhosale@gmail.com",  // Replace with your recipient email address
     subject: "Download Catalogue |  J P Extrusiontech Private Limited",
       html: `
         <div style="font-family: Arial, sans-serif; border: 2px dashed #000; padding: 20px; max-width: 600px; margin: auto; background-color: #F7F7F7;">
