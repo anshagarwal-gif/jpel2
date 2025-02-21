@@ -22,6 +22,7 @@ import BoxStrapping from './pages/Box-Strapping/BoxStrapping';
 import Monofilament from './pages/Monofilament/Monofilament';
 import SheetExtrusion from './pages/SheetExtrusion/SheetExtrusion';
 import CastLine from './pages/CastLine/CastLine';
+import PET from './pages/PET/PET';
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
             <Route path="/Monofilament" element={<Monofilament />} />
             <Route path="/SheetExtrusion" element={<SheetExtrusion />} />
             <Route path="/CastLine" element={<CastLine />} />
+            <Route path='/PET' element={<PET/>}/>
           </Routes>
         </main>
         <Footer />

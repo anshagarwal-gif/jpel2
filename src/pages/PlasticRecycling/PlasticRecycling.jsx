@@ -73,7 +73,7 @@ const PlasticRecycling = () => {
                     {
                         subtitle: "PET Washing Line",
                         image: require("../PlasticRecycling/Assets/recycling2.jpg"),
-                        link: "/products/pet-washing",
+                        link: "/PET",
                         description: "Advanced PET bottle washing systems"
                     }
                 ]

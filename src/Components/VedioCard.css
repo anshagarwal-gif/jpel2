@@ -24,6 +24,7 @@
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    forced-color-adjust: none;
   }
   
   .play-button-overlay {
@@ -38,6 +39,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    forced-color-adjust: none;
   }
   
   .play-button {
@@ -47,6 +49,7 @@
     border-top: 12px solid transparent;
     border-bottom: 12px solid transparent;
     border-left: 21px solid #ff0000; /* This makes the triangle point right */
+    forced-color-adjust: none;
     
   }
   
@@ -56,6 +59,7 @@
     font-size: 19px;
     font-weight: bold;
     color: #333;
+    forced-color-adjust: none;
   }
   
   /* Modal Styles */
@@ -79,6 +83,7 @@
     display: flex; /* Allows centering content inside */
     justify-content: center;
     align-items: center;
+    forced-color-adjust: none;
 }
 .modal-content {
     position: relative;
@@ -104,6 +109,7 @@
     padding: 10px;
     border-radius: 10px;
     box-sizing: border-box;
+    forced-color-adjust: auto;
   }
   
   .close-button2 {
@@ -113,6 +119,7 @@
     font-size: 35px;
     color: white;
     cursor: pointer;
+    forced-color-adjust: auto;
   }
   @media (max-width: 768px) {
     .video-card {
@@ -141,4 +148,26 @@
   .video-thumbnail:hover .play-button-overlay {
     opacity: 1;
   }
-    
+/* High Contrast Mode Fix */
+@media (forced-colors: active) {
+  .video-title {
+      color: CanvasText;
+  }
+  
+  .close-button2 {
+      color: ButtonText;
+  }
+  
+  .modal-content {
+      background: Canvas;
+      border: 1px solid CanvasText;
+  }
+  
+  .play-button {
+      border-left-color: ButtonText;
+  }
+  
+  .play-button-overlay {
+      background-color: Canvas;
+  }
+}
