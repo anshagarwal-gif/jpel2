@@ -1,9 +1,13 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
+import "./PlasticRecycling.css";
+import ScrollTransition from "../../Components/ScrollTransion/ScrollTransition";
 
-const PlasticRecycling = ({ initialCategory = 'woven-packaging' }) => {
-    const [scrollY, setScrollY] = useState(0);
+const PlasticRecycling = () => {
+    const location = useLocation();
+    const { category } = useParams();
     
-    // Memoize the sections data
+    // Memoize the sections data to prevent recreation on every render
     const allSections = useMemo(() => ({
         "woven-packaging": [
             {
@@ -37,7 +41,7 @@ const PlasticRecycling = ({ initialCategory = 'woven-packaging' }) => {
                     {
                         subtitle: "Extrusion Coating",
                         image: require("../PlasticRecycling/Assets/recycling0.jpg"),
-                        link: "ExtrusionCoating",
+                        link: "/ExtrusionCoating",
                         description: "Industrial shredding machines"
                     },
                     {
@@ -49,7 +53,7 @@ const PlasticRecycling = ({ initialCategory = 'woven-packaging' }) => {
                     {
                         subtitle: "Bag Conversion Machines",
                         image: require("../PlasticRecycling/Assets/recycling-5.jpg"),
-                        link: "bottle-shredding",
+                        link: "/products/bottle-shredding",
                         description: "Industrial shredding machines"
                     }
                 ]
@@ -63,13 +67,13 @@ const PlasticRecycling = ({ initialCategory = 'woven-packaging' }) => {
                     {
                         subtitle: "Woven Sacks",
                         image: require("../PlasticRecycling/Assets/recycling1.jpg"),
-                        link: "WovenSack",
+                        link: "/WovenSack",
                         description: "Industrial grade woven sacks"
                     },
                     {
                         subtitle: "PET Washing Line",
                         image: require("../PlasticRecycling/Assets/recycling2.jpg"),
-                        link: "PET",
+                        link: "/PET",
                         description: "Advanced PET bottle washing systems"
                     }
                 ]
@@ -81,7 +85,7 @@ const PlasticRecycling = ({ initialCategory = 'woven-packaging' }) => {
                     {
                         subtitle: "Battery Box Recycling",
                         image: require("../PlasticRecycling/Assets/recycling3.jpg"),
-                        link: "BatteryBox",
+                        link: "/BatteryBox",
                         description: "Complete HDPE recycling solutions"
                     }
                 ]
@@ -95,13 +99,13 @@ const PlasticRecycling = ({ initialCategory = 'woven-packaging' }) => {
                     {
                         subtitle: "Monofilament Line/Danline",
                         image: require("../PlasticRecycling/Assets/recycling5.jpg"),
-                        link: "Monofilament",
+                        link: "/Monofilament",
                         description: "Industrial grade woven sacks"
                     },
                     {
                         subtitle: "Box-Strapping Line",
                         image: require("../PlasticRecycling/Assets/recycling6.jpg"),
-                        link: "BoxStrapping",
+                        link: "/BoxStrapping",
                         description: "Advanced PET bottle washing systems"
                     }
                 ]
@@ -115,94 +119,56 @@ const PlasticRecycling = ({ initialCategory = 'woven-packaging' }) => {
                     {
                         subtitle: "Sheet Extrusion Line",
                         image: require("../PlasticRecycling/Assets/recycling7.jpg"),
-                        link: "SheetExtrusion",
+                        link: "/SheetExtrusion",
                         description: "Industrial grade woven sacks"
                     },
                     {
                         subtitle: "Cast Film Line",
                         image: require("../PlasticRecycling/Assets/recycling8.jpg"),
-                        link: "CastLine",
+                        link: "/CastLine",
                         description: "Advanced PET bottle washing systems"
                     }
                 ]
             }
         ]
-    }), []);
+    }), []); // Empty dependency array since this data is static
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrollY(window.scrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    useEffect(() => {
-        if (allSections[initialCategory]) {
-            const firstSectionId = allSections[initialCategory][0].id;
-            const element = document.getElementById(firstSectionId);
-            
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-    }, [initialCategory, allSections]);
-
-    const ParallaxSection = ({ section, index }) => {
-        const translateY = (scrollY * 0.1 * (index % 2 ? 1 : -1)) + 'px';
-        const opacity = Math.min(1, 1 - (Math.abs(scrollY - (index * 500)) / 1000));
+        // Get the target category from either params or pathname
+        const targetCategory = category || location.pathname.split('/').pop();
         
-        return (
-            <div 
-                id={section.id}
-                className="relative min-h-screen p-8 overflow-hidden"
-            >
-                <div 
-                    className="max-w-6xl mx-auto"
-                    style={{
-                        transform: `translateY(${translateY})`,
-                        opacity: opacity,
-                        transition: 'transform 0.2s ease-out'
-                    }}
-                >
-                    <h2 className="text-4xl font-bold mb-12 text-center">{section.title}</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {section.sections.map((subsection, idx) => (
-                            <div 
-                                key={idx}
-                                className="bg-white rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300"
-                                style={{
-                                    transform: `translateY(${scrollY * 0.05 * ((idx + 1) % 2 ? 1 : -1)}px)`
-                                }}
-                            >
-                                <div className="relative h-48 overflow-hidden">
-                                    <img 
-                                        src={subsection.image} 
-                                        alt={subsection.subtitle}
-                                        className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
-                                    />
-                                </div>
-                                <div className="p-6">
-                                    <h3 className="text-xl font-semibold mb-2">{subsection.subtitle}</h3>
-                                    <p className="text-gray-600">{subsection.description}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        );
-    };
+        // Add a small delay to ensure DOM elements are ready
+        const scrollTimer = setTimeout(() => {
+            if (allSections[targetCategory]) {
+                const firstSectionId = allSections[targetCategory][0].id;
+                const element = document.getElementById(firstSectionId);
+                
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }, 500);
+
+        // Cleanup function to clear the timeout
+        return () => clearTimeout(scrollTimer);
+    }, [category, location.pathname, allSections]);
+    
 
     return (
-        <div className="bg-gray-100 min-h-screen">
+        <div>
+            
             {Object.entries(allSections).map(([sectionCategory, sectionGroup]) => (
+                
                 sectionGroup.map((section, index) => (
-                    <ParallaxSection 
+                    
+                    <ScrollTransition
+                    
                         key={`${sectionCategory}-${index}`}
-                        section={section}
-                        index={index}
+                        id={section.id}
+                        title={section.title}
+                        sections={section.sections}
+                        className="custom-class"
+                        titleClassName="custom-title-class"
                     />
                 ))
             ))}
