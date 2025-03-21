@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
-
+import '../PrintingMachines/PrintingMachine.css'
 
 const PrintingMachine = () => {
     const [activeTab, setActiveTab] = useState('Product');
@@ -38,7 +38,7 @@ const PrintingMachine = () => {
         <img 
           src={require('./Assets/leftbanner.jpg')} 
           alt="Jaiko Industries Machine" 
-          className="product-image"
+          className="product-imagePM"
         />
       </div>
       

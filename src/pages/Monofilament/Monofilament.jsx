@@ -9,7 +9,7 @@ const Monofilament = () => {
         const tabContent = {
           'Product': {
             image: require("../Monofilament/Assets/tab.jpg"),
-            description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+            description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For details , refer to the quotation.',
             tableHeaders: ['Technical Specifications','JP 70 MONO','JP 80 MONO','JP 90 MONO'],
             tableRows: [
               ['Max. Output - PP (Kgs/Hr)' ,'150','200','250'],
@@ -41,7 +41,7 @@ const Monofilament = () => {
         <img 
           src={require('./Assets/leftbanner.jpg')} 
           alt="Jaiko Industries Machine" 
-          className="product-imageFila"
+          className="product-imageFilaMO"
         />
       </div>
       

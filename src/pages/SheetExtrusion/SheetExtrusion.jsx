@@ -8,7 +8,7 @@ const SheetExtrusion = () => {
         // Tab-specific content
         const tabContent = {
           'Product': {
-            image: require("../Monofilament/Assets/tab.jpg"),
+            image: require("../SheetExtrusion/Assets/tab.jpg"),
             description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
             tableHeaders: ['EXTRUDER Ø MM ','DIE (MM)','OUT PUT KGS/HR ','CALENDER DIA X LENGTH (MM)','MAX. SHEET WIDTH (MM)'],
             tableRows: [

@@ -7,11 +7,11 @@ const WovenSack = () => {
     const tabContent = {
       'Plastic Cleaning & Washing': {
         image: require("../WovenSack/Assets/pcl.jpg"),
-        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For details , refer to the quotation.',
         tableHeaders: [],
         tableRows: [],
         slideshowImages: [require("../WovenSack/Assets/pclapll.jpg"),require("../WovenSack/Assets/pclapll.jpg")],
-        applicationPoints: ['PP/PE Film Recycling: Cleaning and recycling polypropylene and polyethylene films.',
+        applicationPoints: ['PP/PE  Recycling: Cleaning and recycling polypropylene and polyethylene films.',
 'Waste Bag Processing: Handling heavily soiled plastic bags for reuse.',
 'High-Quality Material Recovery: Producing recycled materials for various applications.',
 'Contamination Handling: Managing diverse contamination levels effectively.',
@@ -20,7 +20,7 @@ const WovenSack = () => {
       },
       'Single-Stage Recycling': {
         image: require("../WovenSack/Assets/pcl1.jpg"),
-        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For details , refer to the quotation.',
         tableHeaders: ['Technical Specifications Output (kg/Hr.)','JP 80 RC','JP 100 RC','JP 120 RC'],
         tableRows: [
           ['PE Film', '130-150','250-300','400-450'],
@@ -35,7 +35,7 @@ const WovenSack = () => {
       },
       'Two-Stage Recycling': {
         image: require("../WovenSack/Assets/pcl2.jpg"),
-        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For details , refer to the quotation.',
         tableHeaders: ['Technical Specifications Output (kg/Hr.)','JP 80V + 100RC','JP 90V + 100 RC','JP100V + 120 RC'],
         tableRows: [
           ['PE Film', '130-150','170-200','250-300'],
@@ -64,7 +64,7 @@ const WovenSack = () => {
         <img 
           src={require('./Assets/leftbanner.jpg')} 
           alt="Jaiko Industries Machine" 
-          className="product-image"
+          className="product-imageWS"
         />
       </div>
       

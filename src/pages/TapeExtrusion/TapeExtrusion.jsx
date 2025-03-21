@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow } from '../../Components/ProductFormat/ReusableComponents';
 import "../TapeExtrusion/TapeExtrusion.css"
-
+import PhotoGallery from '../../Components/PhotoGallery/PhotoGallery';
+import banner from "../TapeExtrusion/Assets/banner2.jpg";
+import im from "../TapeExtrusion/Assets/4.jpg";
 const TapeExtrusion = () => {
     const [activeTab, setActiveTab] = useState('Tab 1');
-
+   const machineimages=[
+    banner,banner,banner,banner
+  
+   ];
     // Tab-specific content
     const tabContent = {
       'Tab 1': {
-        image: require("../PlasticRecycling/Assets/recycling-1.jpg"),
+        image: im,
         description: 'Note:-  The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
         tableHeaders: ['Technical Specifications','Model (LS)','Model (HS)'],
         tableRows: [
@@ -32,7 +37,7 @@ const TapeExtrusion = () => {
           alt="ExportSection"
           src={require('./Assets/banner.jpg')}
         />
-        <div >
+        <div>
         <div className="product-layout">
       <div className="image-section">
         <img 
@@ -90,6 +95,7 @@ const TapeExtrusion = () => {
           images={currentContent.slideshowImages}
           points={currentContent.applicationPoints}
         />
+        <PhotoGallery images={machineimages}/>
       </div>
     );
   };

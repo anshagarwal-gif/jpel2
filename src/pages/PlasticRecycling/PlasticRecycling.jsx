@@ -17,19 +17,19 @@ const PlasticRecycling = () => {
                     {
                         subtitle: "Tape Extrusion",
                         image: require("../PlasticRecycling/Assets/recycling-3.jpg"),
-                        link: "TapeExtrusion",
+                        link: "/TapeExtrusion",
                         description: "Industrial grade woven sacks"
                     },
                     {
-                        subtitle: "Tape Winding",
+                        subtitle: "Winding Machines",
                         image: require("../PlasticRecycling/Assets/recycling-2.jpg"),
-                        link: "WindingMachine",
+                        link: "/WindingMachine",
                         description: "Advanced PET bottle washing systems"
                     },
                     {
                         subtitle: "Circular Looms",
                         image: require("../PlasticRecycling/Assets/recycling-1.jpg"),
-                        link: "CircularLoom",
+                        link: "/CircularLoom",
                         description: "Complete HDPE recycling solutions"
                     }
                 ]
@@ -47,13 +47,13 @@ const PlasticRecycling = () => {
                     {
                         subtitle: "Printing Machines",
                         image: require("../PlasticRecycling/Assets/recycling-4.jpg"),
-                        link: "PrintingMachine",
+                        link: "/PrintingMachine",
                         description: "Industrial shredding machines"
                     },
                     {
                         subtitle: "Bag Conversion Machines",
                         image: require("../PlasticRecycling/Assets/recycling-5.jpg"),
-                        link: "/products/bottle-shredding",
+                        link: "/Bag-Conversion",
                         description: "Industrial shredding machines"
                     }
                 ]
@@ -126,6 +126,13 @@ const PlasticRecycling = () => {
                         subtitle: "Cast Film Line",
                         image: require("../PlasticRecycling/Assets/recycling8.jpg"),
                         link: "/CastLine",
+                        description: "Advanced PET bottle washing systems"
+                    },
+
+                  {
+                        subtitle: "Flexible Packaging",
+                        image: require("../PlasticRecycling/Assets/recycling-9.jpg"),
+                        link: "/Flexible",
                         description: "Advanced PET bottle washing systems"
                     }
                 ]

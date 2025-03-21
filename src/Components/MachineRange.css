@@ -3,12 +3,12 @@
   min-height: 100vh;
   overflow: hidden;
   position: relative;
-  background: linear-gradient(to bottom right, #ffe7e7 95%, #ffe7e7 75%);
+ 
   
 }
 
 .machinery-title {
-  color: white;
+  color: red;
   font-size: 3rem;
   padding: 40px;
   position: relative;
@@ -38,7 +38,7 @@
   margin-top: -60px;
   width: 100%;
   z-index: 1;
-  border: 6px solid white; /* Add white border */
+  border: 3px solid white; /* Add white border */
   box-sizing: border-box; /* Ensure the border doesn't add extra width/height */
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -83,7 +83,7 @@
 /* Background images with proper overlay */
 .machinery-section:nth-child(1) .machinery-content {
   background-image: linear-gradient(to right, rgba(0,0,0,0.4), transparent),
-    url('../assets/wovenhome.jpg');
+    url('../assets/woven.png');
   
 }
 

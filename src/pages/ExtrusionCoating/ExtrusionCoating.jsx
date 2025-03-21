@@ -105,11 +105,11 @@ const ExtrusionCoating = () => {
         />
         <div >
         <div className="product-layout">
-      <div className="image-section">
+      <div className="image-section" style={{ borderRadius: '18px'}}>
         <img 
           src={require('./Assets/leftbanner.jpg')} 
           alt="Jaiko Industries Machine" 
-          className="product-image"
+          className="product-imageEx"
         />
       </div>
       

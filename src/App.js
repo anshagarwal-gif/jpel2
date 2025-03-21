@@ -23,6 +23,8 @@ import Monofilament from './pages/Monofilament/Monofilament';
 import SheetExtrusion from './pages/SheetExtrusion/SheetExtrusion';
 import CastLine from './pages/CastLine/CastLine';
 import PET from './pages/PET/PET';
+import Flexible from './pages/Flexible/Flexible';
+import Bag from './pages/Bag-Conversion/Bag';
 
 function App() {
   return (
@@ -57,6 +59,8 @@ function App() {
             <Route path="/SheetExtrusion" element={<SheetExtrusion />} />
             <Route path="/CastLine" element={<CastLine />} />
             <Route path='/PET' element={<PET/>}/>
+            <Route path='/Flexible' element={<Flexible/>}/> 
+            <Route path='/Bag-Conversion' element={<Bag/>}/>
           </Routes>
         </main>
         <Footer />
