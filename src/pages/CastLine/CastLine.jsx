@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import "../CastLine/CastLine.css"
+import ImageGallery from '../../Components/ImageGallery';
 
 const CastLine = () => {
     const [activeTab, setActiveTab] = useState('Product');
@@ -88,7 +89,8 @@ const CastLine = () => {
           points={currentContent.applicationPoints}
         />
 
-</div>
-    )
+        <ImageGallery/>
+
+</div>   )
 }
 export default CastLine;

@@ -16,9 +16,9 @@
 }
 
 #fab-icon {
-  font-size: 2rem; /* Adjust the icon size */
-  color: #ff0000; /* Set the icon color */
-  margin-bottom: 30px; /* Add space below the icon */
+  font-size: 2rem;
+  color: #ff0000;
+  margin-bottom: 30px;
 }
 
 #logo-second {
@@ -64,7 +64,6 @@
   transition: all 1s ease-in-out;
   top: -20px;
   padding: 2px;
- 
 }
 
 .content .logo .logo1 {
@@ -146,105 +145,116 @@
   letter-spacing: 9.5px;
   margin-top: 30px;
 }
+
 #custom-logo {
-  width: 90px; /* Adjust size as needed */
-  height: auto; /* Maintain aspect ratio */
+  width: 90px;
+  height: auto;
 }
 
 .card:hover .trail {
   animation: trail 1s ease-in-out;
 }
 
-/* Keyframes remain unchanged */
 @keyframes opacity {
   0% {
-      border-right: 1px solid transparent;
+    border-right: 1px solid transparent;
   }
-
   10% {
-      border-right: 1px solid #ff0000;
+    border-right: 1px solid #ff0000;
   }
-
   80% {
-      border-right: 1px solid #ff0000;
+    border-right: 1px solid #ff0000;
   }
-
   100% {
-      border-right: 1px solid transparent;
+    border-right: 1px solid transparent;
   }
 }
 
 @keyframes trail {
   0% {
-      background: linear-gradient(
-          90deg,
-          rgba(189, 159, 103, 0) 90%,
-          rgb(189, 159, 103) 100%
-      );
-      opacity: 0;
+    background: linear-gradient(90deg, rgba(189, 159, 103, 0) 90%, rgb(189, 159, 103) 100%);
+    opacity: 0;
   }
-
   30% {
-      background: linear-gradient(
-          90deg,
-          rgba(189, 159, 103, 0) 70%,
-          rgb(189, 159, 103) 100%
-      );
-      opacity: 1;
+    background: linear-gradient(90deg, rgba(189, 159, 103, 0) 70%, rgb(189, 159, 103) 100%);
+    opacity: 1;
   }
-
   70% {
-      background: linear-gradient(
-          90deg,
-          rgba(189, 159, 103, 0) 70%,
-          rgb(189, 159, 103) 100%
-      );
-      opacity: 1;
+    background: linear-gradient(90deg, rgba(189, 159, 103, 0) 70%, rgb(189, 159, 103) 100%);
+    opacity: 1;
   }
-
   95% {
-      background: linear-gradient(
-          90deg,
-          rgba(189, 159, 103, 0) 90%,
-          rgb(189, 159, 103) 100%
-      );
-      opacity: 0;
+    background: linear-gradient(90deg, rgba(189, 159, 103, 0) 90%, rgb(189, 159, 103) 100%);
+    opacity: 0;
   }
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
   .card {
-      width: 90%; /* Use full width with padding */
-      height: auto;
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 3 / 2;
   }
 
-  .contact-info {
-      font-size: 14px;
-      margin-top: 40px;
+  .content {
+    transform: scale(0.9);
   }
 
   #fab-icon {
-      font-size: 1.5rem; /* Reduce icon size */
+    font-size: 1.8rem;
+    margin-bottom: 20px;
   }
 
   .bottom-text {
-      font-size: 6px; /* Adjust text size for smaller screens */
+    font-size: 7px;
+  }
+
+  .contact-info .email {
+    font-size: 15px;
+  }
+
+  .contact-info a {
+    font-size: 13px;
   }
 }
 
 @media (max-width: 480px) {
   .card {
-      transform: none; /* Disable hover effects on very small devices */
-      width: 80%;
-     
+    width: 95%;
+    max-width: 280px;
   }
 
-  .card:hover {
-      transform: none;
+  .content {
+    transform: scale(0.8);
+  }
+
+  #fab-icon {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
   }
 
   .bottom-text {
-      font-size: 5px; /* Further reduce text size */
+    font-size: 6px;
+  }
+
+  .contact-info .email {
+    font-size: 14px;
+  }
+
+  .contact-info a {
+    font-size: 12px;
   }
 }
+
+/* Ensure the card is centered on all screen sizes */
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
