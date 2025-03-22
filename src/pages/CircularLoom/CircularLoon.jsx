@@ -1,8 +1,9 @@
 import React, { useState }  from "react";  
 import { Navigation, SpecsTable, Applications, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import './CircularLoom.css'
+import VedioCard from "../../Components/VedioCard";
 const CircularLoom = () => {
-  const [activeTab, setActiveTab] = useState('4-shuttle');
+  const [activeTab, setActiveTab] = useState('4-Shuttle');
   const images = [
     require("../CircularLoom/Assets/grid3.jpg"),
     require("../CircularLoom/Assets/grid2.jpg"),
@@ -11,13 +12,13 @@ const CircularLoom = () => {
   ];
     // Tab-specific content
     const tabContent = {
-      '4-shuttle': {
+      '4-Shuttle': {
         image: require("../CircularLoom/Assets/4.jpg"),
         description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
         tableHeaders: ['Technical Specifications',''],
         tableRows: [
           ['Working width - Double Flat', '20 to 80 cm*'],
-          ['Weft insertion rate', 'upto 720ppm*'],
+          ['Weft insertion rate', 'Up to 720ppm*'],
         ],
         slideshowImages: [require("../CircularLoom/Assets/1.jpg"), require("../CircularLoom/Assets/2.jpg")],
         applicationPoints: ['Engineered for producing tubular fabric with an open mesh structure.',
@@ -26,13 +27,13 @@ const CircularLoom = () => {
 'Designed to cater to the needs of the food and agriculture packaging sector.'],
         catalogue: '/path-to-tab1-catalogue.pdf',
       },
-      '6-shuttle': {
+      '6-Shuttle': {
         image: require("../CircularLoom/Assets/5.jpg"),
         description: 'This is the description for Tab 2.',
         tableHeaders: ['Technical Specifications',''],
         tableRows: [
           ['Working width - Double Flat', '30 to 140 cm*'],
-          ['Weft insertion rate', 'upto 1200 ppm*'],
+          ['Weft insertion rate', 'Up to 1200 ppm*'],
         ],
         slideshowImages: [require("../CircularLoom/Assets/3.jpg"), require("../CircularLoom/Assets/4_1.jpg")],
         applicationPoints: ['Designed for versatile applications, including the packaging of cement, fertilizers, polymer granules, chemicals, and seeds.', 'Ideal for creating jumbo bags (FIBCs), packaging fabric, and lumber wraps.* ','Suitable for storing and transporting husk, animal feed, and similar bulk materials. ','Tailored to meet the demands of industrial and agricultural packaging solutions.'],
@@ -40,50 +41,50 @@ const CircularLoom = () => {
         
 
       },
-      '8-shuttle': {
+      '8-Shuttle': {
         image: require("../CircularLoom/Assets/6.jpg"),
         description: 'This is the description for Tab 3.',
         tableHeaders: ['Technical Specifications',''],
         tableRows: [
           ['Working width - Double Flat', '100 to 225 cm*'],
-          ['Weft insertion rate', 'upto 740 ppm*'],
+          ['Weft insertion rate', 'Up to 740 ppm*'],
         ],
         slideshowImages: [require("../CircularLoom/Assets/5_1.jpg"), require("../CircularLoom/Assets/6_1.jpg")],
         applicationPoints: ['Specializes in producing wide-width fabrics tailored for industrial applications.', 'Enables the creation of durable and high-quality jumbo bags (FIBCs).', 'Designed for manufacturing weather-resistant tarpaulins for versatile uses'],
         catalogue: '/path-to-tab1-catalogue.pdf',
       },
-      '10-shuttle': {
+      '10-Shuttle': {
         image: require("../CircularLoom/Assets/7.jpg"),
         description: 'This is the description for Tab 2.',
         tableHeaders: ['Technical Specifications',''],
         tableRows: [
           ['Working width - Double Flat', '175 to 255 cm*'],
-          ['Weft insertion rate', 'upto 700 ppm*'],
+          ['Weft insertion rate', 'Up to 700 ppm*'],
         ],
         slideshowImages: [require("../CircularLoom/Assets/7_1.jpg"), require("../CircularLoom/Assets/8_1.jpg")],
         applicationPoints: ['Supports geotextile production, catering to construction and infrastructure projects.', 'Suitable for agro-textile solutions to enhance agricultural efficiency and productivity','Provides customization options for fabrics to meet diverse industry requirements.'],
         catalogue: '/path-to-tab1-catalogue.pdf',
       },
-      '12-shuttle': {
+      '12-Shuttle': {
         image: require("../CircularLoom/Assets/8.jpg"),
         description: 'This is the description for Tab 2.',
         tableHeaders: ['Technical Specifications',''],
         tableRows: [
           ['Working width - Double Flat', '250 to 295 cm*'],
-          ['Weft insertion rate', 'upto 650 ppm*'],
+          ['Weft insertion rate', 'Up to 650 ppm*'],
         ],
         slideshowImages: [require("../CircularLoom/Assets/9_1.jpg"), require("../CircularLoom/Assets/10_1.jpg")],
         applicationPoints: ['Pond Lining: Prevents water leakage and protects the environment.', 'Tarpaulin: Provides waterproofing and heavy-duty protection.','Geo-membrane: Used for containment in landfills and ponds.'],
         catalogue: '/path-to-tab1-catalogue.pdf',
       },
-      'IL': {
-        image:require("../CircularLoom/Assets/9.jpg"),
+      'iL (Inside Lamination)': {
+        image:require("../CircularLoom/Assets/9.png"),
         description: 'This is the description for Tab 2.',
         tableHeaders: ['Technical Specifications',''],
         tableRows: [
           ['Working width (Without Liner)', '30 to 90 cm*'],
           ['Working width (With Liner)', '30 to 70 cm*'],
-          ['Weft insertion rate', 'upto 1200 ppm*'],
+          ['Weft insertion rate', 'Up to 1200 ppm*'],
         ],
         slideshowImages: [require("../CircularLoom/Assets/11_1.jpg")],
         applicationPoints: ['Packaging: Industrial sacks, food-grade bags, and chemical-resistant containers.', 'Agriculture: Seed bags, fertilizer storage, and crop covers.','Consumer Goods: Reusable shopping and laundry bags.','Medical and Pharmaceutical: Moisture-resistant packaging for powders and hygiene products.'],
@@ -108,7 +109,7 @@ const CircularLoom = () => {
         <img 
           src={require('./Assets/leftbanner.jpg')} 
           alt="Jaiko Industries Machine" 
-          className="product-image"
+          className="product-imageLO"
         />
       </div>
       
@@ -170,25 +171,54 @@ const CircularLoom = () => {
           images={currentContent.slideshowImages}
           points={currentContent.applicationPoints}
         />
-      <div className="grid-container">
-      <div className="top-image">
-        <img src={images[0]} alt="Industrial machinery top view" />
+
+
+<div className="card-header">
+       
+       <p style={{fontSize:'42px',color:'black'}}>Videos</p>
+</div>
+
+<div className="card-wrapper3">
+      <VedioCard
+    videoTitle="CIRCULAR WEAVING MACHINE"
+    videoThumbnail={require("../CircularLoom/Assets/CV.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+    <VedioCard
+        videoTitle="CIRCULAR WEAVING MACHINE, VEGA-812"
+    videoThumbnail={require("../CircularLoom/Assets/CV2.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+      
       </div>
-      <div className="bottom-section">
-        <div className="bottom-left">
-          <img src={images[1]} alt="Industrial machinery left view" />
-        </div>
-        <div className="bottom-right">
-          <div>
-            <img src={images[2]} alt="Industrial machinery center view" />
-          </div>
-          <div>
-            <img src={images[3]} alt="Industrial machinery right view" />
-          </div>
-        </div>
+
+      <div className="card-wrapper3">
+      <VedioCard
+    videoTitle="VEGA VENT 4 – VENTED FABRIC WEAVING MACHINE"
+    videoThumbnail={require("../CircularLoom/Assets/CV3.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+    <VedioCard
+        videoTitle="LENO CIRCULAR WEAVING MACHINE"
+    videoThumbnail={require("../CircularLoom/Assets/CV4.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+      <VedioCard
+        videoTitle=""
+    videoThumbnail={require("../CircularLoom/Assets/CV5.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+      <VedioCard
+        videoTitle=""
+    videoThumbnail={require("../CircularLoom/Assets/CV6.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+  </div>
+      
+        
+       
       </div>
-    </div>
-      </div>
+      
     );
     
 }

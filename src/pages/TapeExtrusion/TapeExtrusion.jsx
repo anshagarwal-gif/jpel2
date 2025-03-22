@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow } from '../../Components/ProductFormat/ReusableComponents';
 import "../TapeExtrusion/TapeExtrusion.css"
-
+import PhotoGallery from '../../Components/PhotoGallery/PhotoGallery';
+import banner from "../TapeExtrusion/Assets/banner2.jpg";
+import im from "../TapeExtrusion/Assets/4.jpg";
+import VedioCard from "../../Components/VedioCard";
 const TapeExtrusion = () => {
     const [activeTab, setActiveTab] = useState('Tab 1');
-
+   const machineimages=[
+    banner,banner,banner,banner
+  
+   ];
     // Tab-specific content
     const tabContent = {
       'Tab 1': {
-        image: require("../PlasticRecycling/Assets/recycling-1.jpg"),
+        image: im,
         description: 'Note:-  The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
         tableHeaders: ['Technical Specifications','Model (LS)','Model (HS)'],
         tableRows: [
@@ -32,7 +38,7 @@ const TapeExtrusion = () => {
           alt="ExportSection"
           src={require('./Assets/banner.jpg')}
         />
-        <div >
+        <div>
         <div className="product-layout">
       <div className="image-section">
         <img 
@@ -85,11 +91,42 @@ const TapeExtrusion = () => {
           rows={currentContent.tableRows}
         />
         <p className='description2'>*depending on machine models and specifications</p>
-        <Applications
-          title={`Applications for ${activeTab}`}
-          images={currentContent.slideshowImages}
-          points={currentContent.applicationPoints}
-        />
+
+        <div className="card-header">
+       
+         <p style={{fontSize:'42px',color:'black'}}>Videos</p>
+  </div>
+        <div className="card-wrapper3">
+      <VedioCard
+    videoTitle="TAPE STRETCHING LINE – DEMO FILM"
+    videoThumbnail={require("../TapeExtrusion/Assets/TapeV.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+    <VedioCard
+        videoTitle="TRUNKEY WOVEN SACK PROJECTS"
+    videoThumbnail={require("../TapeExtrusion/Assets/TapeV2.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+      
+      </div>
+
+      <div className="card-wrapper3">
+      <VedioCard
+    videoTitle="WOVEN SACK PROJECTS (WHITE TAPE)"
+    videoThumbnail={require("../TapeExtrusion/Assets/TapeV3.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+    <VedioCard
+        videoTitle="WOVEN SACK PROJECTS (NATURAL TAPE)"
+    videoThumbnail={require("../TapeExtrusion/Assets/TapeV4.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+      
+      </div>
+      
+       
+
+
       </div>
     );
   };

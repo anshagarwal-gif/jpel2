@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import "../Monofilament/Monofilament.css"
-
+import VedioCard from "../../Components/VedioCard";
 const Monofilament = () => {
     const [activeTab, setActiveTab] = useState('Product');
     
@@ -9,7 +9,7 @@ const Monofilament = () => {
         const tabContent = {
           'Product': {
             image: require("../Monofilament/Assets/tab.jpg"),
-            description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+            description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For details , refer to the quotation.',
             tableHeaders: ['Technical Specifications','JP 70 MONO','JP 80 MONO','JP 90 MONO'],
             tableRows: [
               ['Max. Output - PP (Kgs/Hr)' ,'150','200','250'],
@@ -41,7 +41,7 @@ const Monofilament = () => {
         <img 
           src={require('./Assets/leftbanner.jpg')} 
           alt="Jaiko Industries Machine" 
-          className="product-imageFila"
+          className="product-imageFilaMO"
         />
       </div>
       
@@ -87,7 +87,23 @@ const Monofilament = () => {
           images={currentContent.slideshowImages}
           points={currentContent.applicationPoints}
         />
+      <div className="card-header">
+       
+       <p style={{fontSize:'42px',color:'black'}}>Videos</p>
+</div>
 
+<div className="card-wrapper3">
+      <VedioCard
+    videoTitle="MONOFILAMENT LINE ( JP 90 MONO )"
+    videoThumbnail={require("../BatteryBox/Assets/BB.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+        <VedioCard
+    videoTitle="Monofilament Line - Model: JP 80 MONO"
+    videoThumbnail={require("../BatteryBox/Assets/BB1.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+  </div>
 </div>
     )
 }

@@ -16,6 +16,7 @@ import Homepageanimation from '../Components/Homepageanimation';
 import MachineRange from '../Components/MachineRange';
 import CoperateFilm from '../Components/CoperateFilm/CoperateFilm';
 import BannerGIF from '../Components/BannerGIF/BannerGIF';
+import ScrollReveal from '../Components/ScrollReveal/ScrollReveal';
 const Home = () => {
    // Initialize AOS
    useEffect(() => {
@@ -28,7 +29,16 @@ const Home = () => {
   return (
     <div>
       <BannerGIF/>
-      
+      {/* <ScrollReveal  baseOpacity={0}
+  enableBlur={true}
+  baseRotation={1}
+  blurStrength={10}>
+  J P Extrusiontech Pvt. Ltd.stands at the forefront of innovation, proudly leading the way in the
+          manufacturing and export of high-quality plastic processing machinery
+          and equipment. Our commitment to excellence ensures that we deliver
+          cutting-edge solutions that empower industries and enhance
+          productivity. Join us in shaping the future of plastic processing!
+  </ScrollReveal> */}
       <Homepageanimation/>
       <CompanySection data-aos="fade-right" />
      
@@ -58,11 +68,12 @@ const Home = () => {
         </div>
       </div>
       {/* <Rotation data-aos="fade-left" /> */}
-      <CoperateFilm
+    
+    <MachineRange/>
+    <CoperateFilm
     thumbnailUrl={require("../Components/CoperateFilm/Assets/film.jpg")}
     videoUrl="https://www.youtube.com/embed/3qPc2eCi_lg?autohide=1&autoplay=0&mute=0&controls=1&fs=1&loop=1&modestbranding=1&playlist=3qPc2eCi_lg&rel=0&showinfo=1&theme=light&wmode=&playsinline=0"/>
 
-    <MachineRange/>
    
 </div>
   )

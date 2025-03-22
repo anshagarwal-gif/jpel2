@@ -115,7 +115,7 @@ const News = () => {
       <VedioCard
     videoTitle="DEMO – TAPE STRETCHING LINE AND CIRCULER LOOM FOR PP/HDPE WOVEN SACK"
     videoThumbnail={require("../assets/newevent4.jpg")}
-    videoUrl="https://youtu.be/dKCUuXxLUQc?list=TLGGTXeUEHHl_6owNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=dKCUuXxLUQc&list=TLGGTXeUEHHl_6owNjAxMjAyNQ"
   />
     <VedioCard
     videoTitle="INDIAPLAST-2019 EXHIBITION SHORT FILM"

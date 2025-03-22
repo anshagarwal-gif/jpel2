@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import "../SheetExtrusion/SheetExtrusion.css"
-
+import VedioCard from "../../Components/VedioCard";
 const SheetExtrusion = () => {
     const [activeTab, setActiveTab] = useState('Product');
     
         // Tab-specific content
         const tabContent = {
           'Product': {
-            image: require("../Monofilament/Assets/tab.jpg"),
+            image: require("../SheetExtrusion/Assets/tab.jpg"),
             description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
             tableHeaders: ['EXTRUDER Ø MM ','DIE (MM)','OUT PUT KGS/HR ','CALENDER DIA X LENGTH (MM)','MAX. SHEET WIDTH (MM)'],
             tableRows: [
@@ -98,7 +98,18 @@ const SheetExtrusion = () => {
           images={currentContent.slideshowImages}
           points={currentContent.applicationPoints}
         />
+        <div className="card-header">
+       
+       <p style={{fontSize:'42px',color:'black'}}>Videos</p>
+</div>
 
+<div className="card-wrapper3">
+      <VedioCard
+    videoTitle="PET – SHEET LINE – DEMO FILM"
+    videoThumbnail={require("../SheetExtrusion/Assets/SH.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+  </div>
 </div>
     )
 }
