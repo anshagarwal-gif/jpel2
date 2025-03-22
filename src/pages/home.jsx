@@ -16,7 +16,7 @@ import Homepageanimation from '../Components/Homepageanimation';
 import MachineRange from '../Components/MachineRange';
 import CoperateFilm from '../Components/CoperateFilm/CoperateFilm';
 import BannerGIF from '../Components/BannerGIF/BannerGIF';
-import ScrollReveal from '../Components/ScrollReveal/ScrollReveal';
+
 const Home = () => {
    // Initialize AOS
    useEffect(() => {
