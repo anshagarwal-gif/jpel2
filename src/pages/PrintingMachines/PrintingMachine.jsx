@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import '../PrintingMachines/PrintingMachine.css'
-
+import VedioCard from "../../Components/VedioCard";
 const PrintingMachine = () => {
     const [activeTab, setActiveTab] = useState('Product');
     
@@ -94,6 +94,25 @@ const PrintingMachine = () => {
           images={currentContent.slideshowImages}
           points={currentContent.applicationPoints}
         />
+
+<div className="card-header">
+       
+       <p style={{fontSize:'42px',color:'black'}}>Videos</p>
+</div>
+
+<div className="card-wrapper3">
+      <VedioCard
+    videoTitle="JP FLEX – DEMO FILM"
+    videoThumbnail={require("../PrintingMachines/Assets/PM.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+    <VedioCard
+        videoTitle="6 COLOUR ONLINE FLEXO PRINTING FOR WOVEN SACK"
+    videoThumbnail={require("../PrintingMachines/Assets/PM2.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+      
+      </div>
 
 </div>
     )

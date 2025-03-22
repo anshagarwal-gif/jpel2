@@ -1,6 +1,7 @@
 import React, { useState }  from "react";  
 import { Navigation, SpecsTable, Applications, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import './CircularLoom.css'
+import VedioCard from "../../Components/VedioCard";
 const CircularLoom = () => {
   const [activeTab, setActiveTab] = useState('4-Shuttle');
   const images = [
@@ -170,25 +171,54 @@ const CircularLoom = () => {
           images={currentContent.slideshowImages}
           points={currentContent.applicationPoints}
         />
-      <div className="grid-container">
-      <div className="top-image">
-        <img src={images[0]} alt="Industrial machinery top view" />
+
+
+<div className="card-header">
+       
+       <p style={{fontSize:'42px',color:'black'}}>Videos</p>
+</div>
+
+<div className="card-wrapper3">
+      <VedioCard
+    videoTitle="CIRCULAR WEAVING MACHINE"
+    videoThumbnail={require("../CircularLoom/Assets/CV.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+    <VedioCard
+        videoTitle="CIRCULAR WEAVING MACHINE, VEGA-812"
+    videoThumbnail={require("../CircularLoom/Assets/CV2.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+      
       </div>
-      <div className="bottom-section">
-        <div className="bottom-left">
-          <img src={images[1]} alt="Industrial machinery left view" />
-        </div>
-        <div className="bottom-right">
-          <div>
-            <img src={images[2]} alt="Industrial machinery center view" />
-          </div>
-          <div>
-            <img src={images[3]} alt="Industrial machinery right view" />
-          </div>
-        </div>
+
+      <div className="card-wrapper3">
+      <VedioCard
+    videoTitle="VEGA VENT 4 – VENTED FABRIC WEAVING MACHINE"
+    videoThumbnail={require("../CircularLoom/Assets/CV3.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+    <VedioCard
+        videoTitle="LENO CIRCULAR WEAVING MACHINE"
+    videoThumbnail={require("../CircularLoom/Assets/CV4.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+      <VedioCard
+        videoTitle=""
+    videoThumbnail={require("../CircularLoom/Assets/CV5.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+      <VedioCard
+        videoTitle=""
+    videoThumbnail={require("../CircularLoom/Assets/CV6.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+  </div>
+      
+        
+       
       </div>
-    </div>
-      </div>
+      
     );
     
 }

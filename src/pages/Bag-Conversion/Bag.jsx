@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Navigation, SpecsTable, Applications, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import './Bag.css';
-
+import VedioCard from "../../Components/VedioCard";
 const Bag = () => {
   // Main tab and subtab states
   const [activeMainTab, setActiveMainTab] = useState('Small Bag Conversion');
@@ -149,7 +149,7 @@ const Bag = () => {
       hasSlideshow: false
     },
     'FIBC Confectionaries-Bale Press': {
-      image: require("../WovenSack/Assets/pcl.jpg"),
+      image: require("../Bag-Conversion/Assets/Bale.jpg"),
       description: 'Note:-  The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation. ',
       tableHeaders: ['Technical Specifications', 'JP120BB'],
       tableRows: [
@@ -164,21 +164,20 @@ const Bag = () => {
         ['Operation','Electric Controls with interlocking']
       ],
       slideshowImages: [
-        require("../WovenSack/Assets/recycling1.jpg"), 
-        require("../WovenSack/Assets/recycling1.jpg")
+        require("../Bag-Conversion/Assets/baleapp.jpg"), 
+        require("../Bag-Conversion/Assets/baleapp1.jpg")
       ],
       applicationPoints: [
-        'Belts used for lifting FIBC (jumbo bags) are precisely cut to the required length.',
-        'Processing reinforcement belts used in packaging.',
-        'Minimizing manual labor with an efficient pneumatic system.',
-        'Integrated testing and certification system',
-        'Configurable for various specialty FIBC applications'
+        'Efficient Volume Reduction: The bale press compacts FIBC jumbo bags, reducing storage space and transportation costs.',
+        'High-Pressure Compression: Ensures uniform and dense bales, improving material handling and waste management.',
+        'Cost-Effective Solution: Minimizes warehouse space usage and optimizes logistics for bulk materials.',
+ 
       ],
       catalogue: '/path-to-fibc-type-b-catalogue.pdf',
       hasSlideshow: false
     },
     'FIBC Confectionaries-Belt Cutting': {
-      image: require("../WovenSack/Assets/pcl.jpg"),
+      image: require("../Bag-Conversion/Assets/Belt.jpg"),
       description: 'Note:-  The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation. ',
       tableHeaders: ['Technical Specifications', 'JPBCM6'],
       tableRows: [
@@ -189,8 +188,8 @@ const Bag = () => {
     
       ],
       slideshowImages: [
-        require("../WovenSack/Assets/recycling1.jpg"), 
-        require("../WovenSack/Assets/recycling1.jpg")
+        require("../Bag-Conversion/Assets/Beltapp.jpg"), 
+        require("../Bag-Conversion/Assets/Beltapp1.jpg")
       ],
       applicationPoints: [
         'Belts used for lifting FIBC (jumbo bags) are precisely cut to the required length.',
@@ -333,6 +332,39 @@ const Bag = () => {
         images={currentContent.slideshowImages}
         points={currentContent.applicationPoints}
       />
+
+        <div className="card-header">
+             
+             <p style={{fontSize:'42px',color:'black'}}>Videos</p>
+      </div>
+      
+      <div className="card-wrapper3">
+               <VedioCard
+          videoTitle=""
+          videoThumbnail={require("../Bag-Conversion/Assets/BagV2.jpg")}
+          videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+        />
+               <VedioCard
+          videoTitle=""
+          videoThumbnail={require("../Bag-Conversion/Assets/BagV3.jpg")}
+          videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+        />
+               <VedioCard
+          videoTitle=""
+          videoThumbnail={require("../Bag-Conversion/Assets/BagV4.jpg")}
+          videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+        />
+               <VedioCard
+          videoTitle=""
+          videoThumbnail={require("../Bag-Conversion/Assets/BagV5.jpg")}
+          videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+        />
+               <VedioCard
+          videoTitle=""
+          videoThumbnail={require("../Bag-Conversion/Assets/BagV6.jpg")}
+          videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+        />
+        </div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import "../CastLine/CastLine.css"
-
+import VedioCard from "../../Components/VedioCard";
 const CastLine = () => {
     const [activeTab, setActiveTab] = useState('Product');
     
@@ -87,7 +87,18 @@ const CastLine = () => {
           images={currentContent.slideshowImages}
           points={currentContent.applicationPoints}
         />
+        <div className="card-header">
+       
+       <p style={{fontSize:'42px',color:'black'}}>Videos</p>
+</div>
 
+<div className="card-wrapper3">
+      <VedioCard
+    videoTitle="FIVE LAYER CAST FILM LINE – DEMO FILM"
+    videoThumbnail={require("../CastLine/Assets/CL.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+  </div>
 </div>
     )
 }

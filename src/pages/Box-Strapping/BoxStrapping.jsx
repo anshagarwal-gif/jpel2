@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import "../Box-Strapping/BoxStrapping.css"
-
+import VedioCard from "../../Components/VedioCard";
 const BoxStrapping = () => {
     const [activeTab, setActiveTab] = useState('Product');
     
@@ -95,7 +95,18 @@ const BoxStrapping = () => {
           images={currentContent.slideshowImages}
           points={currentContent.applicationPoints}
         />
+    <div className="card-header">
+       
+       <p style={{fontSize:'42px',color:'black'}}>Videos</p>
+</div>
 
+<div className="card-wrapper3">
+      <VedioCard
+    videoTitle="EPET Strappex - PET BOX STRAP LINE"
+    videoThumbnail={require("../Box-Strapping/Assets/BX.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+  </div>
 </div>
     )
 }

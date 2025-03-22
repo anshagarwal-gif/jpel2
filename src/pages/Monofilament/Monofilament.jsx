@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import "../Monofilament/Monofilament.css"
-
+import VedioCard from "../../Components/VedioCard";
 const Monofilament = () => {
     const [activeTab, setActiveTab] = useState('Product');
     
@@ -87,7 +87,23 @@ const Monofilament = () => {
           images={currentContent.slideshowImages}
           points={currentContent.applicationPoints}
         />
+      <div className="card-header">
+       
+       <p style={{fontSize:'42px',color:'black'}}>Videos</p>
+</div>
 
+<div className="card-wrapper3">
+      <VedioCard
+    videoTitle="MONOFILAMENT LINE ( JP 90 MONO )"
+    videoThumbnail={require("../BatteryBox/Assets/BB.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+        <VedioCard
+    videoTitle="Monofilament Line - Model: JP 80 MONO"
+    videoThumbnail={require("../BatteryBox/Assets/BB1.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+  </div>
 </div>
     )
 }

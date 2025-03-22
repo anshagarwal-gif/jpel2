@@ -8,8 +8,8 @@ const WindingMachine = () => {
     // Tab-specific content
     const tabContent = {
       'Tape Winders ': {
-        image: require("../PlasticRecycling/Assets/recycling-1.jpg"),
-        description: 'Note:-  The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+        image: null,
+        description: '',
         tableHeaders: ['Technical Specifications','JTW200IX','JTWAG200IX'],
         tableRows: [
           ['Tape Width', '1.8 to 4.0 mm', '1.8 to 4.0 mm'],
@@ -26,7 +26,7 @@ const WindingMachine = () => {
       },
       'Auto-Doffing Winders': {
         image: require("../PlasticRecycling/Assets/recycling-1.jpg"),
-        description: 'Note:-  The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+        description: '',
         tableHeaders: ['Technical Specifications','JTWAT200IX'],
         tableRows: [
           ['Tape Width', '1.8 to 4.0 mm'],
@@ -43,7 +43,7 @@ const WindingMachine = () => {
       },
       'Fibrillated Tape Winder': {
         image: require("../PlasticRecycling/Assets/recycling-1.jpg"),
-        description: 'Note:-  The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+        description: '',
         tableHeaders: ['Technical Specifications','JTWJ300IX'],
         tableRows: [
           ['Tape Width', '1.8 to 6.0 mm'],
@@ -56,7 +56,7 @@ const WindingMachine = () => {
           ['Package Dia', '250 mm'],
         ],
         slideshowImages: ['/tab1-slide1.jpg', '/tab1-slide2.jpg'],
-        applicationPoints: ['Point 1 for Tab 1', 'Point 2 for Tab 1', 'Point 3 for Tab 1'],
+        applicationPoints: [''],
       }
     };
   
@@ -76,7 +76,7 @@ const WindingMachine = () => {
         <div className="product-layout">
       <div className="image-section">
         <img 
-          src="" 
+          src={require('./Assets/bannerleft.jpg')}
           alt="Jaiko Industries Machine" 
           className="product-image2"
         />
@@ -85,16 +85,9 @@ const WindingMachine = () => {
       <div className="content-section">
         <div className="description3">
           <p>
-          J P Extrusiontech Ltd having a comprehensive range of tape extrusion lines for producing high-quality PP/HDPE tapes for a wide range of applications.
-            <br></br>
-            <br></br>
-          
-            Tape Stretching Lines available from output 150 Kg/Hr to 900 Kg/Hr capacity. 450 to 900 Kh/Hr lines having godet diameter of 450 mm and imported screw, barrel, die, melt pump options are available. Die width available (MM) 800, 900, 1000, 1100, 1300, 1400, 1500, 1600, 1750, 2200
-
-          
-            <br></br>
-            <br></br>
-            End applications such as – woven & leno bags, jumbo bags – i.e. Flexible Intermediate Bulk Containers (FIBCs), tarpaulins, carpet backings, geotextiles, wrapping fabrics, ropes and twines etc.
+          J P Extrusiontech Ltd offers a comprehensive range of Winding Machines designed for high-quality and efficient tape winding across various industrial applications.
+Winding machines are available for different needs, including the Inverter/Electronic Tape Winder for precise speed and tension control, the Auto Doffing Tape Winder for seamless, automated roll changing, and the Jumbo Winder for high-capacity fibrillated tape winding. The Jumbo Winder is ideal for bulk production in industries such as agriculture (packaging, bale wrapping), rope manufacturing, and sewing yarn.
+These machines support end applications such as woven & leno bags, jumbo bags (Flexible Intermediate Bulk Containers – FIBCs), tarpaulins, carpet backings, geotextiles, wrapping fabrics, ropes, and twines
           </p>
         </div>
       </div>
@@ -116,20 +109,13 @@ const WindingMachine = () => {
           activeTab={activeTab}
           onTabChange={setActiveTab}
         />
-        <ProductImage
-          image={currentContent.image}
-          description={currentContent.description}
-        />
+     
         <SpecsTable
           headers={currentContent.tableHeaders}
           rows={currentContent.tableRows}
         />
         <p className='description2'>*depending on machine models and specifications</p>
-        <Applications
-          title={`Applications for ${activeTab}`}
-          images={currentContent.slideshowImages}
-          points={currentContent.applicationPoints}
-        />
+    
       </div>
     );
   };

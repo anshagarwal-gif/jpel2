@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import "../Flexible/Flexible.css"
+import VedioCard from "../../Components/VedioCard";
 
 const  Flexible = () => {
     const [activeTab, setActiveTab] = useState('Product');
@@ -89,6 +90,18 @@ const  Flexible = () => {
           points={currentContent.applicationPoints}
         />
 
+<div className="card-header">
+       
+       <p style={{fontSize:'42px',color:'black'}}>Videos</p>
+</div>
+    <div className="card-wrapper3">
+      <VedioCard
+    videoTitle="LAMINATION LINE FOR FLEXIBLE PACKAGING"
+    videoThumbnail={require("../Flexible/Assets/FL.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+      
+      </div>
 </div>
     )
 }

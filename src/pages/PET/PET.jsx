@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
-
+import VedioCard from "../../Components/VedioCard";
 import "../PET/PET.css";
 const PET = () => {
     const [activeTab, setActiveTab] = useState('Product');
@@ -83,7 +83,18 @@ const PET = () => {
           points={currentContent.applicationPoints}
         />
         
+        <div className="card-header">
+       
+       <p style={{fontSize:'42px',color:'black'}}>Videos</p>
+</div>
 
+<div className="card-wrapper3">
+      <VedioCard
+    videoTitle="PET WASHING LINE 1000 Kgs/Hr Capacity"
+    videoThumbnail={require("../PET/Assets/PT.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+  </div>
 </div>
     )
 }

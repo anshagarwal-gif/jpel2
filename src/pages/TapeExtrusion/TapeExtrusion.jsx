@@ -4,6 +4,7 @@ import "../TapeExtrusion/TapeExtrusion.css"
 import PhotoGallery from '../../Components/PhotoGallery/PhotoGallery';
 import banner from "../TapeExtrusion/Assets/banner2.jpg";
 import im from "../TapeExtrusion/Assets/4.jpg";
+import VedioCard from "../../Components/VedioCard";
 const TapeExtrusion = () => {
     const [activeTab, setActiveTab] = useState('Tab 1');
    const machineimages=[
@@ -90,12 +91,42 @@ const TapeExtrusion = () => {
           rows={currentContent.tableRows}
         />
         <p className='description2'>*depending on machine models and specifications</p>
-        <Applications
-          title={`Applications for ${activeTab}`}
-          images={currentContent.slideshowImages}
-          points={currentContent.applicationPoints}
-        />
-        <PhotoGallery images={machineimages}/>
+
+        <div className="card-header">
+       
+         <p style={{fontSize:'42px',color:'black'}}>Videos</p>
+  </div>
+        <div className="card-wrapper3">
+      <VedioCard
+    videoTitle="TAPE STRETCHING LINE – DEMO FILM"
+    videoThumbnail={require("../TapeExtrusion/Assets/TapeV.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+    <VedioCard
+        videoTitle="TRUNKEY WOVEN SACK PROJECTS"
+    videoThumbnail={require("../TapeExtrusion/Assets/TapeV2.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+      
+      </div>
+
+      <div className="card-wrapper3">
+      <VedioCard
+    videoTitle="WOVEN SACK PROJECTS (WHITE TAPE)"
+    videoThumbnail={require("../TapeExtrusion/Assets/TapeV3.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+    <VedioCard
+        videoTitle="WOVEN SACK PROJECTS (NATURAL TAPE)"
+    videoThumbnail={require("../TapeExtrusion/Assets/TapeV4.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+      
+      </div>
+      
+       
+
+
       </div>
     );
   };

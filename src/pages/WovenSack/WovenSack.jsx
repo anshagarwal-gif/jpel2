@@ -1,6 +1,7 @@
 import React, { useState }  from "react";  
 import { Navigation, SpecsTable, Applications, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import './WovenSack.css'
+import VedioCard from "../../Components/VedioCard";
 const WovenSack = () => {
   const [activeTab, setActiveTab] = useState('Plastic Cleaning & Washing');
     // Tab-specific content
@@ -115,6 +116,36 @@ const WovenSack = () => {
           images={currentContent.slideshowImages}
           points={currentContent.applicationPoints}
         />
+
+
+<div className="card-header">
+       
+       <p style={{fontSize:'42px',color:'black'}}>Videos</p>
+</div>
+
+<div className="card-wrapper3">
+      <VedioCard
+    videoTitle="RECYCLING LINE – JP 100 RC"
+    videoThumbnail={require("../WovenSack/Assets/WW.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+          <VedioCard
+        videoTitle=""
+    videoThumbnail={require("../WovenSack/Assets/WW3.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+           <VedioCard
+        videoTitle=""
+    videoThumbnail={require("../WovenSack/Assets/WW4.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+           <VedioCard
+        videoTitle=""
+    videoThumbnail={require("../WovenSack/Assets/WW5.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+      </div>
+
       </div>
     );
     

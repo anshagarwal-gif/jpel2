@@ -1,6 +1,7 @@
 import React, { useState }  from "react";  
 import { Navigation, SpecsTable, Applications, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import './ExtrusionCoating.css'
+import VedioCard from "../../Components/VedioCard";
 const ExtrusionCoating = () => {
   const [activeTab, setActiveTab] = useState('Woven & non-Woven');
 //   const images = [
@@ -202,24 +203,53 @@ const ExtrusionCoating = () => {
           images={currentContent.slideshowImages}
           points={currentContent.applicationPoints}
         />
-      {/* <div className="grid-container">
-      <div className="top-image">
-        <img src={images[0]} alt="Industrial machinery top view" />
+    <div className="card-header">
+       
+       <p style={{fontSize:'42px',color:'black'}}>Videos</p>
+</div>
+
+<div className="card-wrapper3">
+      <VedioCard
+    videoTitle="EXTRUSION COATING LINE : JP 120+80 – 2650 CO-EX TD"
+    videoThumbnail={require("../ExtrusionCoating/Assets/EX.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+    <VedioCard
+        videoTitle="POLYCOAT 1600 – EXTRUSION COATING LINE"
+    videoThumbnail={require("../ExtrusionCoating/Assets/EX2.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+      
       </div>
-      <div className="bottom-section">
-        <div className="bottom-left">
-          <img src={images[1]} alt="Industrial machinery left view" />
-        </div>
-        <div className="bottom-right">
-          <div>
-            <img src={images[2]} alt="Industrial machinery center view" />
-          </div>
-          <div>
-            <img src={images[3]} alt="Industrial machinery right view" />
-          </div>
-        </div>
-      </div> */}
-    {/* </div> */}
+
+      <div className="card-wrapper3">
+      <VedioCard
+    videoTitle="CO-EXTRUSION COATING LINE"
+    videoThumbnail={require("../ExtrusionCoating/Assets/EX3.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+    <VedioCard
+        videoTitle="5200 MM EXTRUSION COATING LINE"
+    videoThumbnail={require("../ExtrusionCoating/Assets/EX4.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+  </div>
+  
+  <div className="card-wrapper3">
+      <VedioCard
+    videoTitle="LAMINATION LINE : JP 90 CR 1600"
+    videoThumbnail={require("../ExtrusionCoating/Assets/EX5.jpg")}
+    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+  />
+ 
+      <VedioCard
+        videoTitle="EXTRUSION COATING LINE FOR PAPER : JP 80 CRP 1600"
+    videoThumbnail={require("../ExtrusionCoating/Assets/EX7.jpg")}
+    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+  />
+  </div>
+  
+  
       </div>
     );
     
