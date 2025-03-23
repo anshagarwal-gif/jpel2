@@ -2,6 +2,8 @@ import React, { useState }  from "react";
 import { Navigation, SpecsTable, Applications, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import './CircularLoom.css'
 import VedioCard from "../../Components/VedioCard";
+import ImageGallery from"../../Components/ImageGallery";
+
 const CircularLoom = () => {
   const [activeTab, setActiveTab] = useState('4-Shuttle');
   const images = [
@@ -215,7 +217,7 @@ const CircularLoom = () => {
   />
   </div>
       
-        
+  <ImageGallery />
        
       </div>
       

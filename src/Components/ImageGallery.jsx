@@ -3,30 +3,33 @@ import GalleryItem from './GalleryItem';
 import './ImageGallery.css';
 import { X } from 'lucide-react';
 
+
+
+
 const galleryImages = [
   {
     id: 1,
-    src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+    src: require("../assets/loom1.jpg") ,
     alt: "Industrial CNC Machine",
-    description: "High-precision CNC machining center"
+    
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1565439371131-f5e1c91e7bb0?auto=format&fit=crop&w=800&q=80",
+    src: require("../assets/loom2.jpg") ,
     alt: "Robotic Arm Assembly",
-    description: "Advanced robotic assembly system"
+
   },
   {
     id: 3,
-    src: "https://images.unsplash.com/photo-1563456161948-5847b88c2f48?auto=format&fit=crop&w=800&q=80",
+    src: require("../assets/loom3.jpg") ,
     alt: "Quality Control System",
-    description: "Automated quality inspection unit"
+   
   },
   {
     id: 4,
-    src: "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=800&q=80",
+    src: require("../assets/loom4.jpg") ,
     alt: "Manufacturing Line",
-    description: "Smart manufacturing production line"
+     
   }
 ];
 
