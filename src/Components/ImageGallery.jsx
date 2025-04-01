@@ -40,7 +40,7 @@ const ImageGallery = () => {
     <div className="gallery-container">
       <div className="gallery-inner">
         <h2 className="gallery-title">
-          Our Manufacturing Excellence
+          GALLERY
         </h2>
         
         {/* Diamond Gallery Layout */}

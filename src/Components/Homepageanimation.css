@@ -1,182 +1,202 @@
+/* Main container styles */
+.homepage-container {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to bottom right, white, white);
+}
 
-  
-  .design-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100vh;
-    
-    background: #ffffff;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .design-header {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 40%;
-  }
-  
-  .company-logo {
-    position: absolute;
-    width: 1920px;
-    height: 1000px;
-    opacity: 0;
-    transform: translateX(100%);
-    transition: all 1s ease;
-    top: -400px;
-    
-    
-  }
-  
+/* Slanting gradient overlay */
+.homepage-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, #fed7d7, #fc8181);
+  clip-path: polygon(55% 0, 100% 0, 100% 100%, 0% 100%);
+}
 
-  
-  .design-content {
-    width: 75%;
-    text-align: justify;
-    font-size: 36.3px;
-    z-index: 2;
-    margin-right: 80px;
-    opacity: 0;
-    transform: translateX(100%);
-    transition: all 1s ease;
-    margin-top: 40px;
+/* Content container */
+.homepage-content-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
 
-    
+.homepage-main-content {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo section */
+.homepage-logo-section {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 32px;
+  transition: all 0.3s;
+}
+
+
+
+/* Text content */
+.homepage-text-content {
+  width: 100%;
+  color: #1f2937;
+  text-align: center;
+}
+
+.homepage-main-heading {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.homepage-main-paragraph {
+  font-size: 1rem;
+  margin-bottom: 24px;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homepage-cta-button {
+  background-color: #ef4444;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: none;
+  cursor: pointer;
+}
+
+.homepage-cta-button:hover {
+  background-color: #dc2626;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-4px);
+}
+
+/* Media Queries */
+@media (min-width: 640px) {
+  .homepage-main-content {
+    padding: 0 24px;
   }
   
-  .company-name {
-    font-weight: bold;
-    color: #333333;
+  .homepage-logo-container {
+    padding: 24px;
+  }
+  
+  .homepage-factory-icon {
+    width: 64px;
+    height: 64px;
+  }
+  
+  .homepage-main-heading {
+    font-size: 2.25rem;
+    margin-bottom: 24px;
+  }
+  
+  .homepage-main-paragraph {
+    font-size: 1.125rem;
+    margin-bottom: 32px;
+  }
+  
+  .homepage-cta-button {
+    padding: 12px 32px;
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .homepage-main-content {
+    flex-direction: row;
+    padding: 0 48px;
+  }
+  
+  .homepage-logo-section {
+    width: 33.333%;
+    text-align: left;
+    margin-bottom: 0;
+  }
+  
+  .homepage-factory-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0;
+  }
+  
+  .homepage-text-content {
+    width: 60%;
+    text-align: left;
+  }
+  
+  .homepage-main-heading {
     font-size: 3rem;
-    animation: fadeIn 1.5s ease-in-out;
   }
   
-  .design-content p {
-    font-size: 36.3px;
-    color: #555555;
-    line-height: 1.6;
-    font-family: Montserrat;
+  .homepage-main-paragraph {
+    font-size: 1.25rem;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .homepage-main-heading {
+    font-size: 3.75rem;
   }
   
-  .join-link {
-    color: #e63946;
-    text-decoration: none;
-    font-weight: bold;
+  .homepage-main-paragraph {
+    font-size: 1.5rem;
   }
-  
-  .join-link:hover {
-    text-decoration: underline;
+}
+
+.homepage-logo {
+  width: 280px; /* Match SVG size */
+  height: 280px;
+  margin-bottom: 300px;
+  margin-left: 100px;
+  object-fit: contain; /* Ensures it fits well */
+}
+
+/* Existing CSS remains the same, with these additions: */
+
+/* Sliding Animations */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
   }
-  
-  /* Animation on scroll */
-  .fade-in .company-logo {
+  100% {
     opacity: 1;
     transform: translateX(0);
   }
-    /* Animation on scroll */
-    .fade-in .design-content {
-      opacity: 1;
-      transform: translateX(0);
-    }
-/* Keyframes for Fade-in Animation */
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-      transform: translateY(20px);
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
   }
-  to {
-      opacity: 1;
-      transform: translateY(0);
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-/* Responsive Design */
-
-/* Medium Screens (Tablets) */
-@media (max-width: 1024px) {
-  .design-container {
-      flex-direction: column;
-      justify-content: center;
-  }
-
-  .design-header {
-      width: 100%;
-      align-items: center;
-      text-align: center;
-  }
-
-  .design-content {
-      width: 90%;
-      margin-right: 0;
-      margin-top: 20px;
-      text-align: center;
-  }
-
-  .company-name {
-      font-size: 2.5rem;
-  }
-
-  .design-content p {
-      font-size: 1.2rem;
-  }
+.slide-in-left {
+  animation: slideInLeft 2s ease-out forwards;
+  opacity: 0;
 }
 
-/* Small Screens (Mobile Phones) */
-@media (max-width: 768px) {
-  .design-container {
-      padding: 20px;
-  }
-
-  .design-header {
-      width: 100%;
-      margin-bottom: 20px;
-  }
-
-  .design-content {
-      width: 100%;
-  }
-
-  .company-name {
-      font-size: 2rem;
-  }
-
-  .design-content p {
-      font-size: 1rem;
-  }
-
-  .join-link {
-      font-size: 1rem;
-  }
+.slide-in-right {
+  animation: slideInRight 1s ease-out forwards;
+  opacity: 0;
+  animation-delay: 1s; /* Slightly delayed to create a staggered effect */
 }
-
-/* Extra Small Screens */
-@media (max-width: 480px) {
-  .company-name {
-      font-size: 8px;
-      text-align: right;
-  }
-
-  .design-content p {
-    font-size: 8px;
-    text-align: right;
-  }
-
-  .join-link {
-    font-size: 8px;
-    text-align: right;
-  }
-  .company-logo {
-    position: absolute;
-    top: -236px;
-    left: -59px;
-    width: 306%; /* Adjust the width to keep the left part visible */
-    height: 69vh; /* Make it cover the full height */
-    object-fit: cover; /* Ensure the image fits properly */ /* Place it behind the text */
-}
-
-}
-
-  

@@ -1,7 +1,7 @@
 .gallery-item {
     aspect-ratio: 1/1; /* Maintains a square aspect ratio */
-    width: 250px; /* Increase the width as needed */
-    height: 250px; /* Increase the height as needed */
+    width: 285px; /* Increase the width as needed */
+    height: 285px; /* Increase the height as needed */
     overflow: hidden;
     border-radius: 16px;
     transform: rotate(45deg);

@@ -169,13 +169,13 @@
 }
 
 .hover-card {
-  flex: 1 1 300px;
+  flex: 1 1 500px;
   max-width: min(100%, calc(33.333% - 1rem));
   box-sizing: border-box;
 }
 
 .network {
-  text-align: center;
+  text-align: center; 
   font-size: clamp(24px, 3vw, 32px);
   padding: clamp(8px, 1vw, 10px);
 }
