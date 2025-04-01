@@ -88,7 +88,7 @@ const Navbar = () => {
     const navLinks = [
         { to: '/', label: 'HOME' },
         { to: '/Aboutus', label: 'ABOUT US' },
-        { to: '/product', label: 'PRODUCT LINE' },
+        { to: '/PlasticRecycling', label: 'PRODUCT LINE' },
         { to: '/Service', label: 'SPARES & SERVICES' },
         { to: '/news', label: 'NEWS & EVENTS' },
         { to: '/Exhibition', label: 'EXHIBITIONS' },
