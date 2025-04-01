@@ -3,14 +3,11 @@
   min-height: 100vh;
   overflow: hidden;
   position: relative;
- 
-  
 }
 
 .machinery-title {
   color: red;
-  font-size: 3rem;
-  padding: 40px;
+  font-size: clamp(2rem, 5vw, 3rem);
   position: relative;
   z-index: 2;
   font-weight: bold;
@@ -18,7 +15,6 @@
   margin-top: 20px;
   width: fit-content;
   padding: 20px 100px 20px 40px;
- 
   clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
 }
 
@@ -32,14 +28,14 @@
 
 .machinery-section {
   position: relative;
-  height: 600px;
+  height: clamp(180px, 50vw, 600px);
   overflow: hidden;
   transform: skewY(-7deg);
   margin-top: -60px;
   width: 100%;
   z-index: 1;
-  border: 3px solid white; /* Add white border */
-  box-sizing: border-box; /* Ensure the border doesn't add extra width/height */
+  border: 3px solid white;
+  box-sizing: border-box;
   cursor: pointer;
   transition: transform 0.3s ease;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4));
@@ -50,9 +46,10 @@
 }
 
 .machinery-section:last-child {
-  margin-bottom: 35px; /* Ensure perfect alignment */
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 85%); /* Perfect edge for the last strip */
+  margin-bottom: 35px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 85%);
 }
+
 .machinery-section:hover {
   transform: skewY(-7deg) scale(1.01);
 }
@@ -71,7 +68,7 @@
   transform: skewY(3.5deg);
   background-size: cover;
   background-position: center;
-  padding: 40px 60px;
+  padding: clamp(20px, 4vw, 40px) clamp(30px, 6vw, 60px);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -84,7 +81,6 @@
 .machinery-section:nth-child(1) .machinery-content {
   background-image: linear-gradient(to right, rgba(0,0,0,0.4), transparent),
     url('../assets/woven.png');
-  
 }
 
 .machinery-section:nth-child(2) .machinery-content {
@@ -104,17 +100,15 @@
 
 .machinery-content h2 {
   color: white;
-  font-size: 2.7rem;
+  font-size: clamp(1.5rem, 4vw, 2.7rem);
   font-weight: bold;
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: clamp(10px, 2vw, 20px);
   text-transform: uppercase;
   line-height: 1.2;
 }
 
 .button {
-  width: 147px;
-  height: 57px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -123,22 +117,30 @@
   border-radius: 30px;
   color: rgb(255, 255, 255);
   font-weight: 600;
-  font-size: 19px;
   border: none;
   position: relative;
   cursor: pointer;
-  padding-left: 10px;
-  margin-bottom: 60px;
   transition: all 0.5s ease;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.116);
   z-index: 3;
   pointer-events: all;
+  /* Responsive button size */
+  width: clamp(90px, 20vw, 147px);
+  height: clamp(32px, 8vw, 57px);
+  font-size: clamp(14px, 3vw, 19px);
+  padding-left: clamp(8px, 2vw, 10px);
+  margin-bottom: clamp(30px, 6vw, 60px);
 }
 
 .svgIcon {
-  height: 35px;
+  height: clamp(18px, 4vw, 35px);
+  width: auto; /* Ensure width scales proportionally */
   transition-duration: 1.5s;
   fill: black;
+  /* Make sure SVG is visible */
+  display: block;
+  min-height: 18px;
+  min-width: 18px;
 }
 
 .machinery-section:hover .button {
@@ -164,14 +166,15 @@
   z-index: 2;
 }
 
-/* Responsive Design */
+/* Improved Responsive Design with more breakpoints */
 @media (max-width: 1024px) {
   .machinery-section {
-    height: 250px;
+    height: 300px;
+    margin-top: -50px;
   }
   
   .machinery-content h2 {
-    font-size: 2rem;
+    margin-right: 120px;
   }
 }
 
@@ -181,26 +184,12 @@
     margin-top: -40px;
   }
 
-  .machinery-content {
-    padding: 30px 40px;
-  }
-
-  .machinery-content h2 {
-    font-size: 1.75rem;
-  }
-
   .machinery-title {
-    font-size: 2.5rem;
-    padding: 15px 80px 15px 30px;
+    padding: 15px 60px 15px 25px;
   }
-
-  .button {
-    width: 100px;
-    height: 36px;
-  }
-
-  .svgIcon {
-    height: 20px;
+  
+  .machinery-content h2 {
+    margin-right: 80px;
   }
 }
 
@@ -208,30 +197,52 @@
   .machinery-section {
     height: 180px;
     margin-top: -30px;
+    transform: skewY(-5deg); /* Less extreme angle on mobile */
+  }
+
+  .machinery-section:hover {
+    transform: skewY(-5deg) scale(1.01);
   }
 
   .machinery-content {
-    padding: 20px 30px;
-  }
-
-  .machinery-content h2 {
-    font-size: 1.5rem;
-  }
-
-  .button {
-    width: 90px;
-    height: 32px;
-    padding: 6px 16px;
-    font-size: 0.9rem;
-    margin-bottom: 30px;
-  }
-
-  .svgIcon {
-    height: 18px;
+    transform: skewY(2.5deg); /* Adjusted for the less extreme section angle */
   }
 
   .machinery-title {
-   
-    padding: 12px 60px 12px 20px;
+    padding: 12px 50px 12px 20px;
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%); /* Less extreme clip on mobile */
+  }
+
+  /* Ensure the SVG is visible on small screens */
+  .button {
+    padding-left: 12px;
+    gap: 8px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .machinery-section {
+    height: 150px;
+    margin-top: -25px;
+  }
+
+  .machinery-title {
+    font-size: 1.75rem;
+    padding: 10px 40px 10px 15px;
+  }
+
+  .machinery-content h2 {
+    font-size: 1.3rem;
+    margin-right: 40px;
+  }
+
+  .button {
+    width: 80px;
+    height: 30px;
+    font-size: 0.8rem;
+    margin-bottom: 25px;
+    
+  
   }
 }

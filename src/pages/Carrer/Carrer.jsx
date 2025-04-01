@@ -132,28 +132,8 @@ const Career = () => {
 
       ]
     },
-    'Sales & Marketing – Tamil Nadu (South)': {
-      profile: [
-   'Market our company’s products in region Tamil Nadu',  
-'Conduct market research and study peers',  
-'Communicate with target audiences and build & develop customer relationships',  
-'Bring in Sales from the south region – specifically Tamil Nadu',  
-'Submit monthly marketing reports to head office'  
-
-
-      ],
-      skills: [
-      'Minimum 4 to 5 years of experience in marketing & sales in plastics industry specifically in similar products that we make',  
-'Good know-how of woven sacks, flexible packaging, extrusion coating industry',  
-'Passion for Sales',  
-'High level of communication and networking skills',  
-'Good grasp on Tamil, English & Hindi language',  
-'Graduate or equivalent',  
-'Flexible and self-motivated individual with a positive mindset'  
-
-      ]
-    },
-    'Service Engineer – Madhya Pradesh': {
+    
+    'Service Engineer' : {
       profile: [
     'Do erection and commissioning of our machineries at customer site in region Madhya Pradesh and around',  
 'Report to customer site for any customer complaints related to machines',  
@@ -172,43 +152,10 @@ const Career = () => {
 
       ]
     },
-    'Service Engineer – Morbi, Gujarat': {
-      profile: [
-     'Do erection and commissioning of our machineries at customer site in region Morbi and around',  
-'Report to customer site for any customer complaints related to machines',  
-'Do regular visits on customer site for any preventive maintenance as and when required',  
-'Send service reports to head office on regular basis'  
-
-      ],
-      skills: [
-     'Minimum 3 to 5 years of experience in service & maintenance in the plastics woven sacks industry in similar products that we make',  
-'Good know-how of woven sacks, flexible packaging, extrusion coating industry',  
-'Good service and maintenance experience of circular looms, tape plant, lamination, recycling and converting machines',  
-'Ready to relocate to Morbi, Gujarat permanently',  
-'Good communication and customer-handling skills'  
-
-      ]
-    },
-    'Service Manager': {
-      profile: [
-        'Ensuring the customer site is ready and all installation pre-requisites are met, and planning accordingly for deputing the necessary manpower/service engineer for installation',  
-'Maintaining the appropriate records of discussion and correspondence with the customers',  
-'Planning and Deputing service engineer at the customer’s location and analysing his daily activity field reports and guide him accordingly',  
-'Analysing and reviewing service engineer’s reports made during the customer visit and discuss problems, solutions to close the customer complaint',  
-'Managing and reviewing monthly reports of customer’s complaints and the deployed solutions along with service reports with the higher management',  
-'Managing monthly reports of spare parts procured, supplied to the customers, including payment and delivery'  
- 
-
-      ],
-      skills: [
-      'Minimum 3 to 5 years of experience in service in plastics woven sacks industry',  
-'Good know-how of woven sacks, flexible packaging, extrusion coating industry',  
-'Good communication and customer-handling skills',  
-'Efficient in email, and Microsoft office',  
-'This position is based in Ankleshwar, Gujarat'  
-
-      ]
-    },
+   
+    
+    
+    
     'QC Engineer': {
       profile: [
        'Create and manage technical documentation and reports for Quality Analysis and Quality Control of parts and assemblies',  
@@ -282,10 +229,7 @@ const Career = () => {
     'Technical Writer & Product Marketing',
     'Electrical Supervisor for Motor Manufacturing',
     'Mechanical Design Engineer',
-    'Sales & Marketing – Tamil Nadu (South)',
-    'Service Engineer – Madhya Pradesh',
-    'Service Engineer – Morbi, Gujarat',
-    'Service Manager',
+    'Service Engineer',
     'QC Engineer',
     'Sales & Marketing - International Market',
     'Draughtsman-Mechanical'
