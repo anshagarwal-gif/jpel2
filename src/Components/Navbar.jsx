@@ -7,10 +7,31 @@ const Navbar = () => {
     const [hoveredLink, setHoveredLink] = useState(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
-    // Add scroll effect for navbar (for all pages)
+    // Check if device is mobile
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        
+        // Check initially and on resize
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        
+        return () => {
+            window.removeEventListener('resize', checkMobile);
+        };
+    }, []);
+
+    // Add scroll effect for navbar (only for non-mobile devices)
     useEffect(() => {
         const handleScroll = () => {
+            if (isMobile) {
+                // Skip scrolling animation for mobile
+                return;
+            }
+            
             const offset = window.scrollY;
             if (offset > 50) {
                 setScrolled(true);
@@ -23,7 +44,7 @@ const Navbar = () => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [isMobile]);
 
     // Handle body scroll when menu is open
     useEffect(() => {
@@ -101,11 +122,16 @@ const Navbar = () => {
     };
 
     return (
-        <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+        <nav className={`navbar ${!isMobile && scrolled ? 'scrolled' : ''}`}>
+            {/* Logo container */}
             <div className="logo-container">
                 <Link to="/">
                     <img src={navlogo || "/placeholder.svg"} alt="J P ExtrusionTech Pvt Ltd" className="logo" />
                 </Link>
+            </div>
+
+            {/* Mobile menu toggle (only visible on mobile) */}
+            {isMobile && (
                 <button
                     className={`menu-toggle ${isMenuOpen ? 'active' : ''}`}
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -116,8 +142,9 @@ const Navbar = () => {
                     <span className="menu-toggle-bar"></span>
                     <span className="menu-toggle-bar"></span>
                 </button>
-            </div>
-
+            )}
+            
+            {/* Navigation links */}
             <div className={`links-container ${isMenuOpen ? 'active' : ''}`}>
                 <ul className="links-list">
                     {navLinks.map((link, index) => (
