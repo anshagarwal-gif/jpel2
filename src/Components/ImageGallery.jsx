@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import GalleryItem from './GalleryItem';
 import './ImageGallery.css';
 import { X } from 'lucide-react';
-
-
-
-
 const galleryImages = [
   {
     id: 1,
