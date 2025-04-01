@@ -93,7 +93,7 @@
 }
 
 /* Card */
-.card {
+.cardService {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -104,21 +104,21 @@
   transition: all 0.3s ease;
 }
 
-.card .icon-container {
+.cardService .icon-container {
   font-size: clamp(24px, 3vw, 32px);
   color: #e53935;
   margin-bottom: clamp(8px, 1vw, 10px);
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.card h3 {
+.cardService h3 {
   font-size: clamp(14px, 1.6vw, 16px);
   color: #333;
   margin-bottom: clamp(8px, 1vw, 10px);
   font-weight: bold;
 }
 
-.card a {
+.cardService a {
   color: #e53935;
   text-decoration: none;
   font-size: clamp(12px, 1.4vw, 14px);
@@ -127,7 +127,7 @@
   transition: color 0.3s ease;
 }
 
-.card .phone-number {
+.cardService .phone-number {
   font-size: clamp(12px, 1.4vw, 14px);
   color: #666;
   margin-top: clamp(8px, 1vw, 10px);
@@ -137,23 +137,23 @@
 }
 
 /* Hover Effects */
-.card:hover .phone-number {
+.cardService:hover .phone-number {
   opacity: 1;
   transform: translateY(0);
 }
 
-.card:hover {
+.cardService:hover {
   transform: translateY(-10px);
 }
 
-.card:hover .icon-container {
+.cardService:hover .icon-container {
   transform: translateY(-20px);
   opacity: 0;
 }
 
-.card:hover h3,
-.card:hover a,
-.card:hover p {
+.cardService:hover h3,
+.cardService:hover a,
+.cardService:hover p {
   transform: translateY(-10px);
 }
 

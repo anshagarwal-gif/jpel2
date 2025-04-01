@@ -1,4 +1,4 @@
-.card {
+.cardService {
   width: 300px;
   height: 200px;
   background: #ffffff;
@@ -114,33 +114,33 @@
   text-decoration: underline;
 }
 
-.card:hover .contact-info {
+.cardService:hover .contact-info {
   opacity: 1;
 }
 
-.card:hover {
+.cardService:hover {
   border-radius: 0;
   transform: scale(1.1);
 }
 
-.card:hover .logo {
+.cardService:hover .logo {
   width: 134px;
   animation: opacity 1s ease-in-out;
 }
 
-.card:hover .border {
+.cardService:hover .border {
   inset: 15px;
   opacity: 1;
   transform: rotate(0);
 }
 
-.card:hover .bottom-text {
+.cardService:hover .bottom-text {
   letter-spacing: 3px;
   opacity: 1;
   transform: translateX(-50%);
 }
 
-.card:hover .content .content-info {
+.cardService:hover .content .content-info {
   opacity: 1;
   letter-spacing: 9.5px;
   margin-top: 30px;
@@ -151,7 +151,7 @@
   height: auto;
 }
 
-.card:hover .trail {
+.cardService:hover .trail {
   animation: trail 1s ease-in-out;
 }
 
@@ -191,7 +191,7 @@
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .card {
+  .cardService {
     width: 90%;
     max-width: 300px;
     height: auto;
@@ -221,7 +221,7 @@
 }
 
 @media (max-width: 480px) {
-  .card {
+  .cardService {
     width: 95%;
     max-width: 280px;
   }
@@ -249,7 +249,7 @@
 }
 
 /* Ensure the card is centered on all screen sizes */
-.card-container {
+.cardService-container {
   display: flex;
   justify-content: center;
   align-items: center;

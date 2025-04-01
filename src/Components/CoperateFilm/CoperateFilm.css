@@ -2,56 +2,153 @@
     position: relative;
     max-width: 2200px;
     width: 100%;
-   
+    flex-shrink: 0;
     cursor: pointer;
     overflow: hidden;
   
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-  
- 
-  
   .thumbnail-image-film {
-    width: 100%;
-    height:335px;
+    width: 60%;
+    height:90%;
     object-fit: cover;
     display: block;
   }
-  
-  .overlay-film {
+
+  .title-container-film {
     position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
+    right: 0;
+    padding-right: 7%;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    text-align: right;
   }
   
-  .video-container-film:hover .overlay-film {
-    background-color: rgba(0, 0, 0, 0.5);
+  .title-container-film.visible {
+    transform: translateX(0);
+    opacity: 1;
   }
   
-  .play-button-wrapper-film {
+  .title-main {
+    font-size: 64px;
+    font-weight: bold;
+    color: #ff0000;
+    white-space: nowrap;
+    line-height: 1.1;
+  }
+  
+  .title-sub {
+    font-size: 44px;
+    font-weight: bold;
+    color: #ff0000;
+    white-space: nowrap;
+  }
+  
+  
+  
+ 
+  
+  /* .play-button-wrapper-film {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 50%;
     padding: 1rem;
     transition: transform 0.3s ease;
-  }
+  } */
   
-  .video-container-film:hover .play-button-wrapper-film {
+  /* .video-container-film:hover .play-button-wrapper-film {
     transform: scale(1.1);
-  }
+  } */
   
-  .play-icon-film {
+  /* .play-icon-film {
     width: 48px;
     height: 48px;
     color: #2563eb;
   }
-  
-  .wrapper-film {
+   */
+   .wrapper-film {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-   margin-bottom: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
   }
+
+  .CoperateFilm{
+     background-color: #f6f6f6;
+  }
+  /* Responsive styles */
+@media screen and (max-width: 1200px) {
+  .title-main {
+    font-size: 52px;
+  }
+  
+  .title-sub {
+    font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .title-main {
+    font-size: 42px;
+  }
+  
+  .title-sub {
+    font-size: 30px;
+  }
+  
+  .title-container-film {
+    padding-right: 5%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title-main {
+    font-size: 32px;
+  }
+  
+  .title-sub {
+    font-size: 24px;
+  }
+  
+  .thumbnail-image-film {
+    width: 70%;
+  }
+  
+
+}
+
+@media screen and (max-width: 576px) {
+  .wrapper-film {
+    flex-direction: column;
+  }
+  
+
+  .title-main {
+    font-size: 28px;
+    white-space: normal;
+  }
+  
+  .title-sub {
+    font-size: 20px;
+    white-space: normal;
+  }
+  
+  .title-container-film.visible {
+    transform: translateY(0);
+  }
+  
+  .title-container-film {
+    transform: translateY(100%);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .title-main {
+    font-size: 24px;
+  }
+  
+  .title-sub {
+    font-size: 18px;
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Homepageanimation.css";
-import logo from "../assets/logo.jpg"
+import logo from "../assets/logo.jpg";
 
 const Homepageanimation = () => {
   const [isInView, setIsInView] = useState(false);
@@ -8,12 +8,17 @@ const Homepageanimation = () => {
   useEffect(() => {
     const handleScroll = () => {
       const element = document.getElementById("design-component");
-      const rect = element.getBoundingClientRect();
-      const inView = rect.top < window.innerHeight && rect.bottom >= 0;
-      setIsInView(inView);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom >= 0;
+        setIsInView(inView);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
+    // Trigger once on load
+    handleScroll();
+    
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -24,28 +29,21 @@ const Homepageanimation = () => {
       id="design-component"
       className={`design-container ${isInView ? "fade-in" : ""}`}
     >
-      <div className="design-header">
-        <img
-          src={logo}
-          alt="Company Logo"
-          className="company-logo"
-        />
-       
-       
+      <div className="left-section">
+        <div className="logo-containerHome">
+          <img src={logo} alt="Company Logo" className="company-logo" />
+        </div>
       </div>
-      <div className="design-content">
-        
-        <p>
-        <span className="company-name">J P Extrusiontech Pvt. Ltd.</span>   stands at the forefront of innovation, proudly leading the way in the
-          manufacturing and export of high-quality plastic processing machinery
-          and equipment. Our commitment to excellence ensures that we deliver
-          cutting-edge solutions that empower industries and enhance
-          productivity.{" "}
-          <a href="/ContactUs" className="join-link">
-            Join us
-          </a>{" "}
-          in shaping the future of plastic processing!
+      <div className="right-sectionHome">
+        <h1 className="company-title">J P Extrusiontech</h1>
+        <p className="company-description">
+          Stands at the forefront of innovation, proudly leading the way in
+          manufacturing and delivering high-quality solutions that
+          empower industries and enhance productivity.
         </p>
+        <a href="/ContactUs" className="join-button">
+          Join us
+        </a>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-.gallery-container {
+/* .gallery-container {
     min-height: 100vh;
     background-color: white;
     padding: 64px 16px;
@@ -60,7 +60,7 @@
   }
   
   /* Lightbox styles */
-  .lightbox {
+  /* .lightbox {
     position: fixed;
     top: 0;
     right: 0;
@@ -106,4 +106,4 @@
     font-size: 20px;
     margin-top: 16px;
     text-align: center;
-  }
+  } */ 

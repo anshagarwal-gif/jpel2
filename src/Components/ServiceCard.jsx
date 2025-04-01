@@ -4,7 +4,7 @@ import { FaInfoCircle } from 'react-icons/fa';
 import logoImage from "../assets/2.jpg"
 const ServiceCard = ({ email, phone,theme }) => {
   return (
-    <div className="card">
+    <div className="cardService">
       <div className="border"></div>
       <div className="content">
         <div className="logo">

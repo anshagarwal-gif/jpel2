@@ -1,4 +1,4 @@
-.gallery-item {
+/* .gallery-item {
     aspect-ratio: 1/1;
     overflow: hidden;
     border-radius: 16px;
@@ -62,4 +62,4 @@
   
   .gallery-item:hover .gallery-item-image {
     transform: rotate(-45deg) scale(1.6);
-  }
+  } */
