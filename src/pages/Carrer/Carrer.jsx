@@ -238,9 +238,21 @@ const Career = () => {
     setShowForm(true);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    setShowForm(false);
+    const formData = new FormData(e.target);
+    formData.append("jobTitle", selectedJob);
+    try {
+      const res = await fetch('http://localhost:5000/api/apply', {
+        method: 'POST',
+        body: formData
+      });
+      const data = await res.json();
+      alert(data.message);
+      setShowForm(false);
+    } catch (err) {
+      alert("Submission failed. Try again.");
+    }
   };
 
   return (
@@ -312,26 +324,31 @@ const Career = () => {
               <div className="form-columns">
                 <div className="form-column">
                   <div className="form-group">
-                    <input type="text" placeholder="Name" required />
+                    <input type="text" placeholder="Name" name='name' required />
                   </div>
                   <div className="form-group">
-                    <input type="email" placeholder="Email ID" required />
+                    <input type="email" placeholder="Email ID" name='email' required />
                   </div>
                   <div className="form-group">
-                    <input type="tel" placeholder="Contact No" required />
+                    <input type="tel" placeholder="Contact No" name='contact' required />
                   </div>
                   <div className="form-group">
-                    <input type="text" placeholder="Qualification" required />
+                    <input type="text" placeholder="Qualification" name='qualification' required />
                   </div>
                 </div>
                 
                 <div className="form-column">
                   <div className="form-group">
-                    <input type="file" className="resume-upload" accept=".pdf,.doc,.docx" required />
-                    <label type="file" accept=".pdf,.doc,.docx" className="file-label">Upload Resume</label>
+                    <input   type="file"
+  id="resume"
+  name="resume"
+  className="resume-upload"
+  accept=".pdf,.doc,.docx"
+  required />
+                    <label htmlFor="resume" className="file-label">Upload Resume</label>
                   </div>
                   <div className="form-group">
-                    <textarea placeholder="Message" rows="6" required></textarea>
+                    <textarea placeholder="Message" rows="6" name='message' required></textarea>
                   </div>
                 </div>
               </div>

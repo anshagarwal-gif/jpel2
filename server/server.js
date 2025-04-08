@@ -1,16 +1,28 @@
 require("dotenv").config();  // Load environment variables
-
+const connectDB = require("./config/db");
 const express = require("express");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
+const authRoutes = require("./routes/authRoutes");
+const path = require("path");
+const inquiryRoutes = require("./routes/Contactus");
+const CarrerRoutes =require("./routes/Carrer")
+
 
 // Create an Express app
 const app = express();
+app.use('/uploads', express.static('uploads'));
+app.use(express.json()); 
 app.use(bodyParser.json()); // To parse JSON data in the request body
 app.use(cors()); // To handle cross-origin requests
-
-// Nodemailer transport configuration using environment variables
+app.use(cors({
+  origin: ["http://localhost:3000"], // Change this to match your frontend
+  methods: "GET,POST,PUT,DELETE",
+  credentials: true
+}));
+connectDB();
+// Nodemai  ler transport configuration using environment variables
 const transporter = nodemailer.createTransport({
   service: "Gmail",  // Use Gmail as the email service
   auth: {
@@ -35,16 +47,24 @@ app.post("/send-email", (req, res) => {
     city,
     state,
     country,
-    message,
     brochureLink,
     url,
-    visitorIP
+    visitorIP,
+    endText,
   } = req.body;
+
+  const brochureFiles = {
+    woven: "extrusion.pdf",
+    injection: "injection.pdf",
+    blow: "blow-molding.pdf",
+  };
+  const brochureFileName = brochureFiles[endText] || "default.pdf";
+  const brochurePath = path.join(__dirname, "catalogues", brochureFileName);
 
   // Define the email content
   const mailOptions = {
     from: process.env.EMAIL,  // Sender email from the environment variable
-    to: "krishnarajbhosale@gmail.com",  // Replace with your recipient email address
+    to: "anshagarwal.rishikesh@gmail.com",  // Replace with your recipient email address
     subject: "Download Catalogue |  J P Extrusiontech Private Limited",
       html: `
         <div style="font-family: Arial, sans-serif; border: 2px dashed #000; padding: 20px; max-width: 600px; margin: auto; background-color: #F7F7F7;">
@@ -84,10 +104,6 @@ app.post("/send-email", (req, res) => {
       <td style="padding: 8px;">${country}</td>
     </tr>
     <tr>
-      <td style="padding: 8px; font-weight: bold; color: #000;">Brochure Link:</td>
-      <td style="padding: 8px;">${brochureLink}</td>
-    </tr>
-    <tr>
       <td style="padding: 8px; font-weight: bold; color: #000;">URL:</td>
       <td style="padding: 8px;"><a href="${url}" style="color: #0066cc; text-decoration: none;">${url}</a></td>
     </tr>
@@ -99,7 +115,13 @@ app.post("/send-email", (req, res) => {
 </div>
 
       `,
-  
+      attachments: [
+        {
+          filename: brochureFileName,
+          path: brochurePath,
+          contentType: "application/pdf",
+        },
+      ],
     
   };
 
@@ -114,6 +136,9 @@ app.post("/send-email", (req, res) => {
     }
   });
 });
+app.use("/api/auth", authRoutes);
+app.use("/api/inquiries", inquiryRoutes);
+app.use("/api", CarrerRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 5000;

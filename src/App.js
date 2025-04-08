@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/home';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
@@ -25,6 +25,59 @@ import CastLine from './pages/CastLine/CastLine';
 import PET from './pages/PET/PET';
 import Flexible from './pages/Flexible/Flexible';
 import Bag from './pages/Bag-Conversion/Bag';
+import AdminLogin from './pages/AdminPanel/AdminLogin';
+import AdminDashboard from './pages/AdminPanel/AdminDashboard';
+import ProtectedRoute from './ProtectedRoute';
+
+import { useEffect } from 'react';
+
+function AppLayout() {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      {/* Hide Navbar on admin routes */}
+      {!isAdminRoute && <Navbar />}
+
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Exhibition" element={<EXHIBITION />} />
+          <Route path="/News" element={<News />} />
+          <Route path="/ContactUs" element={<ContactUs />} />
+          <Route path="/Service" element={<Service />} />
+          <Route path="/Carrer" element={<Carrer />} />
+          <Route path="/Woven" element={<Woven />} />
+          <Route path="/PlasticRecycling" element={<PlasticRecycling />} />
+          <Route path="/PlasticRecycling/:category" element={<PlasticRecycling />} />
+          <Route path="/AboutUs" element={<Aboutus />} />
+          <Route path="/TapeExtrusion" element={<TapeExtrusion />} />
+          <Route path="/CircularLoom" element={<CircularLoom />} />
+          <Route path="/PrintingMachine" element={<PrintingMachine />} />
+          <Route path="/WindingMachine" element={<WindingMachine />} />
+          <Route path="/ExtrusionCoating" element={<ExtrusionCoating />} />
+          <Route path="/WovenSack" element={<WovenSack />} />
+          <Route path="/BatteryBox" element={<BatteryBox />} />
+          <Route path="/BoxStrapping" element={<BoxStrapping />} />
+          <Route path="/Monofilament" element={<Monofilament />} />
+          <Route path="/SheetExtrusion" element={<SheetExtrusion />} />
+          <Route path="/CastLine" element={<CastLine />} />
+          <Route path="/PET" element={<PET />} />
+          <Route path="/Flexible" element={<Flexible />} />
+          <Route path="/Bag-Conversion" element={<Bag />} />
+
+          {/* Admin Routes */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path='/admin/dashboard' element={<ProtectedRoute element={<AdminDashboard />} />} />
+        </Routes>
+      </main>
+
+      {/* Hide Footer on admin routes */}
+      {!isAdminRoute && <Footer />}
+    </div>
+  );
+}
 
 function App() {
   return (
@@ -33,38 +86,7 @@ function App() {
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         rel="stylesheet"
       />
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Exhibition" element={<EXHIBITION />} />
-            <Route path="/News" element={<News />} />
-            <Route path="/ContactUs" element={<ContactUs />} />
-            <Route path="/Service" element={<Service />} />
-            <Route path="/Carrer" element={<Carrer />} />
-            <Route path="/Woven" element={<Woven />} />
-            <Route path="/PlasticRecycling" element={<PlasticRecycling />} />
-            <Route path="/PlasticRecycling/:category" element={<PlasticRecycling />} />
-            <Route path="/AboutUs" element={<Aboutus />} />
-            <Route path="/TapeExtrusion" element={<TapeExtrusion />} />
-            <Route path="/CircularLoom" element={<CircularLoom />} />
-            <Route path="/PrintingMachine" element={<PrintingMachine />} />
-            <Route path="/WindingMachine" element={<WindingMachine />} />
-            <Route path="/ExtrusionCoating" element={<ExtrusionCoating />} />
-            <Route path="/WovenSack" element={<WovenSack />} />
-            <Route path="/BatteryBox" element={<BatteryBox />} />
-            <Route path="/BoxStrapping" element={<BoxStrapping />} />
-            <Route path="/Monofilament" element={<Monofilament />} />
-            <Route path="/SheetExtrusion" element={<SheetExtrusion />} />
-            <Route path="/CastLine" element={<CastLine />} />
-            <Route path='/PET' element={<PET/>}/>
-            <Route path='/Flexible' element={<Flexible/>}/> 
-            <Route path='/Bag-Conversion' element={<Bag/>}/>
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <AppLayout />
     </Router>
   );
 }

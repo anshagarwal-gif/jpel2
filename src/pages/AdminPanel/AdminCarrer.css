@@ -1,0 +1,451 @@
+/* AdminCareer.css */
+
+.career-page {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+    background-color: #f5f7fb;
+  }
+  
+  .career-page .content-header {
+    margin-bottom: 20px;
+  }
+  
+  .career-page .page-title h1 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .career-page .page-title p {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .career-page .check-spam,
+  .career-page .cb-test {
+    color: #4a6cf7;
+    text-decoration: none;
+  }
+  
+  .career-page .check-spam:hover,
+  .career-page .cb-test:hover {
+    text-decoration: underline;
+  }
+  
+  .career-page .contact-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .career-page .control-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .career-page .records-dropdown select {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+  }
+  
+  .career-page .action-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4a6cf7;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .career-page .action-button:hover {
+    background-color: #3a5bd0;
+  }
+  
+  .career-page .search-container {
+    position: relative;
+  }
+  
+  .career-page .search-input {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    min-width: 250px;
+  }
+  
+  .career-page .data-table-container {
+    width: 100%; /* Add this */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: auto;
+    margin-bottom: 20px;
+  }
+  
+  .career-page .contact-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .career-page .contact-table th,
+  .career-page .contact-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .career-page .contact-table th {
+    background-color: #f9fafb;
+    font-weight: 600;
+    color: #555;
+    position: relative;
+  }
+  
+  .career-page .sort-icon {
+    font-size: 12px;
+    margin-left: 5px;
+    color: #999;
+  }
+  
+  .career-page .add-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .career-page .add-button {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: none;
+    background-color: #4a6cf7;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    padding: 0;
+  }
+  
+  .career-page .status-dropdown select {
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    width: 100%;
+  }
+  
+  .career-page .contact-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .career-page .contact-with-icon svg {
+    color: #4a6cf7;
+  }
+  
+  .career-page .view-resume-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border: 1px solid #4a6cf7;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #4a6cf7;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .career-page .view-resume-btn:hover {
+    background-color: #4a6cf7;
+    color: white;
+  }
+  
+  .career-page .view-resume-btn svg {
+    transition: all 0.3s;
+  }
+  
+  .career-page .view-resume-btn:hover svg {
+    stroke: white;
+  }
+  
+  .career-page .no-data {
+    text-align: center;
+    padding: 30px;
+    color: #999;
+  }
+  
+  .career-page .pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .career-page .page-info {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .career-page .pagination {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .career-page .page-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .career-page .page-btn.active {
+    background-color: #4a6cf7;
+    color: white;
+    border-color: #4a6cf7;
+  }
+  
+  .career-page .page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* Resume Modal Styles */
+  .resume-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .resume-modal-content {
+    background-color: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .resume-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .resume-modal-header h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #333;
+  }
+  
+  .close-modal {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .resume-modal-body {
+    padding: 20px;
+    overflow: auto;
+    flex-grow: 1;
+  }
+  
+  .no-resume {
+    text-align: center;
+    padding: 50px 0;
+    color: #999;
+  }
+  
+  .resume-modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .download-resume, 
+  .close-button {
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .download-resume {
+    background-color: #4a6cf7;
+    color: white;
+    border: none;
+  }
+  
+  .download-resume:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .close-button {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: #666;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .career-page .contact-controls {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .career-page .search-input {
+      width: 100%;
+    }
+    
+    .career-page .data-table-container {
+      overflow-x: auto;
+    }
+    
+    .career-page .pagination-container {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+  
+/* Expandable row styling */
+tr.expanded-row {
+    background-color: #f1f5f9;
+  }
+  
+  .add-button {
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  
+  .add-button.expanded {
+    background-color: #ef4444;
+    transform: rotate(180deg);
+  }
+  
+  .details-row td {
+    padding: 0 !important;
+    border-bottom: none !important;
+  }
+  
+  .details-panel {
+    background-color: #1e293b;
+    color: white;
+    border-radius: 4px;
+    margin: 0 8px 16px 8px;
+    overflow: hidden;
+  }
+  
+  .details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .details-header h3 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 500;
+  }
+  
+  .close-details {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+  }
+  
+  .details-content {
+    padding: 16px;
+  }
+  
+  .details-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  @media (min-width: 768px) {
+    .details-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .details-grid .details-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .details-label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .details-value {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .details-value a {
+    color: #60a5fa;
+    text-decoration: none;
+  }
+  
+  .details-value a:hover {
+    text-decoration: underline;
+  }
+  
+  .details-value select {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: red;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    min-width: 120px;
+  }
+  
+  .details-value svg {
+    color: #60a5fa;
+  }
+  
+  /* Make the detailed info responsive */
+  @media (max-width: 640px) {
+    .details-grid {
+      grid-template-columns: 1fr;
+    }
+  }
