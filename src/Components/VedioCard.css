@@ -1,173 +1,168 @@
 /* Video Card Styles */
 .video-card {
-    width: 500px;
-    text-align: center;
-    margin: 20px;
-    position: relative;
-    
-  }
-  .card {
-    width: 500px; /* Increase the width */
-    height: 450px; /* Increase the height */
-    margin: 20px; /* Adjust the spacing around the card */
-    padding: 10px; /* Adjust internal spacing */
-}
-  
-  .video-thumbnail {
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .thumbnail-image {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    forced-color-adjust: none;
-  }
-  
-  .play-button-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    forced-color-adjust: none;
-  }
-  
-  .play-button {
-  
-    width: 0;
-    height: 0;
-    border-top: 12px solid transparent;
-    border-bottom: 12px solid transparent;
-    border-left: 21px solid #ff0000; /* This makes the triangle point right */
-    forced-color-adjust: none;
-    
-  }
-  
-  /* Video Title */
-  .video-title {
-    margin-top: 10px;
-    font-size: 19px;
-    font-weight: bold;
-    color: #333;
-    forced-color-adjust: none;
-  }
-  
-  /* Modal Styles */
-  .video-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-  }
-  
-  .modal-overlay {
-    position: fixed; /* Use fixed to cover the entire viewport */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Dim background with transparency */
-    z-index: 1000; /* Ensure it is on top of other elements */
-    display: flex; /* Allows centering content inside */
-    justify-content: center;
-    align-items: center;
-    forced-color-adjust: none;
-}
-.modal-content {
-    position: relative;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 1001; /* Keeps the modal content above the overlay */
+  width: 500px;
+  text-align: center;
+  margin: 20px;
+  position: relative;
 }
 
-.modal-overlay.hidden {
-    display: none; /* Hide modal overlay when inactive */
-    opacity: 0;
+.card {
+  width: 500px;
+  height: 450px;
+  margin: 20px;
+  padding: 10px;
 }
-   .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%; /* Increased width for a larger modal */
-    max-width: 1200px; /* Maximum width */
-    height: 100vh; /* Increased height */
-    max-height: 90vh; /* Maximum height */
-    padding: 10px;
-    border-radius: 10px;
-    box-sizing: border-box;
-    forced-color-adjust: auto;
-  }
-  
-  .close-button2 {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 35px;
-    color: white;
-    cursor: pointer;
-    forced-color-adjust: auto;
-  }
-  @media (max-width: 768px) {
-    .video-card {
-      width: 90%;
-    }
-    
-    .thumbnail-image {
-      height: 150px;
-    }
-    
-    .modal-content {
-      width: 95%;
-      height: 80vh;
-    }
-  }
-  .video-card:hover .thumbnail-image {
-    transform: scale(1.05);
-    transition: transform 0.3s;
-  }
-  
-  .play-button-overlay {
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  
-  .video-thumbnail:hover .play-button-overlay {
-    opacity: 1;
-  }
-/* High Contrast Mode Fix */
-@media (forced-colors: active) {
-  .video-title {
-      color: CanvasText;
-  }
-  
-  .close-button2 {
-      color: ButtonText;
+
+.video-thumbnail {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden; /* Contain the scale animation */
+}
+
+.thumbnail-image {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.play-button-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.play-button {
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 21px solid #ff0000;
+}
+
+.video-title {
+  margin-top: 10px;
+  font-size: 19px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Modal Styles */
+.video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; 
+  max-width: 1000px;
+  height: 0;
+  padding-bottom: 45%; /* 16:9 Aspect Ratio for videos */
+  background: transparent;
+  border-radius: 10px;
+  box-sizing: border-box;
+  z-index: 1001;
+}
+
+/* Added player wrapper for responsive sizing */
+.player-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.close-button2 {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  font-size: 35px;
+  color: white;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+/* Hover effects */
+.video-thumbnail:hover .thumbnail-image {
+  transform: scale(1.05);
+}
+
+.video-thumbnail:hover .play-button-overlay {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .video-card {
+    width: 90%;
+    margin: 10px auto;
   }
   
   .modal-content {
-      background: Canvas;
-      border: 1px solid CanvasText;
+    width: 95%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  }
+  
+  .close-button2 {
+    top: -30px;
+    right: 0;
+  }
+}
+
+/* High Contrast Mode Fix */
+@media (forced-colors: active) {
+  .video-title {
+    color: CanvasText;
+  }
+  
+  .close-button2 {
+    color: ButtonText;
   }
   
   .play-button {
-      border-left-color: ButtonText;
+    border-left-color: ButtonText;
   }
   
   .play-button-overlay {
-      background-color: Canvas;
+    background-color: Canvas;
   }
 }

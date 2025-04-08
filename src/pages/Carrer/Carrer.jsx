@@ -154,8 +154,6 @@ const Career = () => {
     },
    
     
-    
-    
     'QC Engineer': {
       profile: [
        'Create and manage technical documentation and reports for Quality Analysis and Quality Control of parts and assemblies',  

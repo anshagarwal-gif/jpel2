@@ -1,6 +1,6 @@
 .machinery-range {
   width: 100%;
-  min-height: 100vh;
+
   overflow: hidden;
   position: relative;
 }
@@ -209,14 +209,14 @@
   }
 
   .machinery-title {
-    padding: 12px 50px 12px 20px;
+    padding: 12px 50px 40px 20px;
     clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%); /* Less extreme clip on mobile */
-  }
 
+  }
+  
   /* Ensure the SVG is visible on small screens */
   .button {
-    padding-left: 12px;
-    gap: 8px;
+    gap: 4px;
   }
 }
 

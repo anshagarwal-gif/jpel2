@@ -1,72 +1,90 @@
 import React, { useState, useCallback, useEffect } from "react";
 import "./Cardflip.css";
+// Remove Exhibition import completely
 
 const Cardflip = ({
   cardInfo,
   cardTitle,
   thumbnailImage,
   galleryImages,
-  
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  
+  const [isClosing, setIsClosing] = useState(false);
+
   // Handle escape key press
-  const handleEscapeKey = useCallback((event) => {
-    if (event.key === 'Escape' && isModalOpen) {
-      setIsModalOpen(false);
-    }
-  }, [isModalOpen]);
-  
+  const handleEscapeKey = useCallback(
+    (event) => {
+      if (event.key === "Escape" && isModalOpen) {
+        closeModal();
+      }
+    },
+    [isModalOpen]
+  );
+
   // Add and remove event listeners
   useEffect(() => {
     if (isModalOpen) {
-      document.addEventListener('keydown', handleEscapeKey);
-      // Prevent body scrolling when modal is open
-      document.body.style.overflow = 'hidden';
+      document.addEventListener("keydown", handleEscapeKey);
+      document.body.style.overflow = "hidden"; // Prevent scrolling
     }
     return () => {
-      document.removeEventListener('keydown', handleEscapeKey);
-      document.body.style.overflow = 'unset';
+      document.removeEventListener("keydown", handleEscapeKey);
+      document.body.style.overflow = "unset";
     };
   }, [isModalOpen, handleEscapeKey]);
-  
-  // Handle image click
+
+  // Prevent image click from closing modal
   const handleImageClick = (e) => {
-    e.stopPropagation(); // Prevent modal from closing when clicking the image
+    e.stopPropagation();
   };
-  // Handle click outside
+
+  // Close modal if clicked outside content
   const handleOverlayClick = (e) => {
     if (e.target.classList.contains("modal-overlay1")) {
       closeModal();
     }
   };
 
-
   const openModal = () => {
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
-    setIsModalOpen(false);
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsModalOpen(false);
+      setIsClosing(false);
+    }, 300); // Match the CSS transition duration
   };
 
-  const goToNext = () => {
+  const goToNext = (e) => {
+    e.stopPropagation(); // Prevent event bubbling
     setCurrentIndex((prevIndex) => (prevIndex + 1) % galleryImages.length);
   };
 
-  const goToPrev = () => {
+  const goToPrev = (e) => {
+    e.stopPropagation(); // Prevent event bubbling
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? galleryImages.length - 1 : prevIndex - 1
     );
   };
 
+  if (!galleryImages || galleryImages.length === 0) {
+    return null;
+  }
+
   return (
     <div className="card-container">
+      {/* Card header */}
+      <div className="card-header">
+        <p>Click to view gallery</p>
+      </div>
+      
       {/* Flip Card */}
       <div className="flip-card" onClick={openModal}>
         <div className="flip-card-inner">
-          {/* Front side of the card */}
+          {/* Front */}
           <div className="flip-card-front">
             <img
               src={thumbnailImage}
@@ -74,7 +92,7 @@ const Cardflip = ({
               className="card-image"
             />
           </div>
-          {/* Back side of the card */}
+          {/* Back */}
           <div className="flip-card-back">
             <p className="card-info">{cardInfo}</p>
           </div>
@@ -82,10 +100,12 @@ const Cardflip = ({
         <div className="card-title">{cardTitle}</div>
       </div>
 
-      {/* Modal for the gallery with arrows */}
+      {/* Modal */}
       {isModalOpen && (
         <div
-          className="modal-overlay1"
+          className={`modal-overlay1 ${isClosing ? 'closing' : ''}`}
+          role="dialog"
+          aria-modal="true"
           onClick={handleOverlayClick}
         >
           <div className="modal-content1">

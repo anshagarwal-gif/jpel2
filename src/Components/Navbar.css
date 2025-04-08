@@ -18,15 +18,25 @@ body.mobile-view {
   border-radius: 50px;
   padding: 10px 30px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  width: calc(100% - 40px); /* Calculate width with padding accounted for */
   max-width: 1300px;
-  width: calc(100% - 40px);
-  margin: 20px auto;
+  margin: 20px auto; /* Center with auto margins */
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
   z-index: 1000;
   transition: all 0.3s ease;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Container to help center the navbar */
+.navbar-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .navbar.scrolled {
@@ -110,6 +120,9 @@ body.mobile-view {
   transition: all 0.3s ease;
   white-space: nowrap;
   position: relative;
+}
+
+.nav-link:not(:last-child) {
   margin-right: 30px;
 }
 
@@ -144,7 +157,6 @@ body.mobile-view {
 
 @media (max-width: 1366px) {
   .navbar {
-    width: calc(100% - 40px);
     max-width: 1200px;
   }
 }
@@ -158,6 +170,7 @@ body.mobile-view {
 @media (max-width: 1024px) {
   .navbar {
     padding: 8px 24px;
+    width: calc(100% - 48px); /* Adjust for new padding */
   }
 
   .links-list {
@@ -167,6 +180,10 @@ body.mobile-view {
   .nav-link {
     font-size: 0.85rem;
     padding: 6px 8px;
+  }
+  
+  .nav-link:not(:last-child) {
+    margin-right: 20px;
   }
 }
 
@@ -178,6 +195,10 @@ body.mobile-view {
   .nav-link {
     padding: 6px 4px;
     font-size: 0.8rem;
+  }
+  
+  .nav-link:not(:last-child) {
+    margin-right: 15px;
   }
 }
 
@@ -192,7 +213,6 @@ body.mobile-view {
     margin: 0;
     padding: 10px 15px;
     border-radius: 0;
-    transform: none;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     justify-content: space-between; /* Important for spacing logo and toggle */
   }
@@ -207,9 +227,8 @@ body.mobile-view {
   .menu-toggle {
     display: block; /* Show on mobile */
     margin-left: auto; /* Push to right */
-    margin-right: 0;
-    order: 2; /* Position on the right */
     margin-right: 25px;
+    order: 2; /* Position on the right */
   }
 
   .links-container {
@@ -263,6 +282,10 @@ body.mobile-view {
     width: 100%;
     font-size: 1rem;
     font-weight: 500;
+  }
+  
+  .nav-link:not(:last-child) {
+    margin-right: 0; /* Remove margin on mobile */
   }
 
   .nav-link:after {

@@ -1,117 +1,210 @@
 import React, { useState, useEffect } from 'react';
+import { ChevronDown, ArrowRight } from 'lucide-react';
 import './ScrollTransition.css';
 
-const ScrollTransition = ({ 
-  id='',
-  title, 
-  sections=[],
-  className = '',
-  titleClassName = '' 
-}) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
+// Import all images
+import recyclingimg1 from '../../pages/PlasticRecycling/Assets/recycling-1.jpg';
+import recyclingimg2 from '../../pages/PlasticRecycling/Assets/recycling-2.jpg';
+import recyclingimg3 from '../../pages/PlasticRecycling/Assets/recycling-3.jpg';
+import recyclingimg4 from '../../pages/PlasticRecycling/Assets/recycling-4.jpg';
+import recyclingimg5 from '../../pages/PlasticRecycling/Assets/recycling-5.jpg';
+import recyclingimg0 from '../../pages/PlasticRecycling/Assets/recycling0.jpg';
+import recyclingimg1_2 from '../../pages/PlasticRecycling/Assets/recycling1.jpg';
+import recyclingimg2_2 from '../../pages/PlasticRecycling/Assets/recycling2.jpg';
+import recyclingimg3_2 from '../../pages/PlasticRecycling/Assets/recycling3.jpg';
+import recyclingimg5_2 from '../../pages/PlasticRecycling/Assets/recycling5.jpg';
+import recyclingimg6 from '../../pages/PlasticRecycling/Assets/recycling6.jpg';
+import recyclingimg7 from '../../pages/PlasticRecycling/Assets/recycling7.jpg';
+import recyclingimg8 from '../../pages/PlasticRecycling/Assets/recycling8.jpg';
+import recyclingimg9 from '../../pages/PlasticRecycling/Assets/recycling-9.jpg';
+
+function ScrollTransition() {
+  const [activeSection, setActiveSection] = useState(0);
+  const [visibleSections, setVisibleSections] = useState([]);
+
+  const recyclingData = React.useMemo(() => ({
+    "woven-packaging": [
+      {
+        id: "woven12",
+        title: "Woven Packaging",
+        sections: [
+          { subtitle: "Tape Extrusion", image: recyclingimg3, link: "/TapeExtrusion", description: "Industrial grade woven sacks" },
+          { subtitle: "Winding Machines", image: recyclingimg2, link: "/WindingMachine", description: "Advanced PET bottle washing systems" },
+          { subtitle: "Circular Looms", image: recyclingimg1, link: "/CircularLoom", description: "Complete HDPE recycling solutions" }
+        ]
+      },
+      {
+        id: "woven13",
+        title: "Woven Packaging",
+        sections: [
+          { subtitle: "Extrusion Coating", image: recyclingimg0, link: "/ExtrusionCoating", description: "Industrial shredding machines" },
+          { subtitle: "Printing Machines", image: recyclingimg4, link: "/PrintingMachine", description: "Industrial shredding machines" },
+          { subtitle: "Bag Conversion Machines", image: recyclingimg5, link: "/Bag-Conversion", description: "Industrial shredding machines" }
+        ]
+      }
+    ],
+    "plastic-recycling": [
+      {
+        id: "Plastic21",
+        title: "Plastic Recycling",
+        sections: [
+          { subtitle: "Woven Sacks", image: recyclingimg1_2, link: "/WovenSack", description: "Industrial grade woven sacks" },
+          { subtitle: "PET Washing Line", image: recyclingimg2_2, link: "/PET", description: "Advanced PET bottle washing systems" }
+        ]
+      },
+      {
+        id: "Plastic22",
+        title: "Plastic Recycling",
+        sections: [
+          { subtitle: "Battery Box Recycling", image: recyclingimg3_2, link: "/BatteryBox", description: "Complete HDPE recycling solutions" }
+        ]
+      }
+    ],
+    "profile-extrusion": [
+      {
+        id: "Profile34",
+        title: "Profile Extrusion",
+        sections: [
+          { subtitle: "Monofilament Line/Danline", image: recyclingimg5_2, link: "/Monofilament", description: "Industrial grade woven sacks" },
+          { subtitle: "Box-Strapping Line", image: recyclingimg6, link: "/BoxStrapping", description: "Advanced PET bottle washing systems" }
+        ]
+      }
+    ],
+    "sheet-film-extrusion": [
+      {
+        id: "SheetFilm43",
+        title: "Sheet/Film Extrusion",
+        sections: [
+          { subtitle: "Sheet Extrusion Line", image: recyclingimg7, link: "/SheetExtrusion", description: "Industrial grade woven sacks" },
+          { subtitle: "Cast Film Line", image: recyclingimg8, link: "/CastLine", description: "Advanced PET bottle washing systems" },
+          { subtitle: "Flexible Packaging", image: recyclingimg9, link: "/Flexible", description: "Advanced PET bottle washing systems" }
+        ]
+      }
+    ]
+  }), []);
+
+  // Flatten recyclingData
+  const slides = React.useMemo(() => {
+    let slideId = 0;
+    const allSlides = [];
+
+    Object.entries(recyclingData).forEach(([category, sectionGroups]) => {
+      sectionGroups.forEach(group => {
+        group.sections.forEach(section => {
+          allSlides.push({
+            id: slideId++,
+            type: 'image',
+            image: section.image,
+            title: group.title,
+            subtitle: section.subtitle,
+            description: section.description,
+            link: section.link,
+            category: category
+          });
+        });
+      });
+    });
+
+    return allSlides;
+  }, [recyclingData]);
+
+  const scrollToNextSection = (index) => {
+    const nextSection = document.getElementById(`scroll-section-${index + 1}`);
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
-  
-    const handleScroll = () => {
-      if (!id || sections.length === 0) {
-        return;
-      }
-      const transitionSection = document.getElementById(id);
-      
+    // Create a container element for the component
+    const containerElement = document.querySelector('.scroll-transition-container');
+    
+    if (!containerElement) return;
+    
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          const sectionIndex = parseInt(sectionId.split('-')[2]);
 
-
-       // Use the unique ID
-      if (!transitionSection) {
-        console.error(`Element with ID "${id}" not found.`);
-        return;
-      }
-      const rect = transitionSection.getBoundingClientRect();
-      const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-      
-      // Update visibility state
-      if (isInView !== isVisible) {
-        setIsVisible(isInView);
-      }
-
-      // Only calculate progress if section is in view
-      if (isInView) {
-        // Calculate progress based on how much of the section has been scrolled
-        const totalHeight = rect.height - window.innerHeight;
-        const scrolledHeight = Math.abs(rect.top);
-        const progress = Math.min(Math.max(scrolledHeight / totalHeight, 0), 1);
-        
-        // Calculate new index based on progress
-        const newIndex = Math.min(
-          Math.floor(progress * sections.length),
-          sections.length - 1
-        );
-
-        // Only update if index has changed and is valid
-        if (newIndex !== activeIndex && newIndex >= 0 && newIndex < sections.length) {
-          setActiveIndex(newIndex);
+          setActiveSection(sectionIndex);
+          setVisibleSections(prev => (
+            !prev.includes(sectionIndex) ? [...prev, sectionIndex] : prev
+          ));
         }
-      }
-    };
+      });
+    }, { threshold: 0.5 });
 
-    window.addEventListener('scroll', handleScroll);
-    
-    // Initial check
-    handleScroll();
-    
-    // Cleanup
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeIndex, sections, id, isVisible]);
-  if (!id || sections.length === 0) {
-    return null;
-  }
+    slides.forEach((_, i) => {
+      const section = document.getElementById(`scroll-section-${i}`);
+      if (section) {
+        sectionObserver.observe(section);
+      }
+    });
+
+    return () => {
+      slides.forEach((_, i) => {
+        const section = document.getElementById(`scroll-section-${i}`);
+        if (section) {
+          sectionObserver.unobserve(section);
+        }
+      });
+    };
+  }, [slides]);
+
+  const progressPercentage = (activeSection / (slides.length - 1)) * 100;
 
   return (
-    <section id={id} className={`transition-section ${className}`}>
-      {title && <h1 className={`transition-title ${titleClassName}`}>{title}</h1>}
-      
-      <div className="transition-content">
-        {sections.map((section, index) => (
-          <div
+    <div className="scroll-transition-container">
+      {/* Progress Bar */}
+      <div className="scroll-transition-progress-bar" style={{ width: `${progressPercentage}%` }} />
+
+      {/* Navigation Dots */}
+      <div className="scroll-transition-navigation-dots">
+        {slides.map((_, index) => (
+          <button
             key={index}
-            className={`section-wrapper ${
-              index === activeIndex ? 'active' : index < activeIndex ? 'previous' : 'next'
-            }`}
-          >
-            <div 
-              className="diagonal-image" 
-              style={{ backgroundImage: `url(${section.image})` }}
-            />
-            <div className="content-overlay">
-              <div className="content-box">
-                <div className="navigation-container">
-                  <span className="section-title">{section.subtitle}</span>
-                  {section.link && (
-                    <a href={section.link} className="arrow-link">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
+            onClick={() => {
+              const el = document.getElementById(`scroll-section-${index}`);
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className={`scroll-transition-nav-dot ${activeSection === index ? 'active' : ''}`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
         ))}
-        
       </div>
-    </section>
+
+      {/* Image Sections */}
+      {slides.map((slide, index) => (
+        <section
+          id={`scroll-section-${index}`}
+          key={slide.id}
+          className={`scroll-transition-section scroll-transition-image-section ${visibleSections.includes(index) ? 'visible' : ''}`}
+        >
+          <div
+            className="scroll-transition-background-image"
+            style={{ backgroundImage: `url(${slide.image})` }}
+          />
+
+          <div className="scroll-transition-content-overlay">
+            <h2>{slide.title}</h2>
+            <h5>{slide.subtitle}</h5>
+            <p>{slide.description}</p>
+            <a href={slide.link} className="scroll-transition-arrow-button">
+              <ArrowRight size={24} />
+            </a>
+          </div>
+
+          {index < slides.length - 1 && (
+            <ChevronDown
+              className="scroll-transition-scroll-indicator"
+              onClick={() => scrollToNextSection(index)}
+            />
+          )}
+        </section>
+      ))}
+    </div>
   );
-};
+}
 
 export default ScrollTransition;
