@@ -1,5 +1,7 @@
 import React, { useState } from "react";  // Import the CSS file for styling
 import Cardflip1 from "../Components/Cardflip1";
+import Exhibition from "../Components/Exhibition"; // Import the Exhibition component
+
 
 const EXHIBITION = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -220,6 +222,8 @@ const EXHIBITION = () => {
           src={require('../assets/Exhibition.png')}
         />
       </div>
+
+      <Exhibition />
 
       {/* Second Image and Title */}
       {/* <div className="imageContainer">

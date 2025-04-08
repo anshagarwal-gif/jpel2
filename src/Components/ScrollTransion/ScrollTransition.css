@@ -1,100 +1,315 @@
-.transition-section {
-  height: 300vh;
+/* Scope all styles to only affect the scroll transition component */
+.scroll-transition-container {
   position: relative;
-  z-index: 1;
-}
-
-.transition-title {
-  position: sticky;
-  top: 2rem;
-  left: 2rem;
-  font-size: 2.875rem;
-  font-weight: 700;
-  z-index: 10;
-  padding-left: 2rem;
-  background: linear-gradient(to right, #e31e29 0, #232323 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}
-
-.transition-content {
-  position: sticky;
-  top: 0;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   overflow: hidden;
+  padding: 0;
+  margin: 0;
+  scroll-snap-type: y mandatory;
 }
 
-.section-wrapper {
+/* Progress Bar */
+.scroll-transition-progress-bar {
   position: absolute;
-  inset: 0;
-  transition: all 600ms ease-in-out;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(to right, rgb(237, 20, 20), rgb(237, 20, 20));
+  z-index: 100;
+  transition: width 0.5s ease;
 }
 
-.section-wrapper.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.section-wrapper.previous {
-  opacity: 0;
-  transform: translateY(-100%);
-}
-
-.section-wrapper.next {
-  opacity: 0;
-  transform: translateY(100%);
-}
-
-.diagonal-image {
+/* Modern side navigation with animation */
+.scroll-transition-navigation-dots {
   position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  clip-path: polygon(91% 0, 100% 0, 100% 100%, 0% 100%);
-}
-
-.content-overlay {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-}
-
-.content-box {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 2rem;
-  border-radius: 0.5rem;
-  
-}
-
-.navigation-container {
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
-.section-title {
-  font-size: 1.5rem;
-  font-weight: 500;
- 
+.scroll-transition-nav-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  padding: 0;
 }
 
-.arrow-link {
+.scroll-transition-nav-dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+  transform: translateY(-50%);
+  margin-right: 8px;
+}
+
+.scroll-transition-nav-dot:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.scroll-transition-nav-dot:hover::before {
+  width: 20px;
+}
+
+.scroll-transition-nav-dot.active {
+  background-color: red;
+  transform: scale(1.2);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.scroll-transition-nav-dot.active::before {
+  width: 24px;
+  background-color: white;
+}
+
+.scroll-transition-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
-  border-radius: 9999px;
-  background-color: black;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 1s ease;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.scroll-transition-section.visible {
+  opacity: 1;
+}
+
+/* Content Sections - Replacing Cards - Added Parallax Effect */
+.scroll-transition-background-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+  transition: transform 8s ease;
+  transform: scale(1.05);
+  filter: brightness(0.5) saturate(1.2);
+  will-change: transform;
+  margin: 0;
+  padding: 0;
+}
+
+/* Parallax effect on scroll */
+.scroll-transition-section:nth-child(odd) .scroll-transition-background-image {
+  transform: translateZ(-1px) scale(1.5);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-transition-section:nth-child(even) .scroll-transition-background-image {
+  transform: translateZ(-1px) scale(1.5);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-transition-section:hover .scroll-transition-background-image {
+  transform: translateZ(0) scale(1.1);
+}
+
+/* New Content Overlay - Simplified like in the image */
+.scroll-transition-content-overlay {
+  position: relative;
+  z-index: 2;
+  padding: 3rem;
+  max-width: 600px;
+  text-align: left;
+  animation: scroll-transition-fadeInUp 1s 0.3s forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  margin-right: 800px;
+  /* Add perspective for 3D effect */
+  perspective: 1000px;
+}
+
+.scroll-transition-content-overlay h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #fff;
+  border-bottom: 2px solid white;
+  margin-bottom: 60px;
+  /* Add transform for parallax effect */
+  transform: translateZ(50px);
+  transition: transform 0.3s ease;
+}
+
+.scroll-transition-content-overlay:hover h2 {
+  transform: translateZ(70px);
+}
+
+.scroll-transition-content-overlay h5 {
+  font-size: 30px;
+  font-weight: 500;
+  margin: 0 0 1.5rem 0;
+  color: Red;
+  /* Add transform for parallax effect */
+  transform: translateZ(30px);
+  transition: transform 0.3s ease;
+}
+
+.scroll-transition-content-overlay:hover h5 {
+  transform: translateZ(40px);
+}
+
+.scroll-transition-content-overlay p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 500px;
+  /* Add transform for parallax effect */
+  transform: translateZ(20px);
+  transition: transform 0.3s ease;
+}
+
+.scroll-transition-content-overlay:hover p {
+  transform: translateZ(30px);
+}
+
+/* Arrow Button - Like in the image */
+.scroll-transition-arrow-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: #e11d48;
   color: white;
-  transition: transform 300ms ease;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(225, 29, 72, 0.4);
+  /* Add transform for parallax effect */
+  transform: translateZ(40px);
 }
 
-.arrow-link:hover {
-  transform: translateX(0.25rem);
+.scroll-transition-arrow-button:hover {
+  transform: translateY(-5px) translateZ(60px);
+  box-shadow: 0 8px 20px rgba(225, 29, 72, 0.6);
+  background: #f43f5e;
 }
 
+/* Improved Scroll Indicator */
+.scroll-transition-scroll-indicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  color: white;
+  z-index: 10;
+  animation: scroll-transition-floatBounce 3s ease-in-out infinite;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.scroll-transition-scroll-indicator:hover {
+  color: #f3f4f6;
+  opacity: 1;
+}
+
+@keyframes scroll-transition-floatBounce {
+  0%, 100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  50% {
+    transform: translateY(-20px) translateX(-50%);
+  }
+}
+
+@keyframes scroll-transition-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Queries with more breakpoints */
+@media (max-width: 1024px) {
+  .scroll-transition-content-overlay {
+    max-width: 80%;
+  }
+  
+  .scroll-transition-content-overlay h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-transition-navigation-dots {
+    right: 1rem;
+  }
+  
+  .scroll-transition-content-overlay {
+    padding: 2rem;
+  }
+  
+  .scroll-transition-content-overlay h2 {
+    font-size: 2rem;
+  }
+  
+  .scroll-transition-content-overlay h5 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .scroll-transition-content-overlay h2 {
+    font-size: 1.75rem;
+  }
+  
+  .scroll-transition-content-overlay p {
+    font-size: 1rem;
+  }
+  
+  .scroll-transition-arrow-button {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* For ultra-small screens */
+@media (max-width: 480px) {
+  .scroll-transition-navigation-dots {
+    right: 0.5rem;
+  }
+  
+  .scroll-transition-nav-dot {
+    width: 0.4rem;
+    height: 0.4rem;
+  }
+  
+  .scroll-transition-content-overlay {
+    padding: 1.5rem;
+  }
+}

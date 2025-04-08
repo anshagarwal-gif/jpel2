@@ -110,12 +110,13 @@
 
 .animated-button:active {
   scale: 0.95;
-  box-shadow: 0 0 0 4px greenyellow;
+  box-shadow: 0 0 0 4px black;
 }
 
 /* Center Section */
 .center-section {
   flex: 2;
+  margin-top: 33px;
 }
 
 .center-section h3 {
@@ -130,10 +131,11 @@
 }
 
 /* Right Section */
-.right-section{
+.right-section {
   position: relative;
   right: 2%;
 }
+
 .right-section .card {
   position: relative;
   width: 500px;
@@ -146,7 +148,6 @@
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
-  
 }
 
 .right-section .content {
@@ -249,16 +250,17 @@
   color: #232323;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-align: left !important;
+  text-align: center; /* Changed to center */
   border-bottom: 2px solid #000;
   padding-bottom: 5px;
+  width: 100%;
 }
 
 .modal-content2 h4 {
   font-size: 24px;
   color: #444;
   margin-top: 5px;
-  text-align: left;
+  text-align: center; /* Changed to center */
   font-weight: 100;
 }
 
@@ -331,6 +333,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding-bottom: 20px;
+  width: 100%;
 }
 
 .submit-btn,
@@ -379,12 +382,10 @@
 
 /* Responsive Breakpoints */
 @media (max-width: 1200px) {
- 
-  
   .right-section .card {
     width: 450px;
     height: auto;
-    min-height: 800px;
+    min-height: 500px;
   }
 }
 
@@ -396,9 +397,9 @@
 
   .left-section,
   .center-section {
-    width:  91%;
-   
+    width: 91%;
     text-align: center;
+    margin-left: 0; /* Remove the left margin for centering */
   }
 
   .left-section h1 {
@@ -409,17 +410,29 @@
     margin: 0 auto;
   }
 
-  .right-section .card {
+  .right-section {
+    right: 0; /* Reset right position for centering */
     width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .right-section .card {
+    width: 90%;
     max-width: 500px;
-    margin: 0 auto;
   }
 }
 
 @media (max-width: 768px) {
+  .download-btn-container {
+    justify-content: center;
+    width: 100%;
+  }
+  
   .download-btn {
     width: 60px;
     height: 60px;
+    margin-left: 0; /* Remove left margin for centering */
   }
 
   .download-btn .download-icon {
@@ -429,6 +442,7 @@
   .submitbtn-container {
     flex-direction: column;
     gap: 10px;
+    align-items: center;
   }
 
   .submit-btn,
@@ -439,45 +453,95 @@
   .modal-content2 form {
     width: 90%;
   }
+  
+  .inputBox .uiverse {
+    font-size: 0.9rem;
+  }
+  
+  .inputBox input:focus ~ .uiverse,
+  .inputBox textarea:focus ~ .uiverse,
+  .inputBox input:valid ~ .uiverse,
+  .inputBox textarea:valid ~ .uiverse {
+    left: 50%; /* Center the label */
+    transform: translateX(-50%);
+  }
 }
 
 @media (max-width: 480px) {
+  .styled-wrapper {
+    gap: 10px;
+  }
   
+  .left-section {
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
 
   .left-section h1 {
-    font-size: 20px;
+    font-size: 22px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .center-section {
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
   }
 
   .center-section h3 {
     font-size: 20px;
+    text-align: center;
   }
 
   .center-section p {
-    font-size: 10px;
-    text-align: left;
-    padding-right: 12px;
-    /* padding: 10px; */
+    font-size: 16px;
+    text-align: center;
+    padding: 0;
   }
 
- 
+  .animated-button {
+    padding: 15px 30px;
+    font-size: 14px;
+  }
 
   .modal-content2 h2 {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .modal-content2 h4 {
-    font-size: 20px;
+    font-size: 18px;
+  }
+  
+  .right-section {
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
   }
   
   .right-section .main-logo {
     max-width: 150px;
-    margin: 20px 0;
+    margin: 15px 0;
   }
+  
   .right-section .card {
-    width: 82%;
-    max-width: 443px;
-    margin: 0 auto;
-    height: 200px;
-
+    width: 100%;
+    min-height: 400px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+  }
+  
+  .download-btn {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .download-btn .download-icon {
+    font-size: 20px;
+  }
+  
+  .span1 {
+    font-size: 14px;
   }
 }

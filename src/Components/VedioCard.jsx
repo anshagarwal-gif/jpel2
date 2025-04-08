@@ -13,14 +13,22 @@ const VideoCard = ({ videoTitle, videoThumbnail, videoUrl }) => {
     setIsVideoOpen(false);
   };
 
-  // Extract video ID and create embed URL
+  // Improved URL parsing for YouTube videos
   const getEmbedUrl = (url) => {
     try {
-      if (url.includes('youtu.be')) {
-        return url.replace('youtu.be/', 'youtube.com/embed/');
-      } else if (url.includes('youtube.com/watch')) {
+      // Handle youtu.be format
+      if (url && url.includes('youtu.be')) {
+        const videoId = url.split('youtu.be/')[1]?.split('?')[0];
+        return `https://www.youtube.com/embed/${videoId}`;
+      } 
+      // Handle youtube.com/watch format
+      else if (url && url.includes('youtube.com/watch')) {
         const videoId = new URLSearchParams(new URL(url).search).get('v');
         return `https://www.youtube.com/embed/${videoId}`;
+      }
+      // Handle direct embed URLs
+      else if (url && url.includes('youtube.com/embed')) {
+        return url;
       }
       return url;
     } catch (error) {
@@ -53,25 +61,28 @@ const VideoCard = ({ videoTitle, videoThumbnail, videoUrl }) => {
             <span className="close-button2" onClick={closeVideo}>
               &times;
             </span>
-            <ReactPlayer 
-              url={getEmbedUrl(videoUrl)}
-              controls
-              playing
-              width="100%"
-              height="100%"
-              config={{
-                youtube: {
-                  playerVars: {
-                    autoplay: 1,
-                    modestbranding: 1,
-                    rel: 0,
-                    origin: window.location.origin,
-                    enablejsapi: 1
-
+            <div className="player-wrapper">
+              <ReactPlayer 
+                url={getEmbedUrl(videoUrl)}
+                controls
+                playing
+                width="100%"
+                height="100%"
+                className="react-player"
+                config={{
+                  youtube: {
+                    playerVars: {
+                      autoplay: 1,
+                      modestbranding: 1,
+                      rel: 0,
+                      origin: window.location.origin,
+                      enablejsapi: 1
+                    }
                   }
-                }
-              }}
-            />
+                }}
+                onError={(e) => console.error("Player Error:", e)}
+              />
+            </div>
           </div>
         </div>
       )}

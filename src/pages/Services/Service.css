@@ -28,6 +28,7 @@
   flex-direction: column; /* Stack the content vertically */
   align-items: center; /* Center horizontally */
   justify-content: center; /* Center vertically */
+  margin-bottom: 30px;
 }
 
 /* Responsive Design */
@@ -62,6 +63,6 @@
 
   .service-card {
     flex-direction: column; /* Ensure stacked layout */
-    align-items: stretch; /* Use full width */
+    margin-bottom: 20px;
   }
 }

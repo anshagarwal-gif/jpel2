@@ -16,19 +16,16 @@ const PlasticRecycling = () => {
                 sections: [
                     {
                         subtitle: "Tape Extrusion",
-                        image: require("../PlasticRecycling/Assets/recycling-3.jpg"),
                         link: "/TapeExtrusion",
                         description: "Industrial grade woven sacks"
                     },
                     {
                         subtitle: "Winding Machines",
-                        image: require("../PlasticRecycling/Assets/recycling-2.jpg"),
                         link: "/WindingMachine",
                         description: "Advanced PET bottle washing systems"
                     },
                     {
                         subtitle: "Circular Looms",
-                        image: require("../PlasticRecycling/Assets/recycling-1.jpg"),
                         link: "/CircularLoom",
                         description: "Complete HDPE recycling solutions"
                     }
@@ -40,19 +37,16 @@ const PlasticRecycling = () => {
                 sections: [
                     {
                         subtitle: "Extrusion Coating",
-                        image: require("../PlasticRecycling/Assets/recycling0.jpg"),
                         link: "/ExtrusionCoating",
                         description: "Industrial shredding machines"
                     },
                     {
                         subtitle: "Printing Machines",
-                        image: require("../PlasticRecycling/Assets/recycling-4.jpg"),
                         link: "/PrintingMachine",
                         description: "Industrial shredding machines"
                     },
                     {
                         subtitle: "Bag Conversion Machines",
-                        image: require("../PlasticRecycling/Assets/recycling-5.jpg"),
                         link: "/Bag-Conversion",
                         description: "Industrial shredding machines"
                     }
@@ -66,13 +60,11 @@ const PlasticRecycling = () => {
                 sections: [
                     {
                         subtitle: "Woven Sacks",
-                        image: require("../PlasticRecycling/Assets/recycling1.jpg"),
                         link: "/WovenSack",
                         description: "Industrial grade woven sacks"
                     },
                     {
                         subtitle: "PET Washing Line",
-                        image: require("../PlasticRecycling/Assets/recycling2.jpg"),
                         link: "/PET",
                         description: "Advanced PET bottle washing systems"
                     }
@@ -84,7 +76,6 @@ const PlasticRecycling = () => {
                 sections: [
                     {
                         subtitle: "Battery Box Recycling",
-                        image: require("../PlasticRecycling/Assets/recycling3.jpg"),
                         link: "/BatteryBox",
                         description: "Complete HDPE recycling solutions"
                     }
@@ -98,13 +89,11 @@ const PlasticRecycling = () => {
                 sections: [
                     {
                         subtitle: "Monofilament Line/Danline",
-                        image: require("../PlasticRecycling/Assets/recycling5.jpg"),
                         link: "/Monofilament",
                         description: "Industrial grade woven sacks"
                     },
                     {
                         subtitle: "Box-Strapping Line",
-                        image: require("../PlasticRecycling/Assets/recycling6.jpg"),
                         link: "/BoxStrapping",
                         description: "Advanced PET bottle washing systems"
                     }
@@ -118,20 +107,16 @@ const PlasticRecycling = () => {
                 sections: [
                     {
                         subtitle: "Sheet Extrusion Line",
-                        image: require("../PlasticRecycling/Assets/recycling7.jpg"),
                         link: "/SheetExtrusion",
                         description: "Industrial grade woven sacks"
                     },
                     {
                         subtitle: "Cast Film Line",
-                        image: require("../PlasticRecycling/Assets/recycling8.jpg"),
                         link: "/CastLine",
                         description: "Advanced PET bottle washing systems"
                     },
-
-                  {
+                    {
                         subtitle: "Flexible Packaging",
-                        image: require("../PlasticRecycling/Assets/recycling-9.jpg"),
                         link: "/Flexible",
                         description: "Advanced PET bottle washing systems"
                     }
@@ -163,13 +148,9 @@ const PlasticRecycling = () => {
 
     return (
         <div>
-            
             {Object.entries(allSections).map(([sectionCategory, sectionGroup]) => (
-                
                 sectionGroup.map((section, index) => (
-                    
                     <ScrollTransition
-                    
                         key={`${sectionCategory}-${index}`}
                         id={section.id}
                         title={section.title}
