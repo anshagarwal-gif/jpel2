@@ -12,6 +12,73 @@ const AdminDashboard = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [expandedRow, setExpandedRow] = useState(null);
   const recordsPerPage = 10;
+// Inside your component, add state for tracking changes
+const [statusChanges, setStatusChanges] = useState({});
+const [spamChanges, setSpamChanges] = useState({});
+const [savingId, setSavingId] = useState(null);
+const [viewingSpam, setViewingSpam] = useState(false);
+const [spamCount, setSpamCount] = useState(0);
+
+
+// Add this function to toggle between normal and spam view
+const toggleSpamView = async () => {
+  try {
+    
+    if (!viewingSpam) {
+      // Switching to spam view
+      
+      const spamRes = await axios.get("http://localhost:5000/api/inquiries/spam");
+    
+      setInquiries(spamRes.data);
+    } else {
+      
+      // Switching back to normal view
+      const res = await axios.get("http://localhost:5000/api/inquiries");
+     
+      setInquiries(res.data);
+    }
+    setViewingSpam(!viewingSpam);
+    setCurrentPage(1); // Reset to first page when toggling views
+  } catch (error) {
+    console.error("Error toggling spam view:", error);
+  }
+};
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const res = await axios.get("http://localhost:5000/api/inquiries");
+      setInquiries(res.data);
+      
+      const spamCountRes = await axios.get("http://localhost:5000/api/inquiries/spam/count");
+      setSpamCount(spamCountRes.data.count);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  fetchData();
+}, []);
+
+  const handleStatusChange = (id, value) => {
+    setStatusChanges({
+      ...statusChanges,
+      [id]: value
+    });
+    
+    
+    // Save changes immediately
+    saveChanges(id, { followupStatus: value });
+  };
+  const handleSpamChange = (id, isSpam) => {
+    const spamValue = isSpam === "Spam";
+    setSpamChanges({
+      ...spamChanges,
+      [id]: spamValue
+    });
+    
+    // Save changes immediately
+    saveChanges(id, { isSpam: spamValue });
+  };
+  
 
   const toggleSidebar = () => {
     setCollapsed(!collapsed);
@@ -29,6 +96,21 @@ const AdminDashboard = () => {
     }
   };
 
+  const saveChanges = async (id, changes) => {
+    try {
+      setSavingId(id);
+      await axios.patch(`http://localhost:5000/api/inquiries/${id}`, changes);
+      // Optional: Update the local data to reflect the change
+      setInquiries(inquiries.map(inquiry => 
+        inquiry._id === id ? { ...inquiry, ...changes } : inquiry
+      ));
+    } catch (error) {
+      console.error("Error saving changes:", error);
+      alert("Failed to save changes. Please try again.");
+    } finally {
+      setSavingId(null);
+    }
+  };
   useEffect(() => {
     const fetchInquiries = async () => {
       try {
@@ -92,10 +174,32 @@ const AdminDashboard = () => {
         return (
           <div className="dashboard-content contact-page">
             <header className="content-header">
-              <div className="page-title">
-                <h1>Jpel :: Contact Us</h1>
-                <p>[ {filteredInquiries.length} spam records excluded ] <a href="#" className="check-spam">Check Spam Records</a> | <a href="#" className="cb-test">CB Test</a></p>
-              </div>
+            <div className="page-title">
+  <h1>
+    <span className="brand">Jpel</span>
+    <span className="separator">::</span>
+    <span>Contact Us</span>
+    {viewingSpam && <span className="spam-title-highlight"> - Spam Records</span>}
+  </h1>
+  <p>
+    <span className={`spam-status ${viewingSpam ? 'included' : 'excluded'}`}>
+            
+      <span className="spam-count">{spamCount}</span>
+      <span>spam records {viewingSpam ? "showing" : "excluded"}</span>
+      
+    </span>
+    <a 
+      href="#" 
+      className={`check-spam ${viewingSpam ? 'viewing-spam' : ''}`}
+      onClick={(e) => {
+        e.preventDefault();
+        toggleSpamView();
+      }}
+    >
+      {viewingSpam ? "Show Normal Records" : "Check Spam Records"}
+    </a>
+  </p>
+</div>
             </header>
 
             <div className="contact-controls">
@@ -157,15 +261,20 @@ const AdminDashboard = () => {
                             {inquiry.id || index + 1}
                           </td>
                           <td>
-                            <div className="status-dropdown">
-                              <select defaultValue="Read">
-                                <option>Read</option>
-                                <option>Pending</option>
-                                <option>Contacted</option>
-                                <option>No Response</option>
-                              </select>
-                            </div>
-                          </td>
+  <div className="status-dropdown">
+    <select 
+      value={statusChanges[inquiry._id] || inquiry.followupStatus || "Pending"}
+      onChange={(e) => handleStatusChange(inquiry._id, e.target.value)}
+      disabled={savingId === inquiry._id}
+    >
+      <option>Read</option>
+      <option>Pending</option>
+      <option>Contacted</option>
+      <option>No Response</option>
+    </select>
+    {savingId === inquiry._id && <span className="saving-indicator">Saving...</span>}
+  </div>
+</td>
                           <td>{inquiry.name}</td>
                           <td>{inquiry.email}</td>
                           <td>
@@ -192,16 +301,21 @@ const AdminDashboard = () => {
                                       <div className="details-value">{inquiry.id || index + 1}</div>
                                     </div>
                                     <div className="details-row">
-                                      <div className="details-label">Followup:</div>
-                                      <div className="details-value">
-                                        <select defaultValue="Read">
-                                          <option>Read</option>
-                                          <option>Pending</option>
-                                          <option>Contacted</option>
-                                          <option>No Response</option>
-                                        </select>
-                                      </div>
-                                    </div>
+  <div className="details-label">Followup:</div>
+  <div className="details-value">
+    <select 
+      value={statusChanges[inquiry._id] || inquiry.followupStatus || "Pending"}
+      onChange={(e) => handleStatusChange(inquiry._id, e.target.value)}
+      disabled={savingId === inquiry._id}
+    >
+      <option>Read</option>
+      <option>Pending</option>
+      <option>Contacted</option>
+      <option>No Response</option>
+    </select>
+    {savingId === inquiry._id && <span className="saving-indicator">Saving...</span>}
+  </div>
+</div>
                                     <div className="details-row">
                                       <div className="details-label">Name:</div>
                                       <div className="details-value">{inquiry.name}</div>
@@ -228,17 +342,25 @@ const AdminDashboard = () => {
                                
                                     <div className="details-row">
                                       <div className="details-label">Datetime:</div>
-                                      <div className="details-value">{inquiry.datetime || "2022-03-25 11:20:27"}</div>
+                                      <div className="details-value">{inquiry.createdAt ? new Date(inquiry.createdAt).toLocaleString() : ""}</div>
                                     </div>
                                     <div className="details-row">
-                                      <div className="details-label">Spam Filter:</div>
-                                      <div className="details-value">
-                                        <select defaultValue="Not Spam">
-                                          <option>Spam</option>
-                                          <option>Not Spam</option>
-                                        </select>
-                                      </div>
-                                    </div>
+  <div className="details-label">Spam Filter:</div>
+  <div className="details-value">
+    <select 
+      value={spamChanges[inquiry._id] !== undefined ? 
+        (spamChanges[inquiry._id] ? "Spam" : "Not Spam") : 
+        (inquiry.isSpam ? "Spam" : "Not Spam")
+      }
+      onChange={(e) => handleSpamChange(inquiry._id, e.target.value)}
+      disabled={savingId === inquiry._id}
+    >
+      <option>Spam</option>
+      <option>Not Spam</option>
+    </select>
+    {savingId === inquiry._id && <span className="saving-indicator">Saving...</span>}
+  </div>
+</div>
                                   </div>
                                 </div>
                               </div>

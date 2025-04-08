@@ -449,3 +449,159 @@ tr.expanded-row {
       grid-template-columns: 1fr;
     }
   }
+/* Enhanced check-spam button */
+.check-spam {
+  display: inline-block;
+  padding: 6px 14px !important;
+  margin: 0 10px !important;
+  background-color: #f1f1f1;
+  color: #333 !important;
+  border-radius: 4px;
+  text-decoration: none !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+.check-spam:hover {
+  background-color: #e6e6e6;
+  color: #000 !important;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+  text-decoration: none !important;
+}
+
+/* Style for when viewing spam records */
+.check-spam.viewing-spam {
+  background-color: #ff5252;
+  color: white !important;
+  border-color: #ff3d3d;
+}
+
+.check-spam.viewing-spam:hover {
+  background-color: #ff3d3d;
+  text-decoration: none !important;
+}
+.page-title p {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+/* Style for the header title */
+.page-title h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 12px;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.page-title h1:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 70px;
+  height: 4px;
+  background: linear-gradient(90deg, #4a6cf7 0%, #6384ff 100%);
+  border-radius: 2px;
+}
+.page-title h1 .brand {
+  color: #4a6cf7;
+  font-weight: 800;
+}
+.page-title h1 .separator {
+  margin: 0 8px;
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+/* Style for spam records title */
+.page-title h1 .spam-title-highlight {
+  color: #ff5252;
+  font-weight: 700;
+  padding: 0 8px;
+  margin-left: 8px;
+  position: relative;
+  display: inline-block;
+}
+
+
+.page-title h1 .spam-title-highlight:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 82, 82, 0.1);
+  border-radius: 4px;
+  z-index: -1;
+}
+/* Base styling for the spam records status container */
+.spam-status {
+  display: flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+/* Styling for excluded spam records */
+.spam-status.excluded {
+  background-color: #e6f7ff;
+  color: #0072b1;
+  border: 1px solid #d1e9ff;
+}
+
+/* Styling for included/showing spam records */
+.spam-status.included {
+  background-color: #fff1f0;
+  color: #cf1322;
+  border: 1px solid #ffccc7;
+}
+
+/* Styling for the brackets */
+.spam-status .bracket {
+  opacity: 0.7;
+  margin: 0 2px;
+}
+
+/* More prominent spam count with a different style when showing spam */
+.spam-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 13px;
+  margin: 0 6px;
+}
+
+.excluded .spam-count {
+  background-color: #0072b1;
+  color: white;
+  box-shadow: 0 1px 3px rgba(0, 114, 177, 0.3);
+}
+
+.included .spam-count {
+  background-color: #cf1322;
+  color: white;
+  box-shadow: 0 1px 3px rgba(207, 19, 34, 0.3);
+}

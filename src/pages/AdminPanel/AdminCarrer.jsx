@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./AdminDashboard.css";
+import "./AdminCarrer.css";
 import axios from "axios";
 
 const CareerApplications = () => {
@@ -8,25 +8,103 @@ const CareerApplications = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [expandedRowId, setExpandedRowId] = useState(null);
   const recordsPerPage = 10;
+  // Inside your CareerApplications component, add these states and handlers
+const [statusChanges, setStatusChanges] = useState({});
+const [spamChanges, setSpamChanges] = useState({});
+const [savingId, setSavingId] = useState(null);
+const [viewingSpam, setViewingSpam] = useState(false);
+const [spamCount, setSpamCount] = useState(0);
+const toggleSpamView = async () => {
+  try {
+    if (!viewingSpam) {
+      // Switch to spam view
+      const res = await axios.get("http://localhost:5000/api/admin/applications?spam=true");
+      setApplications(res.data);
+    } else {
+      // Switch back to normal view
+      const res = await axios.get("http://localhost:5000/api/admin/applications");
+      setApplications(res.data);
+    }
+    setViewingSpam(!viewingSpam);
+    setCurrentPage(1); // Reset to first page
+  } catch (error) {
+    console.error("Error toggling spam view:", error);
+    alert("Failed to toggle spam view. Please try again.");
+  }
+};
 
-  useEffect(() => {
-    const fetchApplications = async () => {
-      try {
-        const res = await axios.get("http://localhost:5000/api/admin/applications");
-        setApplications(res.data);
-      } catch (error) {
-        console.error("Error fetching applications:", error);
-      }
-    };
-    fetchApplications();
-  }, []);
+
+const handleStatusChange = (id, value) => {
+  setStatusChanges({
+    ...statusChanges,
+    [id]: value
+  });
+  
+  // Save changes immediately
+  saveChanges(id, { followupStatus: value });
+};
+
+const handleSpamChange = (id, isSpam) => {
+  const spamValue = isSpam === "Spam";
+  setSpamChanges({
+    ...spamChanges,
+    [id]: spamValue
+  });
+  
+  // Save changes immediately
+  saveChanges(id, { isSpam: spamValue });
+};
+
+
+const saveChanges = async (id, changes) => {
+  try {
+    setSavingId(id);
+    await axios.patch(`http://localhost:5000/api/admin/applications/${id}`, changes);
+    
+    // Update the local data to reflect the change
+    setApplications(applications.map(application => 
+      application._id === id ? { ...application, ...changes } : application
+    ));
+    if ('isSpam' in changes && viewingSpam) {
+      toggleSpamView();
+    }
+  } catch (error) {
+    console.error("Error saving changes:", error);
+    alert("Failed to save changes. Please try again.");
+  } finally {
+    setSavingId(null);
+  }
+};
+
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      // Fetch applications based on current view
+      const applicationsRes = await axios.get(
+        viewingSpam 
+          ? "http://localhost:5000/api/admin/applications?spam=true"
+          : "http://localhost:5000/api/admin/applications"
+      );
+      setApplications(applicationsRes.data);
+      
+      // Fetch spam count
+      const spamCountRes = await axios.get("http://localhost:5000/api/admin/applications/spam/count");
+      setSpamCount(spamCountRes.data.count);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  
+  fetchData();
+}, [viewingSpam]);
+  
 
   // Filter applications based on search term
   const filteredApplications = applications.filter(app => 
     app.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
     app.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
     app.contactNumber?.includes(searchTerm) ||
-    app.position?.toLowerCase().includes(searchTerm.toLowerCase())
+    app.jobTitle?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   // Pagination
@@ -76,13 +154,34 @@ const CareerApplications = () => {
 
   return (
     <div className="dashboard-content career-page">
-      <header className="content-header">
+        <header className="content-header">
         <div className="page-title">
-          <h1>Jpel :: Career</h1>
-          <p>[ {filteredApplications.length} spam records excluded ] <a href="#" className="check-spam">Check Spam Records</a> | <a href="#" className="cb-test">CB Test</a></p>
-        </div>
+  <h1>
+  <span className="brand">Jpel</span>
+  <span className="separator">::</span>
+  <span>Career</span>
+    {viewingSpam && <span className="spam-title-highlight"> - Spam Applications</span>}
+  </h1>
+  <p>
+    <span className={`spam-status ${viewingSpam ? 'included' : 'excluded'}`}>
+      
+      <span className="spam-count">{spamCount}</span>
+      <span>spam records {viewingSpam ? "showing" : "excluded"}</span>
+      
+    </span>
+    <a 
+      href="#" 
+      className={`check-spam ${viewingSpam ? 'viewing-spam' : ''}`}
+      onClick={(e) => {
+        e.preventDefault();
+        toggleSpamView();
+      }}
+    >
+      {viewingSpam ? "Show Normal Records" : "Check Spam Records"}
+    </a> 
+  </p>
+</div>
       </header>
-
       <div className="contact-controls">
         <div className="control-group">
           <button className="action-button" onClick={() => alert("Copied to clipboard")}>Copy</button>
@@ -147,18 +246,23 @@ const CareerApplications = () => {
                       </button>
                       {application.id || indexOfFirstRecord + index + 1}
                     </td>
-                    <td>
-                      <div className="status-dropdown">
-                        <select defaultValue={application.status || "Unread"}>
-                          <option>Unread</option>
-                          <option>Reviewed</option>
-                          <option>Shortlisted</option>
-                          <option>Interviewed</option>
-                          <option>Rejected</option>
-                          <option>Hired</option>
-                        </select>
-                      </div>
-                    </td>
+                   <td>
+  <div className="status-dropdown">
+    <select 
+      value={statusChanges[application._id] || application.followupStatus || "Unread"}
+      onChange={(e) => handleStatusChange(application._id, e.target.value)}
+      disabled={savingId === application._id}
+    >
+      <option>Unread</option>
+      <option>Reviewed</option>
+      <option>Shortlisted</option>
+      <option>Interviewed</option>
+      <option>Rejected</option>
+      <option>Hired</option>
+    </select>
+    {savingId === application._id && <span className="saving-indicator">Saving...</span>}
+  </div>
+</td>
                     <td>{application.name}</td>
                     <td>{application.email}</td>
                     <td>
@@ -209,16 +313,23 @@ const CareerApplications = () => {
                                       <div className="details-value">{application.id || index + 1}</div>
                                     </div>
                                     <div className="details-row">
-                                      <div className="details-label">Followup:</div>
-                                      <div className="details-value">
-                                        <select defaultValue="Read">
-                                          <option>Read</option>
-                                          <option>Pending</option>
-                                          <option>Contacted</option>
-                                          <option>No Response</option>
-                                        </select>
-                                      </div>
-                                    </div>
+  <div className="details-label">Followup:</div>
+  <div className="details-value">
+    <select 
+      value={statusChanges[application._id] || application.followupStatus || "Unread"}
+      onChange={(e) => handleStatusChange(application._id, e.target.value)}
+      disabled={savingId === application._id}
+    >
+      <option>Unread</option>
+      <option>Reviewed</option>
+      <option>Shortlisted</option>
+      <option>Interviewed</option>
+      <option>Rejected</option>
+      <option>Hired</option>
+    </select>
+    {savingId === application._id && <span className="saving-indicator">Saving...</span>}
+  </div>
+</div>
                                     <div className="details-row">
                                       <div className="details-label">Name:</div>
                                       <div className="details-value">{application.name}</div>
@@ -244,19 +355,27 @@ const CareerApplications = () => {
                               
                               <div className="details-row">
                                       <div className="details-label">Datetime:</div>
-                                      <div className="details-value">{application.datetime || "2022-03-25 11:20:27"}</div>
+                                      <div className="details-value">  {application.createdAt ? new Date(application.createdAt).toLocaleString() : ""}</div>
                                     </div>
                
                               
-                              <div className="details-row">
-                                      <div className="details-label">Spam Filter:</div>
-                                      <div className="details-value">
-                                        <select defaultValue="Not Spam">
-                                          <option>Spam</option>
-                                          <option>Not Spam</option>
-                                        </select>
-                                      </div>
-                                    </div>
+                                    <div className="details-row">
+  <div className="details-label">Spam Filter:</div>
+  <div className="details-value">
+    <select 
+      value={spamChanges[application._id] !== undefined ? 
+        (spamChanges[application._id] ? "Spam" : "Not Spam") : 
+        (application.isSpam ? "Spam" : "Not Spam")
+      }
+      onChange={(e) => handleSpamChange(application._id, e.target.value)}
+      disabled={savingId === application._id}
+    >
+      <option>Spam</option>
+      <option>Not Spam</option>
+    </select>
+    {savingId === application._id && <span className="saving-indicator">Saving...</span>}
+  </div>
+</div>
                             </div>
                           </div>
                     </div>
