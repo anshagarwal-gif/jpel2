@@ -273,7 +273,8 @@
 }
 
 .resume-upload {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .file-label {

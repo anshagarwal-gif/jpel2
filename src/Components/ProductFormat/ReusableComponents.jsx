@@ -144,9 +144,17 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
   const handleSubmit = async () => {
     const currentTab = tabContent[activeTab]; // Get the current tab content
     const emailData = {
-      user: formData,
-      catalogue: currentTab.catalogue,
-      tabName: activeTab,
+      name: formData.name,
+      companyName: formData.companyName,
+      email: formData.email,
+      contactNo: formData.contactNo,
+      city: formData.city,
+      state: formData.state,
+      country: formData.country,
+      message: formData.message,
+    
+      catalogueName: currentTab.catalogue || activeTab,
+
     };
  // Fetch the user's IP address
     let visitorIP = "";
