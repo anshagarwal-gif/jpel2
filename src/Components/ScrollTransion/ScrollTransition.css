@@ -1,40 +1,114 @@
+/* Global scrollbar removal */
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+  width: 0;
+  height: 0;
+}
+
+/* For accessibility - reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  #scroll-transition-component-root .scroll-transition-content-overlay,
+  #scroll-transition-component-root .scroll-transition-nav-dot,
+  #scroll-transition-component-root .scroll-transition-arrow-button,
+  #scroll-transition-component-root .scroll-transition-background-image,
+  #scroll-transition-component-root .scroll-transition-section,
+  #scroll-transition-component-root .scroll-transition-scroll-indicator {
+    transition: opacity 0.3s linear;
+    animation: none !important;
+    transform: none !important;
+  }
+  
+  #scroll-transition-component-root .scroll-transition-content-overlay h2,
+  #scroll-transition-component-root .scroll-transition-content-overlay h5,
+  #scroll-transition-component-root .scroll-transition-content-overlay p {
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  #scroll-transition-component-root .scroll-transition-scroll-indicator {
+    animation: none;
+  }
+}
+
+/* For very tall screens (portrait orientation) */
+@media (max-height: 600px) and (orientation: landscape) {
+  #scroll-transition-component-root .scroll-transition-content-overlay {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  #scroll-transition-component-root .scroll-transition-content-overlay h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+  
+  #scroll-transition-component-root .scroll-transition-content-overlay h5 {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: 0.75rem;
+  }
+  
+  #scroll-transition-component-root .scroll-transition-content-overlay p {
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+  
+  #scroll-transition-component-root .scroll-transition-scroll-indicator {
+    bottom: 1rem;
+  }
+}
+
 /* Scope all styles to only affect the scroll transition component */
-.scroll-transition-container {
+#scroll-transition-component-root .scroll-transition-container {
   position: relative;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   overflow: hidden;
   padding: 0;
   margin: 0;
-  scroll-snap-type: y mandatory;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+#scroll-transition-component-root .scroll-transition-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+  width: 0;
+  height: 0;
 }
 
 /* Progress Bar */
-.scroll-transition-progress-bar {
-  position: absolute;
+#scroll-transition-component-root .scroll-transition-progress-bar {
+  position: fixed;
   top: 0;
   left: 0;
-  height: 4px;
+  height: 0.25rem;
   background: linear-gradient(to right, rgb(237, 20, 20), rgb(237, 20, 20));
-  z-index: 100;
+  z-index: 1000;
   transition: width 0.5s ease;
 }
 
 /* Modern side navigation with animation */
-.scroll-transition-navigation-dots {
-  position: absolute;
-  right: 2rem;
+#scroll-transition-component-root .scroll-transition-navigation-dots {
+  position: fixed;
+  right: clamp(0.5rem, 2vw, 2rem);
   top: 50%;
   transform: translateY(-50%);
-  z-index: 50;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: clamp(0.75rem, 1.5vw, 1.5rem);
 }
 
-.scroll-transition-nav-dot {
-  width: 0.5rem;
-  height: 0.5rem;
+#scroll-transition-component-root .scroll-transition-nav-dot {
+  width: clamp(0.3rem, 0.5vw, 0.5rem);
+  height: clamp(0.3rem, 0.5vw, 0.5rem);
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.3);
   border: 2px solid transparent;
@@ -44,7 +118,7 @@
   padding: 0;
 }
 
-.scroll-transition-nav-dot::before {
+#scroll-transition-component-root .scroll-transition-nav-dot::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -57,47 +131,59 @@
   margin-right: 8px;
 }
 
-.scroll-transition-nav-dot:hover {
+#scroll-transition-component-root .scroll-transition-nav-dot:hover {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.scroll-transition-nav-dot:hover::before {
-  width: 20px;
+#scroll-transition-component-root .scroll-transition-nav-dot:hover::before {
+  width: clamp(10px, 1.5vw, 20px);
 }
 
-.scroll-transition-nav-dot.active {
+#scroll-transition-component-root .scroll-transition-nav-dot.active {
   background-color: red;
   transform: scale(1.2);
   border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
-.scroll-transition-nav-dot.active::before {
-  width: 24px;
+#scroll-transition-component-root .scroll-transition-nav-dot.active::before {
+  width: clamp(12px, 2vw, 24px);
   background-color: white;
 }
 
-.scroll-transition-section {
-  position: relative;
+/* Section styles */
+#scroll-transition-component-root .scroll-transition-section {
+  position: absolute;
   height: 100vh;
   width: 100%;
-  scroll-snap-align: start;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   opacity: 0;
-  transition: opacity 1s ease;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
-.scroll-transition-section.visible {
+#scroll-transition-component-root .scroll-transition-section::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+  width: 0;
+  height: 0;
+}
+
+#scroll-transition-component-root .scroll-transition-section.visible {
   opacity: 1;
+  visibility: visible;
 }
 
-/* Content Sections - Replacing Cards - Added Parallax Effect */
-.scroll-transition-background-image {
+/* Content Sections - Improved Parallax Effect */
+#scroll-transition-component-root .scroll-transition-background-image {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -105,122 +191,120 @@
   background-position: center;
   background-size: cover;
   z-index: 1;
-  transition: transform 8s ease;
-  transform: scale(1.05);
+  transition: transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
   filter: brightness(0.5) saturate(1.2);
   will-change: transform;
   margin: 0;
   padding: 0;
+  transform: scale(1.05);
 }
 
-/* Parallax effect on scroll */
-.scroll-transition-section:nth-child(odd) .scroll-transition-background-image {
-  transform: translateZ(-1px) scale(1.5);
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+/* Enhanced hover effect */
+#scroll-transition-component-root .scroll-transition-section:hover .scroll-transition-background-image {
+  filter: brightness(0.6) saturate(1.3);
 }
 
-.scroll-transition-section:nth-child(even) .scroll-transition-background-image {
-  transform: translateZ(-1px) scale(1.5);
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.scroll-transition-section:hover .scroll-transition-background-image {
-  transform: translateZ(0) scale(1.1);
-}
-
-/* New Content Overlay - Simplified like in the image */
-.scroll-transition-content-overlay {
+/* New Content Overlay - With 3D perspective */
+#scroll-transition-component-root .scroll-transition-content-overlay {
   position: relative;
   z-index: 2;
-  padding: 3rem;
-  max-width: 600px;
+  padding: clamp(1rem, 3vw, 3rem);
+  width: clamp(280px, 90%, 600px);
   text-align: left;
-  animation: scroll-transition-fadeInUp 1s 0.3s forwards;
   opacity: 0;
   transform: translateY(30px);
-  margin-right: 800px;
-  /* Add perspective for 3D effect */
+  margin-right: clamp(0px, 10vw, 800px);
+  transition: all 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
+  transform-style: preserve-3d;
   perspective: 1000px;
+  animation: scroll-transition-fadeInUp 1s 0.3s forwards;
 }
 
-.scroll-transition-content-overlay h2 {
-  font-size: 3rem;
+#scroll-transition-component-root .scroll-transition-section.visible .scroll-transition-content-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#scroll-transition-component-root .scroll-transition-content-overlay h2 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
   font-weight: 700;
   margin: 0 0 0.5rem 0;
   line-height: 1.1;
   text-transform: uppercase;
   color: #fff;
   border-bottom: 2px solid white;
-  margin-bottom: 60px;
-  /* Add transform for parallax effect */
+  display: inline-block; /* Fix for border overflow */
+  padding-bottom: 0.5rem; /* Space below text before border */
+  margin-bottom: clamp(20px, 6vw, 60px);
   transform: translateZ(50px);
   transition: transform 0.3s ease;
+  will-change: transform;
 }
 
-.scroll-transition-content-overlay:hover h2 {
+#scroll-transition-component-root .scroll-transition-content-overlay:hover h2 {
   transform: translateZ(70px);
 }
 
-.scroll-transition-content-overlay h5 {
-  font-size: 30px;
+#scroll-transition-component-root .scroll-transition-content-overlay h5 {
+  font-size: clamp(1.25rem, 3vw, 30px);
   font-weight: 500;
   margin: 0 0 1.5rem 0;
   color: Red;
-  /* Add transform for parallax effect */
   transform: translateZ(30px);
   transition: transform 0.3s ease;
+  will-change: transform;
 }
 
-.scroll-transition-content-overlay:hover h5 {
+#scroll-transition-component-root .scroll-transition-content-overlay:hover h5 {
   transform: translateZ(40px);
 }
 
-.scroll-transition-content-overlay p {
-  font-size: 1.125rem;
+#scroll-transition-component-root .scroll-transition-content-overlay p {
+  font-size: clamp(0.875rem, 1.5vw, 1.125rem);
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-bottom: clamp(1rem, 2vw, 2rem);
   color: rgba(255, 255, 255, 0.9);
-  max-width: 500px;
-  /* Add transform for parallax effect */
+  max-width: 100%;
   transform: translateZ(20px);
   transition: transform 0.3s ease;
+  will-change: transform;
 }
 
-.scroll-transition-content-overlay:hover p {
+#scroll-transition-component-root .scroll-transition-content-overlay:hover p {
   transform: translateZ(30px);
 }
 
-/* Arrow Button - Like in the image */
-.scroll-transition-arrow-button {
+/* Arrow Button - Enhanced 3D effect */
+#scroll-transition-component-root .scroll-transition-arrow-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: clamp(40px, 6vw, 60px);
+  height: clamp(40px, 6vw, 60px);
   background: #e11d48;
   color: white;
   border-radius: 50%;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
   box-shadow: 0 4px 10px rgba(225, 29, 72, 0.4);
-  /* Add transform for parallax effect */
   transform: translateZ(40px);
+  will-change: transform;
 }
 
-.scroll-transition-arrow-button:hover {
+#scroll-transition-component-root .scroll-transition-arrow-button:hover {
   transform: translateY(-5px) translateZ(60px);
   box-shadow: 0 8px 20px rgba(225, 29, 72, 0.6);
   background: #f43f5e;
 }
 
 /* Improved Scroll Indicator */
-.scroll-transition-scroll-indicator {
+#scroll-transition-component-root .scroll-transition-scroll-indicator {
   position: absolute;
-  bottom: 3rem;
+  bottom: clamp(1rem, 3vw, 3rem);
   left: 50%;
   transform: translateX(-50%);
-  width: 2rem;
-  height: 2rem;
+  width: clamp(1.5rem, 2vw, 2rem);
+  height: clamp(1.5rem, 2vw, 2rem);
   cursor: pointer;
   color: white;
   z-index: 10;
@@ -229,9 +313,19 @@
   transition: all 0.3s ease;
 }
 
-.scroll-transition-scroll-indicator:hover {
+#scroll-transition-component-root .scroll-transition-scroll-indicator:hover {
   color: #f3f4f6;
   opacity: 1;
+}
+
+/* Footer indicator */
+#scroll-transition-component-root .scroll-transition-footer-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 100;
 }
 
 @keyframes scroll-transition-floatBounce {
@@ -254,62 +348,224 @@
   }
 }
 
-/* Media Queries with more breakpoints */
+/* ========= MOBILE-ONLY SCROLLING CONTROL ========= */
+
+/* Disable scroll-based transitions for desktop/large devices */
+@media (min-width: 1025px) {
+  /* Add a class to be used by JavaScript to disable scroll behavior */
+  #scroll-transition-component-root .scroll-transition-container {
+    overflow: hidden !important;
+    touch-action: none;
+  }
+  
+  /* Hide scroll indicator on desktop since scrolling is disabled */
+  #scroll-transition-component-root .scroll-transition-scroll-indicator {
+    display: none;
+  }
+  
+  /* Make navigation dots more prominent since they're the only navigation method */
+  #scroll-transition-component-root .scroll-transition-navigation-dots {
+    right: 2.5rem;
+  }
+  
+  #scroll-transition-component-root .scroll-transition-nav-dot {
+    width: 0.6rem;
+    height: 0.6rem;
+  }
+  
+  #scroll-transition-component-root .scroll-transition-nav-dot:hover::before {
+    width: 24px;
+  }
+  
+  #scroll-transition-component-root .scroll-transition-nav-dot.active {
+    transform: scale(1.3);
+  }
+}
+
+/* Enable scrolling only on mobile and tablet devices */
 @media (max-width: 1024px) {
-  .scroll-transition-content-overlay {
-    max-width: 80%;
+  #scroll-transition-component-root {
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
   }
   
-  .scroll-transition-content-overlay h2 {
-    font-size: 2.5rem;
+  #scroll-transition-component-root::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+    width: 0;
+    height: 0;
+  }
+  
+  #scroll-transition-component-root .scroll-transition-container {
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    height: auto !important; /* Allow container to expand */
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    position: static; /* Reset position for natural flow */
+    touch-action: pan-y; /* Enable vertical touch scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  
+  #scroll-transition-component-root .scroll-transition-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+    width: 0;
+    height: 0;
+  }
+  
+  #scroll-transition-component-root .scroll-transition-section {
+    position: relative !important; /* Force relative positioning */
+    scroll-snap-align: start;
+    min-height: 100vh;
+    height: auto; /* Allow sections to expand if content is larger */
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important; /* Ensure sections are displayed */
+  }
+  
+  /* Make sure all sections are visible and stacked */
+  #scroll-transition-component-root .scroll-transition-section:not(.visible) {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+  
+  /* Fix content position for stacked layout */
+  #scroll-transition-component-root .scroll-transition-content-overlay {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
   }
 }
 
+/* Enhanced Media Queries System */
+
+/* For large devices (laptops/desktops) */
+@media (max-width: 1200px) {
+  #scroll-transition-component-root .scroll-transition-content-overlay {
+    margin-right: clamp(0px, 5vw, 400px);
+  }
+}
+
+/* For medium devices (tablets, less than 1024px) */
+@media (max-width: 1024px) {
+  #scroll-transition-component-root .scroll-transition-content-overlay {
+    margin-right: 0;
+    width: clamp(280px, 80%, 600px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Adjust 3D effect for better performance on tablets */
+  #scroll-transition-component-root .scroll-transition-content-overlay h2,
+  #scroll-transition-component-root .scroll-transition-content-overlay h5,
+  #scroll-transition-component-root .scroll-transition-content-overlay p {
+    transform: translateZ(0);
+  }
+  
+  #scroll-transition-component-root .scroll-transition-content-overlay:hover h2,
+  #scroll-transition-component-root .scroll-transition-content-overlay:hover h5,
+  #scroll-transition-component-root .scroll-transition-content-overlay:hover p {
+    transform: translateZ(10px);
+  }
+}
+
+/* For small devices (landscape phones, less than 768px) */
 @media (max-width: 768px) {
-  .scroll-transition-navigation-dots {
-    right: 1rem;
+  #scroll-transition-component-root .scroll-transition-navigation-dots {
+    right: 0.75rem;
+    gap: 1rem;
   }
   
-  .scroll-transition-content-overlay {
-    padding: 2rem;
-  }
-  
-  .scroll-transition-content-overlay h2 {
-    font-size: 2rem;
-  }
-  
-  .scroll-transition-content-overlay h5 {
-    font-size: 1.25rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .scroll-transition-content-overlay h2 {
-    font-size: 1.75rem;
-  }
-  
-  .scroll-transition-content-overlay p {
-    font-size: 1rem;
-  }
-  
-  .scroll-transition-arrow-button {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-/* For ultra-small screens */
-@media (max-width: 480px) {
-  .scroll-transition-navigation-dots {
-    right: 0.5rem;
-  }
-  
-  .scroll-transition-nav-dot {
-    width: 0.4rem;
-    height: 0.4rem;
-  }
-  
-  .scroll-transition-content-overlay {
+  #scroll-transition-component-root .scroll-transition-content-overlay {
+    width: 90%;
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  /* Reduce 3D effects further for performance */
+  #scroll-transition-component-root .scroll-transition-arrow-button {
+    transform: translateZ(20px);
+  }
+  
+  #scroll-transition-component-root .scroll-transition-arrow-button:hover {
+    transform: translateY(-3px) translateZ(30px);
+  }
+}
+
+/* For extra small devices (portrait phones, less than 640px) */
+@media (max-width: 640px) {
+  #scroll-transition-component-root .scroll-transition-content-overlay {
+    width: 95%;
+    padding: 1.25rem;
+  }
+  
+  /* Disable 3D effects on mobile for better performance */
+  #scroll-transition-component-root .scroll-transition-content-overlay,
+  #scroll-transition-component-root .scroll-transition-content-overlay h2,
+  #scroll-transition-component-root .scroll-transition-content-overlay h5,
+  #scroll-transition-component-root .scroll-transition-content-overlay p,
+  #scroll-transition-component-root .scroll-transition-arrow-button {
+    transform: none !important;
+    transition: opacity 0.3s ease;
+  }
+  
+  #scroll-transition-component-root .scroll-transition-arrow-button:hover {
+    transform: translateY(-2px) !important;
+  }
+  
+  /* Make navigation dots smaller */
+  #scroll-transition-component-root .scroll-transition-nav-dot {
+    width: 0.375rem;
+    height: 0.375rem;
+  }
+  
+  #scroll-transition-component-root .scroll-transition-nav-dot.active {
+    transform: scale(1.1);
+  }
+  
+  #scroll-transition-component-root .scroll-transition-nav-dot::before {
+    display: none; /* Hide line effect on very small screens */
+  }
+}
+
+/* For ultra small devices (small phones, less than 480px) */
+@media (max-width: 480px) {
+  #scroll-transition-component-root .scroll-transition-navigation-dots {
+    right: 0.5rem;
+    gap: 0.75rem;
+  }
+  
+  #scroll-transition-component-root .scroll-transition-content-overlay {
+    padding: 1rem;
+    margin-top: 370px;
+  }
+  
+  #scroll-transition-component-root .scroll-transition-content-overlay h2 {
+    margin-bottom: 1.25rem;
+    font-size: 1.5rem;
+  }
+  
+  #scroll-transition-component-root .scroll-transition-content-overlay h5 {
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+  }
+  
+  /* Hide complex animations on very small screens for performance */
+  #scroll-transition-component-root .scroll-transition-background-image {
+    transition: none;
+  }
+  
+  /* Make sure content is fully visible */
+  #scroll-transition-component-root .scroll-transition-arrow-button {
+    width: 40px;
+    height: 40px;
   }
 }

@@ -34,6 +34,7 @@ import { useEffect } from 'react';
 function AppLayout() {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
+  const isPlasticRecyclingRoute = location.pathname.startsWith('/PlasticRecycling');
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -73,8 +74,8 @@ function AppLayout() {
         </Routes>
       </main>
 
-      {/* Hide Footer on admin routes */}
-      {!isAdminRoute && <Footer />}
+      {/* Hide Footer on admin routes and PlasticRecycling page */}
+      {!isAdminRoute && !isPlasticRecyclingRoute && <Footer />}
     </div>
   );
 }

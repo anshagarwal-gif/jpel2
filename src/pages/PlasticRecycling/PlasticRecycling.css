@@ -1,0 +1,122 @@
+/* PlasticRecycling.css */
+
+/* Main container */
+.plastic-recycling-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Category sections container */
+  .category-sections-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Individual category section */
+  .category-section {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* Category overlay */
+  .category-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  /* Category title */
+  .category-title {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Explore button */
+  .explore-button {
+    position: relative;
+    z-index: 2;
+    background-color: #ff3333;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 8px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    width: fit-content;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+  }
+  
+  .explore-button:hover {
+    background-color: #cc0000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Category backgrounds */
+  .woven-packaging-section {
+    background-image: url('../../pages/PlasticRecycling/Assets/recycling-1.jpg');
+  }
+  
+  .plastic-recycling-section {
+    background-image: url('../../pages/PlasticRecycling/Assets/recycling1.jpg');
+  }
+  
+  .profile-extrusion-section {
+    background-image: url('../../pages/PlasticRecycling/Assets/recycling6.jpg');
+  }
+  
+  .sheet-film-section {
+    background-image: url('../../pages/PlasticRecycling/Assets/recycling8.jpg');
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .category-title {
+      font-size: 2.2rem;
+    }
+    
+    .explore-button {
+      padding: 6px 20px;
+      font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .category-title {
+      font-size: 1.8rem;
+    }
+    
+    .explore-button {
+      padding: 5px 15px;
+      font-size: 11px;
+    }
+    
+    .category-section {
+      padding-left: 3%;
+    }
+
+  }

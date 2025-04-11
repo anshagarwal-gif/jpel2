@@ -1,11 +1,15 @@
-import React, { useEffect, useMemo } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import "./PlasticRecycling.css";
 import ScrollTransition from "../../Components/ScrollTransion/ScrollTransition";
 
 const PlasticRecycling = () => {
     const location = useLocation();
-    const { category } = useParams();
+    const navigate = useNavigate();
+    
+    // State to track if we're showing categories or products
+    const [showCategories, setShowCategories] = useState(true);
+    const [selectedCategory, setSelectedCategory] = useState(null);
     
     // Memoize the sections data to prevent recreation on every render
     const allSections = useMemo(() => ({
@@ -125,41 +129,125 @@ const PlasticRecycling = () => {
         ]
     }), []); // Empty dependency array since this data is static
 
+    // Directly check URL to determine view
     useEffect(() => {
-        // Get the target category from either params or pathname
-        const targetCategory = category || location.pathname.split('/').pop();
+        // Get current URL path
+        const path = location.pathname;
         
-        // Add a small delay to ensure DOM elements are ready
-        const scrollTimer = setTimeout(() => {
-            if (allSections[targetCategory]) {
-                const firstSectionId = allSections[targetCategory][0].id;
-                const element = document.getElementById(firstSectionId);
-                
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+        // Check for main PlasticRecycling path - should show categories
+        if (path === "/PlasticRecycling" || path === "/PlasticRecycling/") {
+            setShowCategories(true);
+            setSelectedCategory(null);
+            return;
+        }
+        
+        // For any other URL pattern, show products view without categories sections
+        setShowCategories(false);
+        
+        // If URL contains product-line, don't filter products (show all)
+        if (path.includes("product-line")) {
+            setSelectedCategory(null); // No category filter for product line
+            return;
+        }
+        
+        // Check if URL contains any known category
+        const pathParts = path.split('/');
+        const lastPart = pathParts[pathParts.length - 1];
+        
+        if (Object.keys(allSections).includes(lastPart)) {
+            // URL contains a category name, filter by this category
+            setSelectedCategory(lastPart);
+        } else {
+            // Check for specific product URLs
+            let foundCategory = null;
+            Object.entries(allSections).forEach(([categoryKey, categoryGroups]) => {
+                categoryGroups.forEach(group => {
+                    group.sections.forEach(section => {
+                        const productPath = section.link.substring(1); // Remove leading slash
+                        if (productPath === lastPart) {
+                            foundCategory = categoryKey;
+                        }
+                    });
+                });
+            });
+            
+            if (foundCategory) {
+                setSelectedCategory(foundCategory);
+            } else {
+                // If no category or product match found, don't filter
+                setSelectedCategory(null);
             }
-        }, 500);
-
-        // Cleanup function to clear the timeout
-        return () => clearTimeout(scrollTimer);
-    }, [category, location.pathname, allSections]);
+        }
+    }, [location.pathname, allSections]);
     
+    // Handle explore button clicks
+    const handleExploreClick = (categoryKey) => {
+        // Navigate to the category view
+        navigate(`/PlasticRecycling/${categoryKey}`);
+    };
+    
+    // Category sections for home page
+    const renderCategorySections = () => (
+        <div className="category-sections-container">
+            <section className="category-section woven-packaging-section">
+                <div className="category-overlay"></div>
+                <div className="category-title">WOVEN PACKAGING</div>
+                <button 
+                    className="explore-button" 
+                    onClick={() => handleExploreClick('woven-packaging')}
+                >
+                    EXPLORE
+                </button>
+            </section>
+            
+            <section className="category-section plastic-recycling-section">
+                <div className="category-overlay"></div>
+                <div className="category-title">PLASTIC RECYCLING</div>
+                <button 
+                    className="explore-button" 
+                    onClick={() => handleExploreClick('plastic-recycling')}
+                >
+                    EXPLORE
+                </button>
+            </section>
+            
+            <section className="category-section profile-extrusion-section">
+                <div className="category-overlay"></div>
+                <div className="category-title">PROFILE EXTRUSION</div>
+                <button 
+                    className="explore-button" 
+                    onClick={() => handleExploreClick('profile-extrusion')}
+                >
+                    EXPLORE
+                </button>
+            </section>
+            
+            <section className="category-section sheet-film-section">
+                <div className="category-overlay"></div>
+                <div className="category-title">SHEET/FILM EXTRUSION</div>
+                <button 
+                    className="explore-button" 
+                    onClick={() => handleExploreClick('sheet-film-extrusion')}
+                >
+                    EXPLORE
+                </button>
+            </section>
+        </div>
+    );
 
     return (
-        <div>
-            {Object.entries(allSections).map(([sectionCategory, sectionGroup]) => (
-                sectionGroup.map((section, index) => (
-                    <ScrollTransition
-                        key={`${sectionCategory}-${index}`}
-                        id={section.id}
-                        title={section.title}
-                        sections={section.sections}
-                        className="custom-class"
-                        titleClassName="custom-title-class"
-                    />
-                ))
-            ))}
+        <div className="plastic-recycling-container">
+            {showCategories ? (
+                // Show category sections on home page
+                renderCategorySections()
+            ) : (
+                // Show products scroller
+                <ScrollTransition 
+                    recyclingData={allSections}
+                    initialCategory={selectedCategory}
+                    onlyShowCategory={selectedCategory !== null}
+                />
+            )}
         </div>
     );
 };
