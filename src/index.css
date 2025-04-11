@@ -510,9 +510,6 @@ a:hover {
     padding: var(--space-lg);
   }
   
-  .section, .ExportSection {
-    padding: var(--space-xl) 0;
-  }
 }
 
 @media (max-width: 480px) {

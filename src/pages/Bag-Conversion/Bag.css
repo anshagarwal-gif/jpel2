@@ -167,10 +167,6 @@
   
   /* Responsive design for slideshow */
   @media (max-width: 768px) {
-    .product-display-container {
-      padding: 0 10px;
-    }
-    
     .slideshow-indicators {
       bottom: 10px;
     }

@@ -22,6 +22,7 @@ footer .container {
 footer .container > div {
   flex: 1 1 30%;
   margin-bottom: 20px;
+  margin-right: 10px;
 }
 
 footer h3,
