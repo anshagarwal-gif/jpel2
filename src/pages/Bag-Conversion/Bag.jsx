@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Navigation, SpecsTable, Applications, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import './Bag.css';
 import VedioCard from "../../Components/VedioCard";
+
 const Bag = () => {
   // Main tab and subtab states
   const [activeMainTab, setActiveMainTab] = useState('Small Bag Conversion');
@@ -15,7 +16,7 @@ const Bag = () => {
   // Main tab content with nested subtabs
   const mainTabContent = {
     'Small Bag Conversion': ['BCS', 'BCL', 'Tuber', 'BCL with Gusseting'],
-    'FIBC Confectionaries': ['Mouth Punching', 'Bale Press','Belt Cutting']
+    'FIBC Confectionaries': ['Mouth Punching', 'Bale Press','Belt Cutting']
   };
 
   // Image slideshow for Standard tab
@@ -23,7 +24,6 @@ const Bag = () => {
     require("../Bag-Conversion/Assets/BCS-1.jpg"),
     require("../Bag-Conversion/Assets/BCS-2.jpg"),
     require("../Bag-Conversion/Assets/BCS-3.jpg"),
-   
   ];
 
   // All tab content organized by combined ID (maintab-subtab)
@@ -31,32 +31,29 @@ const Bag = () => {
     'Small Bag Conversion-BCS': {
       // This will be overridden by the slideshow
       image: require("../WovenSack/Assets/pcl.jpg"),
-      description: '',
+      description: "",
       tableHeaders: ['Technical Specifications', 'BCS 850', 'BCS 1250', 'BCS 1600'],
       tableRows: [
         ['Width of unwinder cloth', '300 to 850 mm*', '300 to 1250 mm*', '500 to 1600 mm*'],
         ['Cutting length ', 'Up to 1400 mm*', 'Up to 1550 mm*', '500 to 1850 mm*'],
         ['production speed', 'Up to 40 Bags/min*', 'Up to 35 Bags/min*', 'Up to 25 Bags/min*'],
-       
       ],
       slideshowImages: [
         require("../Bag-Conversion/Assets/BCSapp1.jpg"),
         require("../Bag-Conversion/Assets/BCS2app.jpg"),
-       
       ],
       applicationPoints: [
         'Agriculture and Farming: Ideal for grain, seed, fertilizer, and animal feed storage.',
         'Construction Industry: Used for cement, lime, and gypsum packaging.',
         'Food Industry: Suitable for flour, sugar, and fresh produce.',
         'Industrial Applications: Perfect for powders, granules, and non-toxic chemical storage',
-       
       ],
-      catalogue: '/path-to-standard-bag-catalogue.pdf',
+      catalogue: '/assets/catalogues/standard-bag-catalogue.pdf',
       hasSlideshow: true
     },
     'Small Bag Conversion-BCL': {
       image: require("../Bag-Conversion/Assets/BCL.jpg"),
-      description: 'Note:-  The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+      description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
       tableHeaders: ['Technical Specifications'],
       tableRows: [
         ['Unwinder fabric Roll width ', '475 to 700 mm* (Liner Mode) 400 to 850 mm* (BCS Mode)'],
@@ -73,68 +70,60 @@ const Bag = () => {
         'Construction Industry: Secure packaging for raw materials in bulk. ',
         'Food Industry: Protects food products like flour, sugar, and fresh produce.',
         'Industrial Applications: Handles powders, granules, and chemicals with ease.',
-      
       ],
-      catalogue: '/path-to-premium-bag-catalogue.pdf',
+      catalogue: '/assets/catalogues/premium-bag-catalogue.pdf',
       hasSlideshow: false
     },
     'Small Bag Conversion-Tuber': {
       image: require("../Bag-Conversion/Assets/TFM.jpg"),
-      description: 'Note:-  The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
-      tableHeaders: ['Technical Specifications', ],
+      description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
+      tableHeaders: ['Technical Specifications'],
       tableRows: [
         ['Fabric width', '650 to 1350 mm*'],
         ['tube width', '300 to 650 mm*'],
-     
       ],
       slideshowImages: [
         require("../Bag-Conversion/Assets/Tuberapp.jpg"),
         require("../Bag-Conversion/Assets/Tuberapp1.jpg"),
-       
       ],
       applicationPoints: [
         'Agriculture and Farming: Perfect for storing grain, seeds, fertilizers, and animal feed.',
         'Construction Industry: Utilized for packaging cement, lime, and gypsum.',
         'Food Industry: Appropriate for storing flour, sugar, and fresh produce.',
         'Industrial Applications: Excellent for the storage of powders, granules, and non-toxic chemicals.',
-       
       ],
-      catalogue: '/path-to-heavy-duty-catalogue.pdf',
+      catalogue: '/assets/catalogues/heavy-duty-catalogue.pdf',
       hasSlideshow: false
     },
     'Small Bag Conversion-BCL with Gusseting': {
       image: require("../Bag-Conversion/Assets/BC.jpg"),
-      description: 'Note:-  The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+      description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
       tableHeaders: ['Technical Specifications'],
       tableRows: [
         ['Width of unwinder cloth', '300 to 850 mm*'],
         ['Cutting length', 'Up to 1400 mm*'],
         ['production speed', 'Up to 40 Bags/min*'],
-       
       ],
       slideshowImages: [
         require("../Bag-Conversion/Assets/Twistapp.jpg"),
         require("../Bag-Conversion/Assets/Twistapp.jpg"),
-     
       ],
       applicationPoints: [
         'Retail and Consumer Goods: For pet food, garden supplies, and bulk items.',
         'Logistics and Relief: For sandbags and emergency supplies.',
         'Agriculture and Food: For grains, feed, fertilizers, and dry foods.',
         'Construction and Industry: For cement, sand, chemicals, and powders.',
-       
       ],
-      catalogue: '/path-to-customized-bag-catalogue.pdf',
+      catalogue: '/assets/catalogues/customized-bag-catalogue.pdf',
       hasSlideshow: false
     },
     'FIBC Confectionaries-Mouth Punching': {
       image: require("../Bag-Conversion/Assets/MP.jpg"),
-      description: 'Note:-  The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation. ',
+      description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
       tableHeaders: ['Technical Specifications', 'FIBCM 1500', 'FIBCM 2200'],
       tableRows: [
         ['Fabric Length', '500-2000 mm*', '500-2000 mm*'],
         ['Line Speed ', '22 MPM* ', '22 MPM*'],
-   
       ],
       slideshowImages: [
         require("../WovenSack/Assets/recycling1.jpg"), 
@@ -145,12 +134,12 @@ const Bag = () => {
         'Ensuring precise, consistent cuts in bulk production.',
         'Reducing manual effort with pneumatic operation.',
       ],
-      catalogue: '/path-to-fibc-type-a-catalogue.pdf',
+      catalogue: '/assets/catalogues/fibc-type-a-catalogue.pdf',
       hasSlideshow: false
     },
-    'FIBC Confectionaries-Bale Press': {
+    'FIBC Confectionaries-Bale Press': {
       image: require("../Bag-Conversion/Assets/Bale.jpg"),
-      description: 'Note:-  The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation. ',
+      description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
       tableHeaders: ['Technical Specifications', 'JP120BB'],
       tableRows: [
         ['Capacity', '120 Ton'],
@@ -171,21 +160,19 @@ const Bag = () => {
         'Efficient Volume Reduction: The bale press compacts FIBC jumbo bags, reducing storage space and transportation costs.',
         'High-Pressure Compression: Ensures uniform and dense bales, improving material handling and waste management.',
         'Cost-Effective Solution: Minimizes warehouse space usage and optimizes logistics for bulk materials.',
- 
       ],
-      catalogue: '/path-to-fibc-type-b-catalogue.pdf',
+      catalogue: '/assets/catalogues/fibc-type-b-catalogue.pdf',
       hasSlideshow: false
     },
     'FIBC Confectionaries-Belt Cutting': {
       image: require("../Bag-Conversion/Assets/Belt.jpg"),
-      description: 'Note:-  The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation. ',
+      description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
       tableHeaders: ['Technical Specifications', 'JPBCM6'],
       tableRows: [
         ['Material for process', 'PP Webbing Belt'],
         ['No. of Belt', '6'],
         ['Belt width Max.', '75 mm*'],
         ['Distance of 2 marking points', '20 mm Min.'],
-    
       ],
       slideshowImages: [
         require("../Bag-Conversion/Assets/Beltapp.jpg"), 
@@ -198,7 +185,7 @@ const Bag = () => {
         'Integrated testing and certification system',
         'Configurable for various specialty FIBC applications'
       ],
-      catalogue: '/path-to-fibc-type-b-catalogue.pdf',
+      catalogue: '/assets/catalogues/fibc-type-b-catalogue.pdf',
       hasSlideshow: false
     }
   };
@@ -235,6 +222,23 @@ const Bag = () => {
   
   // Get current content
   const currentContent = tabContent[activeCombinedTab];
+
+  // Function to handle download catalogue
+  const handleDownloadCatalogue = () => {
+    if (currentContent && currentContent.catalogue) {
+      try {
+        const link = document.createElement('a');
+        link.href = currentContent.catalogue;
+        link.download = `${activeSubtab.toLowerCase().replace(/\s+/g, '-')}-catalogue.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch (error) {
+        console.error("Error downloading catalogue:", error);
+        alert('Failed to download the catalogue. Please try again later.');
+      }
+    }
+  };
 
   return (
     <div>
@@ -303,9 +307,40 @@ const Bag = () => {
               alt="Standard Bag Machine"
               className="product-image"
             />
-         
-        <p className="description2" >Note:-  The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.</p>
-     
+            <p className="description2">Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.</p>
+            <button 
+              className="download-button"
+              onClick={handleDownloadCatalogue}
+              aria-label="Download Product Catalogue"
+            >
+              <span className="docs">
+                Download Catalogue
+                <svg
+                  viewBox="0 0 24 24"
+                  height="24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </span>
+              <div className="download">
+                <svg
+                  viewBox="0 0 24 24"
+                  height="24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
+            </button>
           </div>
         ) : (
           <ProductWithDownloadCatalogue
@@ -334,7 +369,6 @@ const Bag = () => {
       />
 
         <div className="card-header">
-             
              <p style={{fontSize:'42px',color:'black'}}>Videos</p>
       </div>
       

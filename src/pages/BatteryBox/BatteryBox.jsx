@@ -67,12 +67,7 @@ const BatteryBox = () => {
           activeTab={activeTab}
           onTabChange={setActiveTab}
         />
-          <ProductWithDownloadCatalogue 
-         image={currentContent.image}
-        description={currentContent.description}
-        tabId={activeTab}
-        tabContent={tabContent}
-      />
+   
         <SpecsTable
           headers={currentContent.tableHeaders}
           rows={currentContent.tableRows}
