@@ -126,8 +126,8 @@ const Bag = () => {
         ['Line Speed ', '22 MPM* ', '22 MPM*'],
       ],
       slideshowImages: [
-        require("../WovenSack/Assets/recycling1.jpg"), 
-        require("../WovenSack/Assets/recycling1.jpg")
+        require("../Bag-Conversion/Assets/app1.jpg"), 
+        require("../Bag-Conversion/Assets/app1.jpg")
       ],
       applicationPoints: [
         'Cutting seamless mouth profile for jumbo bags.',

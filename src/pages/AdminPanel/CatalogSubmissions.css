@@ -1,0 +1,365 @@
+/* CatalogSubmissions.css */
+
+.jpel-catalog-submissions-container {
+    background-color: #f9fafb;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-left: 70px;
+  }
+  
+  .jpel-catalog-header {
+    margin-bottom: 20px;
+  }
+  
+  .jpel-catalog-header .jpel-page-title {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .jpel-catalog-header .jpel-page-title h1 {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  .jpel-catalog-header .jpel-page-title .jpel-brand {
+    color: #2a41e8;
+    font-weight: 700;
+  }
+  
+  .jpel-catalog-header .jpel-page-title .jpel-separator {
+    margin: 0 8px;
+    color: #64748b;
+  }
+  
+  .jpel-catalog-header .jpel-page-title p {
+    color: #64748b;
+    font-size: 0.875rem;
+  }
+  
+  .jpel-catalog-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .jpel-control-group {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .jpel-action-button {
+    background-color: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .jpel-search-container {
+    position: relative;
+  }
+  
+  .jpel-search-input {
+    padding: 8px 12px 8px 32px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    width: 240px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 8px center;
+  }
+  
+  .jpel-search-input:focus {
+    outline: none;
+    border-color: #a5b4fc;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+  }
+  
+  .jpel-data-table-container {
+    background-color: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 16px;
+  }
+  
+  .jpel-loading-indicator {
+    padding: 40px;
+    text-align: center;
+    color: #64748b;
+  }
+  
+  .jpel-catalog-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .jpel-catalog-table th {
+    background-color: #f1f5f9;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #e2e8f0;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .jpel-catalog-table th:hover {
+    background-color: #e2e8f0;
+  }
+  
+  .jpel-sort-icon {
+    margin-left: 4px;
+    opacity: 0.3;
+  }
+  
+  .jpel-sort-icon.jpel-active-asc::after {
+    content: "↑";
+    opacity: 1;
+  }
+  
+  .jpel-sort-icon.jpel-active-desc::after {
+    content: "↓";
+    opacity: 1;
+  }
+  
+  .jpel-catalog-table td {
+    padding: 12px 16px;
+    font-size: 0.875rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: #334155;
+  }
+  
+  .jpel-catalog-table tr:hover {
+    background-color: #f8fafc;
+  }
+  
+  .jpel-catalog-table .jpel-add-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .jpel-add-button {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    line-height: 1;
+    padding: 0;
+    transition: all 0.2s;
+  }
+  
+  .jpel-add-button:hover {
+    background-color: #e2e8f0;
+  }
+  
+  .jpel-add-button.jpel-expanded {
+    background-color: #dbeafe;
+    border-color: #93c5fd;
+    color: #2563eb;
+  }
+  
+  .jpel-contact-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .jpel-contact-with-icon svg {
+    color: #64748b;
+  }
+  
+  .jpel-expanded-row {
+    background-color: #f8fafc;
+  }
+  
+  .jpel-no-data {
+    text-align: center;
+    padding: 40px;
+    color: #64748b;
+  }
+  
+  .jpel-details-row td {
+    padding: 0;
+    background-color: #1e293b;
+  }
+  
+  .jpel-details-panel {
+    padding: 16px 24px 24px;
+    border-top: 1px solid #4a5568;
+    background-color: #1e293b;
+  }
+  
+  .jpel-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .jpel-details-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+  
+  .jpel-close-details {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    color: #94a3b8;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .jpel-close-details:hover {
+    color: #ffffff;
+  }
+  
+  .jpel-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    background-color: #1e293b;
+    padding: 16px;
+    border-radius: 6px;
+  }
+  
+  .jpel-details-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .jpel-details-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+  }
+  
+  .jpel-details-value {
+    font-size: 0.875rem;
+    color: #ffffff;
+  }
+  
+  /* Full width for message field */
+  .jpel-details-message {
+    grid-column: 1 / -1;
+  }
+  
+  .jpel-details-message .jpel-details-value {
+    padding: 8px;
+    background-color: #2d3748;
+    border: 1px solid #4a5568;
+    border-radius: 4px;
+    min-height: 60px;
+    white-space: pre-wrap;
+    color: #ffffff;
+  }
+  
+  .jpel-pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8px;
+  }
+  
+  .jpel-page-info {
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+  
+  .jpel-pagination {
+    display: flex;
+    gap: 4px;
+  }
+  
+  .jpel-page-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .jpel-page-btn:hover:not(:disabled) {
+    background-color: #f1f5f9;
+    border-color: #cbd5e1;
+  }
+  
+  .jpel-page-btn.jpel-active {
+    background-color: #2a41e8;
+    border-color: #2a41e8;
+    color: white;
+  }
+  
+  .jpel-page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .jpel-catalog-controls {
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .jpel-search-container {
+      width: 100%;
+    }
+    
+    .jpel-search-input {
+      width: 100%;
+    }
+    
+    .jpel-details-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .jpel-pagination-container {
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .jpel-catalog-table th:nth-child(4),
+    .jpel-catalog-table td:nth-child(4),
+    .jpel-catalog-table th:nth-child(5),
+    .jpel-catalog-table td:nth-child(5) {
+      display: none;
+    }
+  }

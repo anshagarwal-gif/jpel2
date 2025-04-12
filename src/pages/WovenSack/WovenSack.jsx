@@ -11,7 +11,7 @@ const WovenSack = () => {
         description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For details , refer to the quotation.',
         tableHeaders: [],
         tableRows: [],
-        slideshowImages: [require("../WovenSack/Assets/pclapll.jpg"),require("../WovenSack/Assets/pclapll.jpg")],
+        slideshowImages: [require("../WovenSack/Assets/pclapll.jpg"),require("../WovenSack/Assets/pclapll1.jpg")],
         applicationPoints: ['PP/PE  Recycling: Cleaning and recycling polypropylene and polyethylene films.',
 'Waste Bag Processing: Handling heavily soiled plastic bags for reuse.',
 'High-Quality Material Recovery: Producing recycled materials for various applications.',

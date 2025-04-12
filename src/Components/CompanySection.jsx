@@ -8,12 +8,6 @@ import "../Components/CompanySection.css"
 import { useNavigate } from "react-router-dom";
 
 
-
-
-
-// Initialize Google Analytics
-ReactGA.initialize("G-4G63P3V3DN", { debugMode: true });
-
 const CompanySection = () => {
   const navigate = useNavigate();
   const [isModalOpen, setModalOpen] = useState(false);
@@ -192,6 +186,7 @@ const handleOverlayClick = (e) => {
            <h4>Please provide the below credentials to get our Catalogue emailed.</h4>
        <form onSubmit={handleSubmit}>
    <div className="inputBox">
+   <span className="uiverse">Name</span>
        <input
         type="text"
         name="name"
@@ -199,10 +194,11 @@ const handleOverlayClick = (e) => {
         onChange={handleChange}
         required
       />
-      <span className="uiverse">Name</span>
+      
     </div>
     
     <div className="inputBox">
+    <span className="uiverse">Company Name</span>
       <input
         type="text"
         name="companyName"
@@ -210,10 +206,11 @@ const handleOverlayClick = (e) => {
         onChange={handleChange}
         required
       />
-      <span className="uiverse">Company Name</span>
+    
     </div>
     
     <div className="inputBox">
+    <span className="uiverse">Email</span>
       <input
         type="email"
         name="email"
@@ -221,10 +218,11 @@ const handleOverlayClick = (e) => {
         onChange={handleChange}
         required
       />
-      <span className="uiverse">Email</span>
+     
     </div>
     
     <div className="inputBox">
+    <span className="uiverse">Contact Number</span>
       <input
         type="tel"
         name="contactNumber"
@@ -232,10 +230,11 @@ const handleOverlayClick = (e) => {
         onChange={handleChange}
         required
       />
-      <span className="uiverse">Contact Number</span>
+   
     </div>
     
     <div className="inputBox">
+    <span className="uiverse">City</span>
       <input
         type="text"
         name="city"
@@ -243,10 +242,11 @@ const handleOverlayClick = (e) => {
         onChange={handleChange}
         required
       />
-      <span className="uiverse">City</span>
+     
     </div>
 
     <div className="inputBox">
+    <span className="uiverse">State</span>
       <input
         type="text"
         name="state"
@@ -254,10 +254,11 @@ const handleOverlayClick = (e) => {
         onChange={handleChange}
         required
       />
-      <span className="uiverse">State</span>
+      
     </div>
 
     <div className="inputBox">
+    <span className="uiverse">Country</span>
       <input
         type="text"
         name="country"
@@ -265,18 +266,19 @@ const handleOverlayClick = (e) => {
         onChange={handleChange}
         required
       />
-      <span className="uiverse">Country</span>
+     
     </div>
     
 
     <div className="inputBox">
+    <span className="uiverse">Message</span>
       <textarea
         name="message"
         value={formData.message}
         onChange={handleChange}
         required
       />
-      <span className="uiverse">Message</span>
+    
     </div>
 <div className="submitbtn-container">
     <button type="submit" className="submit-btn">Submit</button>

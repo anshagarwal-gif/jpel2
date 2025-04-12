@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./AdminDashboard.css";
 import axios from "axios";
 import CareerApplications from "./AdminCarrer";
+import CatalogSubmissions from "./CatalogSubmissions"; // Import the new component
 
 const AdminDashboard = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -410,20 +411,8 @@ useEffect(() => {
       case "career":
         return <CareerApplications />;
       
-      case "catalogue":
-        return (
-          <div className="dashboard-content catalogue-page">
-            <header className="content-header">
-              <div className="page-title">
-                <h1>Jpel :: Download Catalogue</h1>
-                <p>Manage downloadable catalogues</p>
-              </div>
-            </header>
-            <div className="catalogue-content">
-              <p>Catalogue management content will go here</p>
-            </div>
-          </div>
-        );
+        case "catalogue":
+          return <CatalogSubmissions />;
       
       default:
         return null;
