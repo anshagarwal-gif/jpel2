@@ -130,54 +130,89 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
     name: '',
     companyName: '',
     email: '',
-    contactNo: '',
+    contactNumber: '',
     city: '',
     state: '',
     country: '',
     message: "",
   });
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [toastType, setToastType] = useState("success"); // success or error
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async () => {
-    const currentTab = tabContent[activeTab]; // Get the current tab content
-    const emailData = {
-      name: formData.name,
-      companyName: formData.companyName,
-      email: formData.email,
-      contactNo: formData.contactNo,
-      city: formData.city,
-      state: formData.state,
-      country: formData.country,
-      message: formData.message,
+  const showSuccessToast = (message) => {
+    // Make sure to set these states correctly
+    setToastType("success");
+    setToastMessage(message);
+    setShowToast(true);
     
-      catalogueName: currentTab.catalogue || activeTab,
+    console.log("Showing success toast:", message); // Debug logging
+    
+    // Auto hide after 3 seconds
+    setTimeout(() => {
+      setShowToast(false);
+      onClose(); // Close the modal after toast disappears
+    }, 3000);
+  };
 
-    };
-   // Fetch the user's IP address
+  const showErrorToast = (message) => {
+    // Make sure to set these states correctly
+    setToastType("error");
+    setToastMessage(message);
+    setShowToast(true);
+    
+    console.log("Showing error toast:", message); // Debug logging
+    
+    // Auto hide after 5 seconds
+    setTimeout(() => {
+      setShowToast(false);
+    }, 5000);
+  };
+
+  const handleSubmit = async () => {
+    // Form validation
+    if (!formData.name || !formData.email) {
+      showErrorToast("Please fill in all required fields");
+      return;
+    }
+
+    const currentTab = tabContent[activeTab]; // Get the current tab content
+    
+    // Fetch the user's IP address
     let visitorIP = "";
     try {
-      const Response = await fetch("https://api.ipify.org?format=json");
-      const Data = await Response.json();
-      visitorIP = Data.ip; // Extract IP address
+      const ipResponse = await fetch("https://api.ipify.org?format=json");
+      const ipData = await ipResponse.json();
+      visitorIP = ipData.ip; // Extract IP address
     } catch (error) {
       console.error("Error fetching IP:", error);
     }
   
     // Get the current URL and extract the text of the end URL
-    const currentURL = window.location.href;
-    const endText = currentURL.split("/").pop(); // Get the last part of the URL
-    const extendedFormData = {
-      ...formData,
-      endText,
-      currentURL,
-      
-      visitorIP
+    const url = window.location.href;
+    const endText = url.split("/").pop(); // Get the last part of the URL
+
+    // Create the email data to match backend expectations
+    const emailData = {
+      name: formData.name,
+      companyName: formData.companyName,
+      email: formData.email,
+      contactNumber: formData.contactNumber, // Match the backend field name
+      city: formData.city,
+      state: formData.state,
+      country: formData.country,
+      brochureLink: currentTab?.catalogue || activeTab,
+      url: url,
+      visitorIP: visitorIP,
+      endText: endText
     };
   
-    console.log("Form Data with IP and URL: ", extendedFormData);
+    console.log("Sending email data: ", emailData);
+
     try {
       // Send email using backend API
       const response = await fetch('http://localhost:5000/send-email', {
@@ -186,15 +221,18 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
         body: JSON.stringify(emailData),
       });
 
+      console.log("Response status:", response.status); // Debug logging
+
       if (response.ok) {
-        alert('Catalogue has been sent to your email!');
+        showSuccessToast('Catalogue has been sent to your email!');
       } else {
-        alert('Failed to send catalogue. Please try again.');
+        const errorText = await response.text();
+        showErrorToast(`Failed to send catalogue: ${errorText}`);
       }
     } catch (error) {
       console.error('Error sending email:', error);
+      showErrorToast('Failed to connect to the server. Please try again later.');
     }
-    onClose();
   };
 
   const handleBackdropClick = (e) => {
@@ -203,115 +241,140 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
     }
   };
 
-  return (
-    <div
-      className="download-catalogue-modal"
-      onClick={handleBackdropClick} // Close on outside click
-    >
-      <div className="download-catalogue-modal-content">
-        <h2>Download Catalogue</h2>
-        <p>Please provide the below credentials to get our Catalogue emailed.</p>
-        <div className="download-catalogue-modal-form">
-          <div className="form-group">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              placeholder="Enter your name"
-            />
-          </div>
-          
-          <div className="form-group">
-            <label htmlFor="companyName">Company Name</label>
-            <input
-              type="text"
-              id="companyName"
-              name="companyName"
-              value={formData.companyName}
-              onChange={handleInputChange}
-              placeholder="Enter your company name"
-            />
-          </div>
-          
-          <div className="form-group">
-            <label htmlFor="email">Email ID</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              placeholder="Enter your email"
-            />
-          </div>
-          
-          <div className="form-group">
-            <label htmlFor="contactNo">Contact No</label>
-            <input
-              type="text"
-              id="contactNo"
-              name="contactNo"
-              value={formData.contactNo}
-              onChange={handleInputChange}
-              placeholder="Enter your contact number"
-            />
-          </div>
-          
-          <div className="form-group">
-            <label htmlFor="city">City</label>
-            <input
-              type="text"
-              id="city"
-              name="city"
-              value={formData.city}
-              onChange={handleInputChange}
-              placeholder="Enter your city"
-            />
-          </div>
-          
-          <div className="form-group">
-            <label htmlFor="state">State</label>
-            <input
-              type="text"
-              id="state"
-              name="state"
-              value={formData.state}
-              onChange={handleInputChange}
-              placeholder="Enter your state"
-            />
-          </div>
-          
-          <div className="form-group">
-            <label htmlFor="country">Country</label>
-            <input
-              type="text"
-              id="country"
-              name="country"
-              value={formData.country}
-              onChange={handleInputChange}
-              placeholder="Enter your country"
-            />
-          </div>
-          
-          <div className="form-group">
-            <label htmlFor="message">Message (Optional)</label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleInputChange}
-              placeholder="Enter any additional information"
-              rows="3"
-            ></textarea>
-          </div>
-          
-          <button className="submit-button" onClick={handleSubmit}>Submit</button>
+  // Render the toast outside the modal to ensure it's visible even if modal closes
+  const renderToast = () => {
+    if (!showToast) return null;
+    
+    return (
+      <div className={`toast-notification ${toastType}`} style={{ zIndex: 1050 }}>
+        <div className="toast-content">
+          {toastType === "success" ? (
+            <span className="toast-icon">✓</span>
+          ) : (
+            <span className="toast-icon">⚠</span>
+          )}
+          <p>{toastMessage}</p>
         </div>
       </div>
-    </div>
+    );
+  };
+
+  return (
+    <>
+      {/* Render toast outside the modal */}
+      {renderToast()}
+      
+      <div
+        className="download-catalogue-modal"
+        onClick={handleBackdropClick} // Close on outside click
+      >
+        <div className="download-catalogue-modal-content">
+          <h2>Download Catalogue</h2>
+          <p>Please provide the below credentials to get our Catalogue emailed.</p>
+          <div className="download-catalogue-modal-form">
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+            
+            <div className="form-group">
+              <label htmlFor="companyName">Company Name</label>
+              <input
+                type="text"
+                id="companyName"
+                name="companyName"
+                value={formData.companyName}
+                onChange={handleInputChange}
+                placeholder="Enter your company name"
+              />
+            </div>
+            
+            <div className="form-group">
+              <label htmlFor="email">Email ID</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            
+            <div className="form-group">
+              <label htmlFor="contactNumber">Contact No</label>
+              <input
+                type="text"
+                id="contactNumber"
+                name="contactNumber"
+                value={formData.contactNumber}
+                onChange={handleInputChange}
+                placeholder="Enter your contact number"
+              />
+            </div>
+            
+            <div className="form-group">
+              <label htmlFor="city">City</label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                value={formData.city}
+                onChange={handleInputChange}
+                placeholder="Enter your city"
+              />
+            </div>
+            
+            <div className="form-group">
+              <label htmlFor="state">State</label>
+              <input
+                type="text"
+                id="state"
+                name="state"
+                value={formData.state}
+                onChange={handleInputChange}
+                placeholder="Enter your state"
+              />
+            </div>
+            
+            <div className="form-group">
+              <label htmlFor="country">Country</label>
+              <input
+                type="text"
+                id="country"
+                name="country"
+                value={formData.country}
+                onChange={handleInputChange}
+                placeholder="Enter your country"
+              />
+            </div>
+            
+            <div className="form-group">
+              <label htmlFor="message">Message (Optional)</label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                placeholder="Enter any additional information"
+                rows="3"
+              ></textarea>
+            </div>
+            
+            <button className="submit-button" onClick={handleSubmit}>Submit</button>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

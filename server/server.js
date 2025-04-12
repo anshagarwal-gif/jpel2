@@ -30,7 +30,6 @@ const transporter = nodemailer.createTransport({
     pass: process.env.PASSWORD,  // Use the password from the .env file
   },
 });
-
 // Endpoint to send email
 app.post("/send-email", (req, res) => {
   const formData = req.body;
@@ -54,87 +53,144 @@ app.post("/send-email", (req, res) => {
   } = req.body;
 
   const brochureFiles = {
-    woven: "extrusion.pdf",
+    TapeExtrusion: "TapeExtrusion.pdf",
     injection: "injection.pdf",
     blow: "blow-molding.pdf",
   };
   const brochureFileName = brochureFiles[endText] || "default.pdf";
   const brochurePath = path.join(__dirname, "catalogues", brochureFileName);
 
-  // Define the email content
-  const mailOptions = {
-    from: process.env.EMAIL,  // Sender email from the environment variable
-    to: "anshagarwal.rishikesh@gmail.com",  // Replace with your recipient email address
-    subject: "Download Catalogue |  J P Extrusiontech Private Limited",
-      html: `
-        <div style="font-family: Arial, sans-serif; border: 2px dashed #000; padding: 20px; max-width: 600px; margin: auto; background-color: #F7F7F7;">
-  <!-- Logo -->
-  <div style="text-align: center; margin-bottom: 20px;">
-    <img src="" alt="JP Group Logo" style="max-width: 400px;">
-  </div>
-  
-  <!-- Form Content -->
-  <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
-    <tr>
-      <td style="padding: 8px; font-weight: bold; color: #000;">Name:</td>
-      <td style="padding: 8px;">${name}</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; font-weight: bold; color: #000;">Company Name:</td>
-      <td style="padding: 8px;">${companyName}</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; font-weight: bold; color: #000;">Email:</td>
-      <td style="padding: 8px;">${email}</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; font-weight: bold; color: #000;">Contact No:</td>
-      <td style="padding: 8px;">${contactNumber}</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; font-weight: bold; color: #000;">City:</td>
-      <td style="padding: 8px;">${city}</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; font-weight: bold; color: #000;">State:</td>
-      <td style="padding: 8px;">${state}</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; font-weight: bold; color: #000;">Country:</td>
-      <td style="padding: 8px;">${country}</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; font-weight: bold; color: #000;">URL:</td>
-      <td style="padding: 8px;"><a href="${url}" style="color: #0066cc; text-decoration: none;">${url}</a></td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; font-weight: bold; color: #000;">Visitor IP:</td>
-      <td style="padding: 8px;">${visitorIP}</td>
-    </tr>
-  </table>
-</div>
-
-      `,
-      attachments: [
-        {
-          filename: brochureFileName,
-          path: brochurePath,
-          contentType: "application/pdf",
-        },
-      ],
-    
+  // Define the email content for the owner
+  const ownerMailOptions = {
+    from: email, // Sender email
+    to: process.env.EMAIL, // Owner's email from environment variable
+    subject: "Download Catalogue | J P Extrusiontech Private Limited",
+    html: `
+      <div style="font-family: Arial, sans-serif; border: 2px dashed #000; padding: 20px; max-width: 600px; margin: auto; background-color: #F7F7F7;">
+        <!-- Logo -->
+        <div style="text-align: center; margin-bottom: 20px;">
+          <img src="" alt="JP Group Logo" style="max-width: 400px;">
+        </div>
+        
+        <!-- Form Content -->
+        <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+          <tr>
+            <td style="padding: 8px; font-weight: bold; color: #000;">Name:</td>
+            <td style="padding: 8px;">${name}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; font-weight: bold; color: #000;">Company Name:</td>
+            <td style="padding: 8px;">${companyName}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; font-weight: bold; color: #000;">Email:</td>
+            <td style="padding: 8px;">${email}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; font-weight: bold; color: #000;">Contact No:</td>
+            <td style="padding: 8px;">${contactNumber}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; font-weight: bold; color: #000;">City:</td>
+            <td style="padding: 8px;">${city}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; font-weight: bold; color: #000;">State:</td>
+            <td style="padding: 8px;">${state}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; font-weight: bold; color: #000;">Country:</td>
+            <td style="padding: 8px;">${country}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; font-weight: bold; color: #000;">URL:</td>
+            <td style="padding: 8px;"><a href="${url}" style="color: #0066cc; text-decoration: none;">${url}</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; font-weight: bold; color: #000;">Visitor IP:</td>
+            <td style="padding: 8px;">${visitorIP}</td>
+          </tr>
+        </table>
+      </div>
+    `,
+    attachments: [
+      {
+        filename: brochureFileName,
+        path: brochurePath,
+        contentType: "application/pdf",
+      },
+    ],
   };
 
-  // Send the email
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error("Error sending email:", error);
-      res.status(500).send("Error sending email"+ error.message);
-    } else {
-      console.log("Email sent:", info.response);
-      res.status(200).send("Email sent successfully" + error.message);
-    }
+  // Define the email content for the user (based on the image template)
+  const userMailOptions = {
+    from: process.env.EMAIL, // Owner's email as sender
+    to: email, // User's email from the form
+    subject: "Thank you for your interest | J P Extrusiontech Private Limited",
+    html: `
+      <div style="font-family: Arial, sans-serif; border: 2px dashed #000; padding: 20px; max-width: 600px; margin: auto;">
+        <!-- Logo -->
+        <div style="text-align: center; margin-bottom: 20px;">
+          <img src="https://jpgroup.in/wp-content/uploads/2023/12/JPE_NEW_LOGO.png" alt="JP Group Logo" style="max-width: 400px;">
+        </div>
+        
+        <h2 style="text-align: center; font-size: 24px; margin-bottom: 20px;">Thank you!</h2>
+        
+        <p style="margin-bottom: 15px;">Dear ${name},</p>
+        
+        <p style="margin-bottom: 5px;">Awesome!</p>
+        <p style="margin-bottom: 15px;">Thank you for your interest.</p>
+        
+        <p style="margin-bottom: 25px;">The requested brochure is attached to this email.</p>
+        
+        <p style="margin-bottom: 5px;">Regards,</p>
+        <p style="margin-bottom: 5px; font-weight: bold;">J P Extrusiontech Private Limited</p>
+        
+        <p style="margin-top: 30px; font-size: 12px; color: #666;">This is an auto generated email. PLEASE DO NOT REPLY directly to this email.</p>
+      </div>
+    `,
+    attachments: [
+      {
+        filename: brochureFileName,
+        path: brochurePath,
+        contentType: "application/pdf",
+      },
+    ],
+  };
+
+  // Send email to both the owner and the user
+  const sendOwnerEmail = new Promise((resolve, reject) => {
+    transporter.sendMail(ownerMailOptions, (error, info) => {
+      if (error) {
+        console.error("Error sending email to owner:", error);
+        reject(error);
+      } else {
+        console.log("Email sent to owner:", info.response);
+        resolve(info);
+      }
+    });
   });
+
+  const sendUserEmail = new Promise((resolve, reject) => {
+    transporter.sendMail(userMailOptions, (error, info) => {
+      if (error) {
+        console.error("Error sending email to user:", error);
+        reject(error);
+      } else {
+        console.log("Email sent to user:", info.response);
+        resolve(info);
+      }
+    });
+  });
+
+  // Handle both email sending operations
+  Promise.all([sendOwnerEmail, sendUserEmail])
+    .then(() => {
+      res.status(200).send("Emails sent successfully");
+    })
+    .catch((error) => {
+      res.status(500).send("Error sending emails: " + error.message);
+    });
 });
 app.use("/api/auth", authRoutes);
 app.use("/api/inquiries", inquiryRoutes);
