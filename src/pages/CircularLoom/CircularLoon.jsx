@@ -2,7 +2,7 @@ import React, { useState }  from "react";
 import { Navigation, SpecsTable, Applications, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import './CircularLoom.css'
 import VedioCard from "../../Components/VedioCard";
-import ImageGallery from"../../Components/ImageGallery";
+import ImageGallery from"../../Components/DiamondGallery/ImageGallery";
 
 const CircularLoom = () => {
   const [activeTab, setActiveTab] = useState('4-Shuttle');
