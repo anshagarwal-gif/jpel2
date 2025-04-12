@@ -2,30 +2,27 @@ import React, { useState } from 'react';
 import GalleryItem from './GalleryItem';
 import './ImageGallery.css';
 import { X } from 'lucide-react';
+
 const galleryImages = [
   {
     id: 1,
-    src: require("../assets/loom1.jpg") ,
+    src: require("../../assets/loom1.jpg"),
     alt: "Industrial CNC Machine",
-    
   },
   {
     id: 2,
-    src: require("../assets/loom2.jpg") ,
+    src: require("../../assets/loom2.jpg"),
     alt: "Robotic Arm Assembly",
-
   },
   {
     id: 3,
-    src: require("../assets/loom3.jpg") ,
+    src: require("../../assets/loom3.jpg"),
     alt: "Quality Control System",
-   
   },
   {
     id: 4,
-    src: require("../assets/loom4.jpg") ,
+    src: require("../../assets/loom4.jpg"),
     alt: "Manufacturing Line",
-     
   }
 ];
 
