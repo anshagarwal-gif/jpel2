@@ -41,6 +41,13 @@
     transform: rotateY(180deg);
 }
 
+/* Mobile touch support without changing design */
+@media (hover: none) {
+    .flip-card:active .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+}
+
 .flip-card-front,
 .flip-card-back {
     position: absolute;
@@ -176,24 +183,24 @@
     padding: 0;
     cursor: default;
     display: block;
-    /* Remove ALL transforms */
-    transform: none !important;
-    -webkit-transform: none !important;
-    -moz-transform: none !important;
-    -ms-transform: none !important;
-    -o-transform: none !important;
+    /* Keep the margin-top from original design */
+    margin-top: 25px;
+    /* Fix for iOS/mobile image rendering issues */
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    transform: translateZ(0);
 }
 
 /* Special handling for INDIAPLAST-2019 image */
 img.gallery-image[alt="INDIAPLAST-2019"] {
     max-width: 800px;
     margin: 0 auto;
-    /* Remove ALL transforms */
-    transform: none !important;
-    -webkit-transform: none !important;
-    -moz-transform: none !important;
-    -ms-transform: none !important;
-    -o-transform: none !important;
+    /* Fix for iOS/mobile image rendering issues */
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    transform: translateZ(0);
 }
 
 .gallery-title {
@@ -310,10 +317,18 @@ img.gallery-image[alt="INDIAPLAST-2019"] {
     .gallery-image {
         max-width: 90%;
         max-height: 60vh;
+        /* Fix for iOS/mobile image rendering issues */
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translateZ(0) scale(1.0, 1.0);
+        transform: translateZ(0);
     }
     
     img.gallery-image[alt="INDIAPLAST-2019"] {
         max-width: 90%;
+        /* Fix for iOS/mobile image rendering issues */
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translateZ(0) scale(1.0, 1.0);
+        transform: translateZ(0);
     }
 
     .prev-button,

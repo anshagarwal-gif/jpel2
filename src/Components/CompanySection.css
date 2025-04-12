@@ -213,151 +213,167 @@
 }
 
 /* Modal Styles */
+/* Modal Styles */
 .modal-overlay2 {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 1000;
-  overflow: hidden;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .modal-content2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 35px;
-  padding: 20px;
-  max-width: 90vw;
-  max-height: 90vh;
-  width: 900px;
-  min-height: 350px;
-  border-radius: 8px;
-  background: #fff;
-  overflow: auto;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 500px;
+  max-height: 75vh;
+  overflow-y: auto;
+  position: relative;
 }
 
 .modal-content2 h2 {
-  margin-bottom: 1px;
-  font-size: 38px;
-  font-weight: bold;
-  color: #232323;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-align: center; /* Changed to center */
-  border-bottom: 2px solid #000;
-  padding-bottom: 5px;
-  width: 100%;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
 }
 
 .modal-content2 h4 {
-  font-size: 24px;
-  color: #444;
-  margin-top: 5px;
-  text-align: center; /* Changed to center */
-  font-weight: 100;
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 1.5rem;
 }
 
 /* Form Styles */
 .modal-content2 form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 70%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
+/* Form Fields */
 .inputBox {
-  position: relative;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.inputBox .uiverse {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
 }
 
 .inputBox input,
 .inputBox textarea {
-  width: 95%;
-  padding: 11px;
-  outline: none;
-  border: none;
-  color: #000;
-  font-size: 1em;
-  background: transparent;
-  border-left: 2px solid #000;
-  border-bottom: 2px solid #000;
-  transition: 0.1s;
-  border-bottom-left-radius: 8px;
-}
-
-.inputBox textarea:focus {
-  width: 100%;
-  height: 150px;
-  background: #f9f9f9;
-  border: 2px solid #000;
-  border-radius: 8px;
-  transition: all 0.3s ease-in-out;
-}
-
-.inputBox .uiverse {
-  position: absolute;
-  top: 5%;
-  left: 17px;
-  transform: translateY(-50%);
-  pointer-events: none;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
   font-size: 1rem;
-  color: #000;
-  text-transform: uppercase;
-  transition: 0.3s;
-  letter-spacing: 3px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
 }
 
-.inputBox input:focus ~ .uiverse,
-.inputBox textarea:focus ~ .uiverse,
-.inputBox input:valid ~ .uiverse,
-.inputBox textarea:valid ~ .uiverse {
-  top: -19px;
-  left: 120px;
-  font-size: 0.8em;
-  background: #000;
-  padding: 0 5px;
-  color: #fff;
-  transition: all 0.3s ease-in-out;
-  border-radius: 12px;
+.inputBox input:focus,
+.inputBox textarea:focus {
+  border-color: #e30613;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(227, 6, 19, 0.1);
 }
 
+.inputBox textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Submit Button Container */
 .submitbtn-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding-bottom: 20px;
-  width: 100%;
-}
-
-.submit-btn,
-.close-btn {
-  height: 45px;
-  width: 48%;
-  border-radius: 5px;
-  border: 2px solid #000;
-  cursor: pointer;
-  background-color: transparent;
-  transition: 0.5s;
-  text-transform: uppercase;
-  font-size: 10px;
-  letter-spacing: 2px;
-  margin-top: 10px;
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
 .submit-btn {
-  background-color: #000;
-  color: white;
+  background-color: #e30613;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  flex: 1;
 }
 
 .submit-btn:hover {
-  background-color: rgb(0, 0, 0);
+  background-color: #c50512;
+}
+
+.submit-btn:active {
+  transform: translateY(1px);
+}
+
+.close-btn {
+  background-color: #666;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  flex: 1;
+}
+
+.close-btn:hover {
+  background-color: #555;
+}
+
+.close-btn:active {
+  transform: translateY(1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-content2 {
+    padding: 1.25rem;
+    max-width: 90%;
+  }
+
+  .inputBox input,
+  .inputBox textarea {
+    padding: 0.625rem 0.875rem;
+  }
+
+  .submit-btn,
+  .close-btn {
+    padding: 0.625rem 0.875rem;
+  }
+  
+  .submitbtn-container {
+    flex-direction: column;
+  }
+  
+  .submit-btn,
+  .close-btn {
+    width: 100%;
+  }
 }
 
 .close-btn {
@@ -505,14 +521,6 @@
     padding: 15px 30px;
     font-size: 14px;
   }
-
-  .modal-content2 h2 {
-    font-size: 24px;
-  }
-
-  .modal-content2 h4 {
-    font-size: 18px;
-  }
   
   .right-section {
     width: 100%;
@@ -544,4 +552,103 @@
   .span1 {
     font-size: 14px;
   }
+
+  /* Responsive Design for Modal */
+@media (max-width: 992px) {
+  .modal-content2 {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-overlay2 {
+    padding: 0.75rem;
+  }
+  
+  .modal-content2 {
+    padding: 1.25rem;
+    max-width: 90%;
+  }
+
+  .modal-content2 h2 {
+    font-size: 1.1rem;
+  }
+
+  .modal-content2 h4 {
+    font-size: 0.9rem;
+  }
+
+  .inputBox input,
+  .inputBox textarea {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.95rem;
+  }
+  
+  .inputBox .uiverse {
+    font-size: 0.8rem;
+  }
+
+  .submitbtn-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .submit-btn,
+  .close-btn {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-overlay2 {
+    padding: 0.5rem;
+  }
+  
+  .modal-content2 {
+    padding: 1rem;
+    max-width: 95%;
+  
+  }
+
+  .modal-content2 h2 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .modal-content2 h4 {
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .modal-content2 form {
+    gap: 0.75rem;
+  }
+
+  .inputBox input,
+  .inputBox textarea {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .inputBox .uiverse {
+    font-size: 0.75rem;
+  }
+
+  .inputBox textarea {
+    min-height: 60px;
+  }
+  
+  .submitbtn-container {
+    margin-top: 0.25rem;
+    gap: 0.5rem;
+  }
+  
+  .submit-btn,
+  .close-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}
 }
