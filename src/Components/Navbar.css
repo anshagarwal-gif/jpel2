@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
 body.mobile-view {
-  padding-top: 60px; /* Space for the navbar on mobile */
+  padding-top: 70px; /* Space for the navbar on mobile */
 }
 
 @media (max-width: 480px) {
   body.mobile-view {
-    padding-top: 50px; /* Adjusted for smaller navbar */
+    padding-top: 60px; /* Adjusted for smaller navbar */
   }
 }
 
@@ -275,7 +275,7 @@ body.mobile-view {
   }
 }
 
-/* Mobile styles */
+/* Mobile styles - only apply these to mobile */
 @media (max-width: 768px) {
   .navbar {
     position: fixed;
@@ -284,29 +284,41 @@ body.mobile-view {
     right: 0;
     width: 100%;
     margin: 0;
-    padding: 10px 15px;
+    padding: 15px 20px; /* Increased padding for height on mobile only */
     border-radius: 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    justify-content: space-between; /* Important for spacing logo and toggle */
+    justify-content: space-between;
+    height: 70px; /* Set explicit height for mobile only */
   }
 
   .logo-container {
     width: auto;
-    justify-content: flex-start; /* Align logo to the left */
-    margin-left: 0; /* Remove any left margin */
-    order: 1; /* Position on the left */
+    justify-content: flex-start;
+    margin-left: 0;
+    order: 1;
+  }
+
+  .logo {
+    height: 40px; /* Slightly increased logo size for mobile only */
   }
 
   .menu-toggle {
-    display: block; /* Show on mobile */
-    margin-left: auto; /* Push to right */
+    display: block;
+    margin-left: auto;
     margin-right: 0;
-    order: 2; /* Position on the right */
+    order: 2;
+    width: 34px; /* Larger toggle button */
+    height: 26px;
+  }
+
+  .menu-toggle-bar {
+    height: 3px;
+    margin: 6px 0; /* More spacing between bars */
   }
 
   .links-container {
     position: fixed;
-    top: 60px; /* Height of navbar */
+    top: 70px; /* Match navbar height */
     left: 0;
     right: 0;
     bottom: 0;
@@ -319,10 +331,10 @@ body.mobile-view {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     flex-direction: column;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 70px);
     overflow-y: auto;
     z-index: 999;
-    order: 3; /* Position below in mobile layout */
+    order: 3;
   }
 
   .links-container.active {
@@ -351,9 +363,9 @@ body.mobile-view {
 
   .nav-link {
     display: block;
-    padding: 15px;
+    padding: 18px; /* Increased padding for better tap targets on mobile only */
     width: 100%;
-    font-size: 1rem;
+    font-size: 1.1rem; /* Larger font size for mobile only */
     font-weight: 500;
   }
 
@@ -370,23 +382,24 @@ body.mobile-view {
   .dropdown-toggle {
     width: 100%;
     justify-content: center;
-    padding: 15px;
+    padding: 18px; /* Match nav-link padding */
   }
   
   .dropdown-toggle:after {
     margin-left: 10px;
+    font-size: 10px; /* Larger dropdown arrow */
   }
   
   .dropdown-menu {
     position: static;
     width: 100%;
     box-shadow: none;
-    border-radius: 0;
+    border-radius: 8px; /* Added some roundness */
     background-color: #f8f8f8;
     max-height: 0;
     overflow: hidden;
     padding: 0;
-    margin-top: 0;
+    margin: 0 15px; /* Add side margins for inset look */
     transition: all 0.3s ease;
   }
   
@@ -395,11 +408,13 @@ body.mobile-view {
     padding: 10px 0;
     visibility: visible;
     opacity: 1;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
   
   .dropdown-item {
-    padding: 12px 25px;
-    font-size: 14px;
+    padding: 15px 25px; /* Increased padding */
+    font-size: 1rem; /* Larger font */
     text-align: center;
   }
 }
@@ -407,47 +422,57 @@ body.mobile-view {
 /* Small mobile styles */
 @media (max-width: 480px) {
   .navbar {
-    padding: 8px 12px;
+    padding: 10px 15px;
+    height: 60px; /* Slightly smaller but still taller than original */
   }
 
   .logo {
-    height: 30px;
+    height: 35px; /* Still larger than original */
   }
 
   .links-container {
-    top: 50px; /* Adjusted height of navbar */
-    height: calc(100vh - 50px);
+    top: 60px; /* Match navbar height */
+    height: calc(100vh - 60px);
   }
 
   .nav-link {
-    padding: 12px;
-    font-size: 0.95rem;
+    padding: 15px;
+    font-size: 1rem;
+  }
+  
+  .dropdown-toggle {
+    padding: 15px;
+  }
+  
+  .dropdown-item {
+    padding: 12px 20px;
   }
 }
 
 /* Extra small mobile styles */
 @media (max-width: 350px) {
   .navbar {
-    padding: 6px 10px;
+    padding: 8px 12px;
+    height: 55px;
   }
 
   .logo {
-    height: 28px;
+    height: 30px;
   }
 
   .menu-toggle {
-    width: 24px;
-    height: 18px;
+    width: 28px;
+    height: 22px;
   }
 
   .menu-toggle-bar {
     height: 2px;
-    margin: 4px 0;
+    margin: 5px 0;
   }
 
   .nav-link {
-    padding: 10px;
-    font-size: 0.9rem;
+    padding: 12px;
+    font-size: 0.95rem;
   }
 }
 
@@ -463,6 +488,6 @@ body.mobile-view {
   }
   
   .nav-link {
-    padding: 10px;
+    padding: 12px;
   }
 }

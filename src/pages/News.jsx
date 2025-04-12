@@ -6,11 +6,11 @@ import MagazineLayout from "../Components/MazineLayout";
 
 const News = () => {
     const Cardimage1 = [
-        { src: require("../assets/international women_s day-2022/international-womens-day-2022-1.jpg"), title: "NTERNATIONAL WOMEN'S DAY-2022" },
-        { src: require("../assets/international women_s day-2022/international-womens-day-2022-2.jpg"), title: "NTERNATIONAL WOMEN'S DAY-2022" },
-        { src: require("../assets/international women_s day-2022/international-womens-day-2022-3.jpg"), title: "NTERNATIONAL WOMEN'S DAY-2022" },
-        { src: require("../assets/international women_s day-2022/international-womens-day-2022-4.jpg"), title: "NTERNATIONAL WOMEN'S DAY-2022" },
-        { src: require("../assets/international women_s day-2022/international-womens-day-2022-5.jpg"), title: "NTERNATIONAL WOMEN'S DAY-2022" },
+        { src: require("../assets/international women_s day-2022/international-womens-day-2022-1.jpg"), title: "INTERNATIONAL WOMEN'S DAY-2022" },
+        { src: require("../assets/international women_s day-2022/international-womens-day-2022-2.jpg"), title: "INTERNATIONAL WOMEN'S DAY-2022" },
+        { src: require("../assets/international women_s day-2022/international-womens-day-2022-3.jpg"), title: "INTERNATIONAL WOMEN'S DAY-2022" },
+        { src: require("../assets/international women_s day-2022/international-womens-day-2022-4.jpg"), title: "INTERNATIONAL WOMEN'S DAY-2022" },
+        { src: require("../assets/international women_s day-2022/international-womens-day-2022-5.jpg"), title: "INTERNATIONAL WOMEN'S DAY-2022" },
       ];
       const Cardimage2 = [
         { src: require("../assets/Blood-donation camp-2019/blood-donation-camp-2019-1.jpg"), title: "Blood Donation Camp – 2019" },

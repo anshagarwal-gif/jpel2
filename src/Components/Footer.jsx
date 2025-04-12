@@ -42,12 +42,15 @@ const Footer = () => {
             <Link to="/ExtrusionCoating"><li>Extrusion Coating Lines</li></Link>
             <Link to="/FlexoPrinting"><li>Flexo Printing Machines</li></Link>
             <Link to="/BagConversion"><li>Bag Conversion Lines</li></Link>
-            <Link to="/ValveTech"><li>Bag Conversion (ValveTech)</li></Link>
             <Link to="/RecyclingLines"><li>Recycling Lines</li></Link>
+            <Link to="/PET"><li>PET Washing Line</li></Link>
+            <Link to="/BatteryBox"><li>Battery Box Recycling</li></Link>
             <Link to="/Monofilament"><li>Monofilament Lines</li></Link>
             <Link to="/BoxStrapping"><li>PP/PET Box Strapping Lines</li></Link>
             <Link to="/MultilayerSheet"><li>Multilayer Sheet Lines</li></Link>
             <Link to="/MultilayerCastFilm"><li>Multilayer Cast Film Lines</li></Link>
+            <Link to="/Flexible"><li>Flexible Packaging</li></Link>
+            
           </ul>
         </div>
 

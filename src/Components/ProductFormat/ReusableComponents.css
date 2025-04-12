@@ -456,6 +456,7 @@
   .download-catalogue-button {
     bottom: 15px;
     right: 15px;
+    margin-bottom: 270px;
   }
   
   .download-button .docs {
@@ -530,6 +531,7 @@
   .download-catalogue-button {
     bottom: 10px;
     right: 10px;
+
   }
   
   .download-button .docs {

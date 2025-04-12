@@ -1,6 +1,5 @@
  .gallery-container {
     min-height: 100vh;
-    background-color: white;
     padding: 64px 16px;
   }
   
@@ -13,8 +12,8 @@
   .gallery-title {
     font-size: 36px;
     font-weight: 700;
-    color: black;
-    margin-bottom: 48px;
+    color: White;
+    margin-bottom: 30px;
     text-align: center;
   }
   

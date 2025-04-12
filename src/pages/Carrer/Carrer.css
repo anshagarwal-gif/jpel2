@@ -187,20 +187,23 @@
   border-radius: 10px;
 }
 
+/* Fixed Form Overlay */
 .form-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
   padding: 20px;
+  backdrop-filter: blur(3px);
 }
 
+/* Fixed Application Form */
 .application-form {
   background-color: white;
   padding: 40px;
@@ -210,7 +213,8 @@
   position: relative;
   font-family: Roboto, sans-serif;
   box-sizing: border-box;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  /* Removed max-height and overflow-y properties */
 }
 
 .application-form h2 {
@@ -248,23 +252,39 @@
   margin-bottom: 20px;
 }
 
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+}
+
 .form-group input,
 .form-group textarea {
   width: 100%;
   padding: 12px 15px;
-  border: 1px solid #828282;
+  border: 1px solid #ddd;
   border-radius: 8px;
   font-family: Roboto, sans-serif;
   font-size: 16px;
   color: #333;
-  transition: border-color 0.3s;
+  transition: all 0.3s;
   box-sizing: border-box;
+  background-color: #f9f9f9;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #333;
+  border-color: #e31e24;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #aaa;
 }
 
 .form-group textarea {
@@ -275,15 +295,19 @@
 .resume-upload {
   opacity: 0;
   visibility: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
 }
 
 .file-label {
-  display: block;
+  display: flex;
+  align-items: center;
   padding: 12px 15px;
-  background-color: #fff;
-  border: 1px solid #828282;
+  background-color: #f9f9f9;
+  border: 1px dashed #aaa;
   border-radius: 8px;
-  color: #828282;
+  color: #666;
   cursor: pointer;
   font-size: 16px;
   text-align: left;
@@ -292,9 +316,27 @@
   box-sizing: border-box;
 }
 
+.file-label:before {
+  content: "📎";
+  margin-right: 10px;
+  font-size: 18px;
+}
+
 .file-label:hover {
-  border-color: #333;
-  color: #333;
+  border-color: #e31e24;
+  color: #e31e24;
+  background-color: rgba(227, 30, 36, 0.05);
+}
+
+.file-selected {
+  border-color: #4CAF50;
+  background-color: rgba(76, 175, 80, 0.05);
+  color: #4CAF50;
+}
+
+.file-selected:before {
+  content: "✓";
+  color: #4CAF50;
 }
 
 .form-actions {
@@ -304,46 +346,82 @@
 
 .send-message-btn {
   display: inline-block;
-  padding: 12px 30px;
-  background-color: #333;
-  border: 1px solid #333;
-  border-radius: 0px;
+  padding: 14px 36px;
+  background-color: #e31e24;
+  border: none;
+  border-radius: 8px;
   color: #fff;
   font-family: Roboto, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(227, 30, 36, 0.2);
 }
 
 .send-message-btn:hover {
-  background-color: #ff0000;
-  color: #fff;
-  border: #fff;
+  background-color: #c71c21;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(227, 30, 36, 0.25);
+}
+
+.send-message-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(227, 30, 36, 0.2);
 }
 
 .close-form-btn {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 15px;
   background: none;
   border: none;
   font-size: 24px;
   color: #828282;
   cursor: pointer;
-  transition: color 0.3s;
+  transition: all 0.3s;
   width: 36px;
   height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
 
 .close-form-btn:hover {
-  color: #333;
-  background-color: rgba(130, 130, 130, 0.1);
+  color: #e31e24;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.form-feedback {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  display: none;
+  text-align: center;
+}
+
+.form-success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+  border: 1px solid #4CAF50;
+  display: block;
+}
+
+.form-error {
+  background-color: rgba(227, 30, 36, 0.1);
+  color: #e31e24;
+  border: 1px solid #e31e24;
+  display: block;
+}
+
+/* Required field indicator */
+.required-field:after {
+  content: "*";
+  color: #e31e24;
+  margin-left: 4px;
 }
 
 /* Responsive Styles */
@@ -390,6 +468,7 @@
     padding: 30px;
     width: 95%;
     border-radius: 10px;
+    /* Removed max-height property */
   }
 }
 
@@ -431,6 +510,7 @@
 
   .application-form {
     padding: 25px;
+    /* Removed max-height property */
   }
 
   .form-group input,
@@ -438,7 +518,6 @@
   .file-label {
     font-size: 14px;
     padding: 10px;
-    border-radius: 6px;
   }
 
   .application-form h2 {
@@ -449,11 +528,15 @@
     font-size: 14px;
   }
 
-  .apply-now-btn,
-  .send-message-btn {
+  .apply-now-btn {
     padding: 10px 20px;
     font-size: 12px;
     border-radius: 20px;
+  }
+  
+  .send-message-btn {
+    padding: 12px 28px;
+    font-size: 14px;
   }
 }
 
@@ -497,6 +580,7 @@
   .application-form {
     padding: 20px;
     border-radius: 8px;
+    /* Removed max-height property */
   }
 
   .form-columns {
@@ -521,8 +605,13 @@
     font-size: 13px;
     padding: 8px;
   }
-
-  .send-message-btn,
+  
+  .send-message-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+  
   .apply-now-btn {
     padding: 8px 16px;
     font-size: 11px;
