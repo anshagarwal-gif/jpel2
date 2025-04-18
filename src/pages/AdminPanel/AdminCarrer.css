@@ -604,3 +604,100 @@ tr.expanded-row {
   color: white;
   box-shadow: 0 1px 3px rgba(207, 19, 34, 0.3);
 }
+/* Add these styles to your AdminCarrer.css file */
+
+/* Fix table layout issues */
+.career-page .contact-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Add fixed layout */
+}
+
+/* Set consistent heights for table rows */
+.career-page .contact-table tr {
+  height: 60px; /* Set a consistent height */
+}
+
+/* Add width constraints to each column */
+.career-page .id-column {
+  width: 80px;
+}
+
+.career-page .followup-column {
+  width: 120px;
+}
+
+.career-page .name-column {
+  width: 15%;
+}
+
+.career-page .email-column {
+  width: 20%;
+}
+
+.career-page .contact-column {
+  width: 15%;
+}
+
+.career-page .position-column {
+  width: 20%;
+  white-space: nowrap; /* Prevent wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.career-page .resume-column {
+  width: 10%;
+}
+
+/* Improve cell content styling */
+.career-page .contact-table td {
+  vertical-align: middle;
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Specific fix for position column to prevent wrapping */
+.career-page .position-column-content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  max-width: 100%;
+}
+
+/* Add tooltip for truncated content */
+.career-page .position-column-content:hover {
+  position: relative;
+}
+
+.career-page .position-column-content:hover::after {
+  content: attr(title);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 1;
+  background: white;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  white-space: normal;
+  max-width: 200px;
+}
+
+/* Make sure all elements in cells are vertically centered */
+.career-page .contact-table td * {
+  vertical-align: middle;
+}
+
+/* Improve view buttons layout */
+.view-resume-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
