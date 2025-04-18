@@ -1,108 +1,171 @@
- .gallery-container {
-    min-height: 100vh;
-    padding: 64px 16px;
-  }
-  
-  .gallery-inner {
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .gallery-title {
-    font-size: 36px;
-    font-weight: 700;
-    color: White;
-    margin-bottom: 30px;
-    text-align: center;
-  }
-  
+.gallery-container {
+  min-height: 100vh;
+  padding: 64px 16px;
+}
+
+.gallery-inner {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gallery-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: White;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.gallery-layout {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 1/1;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive gallery items */
+.gallery-item-top,
+.gallery-item-left,
+.gallery-item-right,
+.gallery-item-bottom {
+  position: absolute;
+  width: 200px; /* Default smaller size */
+  max-width: 30%; /* Max width as percentage of parent */
+}
+
+.gallery-item-top {
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.gallery-item-left {
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+}
+
+.gallery-item-right {
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+}
+
+.gallery-item-bottom {
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
   .gallery-layout {
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    aspect-ratio: 1/1;
-    margin-left: auto;
-    margin-right: auto;
+    /* Fix for iOS Safari aspect-ratio support */
+    height: 0;
+    padding-bottom: 100%; /* 1:1 Aspect Ratio */
+  }
+}
+
+/* Media queries for different screen sizes */
+@media (max-width: 767px) {
+  .gallery-layout {
+    max-width: 400px;
   }
   
-  .gallery-item-top {
-    position: absolute;
-    top: 5%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 250px;
+  .gallery-item-top,
+  .gallery-item-left,
+  .gallery-item-right,
+  .gallery-item-bottom {
+    width: 120px;
+    max-width: 28%;
   }
   
   .gallery-item-left {
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    transform: translateY(-50%);
-    width: 250px;
+    left: 2%;
   }
   
   .gallery-item-right {
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    transform: translateY(-50%);
-    width: 250px;
+    right: 2%;
+  }
+}
+
+/* Small devices (portrait phones) */
+@media (max-width: 480px) {
+  .gallery-title {
+    font-size: 28px;
+    margin-bottom: 20px;
   }
   
+  .gallery-layout {
+    max-width: 320px;
+  }
+  
+  .gallery-item-top,
+  .gallery-item-left,
+  .gallery-item-right,
   .gallery-item-bottom {
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 250px;
+    width: 100px;
+    max-width: 26%;
   }
   
-  /* Lightbox styles */
-  .lightbox {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
+  .gallery-item-left {
     left: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 50;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
   }
   
-  .lightbox-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: color 0.3s;
+  .gallery-item-right {
+    right: 0;
   }
-  
-  .lightbox-close:hover {
-    color: #ef4444;
-  }
-  
-  .lightbox-content {
-    max-width: 56rem;
-    width: 100%;
-  }
-  
-  .lightbox-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  }
-  
-  .lightbox-description {
-    color: white;
-    font-size: 20px;
-    margin-top: 16px;
-    text-align: center;
-  } 
+}
+
+/* Lightbox styles */
+.lightbox {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.lightbox-close:hover {
+  color: #ef4444;
+}
+
+.lightbox-content {
+  max-width: 56rem;
+  width: 100%;
+}
+
+.lightbox-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  margin-top: 60px;
+}
+
+.lightbox-description {
+  color: white;
+  font-size: 20px;
+  margin-top: 16px;
+  text-align: center;
+}
