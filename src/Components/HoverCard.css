@@ -13,7 +13,7 @@
     transition: all 0.3s ease-in-out;
     z-index: 1; /* Ensure the main content is above pseudo-elements */
   }
-  
+  y
   .hover-card::before,
   .hover-card::after {
     content: '';
