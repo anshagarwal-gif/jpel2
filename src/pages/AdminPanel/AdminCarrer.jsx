@@ -13,6 +13,9 @@ const CareerApplications = () => {
   const [savingId, setSavingId] = useState(null);
   const [viewingSpam, setViewingSpam] = useState(false);
   const [spamCount, setSpamCount] = useState(0);
+  // Sorting states
+  const [sortField, setSortField] = useState("id");
+  const [sortDirection, setSortDirection] = useState("asc");
   
   // Get proper resume URL based on server structure
   const getResumeUrl = (application) => {
@@ -22,7 +25,7 @@ const CareerApplications = () => {
     if (application.resumePath) {
       // Extract just the filename regardless of path format
       const filename = application.resumePath.split(/[\/\\]/).pop();
-      return `http://localhost:5000/uploads/${encodeURIComponent(filename)}`;
+      return `${process.env.REACT_APP_API_URL}/uploads/${encodeURIComponent(filename)}`;
     }
     
     // Check other possible properties if resumePath doesn't exist
@@ -31,7 +34,7 @@ const CareerApplications = () => {
       if (application[prop]) {
         // Extract just the filename regardless of path format
         const filename = application[prop].split(/[\/\\]/).pop();
-        return `http://localhost:5000/uploads/${encodeURIComponent(filename)}`;
+        return `${process.env.REACT_APP_API_URL}/uploads/${encodeURIComponent(filename)}`;
       }
     }
     
@@ -42,11 +45,11 @@ const CareerApplications = () => {
     try {
       if (!viewingSpam) {
         // Switch to spam view
-        const res = await axios.get("http://localhost:5000/api/admin/applications?spam=true");
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/applications?spam=true`);
         setApplications(res.data);
       } else {
         // Switch back to normal view
-        const res = await axios.get("http://localhost:5000/api/admin/applications");
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/applications`);
         setApplications(res.data);
       }
       setViewingSpam(!viewingSpam);
@@ -81,7 +84,7 @@ const CareerApplications = () => {
   const saveChanges = async (id, changes) => {
     try {
       setSavingId(id);
-      await axios.patch(`http://localhost:5000/api/admin/applications/${id}`, changes);
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/admin/applications/${id}`, changes);
       
       // Update the local data to reflect the change
       setApplications(applications.map(application => 
@@ -98,19 +101,31 @@ const CareerApplications = () => {
     }
   };
 
+  // Handle sorting
+  const handleSort = (field) => {
+    if (sortField === field) {
+      // Clicking the same field toggles direction
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+    } else {
+      // New field, default to ascending
+      setSortField(field);
+      setSortDirection("asc");
+    }
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Fetch applications based on current view
         const applicationsRes = await axios.get(
           viewingSpam 
-            ? "http://localhost:5000/api/admin/applications?spam=true"
-            : "http://localhost:5000/api/admin/applications"
+            ? `${process.env.REACT_APP_API_URL}/api/admin/applications?spam=true`
+            : `${process.env.REACT_APP_API_URL}/api/admin/applications`
         );
         setApplications(applicationsRes.data);
         
         // Fetch spam count
-        const spamCountRes = await axios.get("http://localhost:5000/api/admin/applications/spam/count");
+        const spamCountRes = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/applications/spam/count`);
         setSpamCount(spamCountRes.data.count);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -128,11 +143,62 @@ const CareerApplications = () => {
     app.jobTitle?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // Apply sorting
+  const sortedApplications = [...filteredApplications].sort((a, b) => {
+    let aValue, bValue;
+    
+    // Determine the field to sort by
+    switch (sortField) {
+      case "id":
+        aValue = a._id || "";
+        bValue = b._id || "";
+        break;
+      case "followup":
+        aValue = statusChanges[a._id] || a.followupStatus || "Unread";
+        bValue = statusChanges[b._id] || b.followupStatus || "Unread";
+        break;
+      case "name":
+        aValue = a.name || "";
+        bValue = b.name || "";
+        break;
+      case "email":
+        aValue = a.email || "";
+        bValue = b.email || "";
+        break;
+      case "contact":
+        aValue = a.contact || "";
+        bValue = b.contact || "";
+        break;
+      case "position":
+        aValue = a.jobTitle || "";
+        bValue = b.jobTitle || "";
+        break;
+      default:
+        return 0;
+    }
+    
+    // Handle string comparison
+    if (typeof aValue === "string" && typeof bValue === "string") {
+      if (sortDirection === "asc") {
+        return aValue.localeCompare(bValue);
+      } else {
+        return bValue.localeCompare(aValue);
+      }
+    }
+    
+    // Handle numeric comparison
+    if (sortDirection === "asc") {
+      return aValue - bValue;
+    } else {
+      return bValue - aValue;
+    }
+  });
+
   // Pagination
   const indexOfLastRecord = currentPage * recordsPerPage;
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
-  const currentRecords = filteredApplications.slice(indexOfFirstRecord, indexOfLastRecord);
-  const totalPages = Math.ceil(filteredApplications.length / recordsPerPage);
+  const currentRecords = sortedApplications.slice(indexOfFirstRecord, indexOfLastRecord);
+  const totalPages = Math.ceil(sortedApplications.length / recordsPerPage);
 
   // Toggle row expanded/collapsed
   const toggleExpandRow = (id) => {
@@ -151,12 +217,14 @@ const CareerApplications = () => {
     csvContent += "Name,Email,Contact Number,Position,Status\n";
     
     // Add data rows
-    filteredApplications.forEach(item => {
+    sortedApplications.forEach(item => {
       const name = item.name ? `"${item.name.replace(/"/g, '""')}"` : "";
       const email = item.email ? `"${item.email.replace(/"/g, '""')}"` : "";
       const contactNo = item.contact || "";
-      const position = item.jobTitle ;
-      const status = item.status || "Unread";
+      const position = item.jobTitle || "";
+      
+      // Use the status from statusChanges if available, otherwise use the item's status or default
+      const status = statusChanges[item._id] || item.followupStatus || "Unread";
       
       csvContent += `${name},${email},${contactNo},${position},${status}\n`;
     });
@@ -219,29 +287,41 @@ const CareerApplications = () => {
         <table className="contact-table">
           <thead>
             <tr>
-              <th className="id-column">
+              <th className="id-column" onClick={() => handleSort("id")}>
                 ID
-                <span className="sort-icon">↕</span>
+                <span className={`sort-icon ${sortField === "id" ? (sortDirection === "asc" ? "sort-asc" : "sort-desc") : ""}`}>
+                  {sortField === "id" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                </span>
               </th>
-              <th className="followup-column">
+              <th className="followup-column" onClick={() => handleSort("followup")}>
                 FOLLOWUP
-                <span className="sort-icon">↕</span>
+                <span className={`sort-icon ${sortField === "followup" ? (sortDirection === "asc" ? "sort-asc" : "sort-desc") : ""}`}>
+                  {sortField === "followup" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                </span>
               </th>
-              <th className="name-column">
+              <th className="name-column" onClick={() => handleSort("name")}>
                 NAME
-                <span className="sort-icon">↕</span>
+                <span className={`sort-icon ${sortField === "name" ? (sortDirection === "asc" ? "sort-asc" : "sort-desc") : ""}`}>
+                  {sortField === "name" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                </span>
               </th>
-              <th className="email-column">
+              <th className="email-column" onClick={() => handleSort("email")}>
                 EMAIL
-                <span className="sort-icon">↕</span>
+                <span className={`sort-icon ${sortField === "email" ? (sortDirection === "asc" ? "sort-asc" : "sort-desc") : ""}`}>
+                  {sortField === "email" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                </span>
               </th>
-              <th className="contact-column">
+              <th className="contact-column" onClick={() => handleSort("contact")}>
                 CONTACT NO
-                <span className="sort-icon">↕</span>
+                <span className={`sort-icon ${sortField === "contact" ? (sortDirection === "asc" ? "sort-asc" : "sort-desc") : ""}`}>
+                  {sortField === "contact" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                </span>
               </th>
-              <th className="position-column">
+              <th className="position-column" onClick={() => handleSort("position")}>
                 POSITION
-                <span className="sort-icon">↕</span>
+                <span className={`sort-icon ${sortField === "position" ? (sortDirection === "asc" ? "sort-asc" : "sort-desc") : ""}`}>
+                  {sortField === "position" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                </span>
               </th>
               <th className="resume-column">
                 RESUME

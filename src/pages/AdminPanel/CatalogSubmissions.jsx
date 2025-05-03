@@ -14,7 +14,7 @@ const CatalogSubmissions = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get("http://localhost:5000/api/form/get-submissions")
+    axios.get(`${process.env.REACT_APP_API_URL}/api/form/get-submissions`)
       .then((res) => {
         setSubmissions(res.data);
         setLoading(false);
@@ -145,122 +145,137 @@ const CatalogSubmissions = () => {
               <tr>
                 <th className="jpel-id-column" onClick={() => handleSort("_id")}>
                   ID
-                  <span className={`jpel-sort-icon ${sortField === "_id" ? "jpel-active-" + sortDirection : ""}`}>↕</span>
+                  <span className={`jpel-sort-icon ${sortField === "_id" ? (sortDirection === "asc" ? "jpel-sort-asc" : "jpel-sort-desc") : ""}`}>
+                    {sortField === "_id" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                  </span>
                 </th>
                 <th onClick={() => handleSort("name")}>
                   NAME
-                  <span className={`jpel-sort-icon ${sortField === "name" ? "jpel-active-" + sortDirection : ""}`}>↕</span>
+                  <span className={`jpel-sort-icon ${sortField === "name" ? (sortDirection === "asc" ? "jpel-sort-asc" : "jpel-sort-desc") : ""}`}>
+                    {sortField === "name" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                  </span>
                 </th>
                 <th onClick={() => handleSort("email")}>
                   EMAIL
-                  <span className={`jpel-sort-icon ${sortField === "email" ? "jpel-active-" + sortDirection : ""}`}>↕</span>
+                  <span className={`jpel-sort-icon ${sortField === "email" ? (sortDirection === "asc" ? "jpel-sort-asc" : "jpel-sort-desc") : ""}`}>
+                    {sortField === "email" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                  </span>
                 </th>
                 <th onClick={() => handleSort("contactNumber")}>
                   CONTACT NO
-                  <span className={`jpel-sort-icon ${sortField === "contactNumber" ? "jpel-active-" + sortDirection : ""}`}>↕</span>
+                  <span className={`jpel-sort-icon ${sortField === "contactNumber" ? (sortDirection === "asc" ? "jpel-sort-asc" : "jpel-sort-desc") : ""}`}>
+                    {sortField === "contactNumber" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                  </span>
                 </th>
                 <th onClick={() => handleSort("productCategory")}>
                   CATEGORY
-                  <span className={`jpel-sort-icon ${sortField === "productCategory" ? "jpel-active-" + sortDirection : ""}`}>↕</span>
+                  <span className={`jpel-sort-icon ${sortField === "productCategory" ? (sortDirection === "asc" ? "jpel-sort-asc" : "jpel-sort-desc") : ""}`}>
+                    {sortField === "productCategory" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                  </span>
                 </th>
                 <th onClick={() => handleSort("date")}>
                   DATE
-                  <span className={`jpel-sort-icon ${sortField === "date" ? "jpel-active-" + sortDirection : ""}`}>↕</span>
+                  <span className={`jpel-sort-icon ${sortField === "date" ? (sortDirection === "asc" ? "jpel-sort-asc" : "jpel-sort-desc") : ""}`}>
+                    {sortField === "date" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                  </span>
                 </th>
               </tr>
             </thead>
             <tbody>
               {currentRecords.length > 0 ? (
-                currentRecords.map((submission, index) => (
-                  <React.Fragment key={submission._id || index}>
-                    <tr className={expandedRow === (submission._id || index) ? "jpel-expanded-row" : ""}>
-                      <td className="jpel-add-row">
-                        <button 
-                          className={`jpel-add-button ${expandedRow === (submission._id || index) ? "jpel-expanded" : ""}`}
-                          onClick={() => toggleRowExpand(submission._id || index)}
-                        >
-                          {expandedRow === (submission._id || index) ? "-" : "+"}
-                        </button>
-                        {index + 1}
-                      </td>
-                      <td>{submission.name}</td>
-                      <td>{submission.email}</td>
-                      <td>
-                        <div className="jpel-contact-with-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                          </svg>
-                          {submission.contactNumber}
-                        </div>
-                      </td>
-                      <td>{submission.productCategory || "Manufacturing Range"}</td>
-                      <td>{submission.date ? new Date(submission.date).toLocaleDateString() : ""}</td>
-                    </tr>
-                    {expandedRow === (submission._id || index) && (
-                      <tr className="jpel-details-row">
-                        <td colSpan="6">
-                          <div className="jpel-details-panel">
-                            <div className="jpel-details-header">
-                              <h3>Details for {submission.name}</h3>
-                              <button className="jpel-close-details" onClick={() => setExpandedRow(null)}>×</button>
-                            </div>
-                            <div className="jpel-details-content">
-                              <div className="jpel-details-grid">
-                                <div className="jpel-details-item">
-                                  <div className="jpel-details-label">ID:</div>
-                                  <div className="jpel-details-value">{submission._id}</div>
-                                </div>
-                                <div className="jpel-details-item">
-                                  <div className="jpel-details-label">Name:</div>
-                                  <div className="jpel-details-value">{submission.name}</div>
-                                </div>
-                                <div className="jpel-details-item">
-                                  <div className="jpel-details-label">Email:</div>
-                                  <div className="jpel-details-value">{submission.email}</div>
-                                </div>
-                                <div className="jpel-details-item">
-                                  <div className="jpel-details-label">Contact No:</div>
-                                  <div className="jpel-details-value">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                                    </svg>
-                                    {submission.contactNumber}
+                currentRecords.map((submission, index) => {
+                  const displayIndex = indexOfFirstRecord + index + 1;
+                  return (
+                    <React.Fragment key={submission._id || index}>
+                      <tr className={expandedRow === (submission._id || index) ? "jpel-expanded-row" : ""}>
+                        <td className="jpel-add-row">
+                          <button 
+                            className={`jpel-add-button ${expandedRow === (submission._id || index) ? "jpel-expanded" : ""}`}
+                            onClick={() => toggleRowExpand(submission._id || index)}
+                          >
+                            {expandedRow === (submission._id || index) ? "-" : "+"}
+                          </button>
+                          {displayIndex}
+                        </td>
+                        <td>{submission.name}</td>
+                        <td>{submission.email}</td>
+                        <td>
+                          <div className="jpel-contact-with-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            {submission.contactNumber}
+                          </div>
+                        </td>
+                        <td>{submission.productCategory || "Manufacturing Range"}</td>
+                        <td>{submission.date ? new Date(submission.date).toLocaleDateString() : ""}</td>
+                      </tr>
+                      {expandedRow === (submission._id || index) && (
+                        <tr className="jpel-details-row">
+                          <td colSpan="6">
+                            <div className="jpel-details-panel">
+                              <div className="jpel-details-header">
+                                <h3>Details for {submission.name}</h3>
+                                <button className="jpel-close-details" onClick={() => setExpandedRow(null)}>×</button>
+                              </div>
+                              <div className="jpel-details-content">
+                                <div className="jpel-details-grid">
+                                  <div className="jpel-details-item">
+                                    <div className="jpel-details-label">ID:</div>
+                                    <div className="jpel-details-value">{submission._id}</div>
                                   </div>
-                                </div>
-                                <div className="jpel-details-item">
-                                  <div className="jpel-details-label">City:</div>
-                                  <div className="jpel-details-value">{submission.city}</div>
-                                </div>
-                                <div className="jpel-details-item">
-                                  <div className="jpel-details-label">State:</div>
-                                  <div className="jpel-details-value">{submission.state}</div>
-                                </div>
-                                <div className="jpel-details-item">
-                                  <div className="jpel-details-label">Product Category:</div>
-                                  <div className="jpel-details-value">{submission.productCategory || "Manufacturing Range"}</div>
-                                </div>
-                                <div className="jpel-details-item jpel-details-message">
-                                  <div className="jpel-details-label">Message:</div>
-                                  <div className="jpel-details-value">
-                                    {submission.message || "No message provided"}
+                                  <div className="jpel-details-item">
+                                    <div className="jpel-details-label">Name:</div>
+                                    <div className="jpel-details-value">{submission.name}</div>
                                   </div>
-                                </div>
-                                <div className="jpel-details-item">
-                                  <div className="jpel-details-label">IP Address:</div>
-                                  <div className="jpel-details-value">{submission.ipAddress || "Not available"}</div>
-                                </div>
-                                <div className="jpel-details-item">
-                                  <div className="jpel-details-label">Date:</div>
-                                  <div className="jpel-details-value">{submission.date ? new Date(submission.date).toLocaleString() : ""}</div>
+                                  <div className="jpel-details-item">
+                                    <div className="jpel-details-label">Email:</div>
+                                    <div className="jpel-details-value">{submission.email}</div>
+                                  </div>
+                                  <div className="jpel-details-item">
+                                    <div className="jpel-details-label">Contact No:</div>
+                                    <div className="jpel-details-value">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                      </svg>
+                                      {submission.contactNumber}
+                                    </div>
+                                  </div>
+                                  <div className="jpel-details-item">
+                                    <div className="jpel-details-label">City:</div>
+                                    <div className="jpel-details-value">{submission.city}</div>
+                                  </div>
+                                  <div className="jpel-details-item">
+                                    <div className="jpel-details-label">State:</div>
+                                    <div className="jpel-details-value">{submission.state}</div>
+                                  </div>
+                                  <div className="jpel-details-item">
+                                    <div className="jpel-details-label">Product Category:</div>
+                                    <div className="jpel-details-value">{submission.productCategory || "Manufacturing Range"}</div>
+                                  </div>
+                                  <div className="jpel-details-item jpel-details-message">
+                                    <div className="jpel-details-label">Message:</div>
+                                    <div className="jpel-details-value">
+                                      {submission.message || "No message provided"}
+                                    </div>
+                                  </div>
+                                  <div className="jpel-details-item">
+                                    <div className="jpel-details-label">IP Address:</div>
+                                    <div className="jpel-details-value">{submission.ipAddress || "Not available"}</div>
+                                  </div>
+                                  <div className="jpel-details-item">
+                                    <div className="jpel-details-label">Date:</div>
+                                    <div className="jpel-details-value">{submission.date ? new Date(submission.date).toLocaleString() : ""}</div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        </td>
-                      </tr>
-                    )}
-                  </React.Fragment>
-                ))
+                          </td>
+                        </tr>
+                      )}
+                    </React.Fragment>
+                  );
+                })
               ) : (
                 <tr>
                   <td colSpan="6" className="jpel-no-data">

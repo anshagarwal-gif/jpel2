@@ -24,9 +24,9 @@ const InquiryForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/inquiries", formData);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/inquiries`, formData);
       toast.success("Inquiry sent successfully!");
-
+      
       console.log("Submitted:", res.data);
       setFormData({
         name: '',
@@ -38,7 +38,6 @@ const InquiryForm = () => {
         country: '',
         message: '',
       });
-
     } catch (err) {
       console.error("Error submitting inquiry:", err);
       toast.error("Submission failed!");
@@ -49,7 +48,7 @@ const InquiryForm = () => {
     <div className="inquiry-section">
       <h2 className="inquiry-title">INQUIRY</h2>
       <p className="inquiry-subtitle">Request you to kindly fill all the required details.</p>
-
+      
       <form className="inquiry-form" onSubmit={handleSubmit}>
         <div className="form-grid">
           <div className="form-column">
@@ -94,7 +93,7 @@ const InquiryForm = () => {
               onChange={handleChange}
             />
           </div>
-
+          
           <div className="form-column">
             <input
               type="text"
@@ -122,12 +121,12 @@ const InquiryForm = () => {
             ></textarea>
           </div>
         </div>
-
+        
         <button type="submit" className="submit-button">
           SEND MESSAGE
         </button>
       </form>
-
+      
       <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );

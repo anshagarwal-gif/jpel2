@@ -37,11 +37,13 @@ const CompanySection = () => {
       [name]: value,
     }));
   };
-const handleOverlayClick = (e) => {
-  if (e.target.className === "modal-overlay2") {
-    handleCloseModal();
-  }
-};
+  
+  const handleOverlayClick = (e) => {
+    if (e.target.className === "modal-overlay2") {
+      handleCloseModal();
+    }
+  };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
   
@@ -63,7 +65,6 @@ const handleOverlayClick = (e) => {
       ...formData,
       endText,
       currentURL,
-      
       visitorIP
     };
   
@@ -78,7 +79,7 @@ const handleOverlayClick = (e) => {
     });
   
     // Send form data to the backend
-    fetch("http://localhost:5000/send-email", {
+    fetch(`${process.env.REACT_APP_API_URL}/send-email`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(extendedFormData),
@@ -117,20 +118,20 @@ const handleOverlayClick = (e) => {
           MANUFACTURER AND EXPORTER OF PLASTIC PROCESSING MACHINERY, SINCE 1987
         </h1>
 
-<button className="animated-button" onClick={() => navigate("/AboutUs")}>
-  <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-    ></path>
-  </svg>
-  <span className="text">About Company</span>
-  <span className="circle"></span>
-  <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-    ></path>
-  </svg>
-</button>
+        <button className="animated-button" onClick={() => navigate("/AboutUs")}>
+          <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+            ></path>
+          </svg>
+          <span className="text">About Company</span>
+          <span className="circle"></span>
+          <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+            ></path>
+          </svg>
+        </button>
 
       </div>
 
@@ -138,15 +139,13 @@ const handleOverlayClick = (e) => {
       <div className="center-section">
         <h3>ABOUT J P EXTRUSIONTECH</h3>
         <p>
-        Established in 1987, J P Extrusiontech Pvt. Ltd. has been at the forefront of manufacturing and exporting world-class plastic processing machinery and equipment. Located in Ankleshwar, Gujarat—one of Asia’s largest and most prominent industrial hubs—the company benefits from its strategic proximity to Mumbai, just 360 kilometers away. With a sprawling manufacturing facility covering 70,000 square meters, equipped with cutting-edge machine tools and advanced technology, we deliver precision-engineered solutions to meet global industry standards.
+          Established in 1987, J P Extrusiontech Pvt. Ltd. has been at the forefront of manufacturing and exporting world-class plastic processing machinery and equipment. Located in Ankleshwar, Gujarat—one of Asia's largest and most prominent industrial hubs—the company benefits from its strategic proximity to Mumbai, just 360 kilometers away. With a sprawling manufacturing facility covering 70,000 square meters, equipped with cutting-edge machine tools and advanced technology, we deliver precision-engineered solutions to meet global industry standards.
         </p>
         <p>
-        For over three decades, J P Extrusiontech has built a reputation for excellence by delivering innovative and reliable machinery. Our state-of-the-art production processes, backed by a team of skilled professionals, ensure we stay ahead of the evolving demands in the plastic processing and packaging industries. Our commitment to quality and customer satisfaction drives us to continually improve and expand our product offerings.
+          For over three decades, J P Extrusiontech has built a reputation for excellence by delivering innovative and reliable machinery. Our state-of-the-art production processes, backed by a team of skilled professionals, ensure we stay ahead of the evolving demands in the plastic processing and packaging industries. Our commitment to quality and customer satisfaction drives us to continually improve and expand our product offerings.
         </p>
         <p>
-        We specialize in the design and manufacture of extrusion machines and auxiliary equipment, offering a comprehensive range of solutions tailored to the specific requirements of our clients. Whether you need machinery for film extrusion, pipe and profile production, or advanced packaging solutions, J P Extrusiontech provides end-to-end support to meet your operational goals.
-
-
+          We specialize in the design and manufacture of extrusion machines and auxiliary equipment, offering a comprehensive range of solutions tailored to the specific requirements of our clients. Whether you need machinery for film extrusion, pipe and profile production, or advanced packaging solutions, J P Extrusiontech provides end-to-end support to meet your operational goals.
         </p>
       </div>
 
@@ -154,26 +153,23 @@ const handleOverlayClick = (e) => {
       <div className="right-section">
         <div className="card">
           <div className="content">
-          <img
-              src={logonewversion }
+            <img
+              src={logonewversion}
               alt="JP Logo"
               className="main-logo"
             />
             <img
-              src={logorevised }
+              src={logorevised}
               alt="JP Logo"
               className="main-logo"
             />
             <div className="download-btn-container">
-            <button className="download-btn" onClick={handleOpenModal}>
-           
+              <button className="download-btn" onClick={handleOpenModal}>
                 <FaDownload className="download-icon" />
                 <div className="signal" />
-              
-              
-            </button>
-            <span className="span1">DOWNLOAD CATALOGUE</span>
-              </div>
+              </button>
+              <span className="span1">DOWNLOAD CATALOGUE</span>
+            </div>
           </div>
         </div>
       </div>
@@ -182,115 +178,106 @@ const handleOverlayClick = (e) => {
       {isModalOpen && (
         <div className="modal-overlay2" onClick={(e) => handleOverlayClick(e)}>
           <div className="modal-content2">
-           <h2>Download Catalogue</h2>
-           <h4>Please provide the below credentials to get our Catalogue emailed.</h4>
-       <form onSubmit={handleSubmit}>
-   <div className="inputBox">
-   <span className="uiverse">Name</span>
-       <input
-        type="text"
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-        required
-      />
-      
-    </div>
-    
-    <div className="inputBox">
-    <span className="uiverse">Company Name</span>
-      <input
-        type="text"
-        name="companyName"
-        value={formData.companyName}
-        onChange={handleChange}
-        required
-      />
-    
-    </div>
-    
-    <div className="inputBox">
-    <span className="uiverse">Email</span>
-      <input
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        required
-      />
-     
-    </div>
-    
-    <div className="inputBox">
-    <span className="uiverse">Contact Number</span>
-      <input
-        type="tel"
-        name="contactNumber"
-        value={formData.contactNumber}
-        onChange={handleChange}
-        required
-      />
-   
-    </div>
-    
-    <div className="inputBox">
-    <span className="uiverse">City</span>
-      <input
-        type="text"
-        name="city"
-        value={formData.city}
-        onChange={handleChange}
-        required
-      />
-     
-    </div>
+            <h2>Download Catalogue</h2>
+            <h4>Please provide the below credentials to get our Catalogue emailed.</h4>
+            <form onSubmit={handleSubmit}>
+              <div className="inputBox">
+                <span className="uiverse">Name</span>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              
+              <div className="inputBox">
+                <span className="uiverse">Company Name</span>
+                <input
+                  type="text"
+                  name="companyName"
+                  value={formData.companyName}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              
+              <div className="inputBox">
+                <span className="uiverse">Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              
+              <div className="inputBox">
+                <span className="uiverse">Contact Number</span>
+                <input
+                  type="tel"
+                  name="contactNumber"
+                  value={formData.contactNumber}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              
+              <div className="inputBox">
+                <span className="uiverse">City</span>
+                <input
+                  type="text"
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-    <div className="inputBox">
-    <span className="uiverse">State</span>
-      <input
-        type="text"
-        name="state"
-        value={formData.state}
-        onChange={handleChange}
-        required
-      />
-      
-    </div>
+              <div className="inputBox">
+                <span className="uiverse">State</span>
+                <input
+                  type="text"
+                  name="state"
+                  value={formData.state}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-    <div className="inputBox">
-    <span className="uiverse">Country</span>
-      <input
-        type="text"
-        name="country"
-        value={formData.country}
-        onChange={handleChange}
-        required
-      />
-     
-    </div>
-    
-
-    <div className="inputBox">
-    <span className="uiverse">Message</span>
-      <textarea
-        name="message"
-        value={formData.message}
-        onChange={handleChange}
-        required
-      />
-    
-    </div>
-<div className="submitbtn-container">
-    <button type="submit" className="submit-btn">Submit</button>
-    <button type="button" className="close-btn" onClick={handleCloseModal}>Close</button>
-    </div>
-  </form>
-</div>
- </div>
+              <div className="inputBox">
+                <span className="uiverse">Country</span>
+                <input
+                  type="text"
+                  name="country"
+                  value={formData.country}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              
+              <div className="inputBox">
+                <span className="uiverse">Message</span>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              
+              <div className="submitbtn-container">
+                <button type="submit" className="submit-btn">Submit</button>
+                <button type="button" className="close-btn" onClick={handleCloseModal}>Close</button>
+              </div>
+            </form>
+          </div>
+        </div>
       )}
     </div>
   );
 };
-
 
 export default CompanySection;

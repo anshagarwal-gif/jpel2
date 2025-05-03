@@ -66,6 +66,10 @@ const newSubmission = new FormSubmission({
   ipAddress: visitorIP,
 });
 newSubmission.save()
+
+
+
+
   const brochureFiles = {
     TapeExtrusion: ["TapeExtrusion.pdf"],
     CircularLoom: ["4 Shuttle Circular Loom.pdf","6 Shuttle Circular Loom.pdf","8,10 & 12 Shuttle Circular Loom_20_02_2025.pdf","Inside Lamination.pdf"],
@@ -174,7 +178,7 @@ const userMailOptions = {
   `,
   attachments: attachments,
 };
-
+res.status(200).send("Request received. Your catalogue will be emailed shortly.");
 // Send email to both the owner and the user
 const sendOwnerEmail = new Promise((resolve, reject) => {
   transporter.sendMail(ownerMailOptions, (error, info) => {
@@ -200,13 +204,12 @@ const sendUserEmail = new Promise((resolve, reject) => {
   });
 });
 
-// Handle both email sending operations
 Promise.all([sendOwnerEmail, sendUserEmail])
   .then(() => {
-    res.status(200).send("Emails sent successfully");
+    console.log("All emails sent successfully");
   })
   .catch((error) => {
-    res.status(500).send("Error sending emails: " + error.message);
+    console.error("Error in email sending process:", error.message);
   });
 });
 

@@ -3,8 +3,10 @@ import "./AdminDashboard.css";
 import axios from "axios";
 import CareerApplications from "./AdminCarrer";
 import CatalogSubmissions from "./CatalogSubmissions"; // Import the new component
+import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
 
 const AdminDashboard = () => {
+  const navigate = useNavigate(); // Initialize navigate for redirection
   const [collapsed, setCollapsed] = useState(false);
   const [activeItem, setActiveItem] = useState("contactus");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,51 +15,57 @@ const AdminDashboard = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [expandedRow, setExpandedRow] = useState(null);
   const recordsPerPage = 10;
-// Inside your component, add state for tracking changes
-const [statusChanges, setStatusChanges] = useState({});
-const [spamChanges, setSpamChanges] = useState({});
-const [savingId, setSavingId] = useState(null);
-const [viewingSpam, setViewingSpam] = useState(false);
-const [spamCount, setSpamCount] = useState(0);
+  // Inside your component, add state for tracking changes
+  const [statusChanges, setStatusChanges] = useState({});
+  const [spamChanges, setSpamChanges] = useState({});
+  const [savingId, setSavingId] = useState(null);
+  const [viewingSpam, setViewingSpam] = useState(false);
+  const [spamCount, setSpamCount] = useState(0);
+  // Sorting states
+  const [sortField, setSortField] = useState("id");
+  const [sortDirection, setSortDirection] = useState("asc");
 
-
-// Add this function to toggle between normal and spam view
-const toggleSpamView = async () => {
-  try {
-    
-    if (!viewingSpam) {
-      // Switching to spam view
-      
-      const spamRes = await axios.get("http://localhost:5000/api/inquiries/spam");
-    
-      setInquiries(spamRes.data);
-    } else {
-      
-      // Switching back to normal view
-      const res = await axios.get("http://localhost:5000/api/inquiries");
-     
-      setInquiries(res.data);
-    }
-    setViewingSpam(!viewingSpam);
-    setCurrentPage(1); // Reset to first page when toggling views
-  } catch (error) {
-    console.error("Error toggling spam view:", error);
-  }
-};
-useEffect(() => {
-  const fetchData = async () => {
+  // Add this function to toggle between normal and spam view
+  const toggleSpamView = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/inquiries");
-      setInquiries(res.data);
-      
-      const spamCountRes = await axios.get("http://localhost:5000/api/inquiries/spam/count");
-      setSpamCount(spamCountRes.data.count);
+      if (!viewingSpam) {
+        // Switching to spam view
+        const spamRes = await axios.get(`${process.env.REACT_APP_API_URL}/api/inquiries/spam`);
+        setInquiries(spamRes.data);
+      } else {
+        // Switching back to normal view
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/inquiries`);
+        setInquiries(res.data);
+      }
+      setViewingSpam(!viewingSpam);
+      setCurrentPage(1); // Reset to first page when toggling views
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error("Error toggling spam view:", error);
     }
   };
-  fetchData();
-}, []);
+
+  // Handle Logout Function
+  const handleLogout = () => {
+    // Clear session storage
+    sessionStorage.removeItem("token");
+    // Redirect to login page
+    navigate("/admin/login");
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/inquiries`);
+        setInquiries(res.data);
+        
+        const spamCountRes = await axios.get(`${process.env.REACT_APP_API_URL}/api/inquiries/spam/count`);
+        setSpamCount(spamCountRes.data.count);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   const handleStatusChange = (id, value) => {
     setStatusChanges({
@@ -65,10 +73,10 @@ useEffect(() => {
       [id]: value
     });
     
-    
     // Save changes immediately
     saveChanges(id, { followupStatus: value });
   };
+
   const handleSpamChange = (id, isSpam) => {
     const spamValue = isSpam === "Spam";
     setSpamChanges({
@@ -79,7 +87,18 @@ useEffect(() => {
     // Save changes immediately
     saveChanges(id, { isSpam: spamValue });
   };
-  
+
+  // Handle sorting
+  const handleSort = (field) => {
+    if (sortField === field) {
+      // Clicking the same field toggles direction
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+    } else {
+      // New field, default to ascending
+      setSortField(field);
+      setSortDirection("asc");
+    }
+  };
 
   const toggleSidebar = () => {
     setCollapsed(!collapsed);
@@ -100,7 +119,7 @@ useEffect(() => {
   const saveChanges = async (id, changes) => {
     try {
       setSavingId(id);
-      await axios.patch(`http://localhost:5000/api/inquiries/${id}`, changes);
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/inquiries/${id}`, changes);
       // Optional: Update the local data to reflect the change
       setInquiries(inquiries.map(inquiry => 
         inquiry._id === id ? { ...inquiry, ...changes } : inquiry
@@ -112,10 +131,11 @@ useEffect(() => {
       setSavingId(null);
     }
   };
+
   useEffect(() => {
     const fetchInquiries = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/inquiries");
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/inquiries`);
         setInquiries(res.data);
       } catch (error) {
         console.error("Error fetching inquiries:", error);
@@ -131,11 +151,58 @@ useEffect(() => {
     inquiry.contactNo?.includes(searchTerm)
   );
 
-  // Pagination
+  // Apply sorting
+  const sortedInquiries = [...filteredInquiries].sort((a, b) => {
+    let aValue, bValue;
+    
+    // Determine the field to sort by
+    switch (sortField) {
+      case "id":
+        aValue = a._id || "";
+        bValue = b._id || "";
+        break;
+      case "followup":
+        aValue = statusChanges[a._id] || a.followupStatus || "Pending";
+        bValue = statusChanges[b._id] || b.followupStatus || "Pending";
+        break;
+      case "name":
+        aValue = a.name || "";
+        bValue = b.name || "";
+        break;
+      case "email":
+        aValue = a.email || "";
+        bValue = b.email || "";
+        break;
+      case "contact":
+        aValue = a.contactNumber || "";
+        bValue = b.contactNumber || "";
+        break;
+      default:
+        return 0;
+    }
+    
+    // Handle string comparison
+    if (typeof aValue === "string" && typeof bValue === "string") {
+      if (sortDirection === "asc") {
+        return aValue.localeCompare(bValue);
+      } else {
+        return bValue.localeCompare(aValue);
+      }
+    }
+    
+    // Handle numeric comparison
+    if (sortDirection === "asc") {
+      return aValue - bValue;
+    } else {
+      return bValue - aValue;
+    }
+  });
+
+  // Pagination with sorted inquiries
   const indexOfLastRecord = currentPage * recordsPerPage;
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
-  const currentRecords = filteredInquiries.slice(indexOfFirstRecord, indexOfLastRecord);
-  const totalPages = Math.ceil(filteredInquiries.length / recordsPerPage);
+  const currentRecords = sortedInquiries.slice(indexOfFirstRecord, indexOfLastRecord);
+  const totalPages = Math.ceil(sortedInquiries.length / recordsPerPage);
 
   // Export functions
   const exportToCSV = () => {
@@ -143,19 +210,20 @@ useEffect(() => {
     let csvContent = "data:text/csv;charset=utf-8,";
     
     // Add header row
-    csvContent += "Name,Email,Contact Number\n";
+    csvContent += "Name,Email,Contact Number,Status\n";
     
-    // Add data rows - using only actual data from inquiries, no default values
-    filteredInquiries.forEach(item => {
-      // Make sure we're only using actual data from the inquiries array
+    // Add data rows - including status from statusChanges
+    sortedInquiries.forEach(item => {
+      // Make sure we're only using actual data from inquiries, no default values
       // Properly escape fields for CSV format
-   
       const name = item.name ? `"${item.name.replace(/"/g, '""')}"` : "";
       const email = item.email ? `"${item.email.replace(/"/g, '""')}"` : "";
-      const contactNo =  item.contactNumber ;
+      const contactNo = item.contactNumber || "";
+      // Include status changes in CSV
+      const status = statusChanges[item._id] || item.followupStatus || "Pending";
       
       // Add row to CSV
-      csvContent += `${name},${email},${contactNo}\n`;
+      csvContent += `${name},${email},${contactNo},${status}\n`;
     });
     
     // Create and trigger download
@@ -175,40 +243,36 @@ useEffect(() => {
         return (
           <div className="dashboard-content contact-page">
             <header className="content-header">
-            <div className="page-title">
-  <h1>
-    <span className="brand">Jpel</span>
-    <span className="separator">::</span>
-    <span>Contact Us</span>
-    {viewingSpam && <span className="spam-title-highlight"> - Spam Records</span>}
-  </h1>
-  <p>
-    <span className={`spam-status ${viewingSpam ? 'included' : 'excluded'}`}>
-            
-      <span className="spam-count">{spamCount}</span>
-      <span>spam records {viewingSpam ? "showing" : "excluded"}</span>
-      
-    </span>
-    <a 
-      href="#" 
-      className={`check-spam ${viewingSpam ? 'viewing-spam' : ''}`}
-      onClick={(e) => {
-        e.preventDefault();
-        toggleSpamView();
-      }}
-    >
-      {viewingSpam ? "Show Normal Records" : "Check Spam Records"}
-    </a>
-  </p>
-</div>
+              <div className="page-title">
+                <h1>
+                  <span className="brand">Jpel</span>
+                  <span className="separator">::</span>
+                  <span>Contact Us</span>
+                  {viewingSpam && <span className="spam-title-highlight"> - Spam Records</span>}
+                </h1>
+                <p>
+                  <span className={`spam-status ${viewingSpam ? 'included' : 'excluded'}`}>
+                    <span className="spam-count">{spamCount}</span>
+                    <span>spam records {viewingSpam ? "showing" : "excluded"}</span>
+                  </span>
+                  <a 
+                    href="#" 
+                    className={`check-spam ${viewingSpam ? 'viewing-spam' : ''}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      toggleSpamView();
+                    }}
+                  >
+                    {viewingSpam ? "Show Normal Records" : "Check Spam Records"}
+                  </a>
+                </p>
+              </div>
             </header>
 
             <div className="contact-controls">
               <div className="control-group">
-            
                 <button className="action-button" onClick={() => alert("Copied to clipboard")}>Copy</button>
                 <button className="action-button" onClick={exportToCSV}>CSV</button>
-        
               </div>
               <div className="search-container">
                 <input 
@@ -225,25 +289,35 @@ useEffect(() => {
               <table className="contact-table">
                 <thead>
                   <tr>
-                    <th className="id-column">
+                    <th className="id-column" onClick={() => handleSort("id")}>
                       ID
-                      <span className="sort-icon">↕</span>
+                      <span className={`sort-icon ${sortField === "id" ? (sortDirection === "asc" ? "sort-asc" : "sort-desc") : ""}`}>
+                        {sortField === "id" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                      </span>
                     </th>
-                    <th className="followup-column">
+                    <th className="followup-column" onClick={() => handleSort("followup")}>
                       FOLLOWUP
-                      <span className="sort-icon">↕</span>
+                      <span className={`sort-icon ${sortField === "followup" ? (sortDirection === "asc" ? "sort-asc" : "sort-desc") : ""}`}>
+                        {sortField === "followup" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                      </span>
                     </th>
-                    <th className="name-column">
+                    <th className="name-column" onClick={() => handleSort("name")}>
                       NAME
-                      <span className="sort-icon">↕</span>
+                      <span className={`sort-icon ${sortField === "name" ? (sortDirection === "asc" ? "sort-asc" : "sort-desc") : ""}`}>
+                        {sortField === "name" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                      </span>
                     </th>
-                    <th className="email-column">
+                    <th className="email-column" onClick={() => handleSort("email")}>
                       EMAIL
-                      <span className="sort-icon">↕</span>
+                      <span className={`sort-icon ${sortField === "email" ? (sortDirection === "asc" ? "sort-asc" : "sort-desc") : ""}`}>
+                        {sortField === "email" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                      </span>
                     </th>
-                    <th className="contact-column">
+                    <th className="contact-column" onClick={() => handleSort("contact")}>
                       CONTACT NO
-                      <span className="sort-icon">↕</span>
+                      <span className={`sort-icon ${sortField === "contact" ? (sortDirection === "asc" ? "sort-asc" : "sort-desc") : ""}`}>
+                        {sortField === "contact" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                      </span>
                     </th>
                   </tr>
                 </thead>
@@ -262,20 +336,20 @@ useEffect(() => {
                             {inquiry.id || index + 1}
                           </td>
                           <td>
-  <div className="status-dropdown">
-    <select 
-      value={statusChanges[inquiry._id] || inquiry.followupStatus || "Pending"}
-      onChange={(e) => handleStatusChange(inquiry._id, e.target.value)}
-      disabled={savingId === inquiry._id}
-    >
-      <option>Read</option>
-      <option>Pending</option>
-      <option>Contacted</option>
-      <option>No Response</option>
-    </select>
-    {savingId === inquiry._id && <span className="saving-indicator">Saving...</span>}
-  </div>
-</td>
+                            <div className="status-dropdown">
+                              <select 
+                                value={statusChanges[inquiry._id] || inquiry.followupStatus || "Pending"}
+                                onChange={(e) => handleStatusChange(inquiry._id, e.target.value)}
+                                disabled={savingId === inquiry._id}
+                              >
+                                <option>Read</option>
+                                <option>Pending</option>
+                                <option>Contacted</option>
+                                <option>No Response</option>
+                              </select>
+                              {savingId === inquiry._id && <span className="saving-indicator">Saving...</span>}
+                            </div>
+                          </td>
                           <td>{inquiry.name}</td>
                           <td>{inquiry.email}</td>
                           <td>
@@ -302,21 +376,21 @@ useEffect(() => {
                                       <div className="details-value">{inquiry.id || index + 1}</div>
                                     </div>
                                     <div className="details-row">
-  <div className="details-label">Followup:</div>
-  <div className="details-value">
-    <select 
-      value={statusChanges[inquiry._id] || inquiry.followupStatus || "Pending"}
-      onChange={(e) => handleStatusChange(inquiry._id, e.target.value)}
-      disabled={savingId === inquiry._id}
-    >
-      <option>Read</option>
-      <option>Pending</option>
-      <option>Contacted</option>
-      <option>No Response</option>
-    </select>
-    {savingId === inquiry._id && <span className="saving-indicator">Saving...</span>}
-  </div>
-</div>
+                                      <div className="details-label">Followup:</div>
+                                      <div className="details-value">
+                                        <select 
+                                          value={statusChanges[inquiry._id] || inquiry.followupStatus || "Pending"}
+                                          onChange={(e) => handleStatusChange(inquiry._id, e.target.value)}
+                                          disabled={savingId === inquiry._id}
+                                        >
+                                          <option>Read</option>
+                                          <option>Pending</option>
+                                          <option>Contacted</option>
+                                          <option>No Response</option>
+                                        </select>
+                                        {savingId === inquiry._id && <span className="saving-indicator">Saving...</span>}
+                                      </div>
+                                    </div>
                                     <div className="details-row">
                                       <div className="details-label">Name:</div>
                                       <div className="details-value">{inquiry.name}</div>
@@ -337,31 +411,30 @@ useEffect(() => {
                                     <div className="details-row">
                                       <div className="details-label">Message:</div>
                                       <div className="details-value">
-                                        {inquiry.message }
+                                        {inquiry.message}
                                       </div>
                                     </div>
-                               
                                     <div className="details-row">
                                       <div className="details-label">Datetime:</div>
                                       <div className="details-value">{inquiry.createdAt ? new Date(inquiry.createdAt).toLocaleString() : ""}</div>
                                     </div>
                                     <div className="details-row">
-  <div className="details-label">Spam Filter:</div>
-  <div className="details-value">
-    <select 
-      value={spamChanges[inquiry._id] !== undefined ? 
-        (spamChanges[inquiry._id] ? "Spam" : "Not Spam") : 
-        (inquiry.isSpam ? "Spam" : "Not Spam")
-      }
-      onChange={(e) => handleSpamChange(inquiry._id, e.target.value)}
-      disabled={savingId === inquiry._id}
-    >
-      <option>Spam</option>
-      <option>Not Spam</option>
-    </select>
-    {savingId === inquiry._id && <span className="saving-indicator">Saving...</span>}
-  </div>
-</div>
+                                      <div className="details-label">Spam Filter:</div>
+                                      <div className="details-value">
+                                        <select 
+                                          value={spamChanges[inquiry._id] !== undefined ? 
+                                            (spamChanges[inquiry._id] ? "Spam" : "Not Spam") : 
+                                            (inquiry.isSpam ? "Spam" : "Not Spam")
+                                          }
+                                          onChange={(e) => handleSpamChange(inquiry._id, e.target.value)}
+                                          disabled={savingId === inquiry._id}
+                                        >
+                                          <option>Spam</option>
+                                          <option>Not Spam</option>
+                                        </select>
+                                        {savingId === inquiry._id && <span className="saving-indicator">Saving...</span>}
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -411,8 +484,8 @@ useEffect(() => {
       case "career":
         return <CareerApplications />;
       
-        case "catalogue":
-          return <CatalogSubmissions />;
+      case "catalogue":
+        return <CatalogSubmissions />;
       
       default:
         return null;
@@ -509,7 +582,7 @@ useEffect(() => {
               <img src="https://via.placeholder.com/40" alt="User" />
             </div>
           )}
-          <button className="logout-button">
+          <button className="logout-button" onClick={handleLogout}>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
               <polyline points="16 17 21 12 16 7"></polyline>

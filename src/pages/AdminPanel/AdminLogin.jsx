@@ -9,15 +9,16 @@ const AdminLogin = () => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setMessage("");
     
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/admin/login", { 
-        email, 
-        password 
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/admin/login`, {
+        email,
+        password
       });
       
       sessionStorage.setItem("token", res.data.token);

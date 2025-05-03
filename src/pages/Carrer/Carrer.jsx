@@ -243,7 +243,7 @@ const Career = () => {
     const formData = new FormData(e.target);
     formData.append("jobTitle", selectedJob);
     try {
-      const res = await fetch('http://localhost:5000/api/apply', {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/apply`, {
         method: 'POST',
         body: formData
       });
