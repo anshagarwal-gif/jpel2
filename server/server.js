@@ -18,10 +18,11 @@ app.use('/uploads', express.static('uploads'));
 app.use(express.json()); 
 app.use(bodyParser.json()); // To parse JSON data in the request body
 app.use(cors({
-  origin: ["http://localhost:3000","https://www.jpel.in"], // Change this to match your frontend
-  methods: "GET,POST,PUT,DELETE",
+  origin: ["http://localhost:3000","https://www.jpel.in", "http://www.jpel.in"], // Change this to match your frontend
+  methods: "GET,POST,PUT,DELETE,OPTIONS",
   credentials: true
 }));
+app.options('*', cors()); // To handle cross-origin requests
 connectDB();
 // Nodemai  ler transport configuration using environment variables
 const transporter = nodemailer.createTransport({
