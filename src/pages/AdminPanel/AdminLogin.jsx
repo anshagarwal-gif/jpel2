@@ -9,7 +9,7 @@ const AdminLogin = () => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
+console.log(process.env.REACT_APP_API_URL);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
