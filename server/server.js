@@ -17,9 +17,8 @@ const app = express();
 app.use('/uploads', express.static('uploads'));
 app.use(express.json()); 
 app.use(bodyParser.json()); // To parse JSON data in the request body
-app.use(cors()); // To handle cross-origin requests
 app.use(cors({
-  origin: ["http://localhost:3000"], // Change this to match your frontend
+  origin: ["http://localhost:3000","https://www.jpel.in"], // Change this to match your frontend
   methods: "GET,POST,PUT,DELETE",
   credentials: true
 }));
