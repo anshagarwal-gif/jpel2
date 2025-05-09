@@ -15,6 +15,8 @@ const Catalogue =require("./routes/FormSubmission")
 // Create an Express app
 const app = express();
 app.use('/uploads', express.static('uploads'));
+app.use('/public', express.static(path.join(__dirname, 'images')));
+
 app.use(express.json()); 
 app.use(bodyParser.json()); // To parse JSON data in the request body
 app.use(cors({
@@ -162,7 +164,7 @@ const userMailOptions = {
     <div style="font-family: Arial, sans-serif; border: 2px dashed #000; padding: 20px; max-width: 600px; margin: auto;">
       <!-- Logo -->
       <div style="text-align: center; margin-bottom: 20px;">
-        <img src="https://jpgroup.in/wp-content/uploads/2023/12/JPE_NEW_LOGO.png" alt="JP Group Logo" style="max-width: 400px;">
+        <img src="https://www.jpel.in/public/logo123.png" alt="JP Group Logo" style="max-width: 400px;">
       </div>
       
       <h2 style="text-align: center; font-size: 24px; margin-bottom: 20px;">Thank you!</h2>
