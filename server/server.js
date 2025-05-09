@@ -39,11 +39,6 @@ const transporter = nodemailer.createTransport({
 // Endpoint to send email
 app.post("/send-email", (req, res) => {
   const formData = req.body;
-<<<<<<< HEAD
-   console.log(process.env.EMAIL);
-=======
-  console.log(process.env.EMAIL);
->>>>>>> 15ed1863fc552531aa514b0084b2b653f477b57e
   console.log(process.env.PASSWORD);
   if (!formData.email) {
     return res.status(400).send('Email is required.');
