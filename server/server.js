@@ -36,7 +36,8 @@ const transporter = nodemailer.createTransport({
 // Endpoint to send email
 app.post("/send-email", (req, res) => {
   const formData = req.body;
-
+  console.log(process.env.EMAIL);
+  console.log(process.env.PASSWORD);
   if (!formData.email) {
     return res.status(400).send('Email is required.');
   }
@@ -148,7 +149,6 @@ newSubmission.save()
       </table>
     </div>
   `,
-  attachments: attachments,
 };
 
 // Define the email content for the user (based on the image template)
