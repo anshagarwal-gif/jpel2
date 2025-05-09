@@ -19,9 +19,12 @@ app.use(express.json());
 app.use(bodyParser.json()); // To parse JSON data in the request body
 app.use(cors({
   origin: ["http://localhost:3000","https://www.jpel.in", "http://www.jpel.in"], // Change this to match your frontend
-  methods: "GET,POST,PUT,PATCH,DELETE,OPTIONS",
+
+  methods: "GET,POST,PUT,DELETE,OPTIONS,PATCH",
   credentials: true
 }));
+// To handle cross-origin requests
+
 connectDB();
 // Nodemai  ler transport configuration using environment variables
 const transporter = nodemailer.createTransport({
@@ -31,10 +34,13 @@ const transporter = nodemailer.createTransport({
     pass: process.env.PASSWORD,  // Use the password from the .env file
   },
 });
+ console.log(process.env.EMAIL);
+  console.log(process.env.PASSWORD);
 // Endpoint to send email
 app.post("/send-email", (req, res) => {
   const formData = req.body;
-
+   console.log(process.env.EMAIL);
+  console.log(process.env.PASSWORD);
   if (!formData.email) {
     return res.status(400).send('Email is required.');
   }
@@ -95,7 +101,8 @@ newSubmission.save()
  // Define the email content for the owner
  const ownerMailOptions = {
   from: email, // Sender email
-  to: process.env.EMAIL, // Owner's email from environment variable
+  to: ["rakesh@jpel.in",
+    "info@jpel.in" ], // Owner's email from environment variable
   subject: "Download Catalogue | J P Extrusiontech Private Limited",
   html: `
     <div style="font-family: Arial, sans-serif; border: 2px dashed #000; padding: 20px; max-width: 600px; margin: auto; background-color: #F7F7F7;">
