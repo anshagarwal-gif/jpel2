@@ -117,9 +117,104 @@
 }
 
 .specs-table tbody tr:nth-child(even) {
-  background-color: white; /* White */
+  background-color: white;
 }
 
+/* Hover effect on table rows */
+.specs-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Tablet styles */
+.specs-table.tablet th, 
+.specs-table.tablet td {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+/* Mobile card styles */
+.specs-table-mobile {
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.specs-card {
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.specs-card-item {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.specs-card-item:last-child {
+  border-bottom: none;
+}
+
+.specs-card-header {
+  flex: 0 0 40%;
+  background-color: #f9fafb;
+  padding: 0.75rem;
+  font-weight: 600;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+}
+
+.specs-card-value {
+  flex: 0 0 60%;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+/* First row of each card with red background */
+.specs-card .specs-card-item:first-child .specs-card-header {
+  background-color: #dc2626;
+  color: white;
+}
+
+/* Responsive adjustments for larger screens */
+@media (min-width: 1024px) {
+  .specs-table {
+    width: 90%;
+    max-width: 1200px;
+  }
+  
+  .specs-table th, .specs-table td {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.125rem;
+  }
+}
+
+/* Responsive adjustments for medium screens */
+@media (max-width: 768px) {
+  .specs-table {
+    min-width: 600px;
+  }
+  
+  .specs-table th, .specs-table td {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Specific adjustments for very small screens */
+@media (max-width: 360px) {
+  .specs-card-header {
+    flex: 0 0 50%;
+    font-size: 0.75rem;
+  }
+  
+  .specs-card-value {
+    flex: 0 0 50%;
+    font-size: 0.75rem;
+  }
+}
 /* Applications.css */
 .applications {
   padding: 2rem;
