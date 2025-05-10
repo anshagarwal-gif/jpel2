@@ -31,7 +31,7 @@ const CircularLoom = () => {
       },
       '6-Shuttle': {
         image: require("../CircularLoom/Assets/5.jpg"),
-        description: 'This is the description for Tab 2.',
+        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
         tableHeaders: ['Technical Specifications',''],
         tableRows: [
           ['Working width - Double Flat', '30 to 140 cm*'],
@@ -45,7 +45,7 @@ const CircularLoom = () => {
       },
       '8-Shuttle': {
         image: require("../CircularLoom/Assets/6.jpg"),
-        description: 'This is the description for Tab 3.',
+        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
         tableHeaders: ['Technical Specifications',''],
         tableRows: [
           ['Working width - Double Flat', '100 to 225 cm*'],
@@ -57,7 +57,7 @@ const CircularLoom = () => {
       },
       '10-Shuttle': {
         image: require("../CircularLoom/Assets/7.jpg"),
-        description: 'This is the description for Tab 2.',
+        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
         tableHeaders: ['Technical Specifications',''],
         tableRows: [
           ['Working width - Double Flat', '175 to 255 cm*'],
@@ -69,7 +69,7 @@ const CircularLoom = () => {
       },
       '12-Shuttle': {
         image: require("../CircularLoom/Assets/8.jpg"),
-        description: 'This is the description for Tab 2.',
+        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
         tableHeaders: ['Technical Specifications',''],
         tableRows: [
           ['Working width - Double Flat', '250 to 295 cm*'],
@@ -81,7 +81,7 @@ const CircularLoom = () => {
       },
       'iL (Inside Lamination)': {
         image:require("../CircularLoom/Assets/9.png"),
-        description: 'This is the description for Tab 2.',
+        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
         tableHeaders: ['Technical Specifications',''],
         tableRows: [
           ['Working width (Without Liner)', '30 to 90 cm*'],

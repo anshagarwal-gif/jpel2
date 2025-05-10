@@ -701,3 +701,271 @@ tr.expanded-row {
   justify-content: center;
   white-space: nowrap;
 }
+
+/* Additional responsive styles for AdminCareer.css */
+
+/* Base responsive layout */
+@media (max-width: 1200px) {
+  .career-page .contact-table {
+    table-layout: auto; /* Change from fixed to auto on smaller screens */
+  }
+}
+
+/* Medium screens */
+@media (max-width: 992px) {
+  .career-page .contact-controls {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .career-page .search-input {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .career-page .search-container {
+    width: 100%;
+  }
+  
+  /* Adjust table columns for medium screens */
+  .career-page .id-column,
+  .career-page .followup-column,
+  .career-page .contact-column,
+  .career-page .resume-column {
+    width: auto;
+  }
+  
+  .career-page .name-column,
+  .career-page .email-column,
+  .career-page .position-column {
+    width: auto;
+  }
+  
+  /* Details panel in expanded row */
+  .details-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+  /* Hide less important columns */
+  .career-page .contact-table th:nth-child(4),
+  .career-page .contact-table td:nth-child(4),
+  .career-page .contact-table th:nth-child(5),
+  .career-page .contact-table td:nth-child(5) {
+    display: none;
+  }
+  
+  .career-page .page-title h1 {
+    font-size: 22px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .career-page .page-title h1 .separator {
+    display: none;
+  }
+  
+  .career-page .page-title h1 .spam-title-highlight {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+  
+  .career-page .pagination-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .career-page .data-table-container {
+    margin-bottom: 15px;
+    border-radius: 6px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 576px) {
+  /* Further simplify the table */
+  .career-page .contact-table th:nth-child(3),
+  .career-page .contact-table td:nth-child(3),
+  .career-page .contact-table th:nth-child(6),
+  .career-page .contact-table td:nth-child(6) {
+    display: none;
+  }
+  
+  .details-panel {
+    margin: 0 4px 10px 4px;
+  }
+  
+  .details-header h3 {
+    font-size: 16px;
+  }
+  
+  .career-page .control-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .career-page .action-button {
+    flex: 1;
+    text-align: center;
+  }
+  
+  /* Simplified spam status display */
+  .spam-status {
+    padding: 2px 5px;
+    font-size: 11px;
+  }
+  
+  .spam-count {
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+  }
+  
+  .career-page .page-title p {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .check-spam {
+    margin-left: 0 !important;
+  }
+}
+
+/* Add responsive approach to handle all screen sizes with table */
+@media (max-width: 480px) {
+  /* Switch to a more card-based layout for very small screens */
+  .career-page .contact-table thead {
+    display: none;
+  }
+  
+  .career-page .contact-table, 
+  .career-page .contact-table tbody, 
+  .career-page .contact-table tr {
+    display: block;
+    width: 100%;
+  }
+  
+  .career-page .contact-table tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    height: auto;
+    position: relative;
+    background-color: #fff;
+  }
+  
+  .career-page .contact-table td {
+    display: flex;
+    padding: 8px 5px;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: left;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .career-page .contact-table td:last-child {
+    border-bottom: none;
+  }
+  
+  .career-page .contact-table td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    width: 30%;
+    margin-right: 10px;
+  }
+  
+  .career-page .add-row {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-bottom: none !important;
+  }
+  
+  /* Reset hidden columns for mobile card view */
+  .career-page .contact-table td:nth-child(n) {
+    display: flex;
+  }
+  
+  /* Still hide certain columns even in card view */
+  .career-page .contact-table td:nth-child(4),
+  .career-page .contact-table td:nth-child(5) {
+    display: none;
+  }
+  
+  /* Expand button positioning */
+  .career-page .add-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+/* Universal improvements */
+
+/* Improve view resume link */
+.view-resume-link {
+  padding: 6px 10px;
+  background-color: #f0f7ff;
+  border-radius: 4px;
+  color: #4a6cf7;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  border: 1px solid #d1e3ff;
+}
+
+.view-resume-link:hover {
+  background-color: #4a6cf7;
+  color: white;
+}
+
+.view-resume-link:hover svg {
+  stroke: white;
+}
+
+/* Better loading indicator */
+.saving-indicator {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+.saving-indicator:after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  margin-left: 5px;
+  border: 2px solid rgba(74, 108, 247, 0.3);
+  border-top: 2px solid #4a6cf7;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Card shadow for details panel on all screens */
+.details-panel {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Improved select dropdowns */
+.status-dropdown select,
+.details-value select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center; 
+  background-size: 16px;
+  padding-right: 30px !important;
+}
