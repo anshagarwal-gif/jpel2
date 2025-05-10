@@ -1,125 +1,139 @@
 .hover-card {
-    background: white;
-    cursor: pointer;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: space-between;
-    border-radius: 1rem;
-    border: 1px solid #ddd;
-    padding: 1rem 2rem;
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
-    z-index: 1; /* Ensure the main content is above pseudo-elements */
-  }
-  y
-  .hover-card::before,
-  .hover-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .hover-card::before {
-    background: #ff0000;
-    z-index: -1; /* Place below the content */
-  }
-  
-  .hover-card::after {
-    background: url('https://s3-alpha-sig.figma.com/img/6956/4aec/59afa93303a34a23ecc13368dc4094db?Expires=1717977600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=PFrwNwC7QeqlIUsWFsC-jbQzlVTUSh7T5VfJ9vMNaAEsoOS92kRDH-OjWcAX~dmuZ77fPWjZJX0v1kXaZENeqa--USg1BcCN8z~Z1id5y5RQT1ZTU5OR4PRrLISHbowyTAu65h2jCKOSYXCrXN3F6fH8epD-Pm9TCGCYvD9svkhnbTSZxPKZhn8okHm7W~3wWyIhJBaZyQ30qWwD~JAh5r0BRE6XIfIpgTlUWeLq9wwCbwFZQR5RWInuHUfLrfhvAnxmzVVoTO1TxyjHOeXVb68Tc~nJuypwlDmcd0Sg02sJu3-uj7vFXRul6qw0LRfsQrWS5c5RJ~P-z5-eS~1jTA__');
-    opacity: 0.05;
-    z-index: -2; /* Place further below the content */
-  }
-  
-  .hover-card:hover {
-    border-color: #ff0000;
-  }
-  
-  .hover-card:hover::before {
-    width: 100%;
-  }
-  
-  .hover-card-title {
-    font-size: 1.25rem;
-    font-weight: 500;
-    transition: color 0.3s ease-in-out;
-    z-index: 2; /* Ensure text is above pseudo-elements */
-  }
-  
-  .hover-card:hover .hover-card-title {
-    color: white;
-  }
-  
-  .hover-card-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #1d2825;
-    margin-top: auto;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-    z-index: 2; /* Ensure link is above pseudo-elements */
-  }
-  
-  .hover-card:hover .hover-card-link {
-    color: white;
-  }
-  
-  .hover-card-icon {
-    width: 1rem;
-    height: 1rem;
-    transition: color 0.3s ease-in-out;
-  }
-  .hover-card-phones {
-    display: flex;
-    gap: 1rem; /* Space between phone numbers */
-    margin: 0.5rem 0; /* Spacing above and below the phone numbers */
-    z-index: 2;
-    transition: color 0.3s ease-in-out;
-  }
+  background: white;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+  border-radius: 1rem;
+  border: 1px solid #ddd;
+  padding: 1rem 2rem;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 1; /* Ensure the main content is above pseudo-elements */
+}
 
-  .hover-card-phones a:hover{
-    color: #000;
-    
-  }
-  .hover-card-phones a {
-    text-decoration: none;
-    color: #1d2825;
-    font-size: 1.0rem;
-    font-weight: 500;
-    transition: color 0.3s ease-in-out;
-    z-index: 2;
-  }
-  
-  .hover-card:hover .hover-card-phones a {
-    color: white; /* Change phone numbers to white on hover */
-    
-  }
-  
-  .hover-card-emails {
-    display: flex; /* Change to flex for horizontal layout */
-    flex-wrap: wrap; /* Wrap to the next line if there are too many emails */
-    gap: 1rem; /* Space between email links */
-    margin: 0.5rem 0; /* Add spacing above and below the email section */
-  }
-  
-  .hover-card-emails a {
-    text-decoration: none;
-    color: #1d2825;
-    font-size: 1.275rem;
-    font-weight: 500;
-    transition: color 0.3s ease-in-out;
-    white-space: nowrap; /* Prevent text from breaking into multiple lines */
-  }
-  
-  .hover-card:hover .hover-card-emails a {
-    color: white; /* Change email links to white on hover */
-  }
-  
+.hover-card::before,
+.hover-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.hover-card::before {
+  background: #ff0000;
+  z-index: -1; /* Place below the content */
+}
+
+.hover-card::after {
+  background: url('https://s3-alpha-sig.figma.com/img/6956/4aec/59afa93303a34a23ecc13368dc4094db?Expires=1717977600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=PFrwNwC7QeqlIUsWFsC-jbQzlVTUSh7T5VfJ9vMNaAEsoOS92kRDH-OjWcAX~dmuZ77fPWjZJX0v1kXaZENeqa--USg1BcCN8z~Z1id5y5RQT1ZTU5OR4PRrLISHbowyTAu65h2jCKOSYXCrXN3F6fH8epD-Pm9TCGCYvD9svkhnbTSZxPKZhn8okHm7W~3wWyIhJBaZyQ30qWwD~JAh5r0BRE6XIfIpgTlUWeLq9wwCbwFZQR5RWInuHUfLrfhvAnxmzVVoTO1TxyjHOeXVb68Tc~nJuypwlDmcd0Sg02sJu3-uj7vFXRul6qw0LRfsQrWS5c5RJ~P-z5-eS~1jTA__');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.05;
+  z-index: -2; /* Place further below the content */
+  width: 100%; /* Make background image cover the full width */
+}
+
+.hover-card:hover {
+  border-color: #ff0000;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hover-card:hover::before {
+  width: 100%;
+}
+
+.hover-card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+  z-index: 2; /* Ensure text is above pseudo-elements */
+}
+
+.hover-card:hover .hover-card-title {
+  color: white;
+}
+
+.hover-card-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1d2825;
+  margin-top: auto;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  z-index: 2; /* Ensure link is above pseudo-elements */
+}
+
+.hover-card:hover .hover-card-link {
+  color: white;
+}
+
+.hover-card-icon {
+  width: 1rem;
+  height: 1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.hover-card-phones {
+  display: flex;
+  gap: 1rem; /* Space between phone numbers */
+  margin: 0.5rem 0; /* Spacing above and below the phone numbers */
+  z-index: 2;
+  transition: color 0.3s ease-in-out;
+}
+
+.hover-card-phones a {
+  text-decoration: none;
+  color: #1d2825;
+  font-size: 1.0rem;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+  z-index: 2;
+}
+
+.hover-card:hover .hover-card-phones a {
+  color: white; /* Change phone numbers to white on hover */
+}
+
+/* Fix for phone hover state */
+.hover-card-phones a:hover {
+  color: rgba(255, 255, 255, 0.8); /* Slightly dimmed white on phone link hover */
+  text-decoration: underline;
+}
+
+.hover-card-emails {
+  display: flex; /* Change to flex for horizontal layout */
+  flex-wrap: wrap; /* Wrap to the next line if there are too many emails */
+  gap: 1rem; /* Space between email links */
+  margin: 0.5rem 0; /* Add spacing above and below the email section */
+  z-index: 2; /* Added to ensure it stays above the background */
+}
+
+.hover-card-emails a {
+  text-decoration: none;
+  color: #1d2825;
+  font-size: 1.275rem;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+  white-space: nowrap; /* Prevent text from breaking into multiple lines */
+  z-index: 2; /* Added to ensure it stays above the background */
+}
+
+.hover-card:hover .hover-card-emails a {
+  color: white; /* Change email links to white on hover */
+}
+
+/* Fix for email hover state */
+.hover-card-emails a:hover {
+  color: rgba(255, 255, 255, 0.8); /* Slightly dimmed white on email link hover */
+  text-decoration: underline;
+}

@@ -377,7 +377,7 @@
   right: 15px;
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 20px;
   color: #828282;
   cursor: pointer;
   transition: all 0.3s;
@@ -593,6 +593,7 @@
 
   .application-form h2 {
     font-size: 18px;
+    margin-top: 25px;
   }
 
   .form-instruction {

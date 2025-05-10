@@ -95,12 +95,15 @@ img {
   gap: var(--space-xl);
   width: 100%;
   box-sizing: border-box;
+  align-items: flex-start; /* Align items to the top */
 }
 
 .image-section {
   flex: 1 1 400px;
   min-width: 280px;
   animation: slideIn 1s ease-in-out;
+  object-fit: contain; /* Maintain aspect ratio */
+  margin-bottom: var(--space-md); /* Add space below image on mobile */
 }
 
 .product-imageEx {
@@ -110,6 +113,8 @@ img {
   box-shadow: var(--shadow-soft);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   display: block; /* Prevents inline gaps */
+  object-fit: cover; /* Cover container while maintaining aspect ratio */
+  aspect-ratio: 4/3; /* Set a consistent aspect ratio for all product images */
 }
 
 .product-imageEx:hover {
@@ -122,6 +127,8 @@ img {
   min-width: 280px;
   max-width: 100%;
   font-family: var(--font-primary);
+  display: flex;
+  flex-direction: column;
 }
 
 .content-section h1 {
@@ -166,6 +173,26 @@ img {
   box-sizing: border-box;
 }
 
+/* Image gallery for multiple product images */
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.thumbnail {
+  cursor: pointer;
+  border-radius: var(--radius-md);  
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.thumbnail:hover, .thumbnail.active {
+  border-color: var(--primary-color);
+  transform: scale(1.05);
+}
+
 /* Keyframes for the left-to-right animation */
 @keyframes slideIn {
   from {
@@ -196,6 +223,7 @@ img {
   text-align: center;
   min-height: 44px; /* Minimum touch target size */
   line-height: 1.2;
+  align-self: flex-start; /* Align button to the left by default */
 }
 
 .btn:hover {
@@ -252,12 +280,16 @@ img {
   
   .image-section {
     flex: 1 1 100%;
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 500px;
+    margin: 0 auto var(--space-lg) auto;
   }
   
   .content-section {
     flex: 1 1 100%;
+  }
+  
+  .btn {
+    align-self: flex-start; /* Keep button aligned left on tablets */
   }
 }
 
@@ -285,16 +317,27 @@ img {
     width: 100%;
     min-width: 250px;
   }
+  
+  .image-section {
+    max-width: 400px; /* Limit image width on mobile */
+    order: 1; /* Image comes first on mobile */
+  }
+  
+  .content-section {
+    order: 2; /* Content comes second on mobile */
+    padding: 0 var(--space-sm);
+  }
 
   /* Maintain consistent text alignment based on screen size */
   .content-section h1 {
     font-size: var(--font-size-2xl);
-    text-align: left;
+    text-align: center;
+    margin-top: var(--space-md);
   }
 
   .content-section h2 {
     font-size: var(--font-size-lg);
-    text-align: left;
+    text-align: center;
   }
 
   .description p {
@@ -313,6 +356,13 @@ img {
     width: 100%;
     max-width: 300px;
     margin: var(--space-lg) auto 0;
+    align-self: center; /* Center button on mobile */
+  }
+  
+  /* Adjust image gallery on mobile */
+  .image-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: var(--space-sm);
   }
 }
 
@@ -333,43 +383,58 @@ img {
     gap: var(--space-md);
   }
 
+  .image-section {
+    max-width: 100%; /* Full width on small phones */
+    margin-bottom: var(--space-sm);
+  }
+  
+  .product-imageEx {
+    aspect-ratio: 1/1; /* Square aspect ratio on smallest screens */
+    border-radius: var(--radius-md); /* Smaller radius on mobile */
+  }
+
   .content-section h1 {
     font-size: var(--font-size-xl);
     margin-bottom: var(--space-sm);
     word-break: break-word;
+    text-align: center;
   }
 
   .content-section h2 {
     font-size: var(--font-size-md);
     margin-bottom: var(--space-md);
     word-break: break-word;
+    text-align: center;
   }
 
   .description p {
     font-size: var(--font-size-base);
     margin-top: var(--space-md);
     line-height: 1.5;
+    padding: 0 var(--space-xs);
   }
 
   .description2 {
     font-size: var(--font-size-sm);
     padding: var(--space-xs) var(--space-sm);
     margin: var(--space-sm) 0;
+    border-left-width: 2px; /* Thinner border on mobile */
   }
   
   .btn {
     padding: var(--space-sm) var(--space-md);
     width: 100%;
+    font-size: var(--font-size-sm);
   }
   
   /* Adjust animation for smaller screens */
   @keyframes slideIn {
     from {
-      transform: translateX(-20px);
+      transform: translateY(-20px); /* Change to top-to-bottom for mobile */
       opacity: 0;
     }
     to {
-      transform: translateX(0);
+      transform: translateY(0);
       opacity: 1;
     }
   }
@@ -377,6 +442,12 @@ img {
   /* Ensure image animation is contained */
   .image-section {
     overflow: hidden;
+  }
+  
+  /* Adjust image gallery for smallest screens */
+  .image-gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xs);
   }
 }
 
@@ -397,6 +468,15 @@ img {
   .btn {
     padding: var(--space-sm) var(--space-md);
     font-size: var(--font-size-sm);
+  }
+  
+  .product-imageEx {
+    box-shadow: var(--shadow-soft); /* Lighter shadow for performance */
+  }
+  
+  /* Optimize image gallery for very small screens */
+  .image-gallery {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -419,5 +499,46 @@ h1, h2, h3, h4, h5, h6, p {
   
   .content-section {
     -webkit-flex: 2 1 500px;
+  }
+  
+  /* Fix for aspect-ratio support */
+  .product-imageEx {
+    height: 0;
+    padding-bottom: 75%; /* 4:3 aspect ratio fallback */
+    position: relative;
+  }
+  
+  .product-imageEx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  @media (max-width: 480px) {
+    .product-imageEx {
+      padding-bottom: 100%; /* 1:1 aspect ratio fallback for mobile */
+    }
+  }
+}
+
+/* Add touch-friendly features for mobile */
+@media (hover: none) {
+  .btn {
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight */
+  }
+  
+  .product-imageEx:active {
+    transform: scale(0.98); /* Slight scale down on tap */
+  }
+}
+
+/* Fix for devices with notches */
+@supports (padding: max(0px)) {
+  .product-layout {
+    padding-left: max(var(--space-md), env(safe-area-inset-left));
+    padding-right: max(var(--space-md), env(safe-area-inset-right));
   }
 }

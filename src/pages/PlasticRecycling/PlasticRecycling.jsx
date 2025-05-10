@@ -21,7 +21,7 @@ const PlasticRecycling = () => {
                     {
                         subtitle: "Tape Extrusion",
                         link: "/TapeExtrusion",
-                        description: "Industrial grade woven sacks"
+                        description: "High-strength tapes for woven sacks, tarpaulins, and ropes."
                     },
                     {
                         subtitle: "Winding Machines",
@@ -31,7 +31,7 @@ const PlasticRecycling = () => {
                     {
                         subtitle: "Circular Looms",
                         link: "/CircularLoom",
-                        description: "Complete HDPE recycling solutions"
+                        description: "Efficiently weaving fabric for bags and geotextiles."
                     }
                 ]
             },
@@ -42,17 +42,17 @@ const PlasticRecycling = () => {
                     {
                         subtitle: "Extrusion Coating",
                         link: "/ExtrusionCoating",
-                        description: "Industrial shredding machines"
+                        description: "Laminating substrates for enhanced durability and protection."
                     },
                     {
                         subtitle: "Printing Machines",
                         link: "/PrintingMachine",
-                        description: "Industrial shredding machines"
+                        description: "High-quality printing on woven fabrics and sacks."
                     },
                     {
                         subtitle: "Bag Conversion Machines",
                         link: "/Bag-Conversion",
-                        description: "Industrial shredding machines"
+                        description: "Transforming fabric into finished bags for various applications."
                     }
                 ]
             }
@@ -65,12 +65,12 @@ const PlasticRecycling = () => {
                     {
                         subtitle: "Woven Sacks",
                         link: "/WovenSack",
-                        description: "Industrial grade woven sacks"
+                        description: "Processing waste materials into reusable plastic products."
                     },
                     {
                         subtitle: "PET Washing Line",
                         link: "/PET",
-                        description: "Advanced PET bottle washing systems"
+                        description: "Producing durable strapping for packaging and bundling."
                     }
                 ]
             },
@@ -81,7 +81,7 @@ const PlasticRecycling = () => {
                     {
                         subtitle: "Battery Box Recycling",
                         link: "/BatteryBox",
-                        description: "Complete HDPE recycling solutions"
+                        description:"xyz"
                     }
                 ]
             }
@@ -94,7 +94,7 @@ const PlasticRecycling = () => {
                     {
                         subtitle: "Monofilament Line/Danline",
                         link: "/Monofilament",
-                        description: "Industrial grade woven sacks"
+                        description: "Manufacturing monofilaments for ropes, nets, and brushes."
                     },
                     {
                         subtitle: "Box-Strapping Line",
@@ -112,12 +112,12 @@ const PlasticRecycling = () => {
                     {
                         subtitle: "Sheet Extrusion Line",
                         link: "/SheetExtrusion",
-                        description: "Industrial grade woven sacks"
+                        description: "Creating multi-layer sheets for thermoforming applications."
                     },
                     {
                         subtitle: "Cast Film Line",
                         link: "/CastLine",
-                        description: "Advanced PET bottle washing systems"
+                        description: "Producing multi-layer cast films for flexible packaging."
                     },
                     {
                         subtitle: "Flexible Packaging",
