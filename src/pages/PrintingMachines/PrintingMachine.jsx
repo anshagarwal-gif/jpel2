@@ -10,7 +10,7 @@ const PrintingMachine = () => {
           'Product': {
             image: require("../PrintingMachines/Assets/4.jpg"),
             description: '',
-            tableHeaders: ['Technical Specifications'],
+            tableHeaders: ['Technical Specifications',""],
             tableRows: [
               ['Working width - Double Flat', '20 to 80 cm*'],
               ['Weft insertion rate', 'upto 720ppm*'],

@@ -4,6 +4,7 @@ import VedioCard from "../Components/VedioCard";
 import NCardflip from "../Components/NCardflip";
 import MagazineLayout from "../Components/MazineLayout";
 
+
 const News = () => {
     const Cardimage1 = [
         { src: require("../assets/international women_s day-2022/international-womens-day-2022-1.jpg"), title: "INTERNATIONAL WOMEN'S DAY-2022" },
@@ -53,6 +54,12 @@ const News = () => {
         { src: require("../assets/International yoga day-2018/international-day-of-yoga-2018-4.jpg"), title: "International Yoga Day - 2018" },
       
       ];
+
+      const Cardimage5 = [
+        { src: require("../assets/newevent1.jpg"), title: "Best Brand 2021 Award from The Economic Times"},
+        { src: require("../assets/newevent2.jpg"), title: "Best Brand 2019 Award from The Economic Times"},
+
+      ]
     
     return (
         <div>
@@ -69,13 +76,13 @@ const News = () => {
         cardInfo="Best Brand 2021 Award from The Economic Times"
         cardTitle="Award from The Economic Times"
         thumbnailImage={require("../assets/newevent1.jpg")}
-        galleryImages={Cardimage1}
+        galleryImages={Cardimage5}
       />
       <Cardflip1
         cardInfo="Best Brand 2019 Award from The Economic Times"
         cardTitle="Award from The Economic Times"
         thumbnailImage={require("../assets/newevent2.jpg")}
-        galleryImages={Cardimage1}
+        galleryImages={Cardimage5}
       />
       
       </div>

@@ -54,7 +54,7 @@ const Bag = () => {
     'Small Bag Conversion-BCL': {
       image: require("../Bag-Conversion/Assets/BCL.jpg"),
       description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
-      tableHeaders: ['Technical Specifications'],
+      tableHeaders: ['Technical Specifications',""],
       tableRows: [
         ['Unwinder fabric Roll width ', '475 to 700 mm* (Liner Mode) 400 to 850 mm* (BCS Mode)'],
         ['Liner Cutting length ', '770 to 1225 mm* (Liner Mode)'],
@@ -77,7 +77,7 @@ const Bag = () => {
     'Small Bag Conversion-Tuber': {
       image: require("../Bag-Conversion/Assets/TFM.jpg"),
       description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
-      tableHeaders: ['Technical Specifications'],
+      tableHeaders: ['Technical Specifications',""],
       tableRows: [
         ['Fabric width', '650 to 1350 mm*'],
         ['tube width', '300 to 650 mm*'],
@@ -98,7 +98,7 @@ const Bag = () => {
     'Small Bag Conversion-BCL with Gusseting': {
       image: require("../Bag-Conversion/Assets/BC.jpg"),
       description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
-      tableHeaders: ['Technical Specifications'],
+      tableHeaders: ['Technical Specifications',""],
       tableRows: [
         ['Width of unwinder cloth', '300 to 850 mm*'],
         ['Cutting length', 'Up to 1400 mm*'],

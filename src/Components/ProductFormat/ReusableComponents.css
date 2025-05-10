@@ -88,7 +88,7 @@
   background-color: white; /* White */
 }
 
-/* Applications.css */
+/* Applications.css - UPDATED WITH RESPONSIVE DESIGN */
 .applications {
   padding: 2rem;
 }
@@ -394,177 +394,6 @@
   transform: translateY(1px);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .specs-table {
-    width: 100%;
-    font-size: 14px; /* Smaller font size */
-  }
-
-  .specs-table th, .specs-table td {
-    padding: 0.4rem; /* Reduce padding further */
-    font-size: 14px;
-  }
-
-  .specs-table thead tr {
-    font-size: 16px; /* Adjust header size for small screens */
-  }
-  
-  .download-catalogue-modal-content {
-    padding: 1.25rem;
-    max-width: 90%;
-  }
-
-  .form-field input,
-  .form-field textarea {
-    padding: 0.625rem 0.875rem;
-  }
-
-  .form-submit-btn {
-    padding: 0.625rem 0.875rem;
-  }
-  
-  /* Updated responsive download button */
-  .download-button, 
-  .download-catalogue-button {
-    bottom: 20px;
-    right: 20px;
-  }
-  
-  .download-button .docs {
-    min-height: 38px;
-    padding: 0 12px;
-  }
-}
-
-@media (max-width: 600px) {
-  .applications-slideshow {
-    width: 550px;
-    height: 250px;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .applications-content {
-    display: flex;
-    gap: 0.6rem;
-    font-size: 11px;
-  }
-  
-  /* Further adjust download button */
-  .download-button,
-  .download-catalogue-button {
-    bottom: 15px;
-    right: 15px;
-    margin-bottom: 50px;
-  }
-  
-  .download-button .docs {
-    min-height: 36px;
-    padding: 0 10px;
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .specs-table {
-    width: 100%;
-    font-size: 12px; /* Further reduce font size */
-  }
-  
-  .tab-button {
-    font-size: 11px;
-  }
-  
-  .tab-navigation {
-    padding: 0.5rem 1.5rem
-  }
-
-  .specs-table th, .specs-table td {
-    padding: 0.3rem;
-    font-size: 12px;
-  }
-
-  .specs-table thead tr {
-    font-size: 14px;
-  }
-  
-  .download-catalogue-modal-content {
-    padding: 1rem;
-    max-width: 95%;
-  }
-
-  .download-catalogue-modal-content h2 {
-    font-size: 1.25rem;
-  }
-
-  .download-catalogue-modal-content p {
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
-  }
-
-  .form-field {
-    gap: 0.125rem;
-  }
-
-  .form-field label {
-    font-size: 0.8125rem;
-  }
-
-  .form-field input,
-  .form-field textarea {
-    font-size: 0.9375rem;
-    padding: 0.5rem 0.75rem;
-  }
-  
-  .form-submit-btn {
-    font-size: 0.9375rem;
-    padding: 0.5rem 0.75rem;
-  }
-  
-  .download-catalogue-modal-form {
-    gap: 0.75rem;
-  }
-  
-  /* Small device button */
-  .download-button,
-  .download-catalogue-button {
-    bottom: 10px;
-    right: 10px;
-
-  }
-  
-  .download-button .docs {
-    font-size: 12px;
-    min-height: 34px;
-    padding: 0 8px;
-  }
-  
-  .download-button svg {
-    height: 20px;
-    width: 20px;
-  }
-}
-
-/* Very small screens */
-@media (max-width: 360px) {
-  .download-button,
-  .download-catalogue-button {
-    bottom: 8px;
-    right: 8px;
-  }
-  
-  .download-button .docs {
-    font-size: 11px;
-    min-height: 32px;
-    padding: 0 6px;
-  }
-  
-  .download-button svg {
-    height: 18px;
-    width: 18px;
-  }
-}
 /* Toast Notification Styles */
 .toast-notification {
   position: fixed;
@@ -644,4 +473,256 @@
   top: 0;
   right: 0;
   z-index: 9999;
+}
+
+/* Responsive Design - UPDATED WITH BETTER MOBILE SUPPORT */
+@media (max-width: 1024px) {
+  .applications-slideshow {
+    width: 600px;
+    height: 400px;
+  }
+  
+  .applications-content {
+    gap: 2rem;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .applications-slideshow {
+    width: 500px;
+    height: 350px;
+  }
+  
+  .applications-content {
+    gap: 1.8rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .specs-table {
+    width: 100%;
+    font-size: 14px; /* Smaller font size */
+  }
+
+  .specs-table th, .specs-table td {
+    padding: 0.4rem; /* Reduce padding further */
+    font-size: 14px;
+  }
+
+  .specs-table thead tr {
+    font-size: 16px; /* Adjust header size for small screens */
+  }
+  
+  .download-catalogue-modal-content {
+    padding: 1.25rem;
+    max-width: 90%;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    padding: 0.625rem 0.875rem;
+  }
+
+  .form-submit-btn {
+    padding: 0.625rem 0.875rem;
+  }
+  
+  /* Updated responsive download button */
+  .download-button, 
+  .download-catalogue-button {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .download-button .docs {
+    min-height: 38px;
+    padding: 0 12px;
+  }
+  
+  /* Applications section - stack layout for mobile */
+  .applications-content {
+    flex-direction: column;
+    gap: 1.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .applications-slideshow {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 1rem;
+  }
+
+  .applications h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .applications {
+    padding: 1.5rem 1rem;
+  }
+  
+  .applications-slideshow {
+    height: 300px;
+  }
+  
+  .applications-content {
+    font-size: 1rem;
+    gap: 1.2rem;
+  }
+  
+  .applications-list li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .download-button, 
+  .download-catalogue-button {
+    bottom: 15px;
+    right: 15px;
+    margin-bottom: 50px;
+  }
+  
+  .download-button .docs {
+    min-height: 36px;
+    padding: 0 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .specs-table {
+    width: 100%;
+    font-size: 12px; /* Further reduce font size */
+  }
+  
+  .tab-button {
+    font-size: 11px;
+  }
+  
+  .tab-navigation {
+    padding: 0.5rem 1.5rem;
+    gap: 1rem; /* Reduce gap between tabs */
+  }
+
+  .specs-table th, .specs-table td {
+    padding: 0.3rem;
+    font-size: 12px;
+  }
+
+  .specs-table thead tr {
+    font-size: 14px;
+  }
+  
+  .download-catalogue-modal-content {
+    padding: 1rem;
+    max-width: 95%;
+  }
+
+  .download-catalogue-modal-content h2 {
+    font-size: 1.25rem;
+  }
+
+  .download-catalogue-modal-content p {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-field {
+    gap: 0.125rem;
+  }
+
+  .form-field label {
+    font-size: 0.8125rem;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    font-size: 0.9375rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .form-submit-btn {
+    font-size: 0.9375rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .download-catalogue-modal-form {
+    gap: 0.75rem;
+  }
+  
+  /* Small device button */
+  .download-button,
+  .download-catalogue-button {
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .download-button .docs {
+    font-size: 12px;
+    min-height: 34px;
+    padding: 0 8px;
+  }
+  
+  .download-button svg {
+    height: 20px;
+    width: 20px;
+  }
+  
+  /* Applications section further adjustments */
+  .applications {
+    padding: 1rem;
+  }
+  
+  .applications h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .applications-slideshow {
+    height: 250px;
+  }
+  
+  .applications-content {
+    gap: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .applications-list li {
+    padding-left: 1.2rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 360px) {
+  .applications-slideshow {
+    height: 200px;
+  }
+  
+  .applications h2 {
+    font-size: 1.1rem;
+  }
+  
+  .applications-content {
+    font-size: 0.9rem;
+  }
+  
+  .download-button,
+  .download-catalogue-button {
+    bottom: 8px;
+    right: 8px;
+  }
+  
+  .download-button .docs {
+    font-size: 11px;
+    min-height: 32px;
+    padding: 0 6px;
+  }
+  
+  .download-button svg {
+    height: 18px;
+    width: 18px;
+  } 
 }
