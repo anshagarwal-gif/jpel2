@@ -14,16 +14,33 @@ const Catalogue =require("./routes/FormSubmission")
 
 // Create an Express app
 const app = express();
-app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/public', express.static(path.join(__dirname, 'images')));
+
 app.use(express.json()); 
 app.use(bodyParser.json()); // To parse JSON data in the request body
-
-app.use(cors({
-  origin: ["http://localhost:3000","https://www.jpel.in", "http://www.jpel.in"], // Change this to match your frontend
-  methods: "GET,POST,PUT,DELETE,OPTIONS,PATCH",
-  credentials: true
-}));
+// 
+// const allowedOrigins = [
+//   "http://localhost:3000",
+//   "https://www.jpel.in",
+//   "http://www.jpel.in",
+// "https://jpel.in",
+// ];
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     // Allow requests with no origin (like mobile apps or curl)
+//     if (!origin) return callback(null, true);
+//     if (allowedOrigins.includes(origin)) {
+//       return callback(null, true);
+//     } else {
+//       return callback(new Error("CORS policy violation: Origin not allowed"));
+//     }
+//   },
+//   methods: "GET,POST,PUT,DELETE,OPTIONS,PATCH",
+//   credentials: true,
+// }));
 // To handle cross-origin requests
+ // Handle preflight
 connectDB();
 // Nodemai  ler transport configuration using environment variables
 const transporter = nodemailer.createTransport({
@@ -33,10 +50,12 @@ const transporter = nodemailer.createTransport({
     pass: process.env.PASSWORD,  // Use the password from the .env file
   },
 });
+ console.log(process.env.EMAIL);
+  console.log(process.env.PASSWORD);
 // Endpoint to send email
 app.post("/send-email", (req, res) => {
   const formData = req.body;
-
+  console.log(process.env.PASSWORD);
   if (!formData.email) {
     return res.status(400).send('Email is required.');
   }
@@ -148,7 +167,6 @@ newSubmission.save()
       </table>
     </div>
   `,
-  attachments: attachments,
 };
 
 // Define the email content for the user (based on the image template)
@@ -160,7 +178,7 @@ const userMailOptions = {
     <div style="font-family: Arial, sans-serif; border: 2px dashed #000; padding: 20px; max-width: 600px; margin: auto;">
       <!-- Logo -->
       <div style="text-align: center; margin-bottom: 20px;">
-        <img src="https://jpgroup.in/wp-content/uploads/2023/12/JPE_NEW_LOGO.png" alt="JP Group Logo" style="max-width: 400px;">
+        <img src="https://www.jpel.in/static/media/JPELlogo.fc2776d8a4149f199dae.jpg" alt="JP Group Logo" style="max-width: 400px;">
       </div>
       
       <h2 style="text-align: center; font-size: 24px; margin-bottom: 20px;">Thank you!</h2>

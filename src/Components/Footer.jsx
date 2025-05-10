@@ -69,7 +69,7 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <div className="footer-bottom">
-        <p>&copy; 2024 JP Extrusiontech (Pvt) Ltd. All Rights Reserved.</p>
+        <p>&copy; 2025 JP Extrusiontech (Pvt) Ltd. All Rights Reserved.</p>
       </div>
     </footer>
   );
