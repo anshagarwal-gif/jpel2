@@ -178,7 +178,7 @@ const userMailOptions = {
     <div style="font-family: Arial, sans-serif; border: 2px dashed #000; padding: 20px; max-width: 600px; margin: auto;">
       <!-- Logo -->
       <div style="text-align: center; margin-bottom: 20px;">
-        <img src="https://www.jpel.in/public/images/logo123.png" alt="JP Group Logo" style="max-width: 400px;">
+        <img src="https://www.jpel.in/static/media/JPELlogo.fc2776d8a4149f199dae.jpg" alt="JP Group Logo" style="max-width: 400px;">
       </div>
       
       <h2 style="text-align: center; font-size: 24px; margin-bottom: 20px;">Thank you!</h2>
