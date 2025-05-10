@@ -19,11 +19,24 @@ app.use('/public', express.static(path.join(__dirname, 'images')));
 
 app.use(express.json()); 
 app.use(bodyParser.json()); // To parse JSON data in the request body
+// 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://www.jpel.in",
+  "http://www.jpel.in",
+];
 app.use(cors({
-  origin: ["http://localhost:3000","https://www.jpel.in", "http://www.jpel.in"], // Change this to match your frontend
-
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("CORS policy violation: Origin not allowed"));
+    }
+  },
   methods: "GET,POST,PUT,DELETE,OPTIONS,PATCH",
-  credentials: true
+  credentials: true,
 }));
 // To handle cross-origin requests
 
