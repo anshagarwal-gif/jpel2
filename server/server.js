@@ -24,6 +24,7 @@ const allowedOrigins = [
   "http://localhost:3000",
   "https://www.jpel.in",
   "http://www.jpel.in",
+"https://jpel.in",
 ];
 app.use(cors({
   origin: function (origin, callback) {
