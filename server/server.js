@@ -40,7 +40,7 @@ app.use(cors({
   credentials: true,
 }));
 // To handle cross-origin requests
-
+ // Handle preflight
 connectDB();
 // Nodemai  ler transport configuration using environment variables
 const transporter = nodemailer.createTransport({
