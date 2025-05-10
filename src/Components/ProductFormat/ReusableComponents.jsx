@@ -62,27 +62,70 @@ export const ProductImage = ({ image, images, description }) => {
 };
 
 // Specifications Table Component
-export const SpecsTable = ({ headers, rows }) => (
-  <table className="specs-table">
-    <thead>
-      <tr>
-        {headers.map((header, index) => (
-          <th key={index}>{header}</th>
-        ))}
-      </tr>
-    </thead>
-    <tbody>
-      {rows.map((row, index) => (
-        <tr key={index}>
-          {row.map((cell, cellIndex) => (
-            <td key={cellIndex}>{cell}</td>
-          ))}
-        </tr>
-      ))}
-    </tbody>
-  </table>
-);
+export const SpecsTable = ({ headers, rows }) => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
+  
+  // Function to handle viewport changes
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 480);
+    setIsTablet(window.innerWidth <= 768 && window.innerWidth > 480);
+  };
 
+  // Set up resize listener
+  useEffect(() => {
+    // Initial check
+    handleResize();
+    
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    
+    // Clean up
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  // For very small screens, render a card-style layout
+  if (isMobile) {
+    return (
+      <div className="specs-table-mobile">
+        {rows.map((row, rowIndex) => (
+          <div key={rowIndex} className="specs-card">
+            {headers.map((header, headerIndex) => (
+              <div key={headerIndex} className="specs-card-item">
+                <div className="specs-card-header">{header}</div>
+                <div className="specs-card-value">{row[headerIndex]}</div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    );
+  }
+  
+  // For tablets and larger screens, use a responsive table
+  return (
+    <div className="specs-table-container">
+      <table className={`specs-table ${isTablet ? 'tablet' : ''}`}>
+        <thead>
+          <tr>
+            {headers.map((header, index) => (
+              <th key={index}>{header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => (
+            <tr key={index}>
+              {row.map((cell, cellIndex) => (
+                <td key={cellIndex}>{cell}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 // Applications Slideshow Component
 export const ApplicationsSlideshow = ({ images, interval = 2500 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

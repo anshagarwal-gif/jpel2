@@ -49,23 +49,52 @@
   font-size: 18px;
   font-style: italic;
 }
+/* SpecsTable.css - Enhanced for better responsiveness */
 
-/* SpecsTable.css */
-.specs-table {
-  width: 90%; /* Increased width for better responsiveness */
-  max-width: 1000px; /* Set a max width */
-  border-collapse: collapse;
-  margin: 2rem auto;
-  table-layout: auto; /* Ensures uniform column width */
+/* Table container to handle horizontal scroll on smaller screens */
+.specs-table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
+  scrollbar-width: thin; /* For Firefox */
+  margin-bottom: 2rem;
 }
 
-/* Reduce column width */
+/* Custom scrollbar styles */
+.specs-table-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.specs-table-container::-webkit-scrollbar-thumb {
+  background-color: rgba(220, 38, 38, 0.5);
+  border-radius: 6px;
+}
+
+.specs-table-container::-webkit-scrollbar-track {
+  background-color: #f3f4f6;
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem auto;
+  table-layout: auto;
+  min-width: 650px; /* Ensure minimum width for readability */
+}
+
 .specs-table th, .specs-table td {
-  padding: 0.5rem 1rem; /* Reduce padding for smaller columns */
+  padding: 0.75rem 1rem;
   text-align: center;
   border: 2px solid #e5e7eb;
-  word-wrap: break-word; /* Ensures text wraps */
-  font-size: 19px; /* Slightly reduce font size */
+  word-wrap: break-word;
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+.specs-table th:first-child, 
+.specs-table td:first-child {
+  text-align: left;
+  font-weight: 600;
 }
 
 .specs-table th:not(:first-child), 
@@ -75,19 +104,117 @@
 
 /* Header row - Red background */
 .specs-table thead tr {
-  background-color: #dc2626; /* Red */
+  background-color: #dc2626;
   color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 /* Alternating grey and white for tbody rows */
 .specs-table tbody tr:nth-child(odd) {
-  background-color: #f3f4f6; /* Light Grey */
+  background-color: #f3f4f6;
 }
 
 .specs-table tbody tr:nth-child(even) {
-  background-color: white; /* White */
+  background-color: white;
 }
 
+/* Hover effect on table rows */
+.specs-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Tablet styles */
+.specs-table.tablet th, 
+.specs-table.tablet td {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+/* Mobile card styles */
+.specs-table-mobile {
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.specs-card {
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.specs-card-item {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.specs-card-item:last-child {
+  border-bottom: none;
+}
+
+.specs-card-header {
+  flex: 0 0 40%;
+  background-color: #f9fafb;
+  padding: 0.75rem;
+  font-weight: 600;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+}
+
+.specs-card-value {
+  flex: 0 0 60%;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+/* First row of each card with red background */
+.specs-card .specs-card-item:first-child .specs-card-header {
+  background-color: #dc2626;
+  color: white;
+}
+
+/* Responsive adjustments for larger screens */
+@media (min-width: 1024px) {
+  .specs-table {
+    width: 90%;
+    max-width: 1200px;
+  }
+  
+  .specs-table th, .specs-table td {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.125rem;
+  }
+}
+
+/* Responsive adjustments for medium screens */
+@media (max-width: 768px) {
+  .specs-table {
+    min-width: 600px;
+  }
+  
+  .specs-table th, .specs-table td {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Specific adjustments for very small screens */
+@media (max-width: 360px) {
+  .specs-card-header {
+    flex: 0 0 50%;
+    font-size: 0.75rem;
+  }
+  
+  .specs-card-value {
+    flex: 0 0 50%;
+    font-size: 0.75rem;
+  }
+}
 /* Applications.css */
 .applications {
   padding: 2rem;
