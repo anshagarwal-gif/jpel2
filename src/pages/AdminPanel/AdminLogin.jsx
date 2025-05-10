@@ -72,21 +72,7 @@ console.log(process.env.REACT_APP_API_URL);
             </div>
           </div>
 
-          <div className="form-options">
-            <div className="remember-me">
-              <input
-                id="remember-me"
-                name="remember-me"
-                type="checkbox"
-              />
-              <label htmlFor="remember-me">Remember me</label>
-            </div>
-
-            <div className="forgot-password">
-              <a href="#">Forgot your password?</a>
-            </div>
-          </div>
-
+  
           <div className="form-submit">
             <button
               type="submit"
