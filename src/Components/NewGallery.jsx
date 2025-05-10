@@ -1,43 +1,9 @@
-// NewGallery.jsx
+// ModifiedGallery.jsx
 import React, { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './NewGallery.css'; // Make sure this file exists in the same directory
 
-// Import images properly from within src directory
-import loom1 from '../assets/loom1.jpg';
-import loom2 from '../assets/loom2.jpg';
-import loom3 from '../assets/loom3.jpg';
-import loom4 from '../assets/loom4.jpg';
-
-const NewGallery = () => {
-  // Use directly imported images
-  const galleryImages = [
-    {
-      id: 1,
-      src: loom1,
-      alt: "Industrial CNC Machine",
-      description: "State-of-the-art CNC machine for precision manufacturing"
-    },
-    {
-      id: 2,
-      src: loom2,
-      alt: "Robotic Arm Assembly",
-      description: "Advanced robotic arm for automated assembly"
-    },
-    {
-      id: 3,
-      src: loom3,
-      alt: "Quality Control System",
-      description: "High-precision quality control system"
-    },
-    {
-      id: 4,
-      src: loom4,
-      alt: "Manufacturing Line",
-      description: "Complete manufacturing production line"
-    }
-  ];
-  
+const ModifiedGallery = ({ galleryTitle = "OUR GALLERY", images }) => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -53,7 +19,7 @@ const NewGallery = () => {
   
   const openLightbox = (index) => {
     setCurrentSlide(index);
-    setSelectedImage(galleryImages[index]);
+    setSelectedImage(images[index]);
     setIsLightboxOpen(true);
     // Prevent scrolling when lightbox is open
     document.body.style.overflow = 'hidden';
@@ -70,9 +36,9 @@ const NewGallery = () => {
     if (isAnimating) return;
     
     setIsAnimating(true);
-    const nextIndex = (currentSlide + 1) % galleryImages.length;
+    const nextIndex = (currentSlide + 1) % images.length;
     setCurrentSlide(nextIndex);
-    setSelectedImage(galleryImages[nextIndex]);
+    setSelectedImage(images[nextIndex]);
     
     setTimeout(() => {
       setIsAnimating(false);
@@ -84,9 +50,9 @@ const NewGallery = () => {
     if (isAnimating) return;
     
     setIsAnimating(true);
-    const prevIndex = (currentSlide - 1 + galleryImages.length) % galleryImages.length;
+    const prevIndex = (currentSlide - 1 + images.length) % images.length;
     setCurrentSlide(prevIndex);
-    setSelectedImage(galleryImages[prevIndex]);
+    setSelectedImage(images[prevIndex]);
     
     setTimeout(() => {
       setIsAnimating(false);
@@ -115,12 +81,12 @@ const NewGallery = () => {
     <div className={`photo-display-container ${hasLoaded ? 'photo-display-loaded' : ''}`} 
          aria-label="Product gallery">
       <h2 className="photo-display-title">
-        OUR GALLERY
+        {galleryTitle}
         <div className="photo-display-title-line"></div>
       </h2>
       
       <div className="photo-display-grid">
-        {galleryImages.map((image, index) => (
+        {images.map((image, index) => (
           <div
             key={image.id}
             className="photo-display-card"
@@ -173,21 +139,17 @@ const NewGallery = () => {
               alt={selectedImage.alt}
               className={`modal-viewer-img ${isAnimating ? 'modal-viewer-transition' : ''}`}
             />
-            <div className="modal-viewer-info">
-              <h3>{selectedImage.alt}</h3>
-              <p>{selectedImage.description}</p>
-            </div>
           </div>
           
           <div className="modal-viewer-indicators" role="tablist">
-            {galleryImages.map((_, index) => (
+            {images.map((_, index) => (
               <button
                 key={index}
                 className={`modal-viewer-dot ${index === currentSlide ? 'modal-viewer-dot-selected' : ''}`}
                 onClick={(e) => {
                   e.stopPropagation();
                   setCurrentSlide(index);
-                  setSelectedImage(galleryImages[index]);
+                  setSelectedImage(images[index]);
                 }}
                 aria-label={`Go to slide ${index + 1}`}
                 aria-selected={index === currentSlide}
@@ -201,4 +163,4 @@ const NewGallery = () => {
   );
 };
 
-export default NewGallery;
+export default ModifiedGallery;

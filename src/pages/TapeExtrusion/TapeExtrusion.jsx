@@ -5,6 +5,13 @@ import PhotoGallery from '../../Components/PhotoGallery/PhotoGallery';
 import banner from "../TapeExtrusion/Assets/banner2.jpg";
 import im from "../TapeExtrusion/Assets/4.jpg";
 import VedioCard from "../../Components/VedioCard";
+import NewGallery from "../../Components/NewGallery"; // Changed from NewGallery to ModifiedGallery
+
+// Import images properly from within src directory
+import bag1 from '../../assets/tape-1.jpg';
+import bag2 from '../../assets/tape-2.jpg';
+import bag3 from '../../assets/tape-3.jpg';
+import bag4 from '../../assets/tape-4.jpg';
 
 const TapeExtrusion = () => {
     const [activeTab, setActiveTab] = useState('Tab 1');
@@ -27,6 +34,33 @@ const TapeExtrusion = () => {
         catalogue: '/assets/catalogues/tape-extrusion-catalogue.pdf',
       }
     };
+
+    const galleryImages = [
+                                {
+                                  id: 1,
+                                  src: bag1,
+                                  alt: "",
+                              
+                                },
+                                {
+                                  id: 2,
+                                  src: bag2,
+                                  alt: "",
+                               
+                                },
+                                {
+                                  id: 3,
+                                  src: bag3,
+                                  alt: "",
+                                  
+                                },
+                                {
+                                  id: 4,
+                                  src: bag4,
+                                  alt: "",
+                                 
+                                }
+                              ];
   
     // Get the content for the active tab
     const currentContent = tabContent[activeTab];
@@ -130,6 +164,11 @@ const TapeExtrusion = () => {
             videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
           />
         </div>
+           {/* Add the ModifiedGallery component here */}
+      <NewGallery
+        galleryTitle="TAPE EXTRUSION GALLERY" 
+        images={galleryImages} 
+      />
       </div>
     );
 };

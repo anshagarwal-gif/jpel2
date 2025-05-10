@@ -2,6 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Navigation, SpecsTable, Applications, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import './Bag.css';
 import VedioCard from "../../Components/VedioCard";
+import NewGallery from "../../Components/NewGallery"; // Changed from NewGallery to ModifiedGallery
+
+
+
+// Import images properly from within src directory
+import bag1 from '../../assets/bag1.jpg';
+import bag2 from '../../assets/bag2.jpg';
+import bag3 from '../../assets/bag3.jpg';
+import bag4 from '../../assets/bag4.jpg';
 
 const Bag = () => {
   // Main tab and subtab states
@@ -26,6 +35,33 @@ const Bag = () => {
     require("../Bag-Conversion/Assets/BCS-3.jpg"),
   ];
 
+   const galleryImages = [
+        {
+          id: 1,
+          src: bag1,
+          alt: "",
+      
+        },
+        {
+          id: 2,
+          src: bag2,
+          alt: "",
+       
+        },
+        {
+          id: 3,
+          src: bag3,
+          alt: "",
+          
+        },
+        {
+          id: 4,
+          src: bag4,
+          alt: "",
+         
+        }
+      ];
+    
   // All tab content organized by combined ID (maintab-subtab)
   const tabContent = {
     'Small Bag Conversion-BCS': {
@@ -399,6 +435,11 @@ const Bag = () => {
           videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
         />
         </div>
+              {/* Add the ModifiedGallery component here */}
+      <NewGallery
+        galleryTitle="BAG CONVERSION MACHINE GALLERY" 
+        images={galleryImages} 
+      />
     </div>
   );
 };

@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import '../PrintingMachines/PrintingMachine.css'
 import VedioCard from "../../Components/VedioCard";
+import NewGallery from "../../Components/NewGallery"; // Changed from NewGallery to ModifiedGallery
+
+// Import images properly from within src directory
+import bag1 from '../../assets/printing-1.jpg';
+import bag2 from '../../assets/printing-2.jpg';
+import bag3 from '../../assets/printing-3.jpg';
+import bag4 from '../../assets/printing-4.jpg';
 const PrintingMachine = () => {
     const [activeTab, setActiveTab] = useState('Product');
     
@@ -22,6 +29,34 @@ const PrintingMachine = () => {
             catalogue: '/path-to-tab1-catalogue.pdf',
           }
         };
+
+        const galleryImages = [
+                            {
+                              id: 1,
+                              src: bag1,
+                              alt: "",
+                          
+                            },
+                            {
+                              id: 2,
+                              src: bag2,
+                              alt: "",
+                           
+                            },
+                            {
+                              id: 3,
+                              src: bag3,
+                              alt: "",
+                              
+                            },
+                            {
+                              id: 4,
+                              src: bag4,
+                              alt: "",
+                             
+                            }
+                          ];
+            
         const currentContent = tabContent[activeTab];
     return(
 <div>
@@ -113,7 +148,12 @@ const PrintingMachine = () => {
   />
       
       </div>
-
+           {/* Add the ModifiedGallery component here */}
+           
+      <NewGallery
+        galleryTitle="FLEXOGRAPHIC PRINTING MACHINE GALLERY"
+        images={galleryImages} 
+      />
 </div>
     )
 }

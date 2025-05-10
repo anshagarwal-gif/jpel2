@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import "../CastLine/CastLine.css"
 import VedioCard from "../../Components/VedioCard";
+import NewGallery from "../../Components/NewGallery"; // Changed from NewGallery to ModifiedGallery
+
+// Import images properly from within src directory
+import bag1 from '../../assets/cast-1.jpg';
+import bag2 from '../../assets/cast-2.jpg';
+import bag3 from '../../assets/cast-3.jpg';
+import bag4 from '../../assets/cast-4.jpg';
+
 const CastLine = () => {
     const [activeTab, setActiveTab] = useState('Product');
     
@@ -25,6 +33,33 @@ const CastLine = () => {
             catalogue: '/path-to-tab1-catalogue.pdf',
           }
         };
+
+         const galleryImages = [
+                        {
+                          id: 1,
+                          src: bag1,
+                          alt: "",
+                      
+                        },
+                        {
+                          id: 2,
+                          src: bag2,
+                          alt: "",
+                       
+                        },
+                        {
+                          id: 3,
+                          src: bag3,
+                          alt: "",
+                          
+                        },
+                        {
+                          id: 4,
+                          src: bag4,
+                          alt: "",
+                         
+                        }
+                      ];
         const currentContent = tabContent[activeTab];
     return(
 <div>
@@ -99,6 +134,11 @@ const CastLine = () => {
     videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
   />
   </div>
+      {/* Add the ModifiedGallery component here */}
+      <NewGallery
+        galleryTitle="CAST FILM LINE GALLERY" 
+        images={galleryImages} 
+      />
 </div>
     )
 }

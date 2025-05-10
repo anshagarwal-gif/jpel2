@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import "../Monofilament/Monofilament.css"
 import VedioCard from "../../Components/VedioCard";
+import NewGallery from "../../Components/NewGallery"; // Changed from NewGallery to ModifiedGallery
+
+// Import images properly from within src directory
+import bag1 from '../../assets/mono-1.jpg';
+import bag2 from '../../assets/mono-2.jpg';
+import bag3 from '../../assets/mono-3.jpg';
+import bag4 from '../../assets/mono-4.jpg';
+
 const Monofilament = () => {
     const [activeTab, setActiveTab] = useState('Product');
     
@@ -26,6 +34,34 @@ const Monofilament = () => {
           }
         };
         const currentContent = tabContent[activeTab];
+
+         const galleryImages = [
+                        {
+                          id: 1,
+                          src: bag1,
+                          alt: "",
+                      
+                        },
+                        {
+                          id: 2,
+                          src: bag2,
+                          alt: "",
+                       
+                        },
+                        {
+                          id: 3,
+                          src: bag3,
+                          alt: "",
+                          
+                        },
+                        {
+                          id: 4,
+                          src: bag4,
+                          alt: "",
+                         
+                        }
+                      ];
+        
     return(
 <div>
 
@@ -104,6 +140,11 @@ const Monofilament = () => {
     videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
   />
   </div>
+    {/* Add the ModifiedGallery component here */}
+      <NewGallery
+        galleryTitle="MONOFILAMENT GALLERY" 
+        images={galleryImages} 
+      />
 </div>
     )
 }

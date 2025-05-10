@@ -2,6 +2,14 @@ import React, { useState }  from "react";
 import { Navigation, SpecsTable, Applications, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import './WovenSack.css'
 import VedioCard from "../../Components/VedioCard";
+import NewGallery from "../../Components/NewGallery"; // Changed from NewGallery to ModifiedGallery
+
+// Import images properly from within src directory
+import bag1 from '../../assets/Plastic-Recycling-1.jpg';
+import bag2 from '../../assets/Plastic-Recycling-2.jpg';
+import bag3 from '../../assets/Plastic-Recycling-3.jpg';
+import bag4 from '../../assets/Plastic-Recycling-4.jpg';
+
 const WovenSack = () => {
   const [activeTab, setActiveTab] = useState('Plastic Cleaning & Washing');
     // Tab-specific content
@@ -47,6 +55,35 @@ const WovenSack = () => {
         catalogue: '/path-to-tab1-catalogue.pdf',
       }
     };
+
+    
+         const galleryImages = [
+                        {
+                          id: 1,
+                          src: bag1,
+                          alt: "",
+                      
+                        },
+                        {
+                          id: 2,
+                          src: bag2,
+                          alt: "",
+                       
+                        },
+                        {
+                          id: 3,
+                          src: bag3,
+                          alt: "",
+                          
+                        },
+                        {
+                          id: 4,
+                          src: bag4,
+                          alt: "",
+                         
+                        }
+                      ];
+        
 
   
     // Get the content for the active tab
@@ -145,7 +182,11 @@ const WovenSack = () => {
     videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
   />
       </div>
-
+        {/* Add the ModifiedGallery component here */}
+      <NewGallery
+        galleryTitle="PLASTIC RECYCLING GALLERY" 
+        images={galleryImages} 
+      />
       </div>
     );
     

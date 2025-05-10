@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import "../Box-Strapping/BoxStrapping.css"
 import VedioCard from "../../Components/VedioCard";
+import NewGallery from "../../Components/NewGallery"; // Changed from NewGallery to ModifiedGallery
+
+// Import images properly from within src directory
+import bag1 from '../../assets/box1.jpg';
+import bag2 from '../../assets/box2.jpg';
+import bag3 from '../../assets/box3.jpg';
+import bag4 from '../../assets/box4.jpg';
+
 const BoxStrapping = () => {
     const [activeTab, setActiveTab] = useState('Product');
     
@@ -28,6 +36,34 @@ const BoxStrapping = () => {
             catalogue: '/path-to-tab1-catalogue.pdf',
           }
         };
+
+         const galleryImages = [
+                {
+                  id: 1,
+                  src: bag1,
+                  alt: "",
+              
+                },
+                {
+                  id: 2,
+                  src: bag2,
+                  alt: "",
+               
+                },
+                {
+                  id: 3,
+                  src: bag3,
+                  alt: "",
+                  
+                },
+                {
+                  id: 4,
+                  src: bag4,
+                  alt: "",
+                 
+                }
+              ];
+
         const currentContent = tabContent[activeTab];
     return(
 <div>
@@ -107,6 +143,11 @@ const BoxStrapping = () => {
     videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
   />
   </div>
+     {/* Add the ModifiedGallery component here */}
+      <NewGallery
+        galleryTitle="BOX STRAPPING GALLERY" 
+        images={galleryImages} 
+      />
 </div>
     )
 }

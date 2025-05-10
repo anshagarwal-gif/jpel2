@@ -2,6 +2,14 @@ import React, { useState }  from "react";
 import { Navigation, SpecsTable, Applications, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import './ExtrusionCoating.css'
 import VedioCard from "../../Components/VedioCard";
+import NewGallery from "../../Components/NewGallery"; // Changed from NewGallery to ModifiedGallery
+
+// Import images properly from within src directory
+import bag1 from '../../assets/coating-1.jpg';
+import bag2 from '../../assets/coating-2.jpg';
+import bag3 from '../../assets/coating-3.jpg';
+import bag4 from '../../assets/coating-4.jpg';
+
 const ExtrusionCoating = () => {
   const [activeTab, setActiveTab] = useState('Woven & non-Woven');
 //   const images = [
@@ -92,6 +100,34 @@ const ExtrusionCoating = () => {
       },
       
     };
+
+     const galleryImages = [
+                    {
+                      id: 1,
+                      src: bag1,
+                      alt: "",
+                  
+                    },
+                    {
+                      id: 2,
+                      src: bag2,
+                      alt: "",
+                   
+                    },
+                    {
+                      id: 3,
+                      src: bag3,
+                      alt: "",
+                      
+                    },
+                    {
+                      id: 4,
+                      src: bag4,
+                      alt: "",
+                     
+                    }
+                  ];
+    
 
   
     // Get the content for the active tab
@@ -249,7 +285,11 @@ const ExtrusionCoating = () => {
   />
   </div>
   
-  
+     {/* Add the ModifiedGallery component here */}
+      <NewGallery
+        galleryTitle="EXTRUSION COATING GALLERY" 
+        images={galleryImages} 
+      />
       </div>
     );
     
