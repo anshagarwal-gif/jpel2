@@ -30,6 +30,7 @@ import AdminDashboard from './pages/AdminPanel/AdminDashboard';
 import ProtectedRoute from './ProtectedRoute';
 
 import { useEffect } from 'react';
+import ScrollToTop from './Components/ScrollToTop';
 
 function AppLayout() {
   const location = useLocation();
@@ -43,6 +44,7 @@ function AppLayout() {
 
       <main className="flex-grow">
         <Routes>
+
           <Route path="/" element={<Home />} />
           <Route path="/Exhibition" element={<EXHIBITION />} />
           <Route path="/News" element={<News />} />
@@ -83,6 +85,7 @@ function AppLayout() {
 function App() {
   return (
     <Router>
+      <ScrollToTop/>
       <link
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         rel="stylesheet"

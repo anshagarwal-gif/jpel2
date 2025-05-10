@@ -10,7 +10,20 @@ const CatalogSubmissions = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [sortField, setSortField] = useState("date");
   const [sortDirection, setSortDirection] = useState("desc");
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 480);
   const recordsPerPage = 10;
+
+  // Handle resize events
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setIsSmallScreen(window.innerWidth <= 480);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     setLoading(true);
@@ -108,6 +121,121 @@ const CatalogSubmissions = () => {
   const currentRecords = sortedSubmissions.slice(indexOfFirstRecord, indexOfLastRecord);
   const totalPages = Math.ceil(sortedSubmissions.length / recordsPerPage);
 
+  // Generate page numbers for pagination
+  const generatePaginationButtons = () => {
+    // For small screens, just show current page with prev/next
+    if (isMobile) {
+      return (
+        <>
+          <button 
+            className="jpel-page-btn jpel-prev" 
+            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            aria-label="Previous page"
+          >
+            &lt;
+          </button>
+          <button className="jpel-page-btn jpel-active">
+            {currentPage}
+          </button>
+          <button 
+            className="jpel-page-btn jpel-next"
+            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages || totalPages === 0}
+            aria-label="Next page"
+          >
+            &gt;
+          </button>
+        </>
+      );
+    }
+    
+    // For larger screens, show more page numbers
+    const buttons = [];
+    const maxVisiblePages = 5;
+    
+    // Always include first page
+    buttons.push(
+      <button 
+        key="page-1"
+        className={`jpel-page-btn ${currentPage === 1 ? 'jpel-active' : ''}`}
+        onClick={() => setCurrentPage(1)}
+      >
+        1
+      </button>
+    );
+    
+    // Calculate range of pages to display
+    let startPage = Math.max(2, currentPage - Math.floor(maxVisiblePages / 2));
+    let endPage = Math.min(totalPages - 1, startPage + maxVisiblePages - 2);
+    
+    if (endPage - startPage < maxVisiblePages - 2) {
+      startPage = Math.max(2, endPage - (maxVisiblePages - 2));
+    }
+    
+    // Add ellipsis after first page if needed
+    if (startPage > 2) {
+      buttons.push(<span key="ellipsis-1" className="jpel-ellipsis">...</span>);
+    }
+    
+    // Add middle pages
+    for (let i = startPage; i <= endPage; i++) {
+      buttons.push(
+        <button
+          key={`page-${i}`}
+          className={`jpel-page-btn ${currentPage === i ? 'jpel-active' : ''}`}
+          onClick={() => setCurrentPage(i)}
+        >
+          {i}
+        </button>
+      );
+    }
+    
+    // Add ellipsis before last page if needed
+    if (endPage < totalPages - 1) {
+      buttons.push(<span key="ellipsis-2" className="jpel-ellipsis">...</span>);
+    }
+    
+    // Always include last page if there is more than one page
+    if (totalPages > 1) {
+      buttons.push(
+        <button
+          key={`page-${totalPages}`}
+          className={`jpel-page-btn ${currentPage === totalPages ? 'jpel-active' : ''}`}
+          onClick={() => setCurrentPage(totalPages)}
+        >
+          {totalPages}
+        </button>
+      );
+    }
+    
+    return buttons;
+  };
+
+  // Define which columns to hide on small screens
+  const getVisibleColumns = () => {
+    if (isSmallScreen) {
+      return {
+        id: true,
+        name: true,
+        email: false,
+        contactNumber: false,
+        productCategory: true,
+        date: true
+      };
+    }
+    return {
+      id: true,
+      name: true,
+      email: true, 
+      contactNumber: true,
+      productCategory: true,
+      date: true
+    };
+  };
+
+  const visibleColumns = getVisibleColumns();
+
   return (
     <div className="jpel-catalog-submissions-container">
       <header className="jpel-catalog-header">
@@ -155,24 +283,30 @@ const CatalogSubmissions = () => {
                     {sortField === "name" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
                   </span>
                 </th>
-                <th onClick={() => handleSort("email")}>
-                  EMAIL
-                  <span className={`jpel-sort-icon ${sortField === "email" ? (sortDirection === "asc" ? "jpel-sort-asc" : "jpel-sort-desc") : ""}`}>
-                    {sortField === "email" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
-                  </span>
-                </th>
-                <th onClick={() => handleSort("contactNumber")}>
-                  CONTACT NO
-                  <span className={`jpel-sort-icon ${sortField === "contactNumber" ? (sortDirection === "asc" ? "jpel-sort-asc" : "jpel-sort-desc") : ""}`}>
-                    {sortField === "contactNumber" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
-                  </span>
-                </th>
-                <th onClick={() => handleSort("productCategory")}>
-                  CATEGORY
-                  <span className={`jpel-sort-icon ${sortField === "productCategory" ? (sortDirection === "asc" ? "jpel-sort-asc" : "jpel-sort-desc") : ""}`}>
-                    {sortField === "productCategory" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
-                  </span>
-                </th>
+                {visibleColumns.email && (
+                  <th onClick={() => handleSort("email")}>
+                    EMAIL
+                    <span className={`jpel-sort-icon ${sortField === "email" ? (sortDirection === "asc" ? "jpel-sort-asc" : "jpel-sort-desc") : ""}`}>
+                      {sortField === "email" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                    </span>
+                  </th>
+                )}
+                {visibleColumns.contactNumber && (
+                  <th onClick={() => handleSort("contactNumber")}>
+                    CONTACT
+                    <span className={`jpel-sort-icon ${sortField === "contactNumber" ? (sortDirection === "asc" ? "jpel-sort-asc" : "jpel-sort-desc") : ""}`}>
+                      {sortField === "contactNumber" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                    </span>
+                  </th>
+                )}
+                {visibleColumns.productCategory && (
+                  <th onClick={() => handleSort("productCategory")}>
+                    CATEGORY
+                    <span className={`jpel-sort-icon ${sortField === "productCategory" ? (sortDirection === "asc" ? "jpel-sort-asc" : "jpel-sort-desc") : ""}`}>
+                      {sortField === "productCategory" ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                    </span>
+                  </th>
+                )}
                 <th onClick={() => handleSort("date")}>
                   DATE
                   <span className={`jpel-sort-icon ${sortField === "date" ? (sortDirection === "asc" ? "jpel-sort-asc" : "jpel-sort-desc") : ""}`}>
@@ -192,34 +326,50 @@ const CatalogSubmissions = () => {
                           <button 
                             className={`jpel-add-button ${expandedRow === (submission._id || index) ? "jpel-expanded" : ""}`}
                             onClick={() => toggleRowExpand(submission._id || index)}
+                            aria-expanded={expandedRow === (submission._id || index)}
+                            aria-label={expandedRow === (submission._id || index) ? "Collapse details" : "Expand details"}
                           >
                             {expandedRow === (submission._id || index) ? "-" : "+"}
                           </button>
                           {displayIndex}
                         </td>
                         <td>{submission.name}</td>
-                        <td>{submission.email}</td>
-                        <td>
-                          <div className="jpel-contact-with-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                            </svg>
-                            {submission.contactNumber}
-                          </div>
-                        </td>
-                        <td>{submission.productCategory || "Manufacturing Range"}</td>
+                        {visibleColumns.email && <td>{submission.email}</td>}
+                        {visibleColumns.contactNumber && (
+                          <td>
+                            <div className="jpel-contact-with-icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                              </svg>
+                              {submission.contactNumber}
+                            </div>
+                          </td>
+                        )}
+                        {visibleColumns.productCategory && <td>{submission.productCategory || "Manufacturing Range"}</td>}
                         <td>{submission.date ? new Date(submission.date).toLocaleDateString() : ""}</td>
                       </tr>
                       {expandedRow === (submission._id || index) && (
                         <tr className="jpel-details-row">
-                          <td colSpan="6">
+                          <td colSpan={Object.values(visibleColumns).filter(Boolean).length + 1}>
                             <div className="jpel-details-panel">
                               <div className="jpel-details-header">
                                 <h3>Details for {submission.name}</h3>
-                                <button className="jpel-close-details" onClick={() => setExpandedRow(null)}>×</button>
+                                <button 
+                                  className="jpel-close-details" 
+                                  onClick={() => setExpandedRow(null)}
+                                  aria-label="Close details"
+                                >×</button>
                               </div>
                               <div className="jpel-details-content">
                                 <div className="jpel-details-grid">
+                                  <div className="jpel-details-item">
+                                    <div className="jpel-details-label">ID:</div>
+                                    <div className="jpel-details-value">{submission._id}</div>
+                                  </div>
+                                  <div className="jpel-details-item">
+                                    <div className="jpel-details-label">Name:</div>
+                                    <div className="jpel-details-value">{submission.name}</div>
+                                  </div>
                                   <div className="jpel-details-item">
                                     <div className="jpel-details-label">ID:</div>
                                     <div className="jpel-details-value">{submission._id}</div>

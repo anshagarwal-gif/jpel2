@@ -56,70 +56,72 @@ const CircularLoom = () => {
 'Perfect solution for packing perishable fruits and vegetables.' ,
 'Provides ventilation and strength to maintain the freshness of produce.',
 'Designed to cater to the needs of the food and agriculture packaging sector.'],
-      catalogue: '/path-to-tab1-catalogue.pdf',
-    },
-    '6-Shuttle': {
-      image: require("../CircularLoom/Assets/5.jpg"),
-      description: 'This is the description for Tab 2.',
-      tableHeaders: ['Technical Specifications',''],
-      tableRows: [
-        ['Working width - Double Flat', '30 to 140 cm*'],
-        ['Weft insertion rate', 'Up to 1200 ppm*'],
-      ],
-      slideshowImages: [require("../CircularLoom/Assets/3.jpg"), require("../CircularLoom/Assets/4_1.jpg")],
-      applicationPoints: ['Designed for versatile applications, including the packaging of cement, fertilizers, polymer granules, chemicals, and seeds.', 'Ideal for creating jumbo bags (FIBCs), packaging fabric, and lumber wraps.* ','Suitable for storing and transporting husk, animal feed, and similar bulk materials. ','Tailored to meet the demands of industrial and agricultural packaging solutions.'],
-      catalogue: '/path-to-tab1-catalogue.pdf',
-    },
-    '8-Shuttle': {
-      image: require("../CircularLoom/Assets/6.jpg"),
-      description: 'This is the description for Tab 3.',
-      tableHeaders: ['Technical Specifications',''],
-      tableRows: [
-        ['Working width - Double Flat', '100 to 225 cm*'],
-        ['Weft insertion rate', 'Up to 740 ppm*'],
-      ],
-      slideshowImages: [require("../CircularLoom/Assets/5_1.jpg"), require("../CircularLoom/Assets/6_1.jpg")],
-      applicationPoints: ['Specializes in producing wide-width fabrics tailored for industrial applications.', 'Enables the creation of durable and high-quality jumbo bags (FIBCs).', 'Designed for manufacturing weather-resistant tarpaulins for versatile uses'],
-      catalogue: '/path-to-tab1-catalogue.pdf',
-    },
-    '10-Shuttle': {
-      image: require("../CircularLoom/Assets/7.jpg"),
-      description: 'This is the description for Tab 2.',
-      tableHeaders: ['Technical Specifications',''],
-      tableRows: [
-        ['Working width - Double Flat', '175 to 255 cm*'],
-        ['Weft insertion rate', 'Up to 700 ppm*'],
-      ],
-      slideshowImages: [require("../CircularLoom/Assets/7_1.jpg"), require("../CircularLoom/Assets/8_1.jpg")],
-      applicationPoints: ['Supports geotextile production, catering to construction and infrastructure projects.', 'Suitable for agro-textile solutions to enhance agricultural efficiency and productivity','Provides customization options for fabrics to meet diverse industry requirements.'],
-      catalogue: '/path-to-tab1-catalogue.pdf',
-    },
-    '12-Shuttle': {
-      image: require("../CircularLoom/Assets/8.jpg"),
-      description: 'This is the description for Tab 2.',
-      tableHeaders: ['Technical Specifications',''],
-      tableRows: [
-        ['Working width - Double Flat', '250 to 295 cm*'],
-        ['Weft insertion rate', 'Up to 650 ppm*'],
-      ],
-      slideshowImages: [require("../CircularLoom/Assets/9_1.jpg"), require("../CircularLoom/Assets/10_1.jpg")],
-      applicationPoints: ['Pond Lining: Prevents water leakage and protects the environment.', 'Tarpaulin: Provides waterproofing and heavy-duty protection.','Geo-membrane: Used for containment in landfills and ponds.'],
-      catalogue: '/path-to-tab1-catalogue.pdf',
-    },
-    'iL (Inside Lamination)': {
-      image:require("../CircularLoom/Assets/9.png"),
-      description: 'This is the description for Tab 2.',
-      tableHeaders: ['Technical Specifications',''],
-      tableRows: [
-        ['Working width (Without Liner)', '30 to 90 cm*'],
-        ['Working width (With Liner)', '30 to 70 cm*'],
-        ['Weft insertion rate', 'Up to 1200 ppm*'],
-      ],
-      slideshowImages: [require("../CircularLoom/Assets/11_1.jpg")],
-      applicationPoints: ['Packaging: Industrial sacks, food-grade bags, and chemical-resistant containers.', 'Agriculture: Seed bags, fertilizer storage, and crop covers.','Consumer Goods: Reusable shopping and laundry bags.','Medical and Pharmaceutical: Moisture-resistant packaging for powders and hygiene products.'],
-      catalogue: '/path-to-tab1-catalogue.pdf',
-    },
-  };
+        catalogue: '/path-to-tab1-catalogue.pdf',
+      },
+      '6-Shuttle': {
+        image: require("../CircularLoom/Assets/5.jpg"),
+        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+        tableHeaders: ['Technical Specifications',''],
+        tableRows: [
+          ['Working width - Double Flat', '30 to 140 cm*'],
+          ['Weft insertion rate', 'Up to 1200 ppm*'],
+        ],
+        slideshowImages: [require("../CircularLoom/Assets/3.jpg"), require("../CircularLoom/Assets/4_1.jpg")],
+        applicationPoints: ['Designed for versatile applications, including the packaging of cement, fertilizers, polymer granules, chemicals, and seeds.', 'Ideal for creating jumbo bags (FIBCs), packaging fabric, and lumber wraps.* ','Suitable for storing and transporting husk, animal feed, and similar bulk materials. ','Tailored to meet the demands of industrial and agricultural packaging solutions.'],
+        catalogue: '/path-to-tab1-catalogue.pdf',
+        
+
+      },
+      '8-Shuttle': {
+        image: require("../CircularLoom/Assets/6.jpg"),
+        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+        tableHeaders: ['Technical Specifications',''],
+        tableRows: [
+          ['Working width - Double Flat', '100 to 225 cm*'],
+          ['Weft insertion rate', 'Up to 740 ppm*'],
+        ],
+        slideshowImages: [require("../CircularLoom/Assets/5_1.jpg"), require("../CircularLoom/Assets/6_1.jpg")],
+        applicationPoints: ['Specializes in producing wide-width fabrics tailored for industrial applications.', 'Enables the creation of durable and high-quality jumbo bags (FIBCs).', 'Designed for manufacturing weather-resistant tarpaulins for versatile uses'],
+        catalogue: '/path-to-tab1-catalogue.pdf',
+      },
+      '10-Shuttle': {
+        image: require("../CircularLoom/Assets/7.jpg"),
+        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+        tableHeaders: ['Technical Specifications',''],
+        tableRows: [
+          ['Working width - Double Flat', '175 to 255 cm*'],
+          ['Weft insertion rate', 'Up to 700 ppm*'],
+        ],
+        slideshowImages: [require("../CircularLoom/Assets/7_1.jpg"), require("../CircularLoom/Assets/8_1.jpg")],
+        applicationPoints: ['Supports geotextile production, catering to construction and infrastructure projects.', 'Suitable for agro-textile solutions to enhance agricultural efficiency and productivity','Provides customization options for fabrics to meet diverse industry requirements.'],
+        catalogue: '/path-to-tab1-catalogue.pdf',
+      },
+      '12-Shuttle': {
+        image: require("../CircularLoom/Assets/8.jpg"),
+        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+        tableHeaders: ['Technical Specifications',''],
+        tableRows: [
+          ['Working width - Double Flat', '250 to 295 cm*'],
+          ['Weft insertion rate', 'Up to 650 ppm*'],
+        ],
+        slideshowImages: [require("../CircularLoom/Assets/9_1.jpg"), require("../CircularLoom/Assets/10_1.jpg")],
+        applicationPoints: ['Pond Lining: Prevents water leakage and protects the environment.', 'Tarpaulin: Provides waterproofing and heavy-duty protection.','Geo-membrane: Used for containment in landfills and ponds.'],
+        catalogue: '/path-to-tab1-catalogue.pdf',
+      },
+      'iL (Inside Lamination)': {
+        image:require("../CircularLoom/Assets/9.png"),
+        description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+        tableHeaders: ['Technical Specifications',''],
+        tableRows: [
+          ['Working width (Without Liner)', '30 to 90 cm*'],
+          ['Working width (With Liner)', '30 to 70 cm*'],
+          ['Weft insertion rate', 'Up to 1200 ppm*'],
+        ],
+        slideshowImages: [require("../CircularLoom/Assets/11_1.jpg")],
+        applicationPoints: ['Packaging: Industrial sacks, food-grade bags, and chemical-resistant containers.', 'Agriculture: Seed bags, fertilizer storage, and crop covers.','Consumer Goods: Reusable shopping and laundry bags.','Medical and Pharmaceutical: Moisture-resistant packaging for powders and hygiene products.'],
+        catalogue: '/path-to-tab1-catalogue.pdf',
+      },
+    };
 
   // Get the content for the active tab
   const currentContent = tabContent[activeTab];
