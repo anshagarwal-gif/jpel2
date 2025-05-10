@@ -14,7 +14,7 @@ const Catalogue =require("./routes/FormSubmission")
 
 // Create an Express app
 const app = express();
-app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/public', express.static(path.join(__dirname, 'images')));
 
 app.use(express.json()); 
