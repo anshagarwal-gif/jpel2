@@ -38,17 +38,16 @@ const Footer = () => {
           <h4>PRODUCT LINE</h4>
           <ul>
             <Link to="/TapeExtrusion"><li>Tape Stretching Lines</li></Link>
-            <Link to="/CircularWeaving"><li>Circular Weaving Machine</li></Link>
+            <Link to="/CircularLoom"><li>Circular Weaving Machine</li></Link>
             <Link to="/ExtrusionCoating"><li>Extrusion Coating Lines</li></Link>
-            <Link to="/FlexoPrinting"><li>Flexo Printing Machines</li></Link>
-            <Link to="/BagConversion"><li>Bag Conversion Lines</li></Link>
-            <Link to="/RecyclingLines"><li>Recycling Lines</li></Link>
+            <Link to="/Bag-Conversion"><li>Bag Conversion Lines</li></Link>
+            <Link to="/WovenSack"><li>Recycling Lines</li></Link>
             <Link to="/PET"><li>PET Washing Line</li></Link>
             <Link to="/BatteryBox"><li>Battery Box Recycling</li></Link>
             <Link to="/Monofilament"><li>Monofilament Lines</li></Link>
             <Link to="/BoxStrapping"><li>PP/PET Box Strapping Lines</li></Link>
-            <Link to="/MultilayerSheet"><li>Multilayer Sheet Lines</li></Link>
-            <Link to="/MultilayerCastFilm"><li>Multilayer Cast Film Lines</li></Link>
+            <Link to="/SheetExtrusion"><li>Multilayer Sheet Lines</li></Link>
+            <Link to="/CastLine"><li>Multilayer Cast Film Lines</li></Link>
             <Link to="/Flexible"><li>Flexible Packaging</li></Link>
             
           </ul>
