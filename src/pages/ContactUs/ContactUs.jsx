@@ -93,7 +93,7 @@ const ContactUs = () => {
 
     <Card email="info@jpel.in" phone="+91 9426813311" theme="Sales & Marketing"/>
     <Card email="services@jpel.in" phone="+91 9924131008" theme="Customer Services" />
-    <Card email="spares@jpel.in" phone="+91 9909047116" theme="Spare Parts" />
+    <Card email="spares@jpel.in" phone="+91 9909047166" theme="Spare Parts" />
     </div>
 <h4 className="network">OUR NETWORK</h4>
     <div className="hover-card-container">
@@ -102,7 +102,7 @@ const ContactUs = () => {
         subtitle="Corporate Office, C1B - 1034 to 1037 GIDC Industrial Estate, Ankleshwar, Gujarat - 393002. " 
         phone1= "+91 9909047164"
         phone2="+91 9924202307"
-        emails={["info@jpel.in,", "export@jpel.in,", "sales@jpel.in"]} 
+        emails={["info@jpel.in"]} 
         
       />
       <HoverCard 
