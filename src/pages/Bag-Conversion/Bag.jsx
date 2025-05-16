@@ -4,8 +4,6 @@ import './Bag.css';
 import VedioCard from "../../Components/VedioCard";
 import NewGallery from "../../Components/NewGallery"; // Changed from NewGallery to ModifiedGallery
 
-
-
 // Import images properly from within src directory
 import bag1 from '../../assets/bag1.jpg';
 import bag2 from '../../assets/bag2.jpg';
@@ -67,7 +65,7 @@ const Bag = () => {
     'Small Bag Conversion-BCS': {
       // This will be overridden by the slideshow
       image: require("../WovenSack/Assets/pcl.jpg"),
-      description: "",
+      description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
       tableHeaders: ['Technical Specifications', 'BCS 850', 'BCS 1250', 'BCS 1600'],
       tableRows: [
         ['Width of unwinder cloth', '300 to 850 mm*', '300 to 1250 mm*', '500 to 1600 mm*'],
@@ -344,39 +342,14 @@ const Bag = () => {
               className="product-image"
             />
             <p className="description2">Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.</p>
-            <button 
-              className="download-button"
-              onClick={handleDownloadCatalogue}
-              aria-label="Download Product Catalogue"
-            >
-              <span className="docs">
-                Download Catalogue
-                <svg
-                  viewBox="0 0 24 24"
-                  height="24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-              </span>
-              <div className="download">
-                <svg
-                  viewBox="0 0 24 24"
-                  height="24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-              </div>
-            </button>
+            
+            {/* Use the same component but just extract the download button from ProductWithDownloadCatalogue */}
+            <ProductWithDownloadCatalogue
+              hideImage={true}
+              hideDescription={true}
+              tabId={activeSubtab}
+              tabContent={currentContent}
+            />
           </div>
         ) : (
           <ProductWithDownloadCatalogue

@@ -17,10 +17,13 @@ const PrintingMachine = () => {
           'Product': {
             image: require("../PrintingMachines/Assets/4.jpg"),
             description: '',
-            tableHeaders: ['Technical Specifications',""],
+            tableHeaders: ['Technical Specifications','','',''],
             tableRows: [
-              ['Working width - Double Flat', '20 to 80 cm*'],
-              ['Weft insertion rate', 'upto 720ppm*'],
+              ['Model', '4 Colour','6 Colour','8 Colour'],
+              ['Print Width', '760 mm', '760 mm', '760 mm'],
+              ['Print Possibility', '4+0 | 3+0 | 1+0 | 3+1 | 2+2 | 2+1 | 1+1 ', '6+0 | 5+0 | 4+0 | 3+0 | 2+0 | 1+0 | 5+1 | 4+2 | 3+3','| 8+0 | 6+2 | 4+4 |'],
+              ['Line Speed (MPM)', '80 to 90', '80 to 90', '80 to 90'],
+              ['Repeat Print Length', '508 mm to 1307 mm', '508 mm to 1307 mm','508 mm to 1307 mm'],
             ],
             slideshowImages: [require("../PrintingMachines/Assets/13.jpg"), require("../PrintingMachines/Assets/14.jpg")],
             applicationPoints: ['Cement Bags: Printing logos, product details, and branding on woven polypropylene cement sacks.' ,
