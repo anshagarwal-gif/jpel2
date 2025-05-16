@@ -18,26 +18,26 @@ const CircularLoom = () => {
     {
       id: 1,
       src: loom1,
-      alt: "Circular Loom Equipment",
-      description: "High-quality circular loom machine for industrial applications"
+      alt: "",
+      description: ""
     },
     {
       id: 2,
       src: loom2,
-      alt: "Loom Production",
-      description: "Production view of our circular loom technology"
+      alt: "",
+      
     },
     {
       id: 3,
       src: loom3,
-      alt: "Weaving Process",
-      description: "Detailed view of the circular weaving process"
+      alt: "",
+      
     },
     {
       id: 4,
       src: loom4,
-      alt: "Final Product",
-      description: "Finished products from our circular loom machines"
+      alt: "",
+     
     }
   ];
   
