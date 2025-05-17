@@ -24,7 +24,7 @@ const BoxStrapping = () => {
               ['Screw Dia. (mm)', '70','80','80','100'],
               ['No. of Straps', '2','4','2','4'],
               ['Strap Size (mm)', '9, 12, 15, 19','9, 12, 15, 19','9, 12, 15, 19 ','9, 12, 15, 19 '],
-              ['Max. Output (Kg/Hr.)', '70 to 80','150 to 160','100 to 120','200 to 250'],
+              ['Max. Output (Kg/Hr.)', '75 to 80','160 to 180','120 to 150','200 to 250'],
               ['No. of Winders', '3','5','3','5'],
             ],
             slideshowImages: [require("../Box-Strapping/Assets/app.jpg"),require("../Box-Strapping/Assets/app1.jpg")],

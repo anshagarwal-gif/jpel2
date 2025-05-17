@@ -115,7 +115,7 @@ const CircularLoom = () => {
         tableRows: [
           ['Working width (Without Liner)', '30 to 90 cm*'],
           ['Working width (With Liner)', '30 to 70 cm*'],
-          ['Weft insertion rate', 'Up to 1200 ppm*'],
+          ['Weft insertion rate', 'Up to 1100 ppm*'],
         ],
         slideshowImages: [require("../CircularLoom/Assets/11_1.jpg")],
         applicationPoints: ['Packaging: Industrial sacks, food-grade bags, and chemical-resistant containers.', 'Agriculture: Seed bags, fertilizer storage, and crop covers.','Consumer Goods: Reusable shopping and laundry bags.','Medical and Pharmaceutical: Moisture-resistant packaging for powders and hygiene products.'],

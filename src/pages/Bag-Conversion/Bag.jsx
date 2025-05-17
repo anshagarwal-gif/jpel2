@@ -13,8 +13,8 @@ import bag4 from '../../assets/bag4.jpg';
 const Bag = () => {
   // Main tab and subtab states
   const [activeMainTab, setActiveMainTab] = useState('Small Bag Conversion');
-  const [activeSubtab, setActiveSubtab] = useState('BCS');
-  const [activeCombinedTab, setActiveCombinedTab] = useState('Small Bag Conversion-BCS');
+  const [activeSubtab, setActiveSubtab] = useState('Bag Conversion Line');
+  const [activeCombinedTab, setActiveCombinedTab] = useState('Small Bag Conversion-Bag Conversion Line');
   
   // State for slideshow
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -22,8 +22,8 @@ const Bag = () => {
 
   // Main tab content with nested subtabs
   const mainTabContent = {
-    'Small Bag Conversion': ['BCS', 'BCL', 'Tuber', 'BCL with Gusseting'],
-    'FIBC Confectionaries': ['Mouth Punching', 'Bale Press','Belt Cutting']
+    'Small Bag Conversion': ['Bag Conversion Line', 'Bag Conversion Line with Linear Insertion', 'Woven Fabric Tubing Machine', 'Bag Conversion Line with Integrated Gusseting'],
+    'FIBC Equipment': ['Mouth Punching', 'Bale Press','Belt Cutting']
   };
 
   // Image slideshow for Standard tab
@@ -62,7 +62,7 @@ const Bag = () => {
     
   // All tab content organized by combined ID (maintab-subtab)
   const tabContent = {
-    'Small Bag Conversion-BCS': {
+    'Small Bag Conversion-Bag Conversion Line': {
       // This will be overridden by the slideshow
       image: require("../WovenSack/Assets/pcl.jpg"),
       description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
@@ -85,12 +85,12 @@ const Bag = () => {
       catalogue: '/assets/catalogues/standard-bag-catalogue.pdf',
       hasSlideshow: true
     },
-    'Small Bag Conversion-BCL': {
+    'Small Bag Conversion-Bag Conversion Line with Linear Insertion': {
       image: require("../Bag-Conversion/Assets/BCL.jpg"),
       description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
       tableHeaders: ['Technical Specifications',""],
       tableRows: [
-        ['Unwinder fabric Roll width ', '475 to 700 mm* (Liner Mode) 400 to 850 mm* (BCS Mode)'],
+        ['Unwinder fabric Roll width ', '400 to 700 mm* (Liner Mode) 400 to 850 mm* (BCS Mode)'],
         ['Liner Cutting length ', '770 to 1225 mm* (Liner Mode)'],
         ['Fabric Cutting length', '650 to 1200 mm**(BCS Mode)'],
         ['Production Speed', '25-30 Bags/Min** (Liner mode) Up to 35 Bags/Min** (BCS Mode)'],
@@ -108,7 +108,7 @@ const Bag = () => {
       catalogue: '/assets/catalogues/premium-bag-catalogue.pdf',
       hasSlideshow: false
     },
-    'Small Bag Conversion-Tuber': {
+    'Small Bag Conversion-Woven Fabric Tubing Machine': {
       image: require("../Bag-Conversion/Assets/TFM.jpg"),
       description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
       tableHeaders: ['Technical Specifications',""],
@@ -129,7 +129,7 @@ const Bag = () => {
       catalogue: '/assets/catalogues/heavy-duty-catalogue.pdf',
       hasSlideshow: false
     },
-    'Small Bag Conversion-BCL with Gusseting': {
+    'Small Bag Conversion-Bag Conversion Line with Integrated Gusseting': {
       image: require("../Bag-Conversion/Assets/BC.jpg"),
       description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
       tableHeaders: ['Technical Specifications',""],
@@ -151,7 +151,7 @@ const Bag = () => {
       catalogue: '/assets/catalogues/customized-bag-catalogue.pdf',
       hasSlideshow: false
     },
-    'FIBC Confectionaries-Mouth Punching': {
+    'FIBC Equipment-Mouth Punching': {
       image: require("../Bag-Conversion/Assets/MP.jpg"),
       description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
       tableHeaders: ['Technical Specifications', 'FIBCM 1500', 'FIBCM 2200'],
@@ -171,20 +171,20 @@ const Bag = () => {
       catalogue: '/assets/catalogues/fibc-type-a-catalogue.pdf',
       hasSlideshow: false
     },
-    'FIBC Confectionaries-Bale Press': {
+    'FIBC Equipment-Bale Press': {
       image: require("../Bag-Conversion/Assets/Bale.jpg"),
       description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
       tableHeaders: ['Technical Specifications', 'JP120BB'],
       tableRows: [
         ['Capacity', '120 Ton'],
-        ['DayLight Gap', '2000 mm'],
-        ['Bed Size', '120 x 800 mm and 1200 x 900 mm'],
-        ['Stroke Length of Cylinder', '1700 mm'],
-        ['Close Height','300 mm'],
-        ['Bale Pushing','Rear Cylinder of 100 cm of 10 Ton Capacity'],
-        ['Oil Tank Capacity','480 Litres'],
-        ['Power','12 HP Electric AC Motor'],
-        ['Operation','Electric Controls with interlocking']
+        ['DayLight Gap', '1750 mm'],
+        ['Bed Size', '1100 x 950 mm'],
+        ['Stroke Length of Cylinder', '1600 mm'],
+        ['Min. Bale Height','200 mm'],
+        ['Min. Oil Required','350 Ltr'],
+        ['Power','20 hp Electric AC Motor'],
+        ['Operating Pressure (max)','200 to 210 Kg/cm2'],
+        ['Dimension (L x W x H)','1.4 x 1.0 x 4.8 m'],
       ],
       slideshowImages: [
         require("../Bag-Conversion/Assets/baleapp.jpg"), 
@@ -198,7 +198,7 @@ const Bag = () => {
       catalogue: '/assets/catalogues/fibc-type-b-catalogue.pdf',
       hasSlideshow: false
     },
-    'FIBC Confectionaries-Belt Cutting': {
+    'FIBC Equipment-Belt Cutting': {
       image: require("../Bag-Conversion/Assets/Belt.jpg"),
       description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
       tableHeaders: ['Technical Specifications', 'JPBCM6'],
@@ -227,7 +227,7 @@ const Bag = () => {
   // Slideshow effect
   useEffect(() => {
     // Only run slideshow for Standard tab
-    if (activeCombinedTab === 'Small Bag Conversion-BCS') {
+    if (activeCombinedTab === 'Small Bag Conversion-Bag Conversion Line') {
       setShowSlideshow(true);
       const timer = setInterval(() => {
         setCurrentImageIndex((prevIndex) => (prevIndex + 1) % standardImages.length);
@@ -416,5 +416,6 @@ const Bag = () => {
     </div>
   );
 };
+
 
 export default Bag;

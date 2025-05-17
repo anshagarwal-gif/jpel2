@@ -26,7 +26,7 @@ const ExtrusionCoating = () => {
             require("../ExtrusionCoating/Assets/wown2.jpg"),
             require("../ExtrusionCoating/Assets/wown1.jpg")
           ],
-        description: ['Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.                                                      TD - tandem, L - Leno fabric lamination'],
+        description: ['Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.'],
         tableHeaders: ['Technical Specifications','850/TD','1200/L','1450','1600','1800','2000'],
         tableRows: [
           ['Die-Width (mm)', '900 x 2Nos','450','1450','1600','1800','2000 x 2Nos.'],
@@ -48,7 +48,7 @@ const ExtrusionCoating = () => {
         tableHeaders: ['Technical Specifications','2000','2200','2650','3300'],
         tableRows: [
           ['Die-Width (mm)', '2000','2200','2650','3300'],
-          ['Coating Width (Min. - Max., in mm) ', '1200-1850','1200-2050','1600-2500','2400-3150'],
+          ['Coating Width (Min. - Max., in mm) ', '1200-1850','1200-2050','1600-2500','2400-3100'],
         ],
         slideshowImages: [ require("../ExtrusionCoating/Assets/fibc3.jpg"),  require("../ExtrusionCoating/Assets/fibc4.jpg")],
         applicationPoints: ['Provides moisture resistance.',
@@ -69,7 +69,7 @@ const ExtrusionCoating = () => {
         tableHeaders: ['Technical Specifications','2000','2200','2650','3300','3800','4300','5200','6000'],
         tableRows: [
           ['Die-Width (mm)', '2000','2200','2650','3300','3800','4300','5200','6000'],
-          ['Coating Width (Min. - Max., in mm) ', '1200-1850','2050 - 2200','1600 - 2500','2400 - 3150','3150 - 3650','3650 - 4150','4000-5000','4600-5800'],
+          ['Coating Width (Min. - Max., in mm) ', '1200-1850','1200 - 2050','1600 - 2500','2400 - 3100','2500 - 3650','3000 - 4100','4000-5000','4600-5800'],
         ],
         slideshowImages: [  require("../ExtrusionCoating/Assets/Tamp3.jpg"),   require("../ExtrusionCoating/Assets/Tamp4.jpg")],
         applicationPoints: ['Industrial: Weatherproof tarpaulins for construction, agriculture, and transport.',
@@ -84,12 +84,12 @@ const ExtrusionCoating = () => {
             require("../ExtrusionCoating/Assets/hspeed1.jpg"),
            
           ],
-        description: ['Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.                                                                    TD - tandem'],
+        description: ['Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.'],
         
         tableHeaders: ['Technical Specifications','850/TD','1600','1800','2000'],
         tableRows: [
           ['Die-Width (mm)', '900 x 2Nos','1650','1800','2000'],
-          ['Coating Width (Min. - Max., in mm) ', '400-750','300 - 750(Tubular fabric) 600 - 1500(Flat fabric)','350 - 800(Tubular fabric) 600 - 1600 (Flat fabric)','1200 - 1850'],
+          ['Coating Width (Min. - Max., in mm) ', '400-750','300 - 700(Tubular fabric) 600 - 1500(Flat fabric)','330 - 750(Tubular fabric) 660 - 1650 (Flat fabric)','1200 - 1850'],
         ],
         slideshowImages: [require("../ExtrusionCoating/Assets/hspeed2.jpg"), require("../ExtrusionCoating/Assets/hspeed3.jpg")],
         applicationPoints: ['Industrial: Durable packaging & weatherproof tarpaulins for construction and transport.',
@@ -233,7 +233,7 @@ const ExtrusionCoating = () => {
   `}
 </style>
 
-        <p className="description2">*depending on machine models and specifications</p>
+        <p className="description2">*depending on machine models and specifications, TD - Tandem, L - for leno lamination</p>
         <Applications
           title={`Applications for ${activeTab}`}
           images={currentContent.slideshowImages}

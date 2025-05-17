@@ -26,7 +26,7 @@ const PlasticRecycling = () => {
                     {
                         subtitle: "Winding Machines",
                         link: "/WindingMachine",
-                        description: "Advanced PET bottle washing systems"
+                        description: "Uniformly winding stretched tapes for woven fabric production"
                     },
                     {
                         subtitle: "Circular Looms",
@@ -70,7 +70,7 @@ const PlasticRecycling = () => {
                     {
                         subtitle: "PET Washing Line",
                         link: "/PET",
-                        description: "Producing durable strapping for packaging and bundling."
+                        description: ""
                     }
                 ]
             },
@@ -81,7 +81,7 @@ const PlasticRecycling = () => {
                     {
                         subtitle: "Battery Box Recycling",
                         link: "/BatteryBox",
-                        description:"xyz"
+                        description:""
                     }
                 ]
             }
@@ -99,7 +99,7 @@ const PlasticRecycling = () => {
                     {
                         subtitle: "Box-Strapping Line",
                         link: "/BoxStrapping",
-                        description: "Advanced PET bottle washing systems"
+                        description: "Producing durable strapping for packaging and bundling."
                     }
                 ]
             }
@@ -122,7 +122,7 @@ const PlasticRecycling = () => {
                     {
                         subtitle: "Flexible Packaging",
                         link: "/Flexible",
-                        description: "Advanced PET bottle washing systems"
+                        description: "Producing multi-layer laminates with film, foil, and paper for advanced packaging solutions."
                     }
                 ]
             }

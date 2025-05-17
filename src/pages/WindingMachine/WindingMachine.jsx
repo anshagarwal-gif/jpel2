@@ -12,7 +12,7 @@ const WindingMachine = () => {
         description: '',
         tableHeaders: ['Technical Specifications','JTW200IX','JTWAG200IX'],
         tableRows: [
-          ['Tape Width', '1.8 to 4.0 mm', '1.8 to 4.0 mm'],
+          ['Tape Width', '1.8 to 6.0 mm', '1.8 to 6.0 mm'],
           ['Denier Range', '400 to 3000', '400 to 3000'],
           ['Traverse Length', '200 mm', '200 mm'],
           ['Bobbin Core ID', '35 mm', '35 mm'],
@@ -29,7 +29,7 @@ const WindingMachine = () => {
         description: '',
         tableHeaders: ['Technical Specifications','JTWAT200IX'],
         tableRows: [
-          ['Tape Width', '1.8 to 4.0 mm'],
+          ['Tape Width', '1.8 to 6.0 mm'],
           ['Denier Range', '400 to 3000'],
           ['Traverse Length', '200 mm'],
           ['Bobbin Core ID', '35 mm'],
