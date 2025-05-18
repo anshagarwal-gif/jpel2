@@ -55,7 +55,7 @@ export const ProductImage = ({ image, images, description }) => {
   // Render single image if no multiple images provided
   return (
     <div>
-      <img src={image} alt="Product" className="product-image" />
+      <img src={image} className="product-image" />
       {description && <p className="product-description">{description}</p>}
     </div>
   );

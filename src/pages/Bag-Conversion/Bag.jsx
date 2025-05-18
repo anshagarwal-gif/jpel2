@@ -28,9 +28,9 @@ const Bag = () => {
 
   // Image slideshow for Standard tab
   const standardImages = [
-    require("../Bag-Conversion/Assets/BCS-1.jpg"),
-    require("../Bag-Conversion/Assets/BCS-2.jpg"),
-    require("../Bag-Conversion/Assets/BCS-3.jpg"),
+    require("../Bag-Conversion/Assets/BCS-850.png"),
+    require("../Bag-Conversion/Assets/BCS-1250.png"),
+    require("../Bag-Conversion/Assets/BCS-1600.png"),
   ];
 
    const galleryImages = [
