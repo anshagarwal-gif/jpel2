@@ -107,7 +107,7 @@ newSubmission.save()
   };
   const brochureFileNames = Array.isArray(brochureFiles[endText]) 
   ? brochureFiles[endText] 
-  : [brochureFiles[endText] || "ManufactoringRange.pdf"];
+  : [brochureFiles[endText] || "ManufacturingRange.pdf"];
   const attachments = brochureFileNames.map(fileName => ({
     filename: fileName,
     path: path.join(__dirname, "catalogues", fileName),
