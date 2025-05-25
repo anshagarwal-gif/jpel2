@@ -9,6 +9,6 @@ Allow: /ContactUs
 
 
  # Sitemaps
-Sitemap: https://www.aspivision.in/sitemap.xml
+Sitemap: https://www.jpel.in/sitemap.xml
     
 
