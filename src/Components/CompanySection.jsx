@@ -264,7 +264,7 @@ const CompanySection = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  required
+                
                 />
               </div>
               
