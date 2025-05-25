@@ -59,6 +59,7 @@ const InquiryForm = () => {
               className="form-input"
               value={formData.name}
               onChange={handleChange}
+                  required
             />
             <input
               type="text"
@@ -67,6 +68,7 @@ const InquiryForm = () => {
               className="form-input"
               value={formData.companyName}
               onChange={handleChange}
+                  required
             />
             <input
               type="email"
@@ -75,6 +77,7 @@ const InquiryForm = () => {
               className="form-input"
               value={formData.email}
               onChange={handleChange}
+                  required
             />
             <input
               type="tel"
@@ -83,6 +86,7 @@ const InquiryForm = () => {
               className="form-input"
               value={formData.contactNumber}
               onChange={handleChange}
+                  required
             />
             <input
               type="text"
@@ -91,6 +95,7 @@ const InquiryForm = () => {
               className="form-input"
               value={formData.city}
               onChange={handleChange}
+                  required
             />
           </div>
           
@@ -102,6 +107,7 @@ const InquiryForm = () => {
               className="form-input"
               value={formData.state}
               onChange={handleChange}
+                  required
             />
             <input
               type="text"
@@ -110,6 +116,7 @@ const InquiryForm = () => {
               className="form-input"
               value={formData.country}
               onChange={handleChange}
+                  required
             />
             <textarea
               name="message"
@@ -118,6 +125,7 @@ const InquiryForm = () => {
               rows="7"
               value={formData.message}
               onChange={handleChange}
+                  required
             ></textarea>
           </div>
         </div>

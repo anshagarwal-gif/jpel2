@@ -277,6 +277,7 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
               value={formData.companyName}
               onChange={handleInputChange}
               placeholder="Enter your company name"
+                  required
             />
           </div>
           
@@ -302,6 +303,7 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
               value={formData.contactNumber}
               onChange={handleInputChange}
               placeholder="Enter your contact number"
+                  required
             />
           </div>
           
@@ -314,6 +316,7 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
               value={formData.city}
               onChange={handleInputChange}
               placeholder="Enter your city"
+                  required
             />
           </div>
           
@@ -326,6 +329,7 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
               value={formData.state}
               onChange={handleInputChange}
               placeholder="Enter your state"
+                  required
             />
           </div>
           
@@ -338,6 +342,7 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
               value={formData.country}
               onChange={handleInputChange}
               placeholder="Enter your country"
+                  required
             />
           </div>
           
