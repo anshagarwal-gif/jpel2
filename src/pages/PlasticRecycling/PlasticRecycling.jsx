@@ -70,7 +70,7 @@ const PlasticRecycling = () => {
                     {
                         subtitle: "PET Washing Line",
                         link: "/PET",
-                        description: ""
+                        description: "To produce high-quality PET flakes"
                     }
                 ]
             },
@@ -81,7 +81,7 @@ const PlasticRecycling = () => {
                     {
                         subtitle: "Battery Box Recycling",
                         link: "/BatteryBox",
-                        description:""
+                        description:"Converting plastic waste into reusable plastic chips"
                     }
                 ]
             }

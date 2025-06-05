@@ -1,6 +1,6 @@
 import React from "react";
 import "./Exhibition.css";
-import mapImage from '../assets/exhibitionmap.jpeg';
+import mapImage from '../assets/exhibitionmap.jpg';
 
 
 const Exhibition = () => {

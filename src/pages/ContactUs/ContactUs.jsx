@@ -115,7 +115,7 @@ const ContactUs = () => {
       />
       <HoverCard 
         title="MUMBAI" 
-        subtitle="A-34, Virwani Industrial Estate, Western Express Highway, Goregaon (E) Mumbai – 400 063"
+        subtitle="A-34, Virwani Industrial Estate, Western Express Highway, Goregaon (E) Mumbai, Maharastra 400 063."
         linkText="Learn More" 
         phone1="+91 2261363900"
         emails={["mumbai@jpel.in"]  }
@@ -164,6 +164,17 @@ Moscow region 141402, Khimki, Spartakovskaya Street House 5/7, Entrance 4, Offic
         phone1="+7 9267178402"
         phone2="+7 4959337907"
         emails={["vit@avk-polymer.ru"]  }
+        linkUrl="" 
+      />
+      <HoverCard 
+        title="OVERSEAS-VIETNAM" 
+        subtitle="SKYTECH INDUSTRIAL VIETNAM.,
+ JSC Apartment no. 17, 34th floor, tower C, building C5 D’capitale, southeast urban area, no. 119 Tran Duy Hung, Trung Hoa ward, Cau Giay district, Ha Noi city, Vietnam.
+ Contact Person: Mr. Manh."
+        linkText="" 
+        phone1="+84 9366 36005"
+        
+        emails={["Manh.t@skytechvn.vn"]  }
         linkUrl="" 
       />
     </div>
