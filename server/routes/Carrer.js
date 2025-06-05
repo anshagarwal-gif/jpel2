@@ -1,8 +1,18 @@
 const express = require('express');
 const router = express.Router();
+const nodemailer = require('nodemailer');
 const multer = require('multer');
 const Application = require('../models/Carrer');
 const { default: mongoose } = require('mongoose');
+
+// Nodemailer transport configuration
+const transporter = nodemailer.createTransport({
+  service: "Gmail",
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
+  },
+});
 
 // File storage setup
 const storage = multer.diskStorage({
@@ -38,16 +48,116 @@ router.post('/apply', upload.single('resume'), async (req, res) => {
   try {
     const { name, email, contact, qualification, message, jobTitle } = req.body;
     const resumePath = req.file.path;
+   // Get visitor IP
+    const visitorIP = req.headers['x-forwarded-for'] || 
+                     req.headers['x-real-ip'] || 
+                     req.connection.remoteAddress || 
+                     req.socket.remoteAddress ||
+                     (req.connection.socket ? req.connection.socket.remoteAddress : null) ||
+                     'IP not captured';
 
+    // Save application to database
     const newApplication = new Application({
-      name, email, contact, qualification, message, jobTitle, resumePath
+      name, 
+      email, 
+      contact, 
+      qualification, 
+      message, 
+      jobTitle, 
+      resumePath
     });
 
     await newApplication.save();
-    res.status(201).json({ message: 'Application submitted successfully' });
+
+    // Send email notification
+    try {
+      // Email to owner/admin about the job application
+      const ownerMailOptions = {
+        from: email, // Sender email (applicant's email)
+        to: ["rakesh@jpel.in", "info@jpel.in"], // Your email addresses
+        subject: `New Job Application Received - ${jobTitle} | J P Extrusiontech Private Limited`,
+        html: `
+          <div style="font-family: Arial, sans-serif; border: 2px dashed #000; padding: 20px; max-width: 600px; margin: auto; background-color: #F7F7F7;">
+            <!-- Logo -->
+            <div style="text-align: center; margin-bottom: 20px;">
+              <img src="https://jpel.in/static/media/footer-logo.6cd7aaadced76bd27f40.jpg" alt="JP Group Logo" style="max-width: 400px;">
+            </div>
+            
+            <h2 style="text-align: center; color: #d32f2f; margin-bottom: 20px;">💼 NEW JOB APPLICATION RECEIVED</h2>
+            
+            <!-- Form Content -->
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px; background-color: white; border: 1px solid #ddd;">
+              <tr style="background-color: #f5f5f5;">
+                <td style="padding: 12px; font-weight: bold; color: #000; border: 1px solid #ddd;">Position Applied For:</td>
+                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: #d32f2f;">${jobTitle}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; font-weight: bold; color: #000; border: 1px solid #ddd;">Name:</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">${name}</td>
+              </tr>
+              <tr style="background-color: #f5f5f5;">
+                <td style="padding: 12px; font-weight: bold; color: #000; border: 1px solid #ddd;">Email:</td>
+                <td style="padding: 12px; border: 1px solid #ddd;"><a href="mailto:${email}" style="color: #0066cc;">${email}</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; font-weight: bold; color: #000; border: 1px solid #ddd;">Contact No:</td>
+                <td style="padding: 12px; border: 1px solid #ddd;"><a href="tel:${contact}" style="color: #0066cc;">${contact}</a></td>
+              </tr>
+              <tr style="background-color: #f5f5f5;">
+                <td style="padding: 12px; font-weight: bold; color: #000; border: 1px solid #ddd;">Qualification:</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">${qualification}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; font-weight: bold; color: #000; border: 1px solid #ddd; vertical-align: top;">Message:</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">${message}</td>
+              </tr>
+              <tr style="background-color: #f5f5f5;">
+                <td style="padding: 12px; font-weight: bold; color: #000; border: 1px solid #ddd;">Resume:</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">${resumePath ? 'Resume uploaded - Check server uploads folder' : 'No resume uploaded'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; font-weight: bold; color: #000; border: 1px solid #ddd;">Visitor IP:</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">${visitorIP}</td>
+              </tr>
+              <tr style="background-color: #f5f5f5;">
+                <td style="padding: 12px; font-weight: bold; color: #000; border: 1px solid #ddd;">Applied At:</td>
+                <td style="padding: 12px; border: 1px solid #ddd;">${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</td>
+              </tr>
+            </table>
+            
+            <div style="margin-top: 20px; padding: 15px; background-color: #e8f5e8; border-left: 4px solid #4caf50;">
+              <p style="margin: 0; font-weight: bold; color: #2e7d32;">📧 Reply directly to this email to respond to the applicant.</p>
+              <p style="margin: 5px 0 0 0; font-size: 12px; color: #666;">Resume file path: ${resumePath || 'Not uploaded'}</p>
+            </div>
+          </div>
+        `,
+        // Attach resume if uploaded
+        attachments: resumePath ? [{
+          filename: `${name}_Resume_${jobTitle.replace(/\s+/g, '_')}.${req.file.originalname.split('.').pop()}`,
+          path: resumePath
+        }] : []
+      };
+
+      // Send both emails
+      const sendOwnerEmail = transporter.sendMail(ownerMailOptions);
+
+
+      await Promise.all([sendOwnerEmail]);
+
+      console.log("Job application emails sent successfully to both admin and applicant");
+      
+    } catch (emailError) {
+      console.error("Error sending job application emails:", emailError);
+      // Don't fail the entire request if email fails
+    }
+
+    res.status(201).json({ 
+      message: 'Application submitted successfully! You will receive a confirmation email shortly.' 
+    });
+
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Server error' });
+    console.error("Error in job application submission:", err);
+    res.status(500).json({ error: 'Server error. Please try again.' });
   }
 });
 
@@ -119,4 +229,6 @@ router.patch('/admin/applications/:id', async (req, res) => {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 });
+
+
 module.exports = router;

@@ -16,18 +16,50 @@ const InquiryForm = () => {
     message: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  // Function to get visitor IP
+  const getVisitorIP = async () => {
+    try {
+      const response = await fetch('https://api.ipify.org?format=json');
+      const data = await response.json();
+      return data.ip;
+    } catch (error) {
+      console.error('Error getting IP:', error);
+      return 'Unknown';
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
     try {
+      // First, save to database via your existing inquiry API
       const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/inquiries`, formData);
+      
+      // Get visitor IP
+      const visitorIP = await getVisitorIP();
+      
+      // Then, send emails via the new send-email2 API
+      const emailData = {
+        ...formData,
+        visitorIP: visitorIP,
+        url: window.location.href
+      };
+
+      await axios.post(`${process.env.REACT_APP_API_URL}/send-email2`, emailData);
+
       toast.success("Inquiry sent successfully!");
       
       console.log("Submitted:", res.data);
+      
+      // Reset form
       setFormData({
         name: '',
         companyName: '',
@@ -38,9 +70,18 @@ const InquiryForm = () => {
         country: '',
         message: '',
       });
+      
     } catch (err) {
       console.error("Error submitting inquiry:", err);
-      toast.error("Submission failed!");
+      
+      // Check if database save worked but email failed
+      if (err.response && err.response.status >= 200 && err.response.status < 300) {
+        toast.warning("Inquiry saved but email notification failed. We'll still contact you!");
+      } else {
+        toast.error("Submission failed! Please try again.");
+      }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -59,7 +100,8 @@ const InquiryForm = () => {
               className="form-input"
               value={formData.name}
               onChange={handleChange}
-                  required
+              required
+              disabled={isSubmitting}
             />
             <input
               type="text"
@@ -68,7 +110,8 @@ const InquiryForm = () => {
               className="form-input"
               value={formData.companyName}
               onChange={handleChange}
-                  required
+              required
+              disabled={isSubmitting}
             />
             <input
               type="email"
@@ -77,7 +120,8 @@ const InquiryForm = () => {
               className="form-input"
               value={formData.email}
               onChange={handleChange}
-                  required
+              required
+              disabled={isSubmitting}
             />
             <input
               type="tel"
@@ -86,7 +130,8 @@ const InquiryForm = () => {
               className="form-input"
               value={formData.contactNumber}
               onChange={handleChange}
-                  required
+              required
+              disabled={isSubmitting}
             />
             <input
               type="text"
@@ -95,7 +140,8 @@ const InquiryForm = () => {
               className="form-input"
               value={formData.city}
               onChange={handleChange}
-                  required
+              required
+              disabled={isSubmitting}
             />
           </div>
           
@@ -107,7 +153,8 @@ const InquiryForm = () => {
               className="form-input"
               value={formData.state}
               onChange={handleChange}
-                  required
+              required
+              disabled={isSubmitting}
             />
             <input
               type="text"
@@ -116,7 +163,8 @@ const InquiryForm = () => {
               className="form-input"
               value={formData.country}
               onChange={handleChange}
-                  required
+              required
+              disabled={isSubmitting}
             />
             <textarea
               name="message"
@@ -125,13 +173,18 @@ const InquiryForm = () => {
               rows="7"
               value={formData.message}
               onChange={handleChange}
-                  required
+              required
+              disabled={isSubmitting}
             ></textarea>
           </div>
         </div>
         
-        <button type="submit" className="submit-button">
-          SEND MESSAGE
+        <button 
+          type="submit" 
+          className="submit-button"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}
         </button>
       </form>
       
