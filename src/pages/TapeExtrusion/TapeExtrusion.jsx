@@ -87,7 +87,7 @@ const TapeExtrusion = () => {
               <div className="content-section">
                 <div className="description3">
                   <p>
-                    J P Extrusiontech Ltd having a comprehensive range of tape extrusion lines for producing high-quality PP/HDPE tapes for a wide range of applications.
+                    JP Group has a comprehensive range of tape extrusion lines for producing high-quality PP/HDPE tapes for a wide range of applications.
                     <br></br>
                     <br></br>
                   
@@ -166,7 +166,7 @@ const TapeExtrusion = () => {
         </div>
            {/* Add the ModifiedGallery component here */}
       <NewGallery
-        galleryTitle="TAPE EXTRUSION GALLERY" 
+        galleryTitle="GALLERY" 
         images={galleryImages} 
       />
       </div>

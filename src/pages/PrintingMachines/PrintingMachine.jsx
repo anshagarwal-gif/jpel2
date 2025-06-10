@@ -154,7 +154,7 @@ const PrintingMachine = () => {
            {/* Add the ModifiedGallery component here */}
            
       <NewGallery
-        galleryTitle="FLEXOGRAPHIC PRINTING MACHINE GALLERY"
+        galleryTitle="GALLERY"
         images={galleryImages} 
       />
 </div>

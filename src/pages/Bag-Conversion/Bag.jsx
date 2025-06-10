@@ -295,7 +295,7 @@ const Bag = () => {
             <div className="content-section">
               <div className="description">
                 <p>
-                  JPEL has developed cutting-edge Conversion Lines for producing bottom folded and sewn woven sacks made from tubular woven PP/HDPE fabric. The JPBCL-850 model, offered by J P EXTRUSIONTECH LIMITED, is a high-speed, next-generation machine specifically designed for conventional bag applications. This machine is engineered to handle the entire process of cutting, bottom folding, sewing, and stacking woven fabric to create durable and high-quality sacks.
+                  JP Group has developed cutting-edge Conversion Lines for producing bottom folded and sewn woven sacks made from tubular woven PP/HDPE fabric. The JPBCL-850 model, offered by J P EXTRUSIONTECH LIMITED, is a high-speed, next-generation machine specifically designed for conventional bag applications. This machine is engineered to handle the entire process of cutting, bottom folding, sewing, and stacking woven fabric to create durable and high-quality sacks.
                 </p>
               </div>
             </div>
@@ -410,7 +410,7 @@ const Bag = () => {
         </div>
               {/* Add the ModifiedGallery component here */}
       <NewGallery
-        galleryTitle="BAG CONVERSION MACHINE GALLERY" 
+        galleryTitle="GALLERY" 
         images={galleryImages} 
       />
     </div>

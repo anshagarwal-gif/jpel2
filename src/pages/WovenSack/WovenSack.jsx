@@ -184,7 +184,7 @@ const WovenSack = () => {
       </div>
         {/* Add the ModifiedGallery component here */}
       <NewGallery
-        galleryTitle="PLASTIC RECYCLING GALLERY" 
+        galleryTitle="GALLERY" 
         images={galleryImages} 
       />
       </div>

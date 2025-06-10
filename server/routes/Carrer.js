@@ -74,7 +74,7 @@ router.post('/apply', upload.single('resume'), async (req, res) => {
       // Email to owner/admin about the job application
       const ownerMailOptions = {
         from: email, // Sender email (applicant's email)
-        to: ["rakesh@jpel.in", "info@jpel.in"], // Your email addresses
+        to: ["rakesh@jpel.in", "hrd@jpel.in"], // Your email addresses
         subject: `New Job Application Received - ${jobTitle} | J P Extrusiontech Private Limited`,
         html: `
           <div style="font-family: Arial, sans-serif; border: 2px dashed #000; padding: 20px; max-width: 600px; margin: auto; background-color: #F7F7F7;">

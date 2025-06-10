@@ -83,7 +83,7 @@ const CastLine = () => {
       <div className="content-sectionFila">
         <div className="descriptionFila">
           <p>
-          JPEL’s Chill Roll Cast Film Lines are designed to produce high-quality multi-ply films that have become indispensable in the packaging industry. These lines provide versatile solutions for manufacturing a wide range of films used in various packaging applications, including stretch films, cling films, barrier films, masking films, CPP films, and blister films. With capabilities for film thicknesses ranging from 15 to 150 microns, our technology ensures top-notch quality and cost-efficient production.
+          JP Group’s Chill Roll Cast Film Lines are designed to produce high-quality multi-ply films that have become indispensable in the packaging industry. These lines provide versatile solutions for manufacturing a wide range of films used in various packaging applications, including stretch films, cling films, barrier films, masking films, CPP films, and blister films. With capabilities for film thicknesses ranging from 15 to 150 microns, our technology ensures top-notch quality and cost-efficient production.
           </p>
         </div>
       </div>
@@ -136,7 +136,7 @@ const CastLine = () => {
   </div>
       {/* Add the ModifiedGallery component here */}
       <NewGallery
-        galleryTitle="CAST FILM LINE GALLERY" 
+        galleryTitle="GALLERY" 
         images={galleryImages} 
       />
 </div>

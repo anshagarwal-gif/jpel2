@@ -38,8 +38,10 @@ const Footer = () => {
           <h4>PRODUCT LINE</h4>
           <ul>
             <Link to="/TapeExtrusion"><li>Tape Stretching Lines</li></Link>
+            <Link to="/WindingMachine"><li>Winding Machines</li></Link>
             <Link to="/CircularLoom"><li>Circular Weaving Machine</li></Link>
             <Link to="/ExtrusionCoating"><li>Extrusion Coating Lines</li></Link>
+            <Link to="/PrintingMachine"><li>Flexographic Printing Machines</li></Link>     
             <Link to="/Bag-Conversion"><li>Bag Conversion Lines</li></Link>
             <Link to="/WovenSack"><li>Recycling Lines</li></Link>
             <Link to="/PET"><li>PET Washing Line</li></Link>

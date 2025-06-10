@@ -153,7 +153,7 @@ const ExtrusionCoating = () => {
       <div className="content-section">
         <div className="description">
           <p>
-          J P Extrusiontech Ltd has a wide range of Extrusion Coating Lines Models to meet a variety of applications.
+          JP Group has a wide range of Extrusion Coating Lines Models to meet a variety of applications.
 
             <br></br>
             <br></br>
@@ -287,7 +287,7 @@ const ExtrusionCoating = () => {
   
      {/* Add the ModifiedGallery component here */}
       <NewGallery
-        galleryTitle="EXTRUSION COATING GALLERY" 
+        galleryTitle="GALLERY" 
         images={galleryImages} 
       />
       </div>

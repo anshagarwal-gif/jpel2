@@ -95,7 +95,7 @@ const SheetExtrusion = () => {
       <div className="content-sectionFila">
         <div className="descriptionFila">
           <p>
-          JPEL offers state-of-the-art Monolayer and Multilayer Sheet Extrusion Lines designed for the manufacturing of HIPS (High Impact Polystyrene), ABS (Acrylonitrile Butadiene Styrene), PP (Polypropylene), PET (Polyethylene Terephthalate), and PVC (Polyvinyl Chloride) sheets. These versatile machines cater to a wide range of applications including thermoforming, vacuum forming, office files, luggage, office furniture, roofing, and various other industries requiring high-quality plastic sheets.
+          JP Group offers state-of-the-art Monolayer and Multilayer Sheet Extrusion Lines designed for the manufacturing of HIPS (High Impact Polystyrene), ABS (Acrylonitrile Butadiene Styrene), PP (Polypropylene), PET (Polyethylene Terephthalate), and PVC (Polyvinyl Chloride) sheets. These versatile machines cater to a wide range of applications including thermoforming, vacuum forming, office files, luggage, office furniture, roofing, and various other industries requiring high-quality plastic sheets.
           </p>
         </div>
       </div>
@@ -148,7 +148,7 @@ const SheetExtrusion = () => {
   </div>
       {/* Add the ModifiedGallery component here */}
       <NewGallery
-        galleryTitle="SHEET EXTRUSION GALLERY" 
+        galleryTitle="GALLERY" 
         images={galleryImages} 
       />
 </div>

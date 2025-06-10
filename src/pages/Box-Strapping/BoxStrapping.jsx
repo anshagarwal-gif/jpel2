@@ -87,7 +87,7 @@ const BoxStrapping = () => {
       <div className="content-section">
         <div className="description">
           <p>
-          JPEL's PET Box Strap Line and PP Box Strap Line are designed with advanced technology to meet the high demands of packaging and industrial applications, ensuring exceptional quality and efficiency.
+          JP Group's PET Box Strap Line and PP Box Strap Line are designed with advanced technology to meet the high demands of packaging and industrial applications, ensuring exceptional quality and efficiency.
 
           
             <br></br>
@@ -145,7 +145,7 @@ const BoxStrapping = () => {
   </div>
      {/* Add the ModifiedGallery component here */}
       <NewGallery
-        galleryTitle="BOX STRAPPING GALLERY" 
+        galleryTitle="GALLERY" 
         images={galleryImages} 
       />
 </div>

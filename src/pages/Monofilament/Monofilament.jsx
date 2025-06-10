@@ -84,7 +84,7 @@ const Monofilament = () => {
       <div className="content-sectionFila">
         <div className="descriptionFila">
           <p>
-          JPEL takes pride in offering a diverse range of highly efficient Monofilament Line Machines designed to produce HDPE, PP, and Nylon monofilaments with exceptional quality and performance. These machines are crafted with advanced engineering to cater to industries requiring precision, durability, and efficiency in monofilament production.
+          JP Group takes pride in offering a diverse range of highly efficient Monofilament Line Machines designed to produce HDPE, PP, and Nylon monofilaments with exceptional quality and performance. These machines are crafted with advanced engineering to cater to industries requiring precision, durability, and efficiency in monofilament production.
           </p>
         </div>
       </div>
@@ -142,7 +142,7 @@ const Monofilament = () => {
   </div>
     {/* Add the ModifiedGallery component here */}
       <NewGallery
-        galleryTitle="MONOFILAMENT GALLERY" 
+        galleryTitle="GALLERY" 
         images={galleryImages} 
       />
 </div>

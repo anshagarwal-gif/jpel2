@@ -250,7 +250,7 @@ const CircularLoom = () => {
       </div>
       {/* Add the ModifiedGallery component here */}
       <NewGallery
-        galleryTitle="CIRCULAR LOOM GALLERY" 
+        galleryTitle="GALLERY" 
         images={galleryImages} 
       />
     </div>
