@@ -132,12 +132,12 @@ const Monofilament = () => {
       <VedioCard
     videoTitle="MONOFILAMENT LINE ( JP 90 MONO )"
     videoThumbnail={require("../BatteryBox/Assets/BB.jpg")}
-    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=2AndVEGPrjQ"
   />
         <VedioCard
     videoTitle="Monofilament Line - Model: JP 80 MONO"
     videoThumbnail={require("../BatteryBox/Assets/BB1.jpg")}
-    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=riBERfYv8ys"
   />
   </div>
     {/* Add the ModifiedGallery component here */}

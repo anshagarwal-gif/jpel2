@@ -96,7 +96,7 @@ const News = () => {
       <VedioCard
     videoTitle="INDIAPLAST 28 FEB - 4 MAR 2019 - SHORT FILM"
     videoThumbnail={require("../assets/newevent3.jpg")}
-    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=F4DjbKUimLE"
   />
     <VedioCard
     videoTitle="JP GROUP – CORPORATE FILM"
@@ -109,7 +109,7 @@ const News = () => {
       <VedioCard
     videoTitle="INTERVIEW WITH MS NIDHI VERMA"
     videoThumbnail={require("../assets/newevent4.jpg")}
-    videoUrl="https://youtu.be/hU2Q4lkEjJo?list=TLGGwqi7XdWaor4wNjAxMjAyNQ"
+    videoUrl="https://youtu.be/EkEcWSVMw_0?si=Pvm_0xEBH-3IYWah"
   />
     <VedioCard
     videoTitle="TURNKEY PROJECT FOR PP/HDPE WOVEN SACK (SHORT FILM)"
@@ -127,7 +127,7 @@ const News = () => {
     <VedioCard
     videoTitle="INDIAPLAST-2019 EXHIBITION SHORT FILM"
     videoThumbnail={require("../assets/newevent4.jpg")}
-    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=F4DjbKUimLE"
   />
       
       </div>
@@ -135,12 +135,12 @@ const News = () => {
       <VedioCard
     videoTitle="FEIPLASTIC 2019 – JP GROUP & TABATEX EXHIBITION SHORT FILM"
     videoThumbnail={require("../assets/newevent4.jpg")}
-    videoUrl="https://youtu.be/B0b4gO-Ly8k?list=TLGGyPkgSrnvw_swNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=3NfoZQZ4VIw"
   />
     <VedioCard
     videoTitle="PLASTINDIA – 2015 – SHORT FILM"
     videoThumbnail={require("../assets/newevent4.jpg")}
-    videoUrl="https://youtu.be/5RrHCT24aiU?list=TLGGDQuz2LuqKncwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=5RrHCT24aiU"
   />
       
       </div>

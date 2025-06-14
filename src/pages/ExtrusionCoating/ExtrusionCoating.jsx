@@ -248,12 +248,12 @@ const ExtrusionCoating = () => {
       <VedioCard
     videoTitle="EXTRUSION COATING LINE : JP 120+80 – 2650 CO-EX TD"
     videoThumbnail={require("../ExtrusionCoating/Assets/EX.jpg")}
-    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=eF3vDa4Yrxs"
   />
     <VedioCard
         videoTitle="POLYCOAT 1600 – EXTRUSION COATING LINE"
     videoThumbnail={require("../ExtrusionCoating/Assets/EX2.jpg")}
-    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=Y6lRXJ2pxvE"
   />
       
       </div>
@@ -262,12 +262,12 @@ const ExtrusionCoating = () => {
       <VedioCard
     videoTitle="CO-EXTRUSION COATING LINE"
     videoThumbnail={require("../ExtrusionCoating/Assets/EX3.jpg")}
-    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=eFNYbp_65nc"
   />
     <VedioCard
         videoTitle="5200 MM EXTRUSION COATING LINE"
     videoThumbnail={require("../ExtrusionCoating/Assets/EX4.jpg")}
-    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=7JDBft4DkMM"
   />
   </div>
   
@@ -275,13 +275,13 @@ const ExtrusionCoating = () => {
       <VedioCard
     videoTitle="LAMINATION LINE : JP 90 CR 1600"
     videoThumbnail={require("../ExtrusionCoating/Assets/EX5.jpg")}
-    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=w5x7upfr1wg"
   />
  
       <VedioCard
         videoTitle="EXTRUSION COATING LINE FOR PAPER : JP 80 CRP 1600"
     videoThumbnail={require("../ExtrusionCoating/Assets/EX7.jpg")}
-    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=eJaHmE4s3Kw"
   />
   </div>
   

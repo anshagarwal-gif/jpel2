@@ -98,7 +98,7 @@ const  Flexible = () => {
       <VedioCard
     videoTitle="LAMINATION LINE FOR FLEXIBLE PACKAGING"
     videoThumbnail={require("../Flexible/Assets/FL.jpg")}
-    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=B_GDsg4jlyI&t=1s"
   />
       
       </div>

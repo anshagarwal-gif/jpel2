@@ -164,22 +164,22 @@ const WovenSack = () => {
       <VedioCard
     videoTitle="RECYCLING LINE – JP 100 RC"
     videoThumbnail={require("../WovenSack/Assets/WW.jpg")}
-    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=lzQQLRubEDQ"
   />
           <VedioCard
         videoTitle=""
     videoThumbnail={require("../WovenSack/Assets/WW3.jpg")}
-    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=zIc2e2G03B8"
   />
            <VedioCard
         videoTitle=""
     videoThumbnail={require("../WovenSack/Assets/WW4.jpg")}
-    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=0UP8NXovZOI"
   />
            <VedioCard
         videoTitle=""
     videoThumbnail={require("../WovenSack/Assets/WW5.jpg")}
-    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=29I9mwLhSe0"
   />
       </div>
         {/* Add the ModifiedGallery component here */}

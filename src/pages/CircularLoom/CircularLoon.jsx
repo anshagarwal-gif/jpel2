@@ -215,38 +215,39 @@ const CircularLoom = () => {
 
       <div className="card-wrapper3">
         <VedioCard
-          videoTitle="CIRCULAR WEAVING MACHINE"
-          videoThumbnail={require("../CircularLoom/Assets/CV.jpg")}
-          videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+          videoTitle=""
+          videoThumbnail={require("../CircularLoom/Assets/CV5.jpg")}
+          videoUrl="https://www.youtube.com/watch?v=UaU5zhOe_F4"
         />
+        {/* <VedioCard (deploy after when available)
+          videoTitle=""
+          videoThumbnail={require("../CircularLoom/Assets/CV6.jpg")}
+          videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+        /> */}
+
         <VedioCard
           videoTitle="CIRCULAR WEAVING MACHINE, VEGA-812"
           videoThumbnail={require("../CircularLoom/Assets/CV2.jpg")}
-          videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
-        />
-      </div>
-
-      <div className="card-wrapper3">
-        <VedioCard
-          videoTitle="VEGA VENT 4 – VENTED FABRIC WEAVING MACHINE"
-          videoThumbnail={require("../CircularLoom/Assets/CV3.jpg")}
-          videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+          videoUrl="https://www.youtube.com/watch?v=FA5yd-STHNo"
         />
         <VedioCard
           videoTitle="LENO CIRCULAR WEAVING MACHINE"
           videoThumbnail={require("../CircularLoom/Assets/CV4.jpg")}
-          videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+          videoUrl="https://www.youtube.com/watch?v=G1JvbNQfV7Y"
+        />
+        
+     
+        <VedioCard
+          videoTitle="VEGA VENT 4 – VENTED FABRIC WEAVING MACHINE"
+          videoThumbnail={require("../CircularLoom/Assets/CV3.jpg")}
+          videoUrl="https://www.youtube.com/watch?v=FA5yd-STHNo"
         />
         <VedioCard
-          videoTitle=""
-          videoThumbnail={require("../CircularLoom/Assets/CV5.jpg")}
-          videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+          videoTitle="CIRCULAR WEAVING MACHINE"
+          videoThumbnail={require("../CircularLoom/Assets/CV.jpg")}
+          videoUrl="https://www.youtube.com/watch?v=zhzf6cIEGM8"
         />
-        <VedioCard
-          videoTitle=""
-          videoThumbnail={require("../CircularLoom/Assets/CV6.jpg")}
-          videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
-        />
+        
       </div>
       {/* Add the ModifiedGallery component here */}
       <NewGallery

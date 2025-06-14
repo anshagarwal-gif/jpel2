@@ -131,7 +131,7 @@ const CastLine = () => {
       <VedioCard
     videoTitle="FIVE LAYER CAST FILM LINE – DEMO FILM"
     videoThumbnail={require("../CastLine/Assets/CL.jpg")}
-    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=Eb4C4BaXkWY"
   />
   </div>
       {/* Add the ModifiedGallery component here */}

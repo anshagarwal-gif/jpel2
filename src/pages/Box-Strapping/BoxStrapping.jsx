@@ -140,7 +140,7 @@ const BoxStrapping = () => {
       <VedioCard
     videoTitle="EPET Strappex - PET BOX STRAP LINE"
     videoThumbnail={require("../Box-Strapping/Assets/BX.jpg")}
-    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=9ZALhQSbx_Q"
   />
   </div>
      {/* Add the ModifiedGallery component here */}

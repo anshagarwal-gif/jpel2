@@ -143,7 +143,7 @@ const SheetExtrusion = () => {
       <VedioCard
     videoTitle="PET – SHEET LINE – DEMO FILM"
     videoThumbnail={require("../SheetExtrusion/Assets/SH.jpg")}
-    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=7zboEiAxQ7k"
   />
   </div>
       {/* Add the ModifiedGallery component here */}

@@ -92,7 +92,7 @@ const PET = () => {
       <VedioCard
     videoTitle="PET WASHING LINE 1000 Kgs/Hr Capacity"
     videoThumbnail={require("../PET/Assets/PT.jpg")}
-    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=LpHRZCusdy0"
   />
   </div>
 </div>

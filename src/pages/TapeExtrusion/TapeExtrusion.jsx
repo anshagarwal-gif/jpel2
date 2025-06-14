@@ -14,14 +14,14 @@ import bag3 from '../../assets/tape-3.jpg';
 import bag4 from '../../assets/tape-4.jpg';
 
 const TapeExtrusion = () => {
-    const [activeTab, setActiveTab] = useState('Tab 1');
+    const [activeTab, setActiveTab] = useState('Product');
     const machineimages = [
       banner, banner, banner, banner
     ];
     
     // Tab-specific content
     const tabContent = {
-      'Tab 1': {
+      'Product': {
         image: im,
         description: "Note:-  The picture may show optional equipment's that are not part of the standard supply. For detail, refer to the quotation.",
         tableHeaders: ['Technical Specifications', 'Model (LS)', 'Model (HS)'],
@@ -30,7 +30,7 @@ const TapeExtrusion = () => {
           ['Mechanical Line Speed', 'upto 400 m/min*', 'upto 500 m/min*'],
         ],
         slideshowImages: ['/tab1-slide1.jpg', '/tab1-slide2.jpg'],
-        applicationPoints: ['Point 1 for Tab 1', 'Point 2 for Tab 1', 'Point 3 for Tab 1'],
+        applicationPoints: ['Point 1 for Product', 'Point 2 for Product', 'Point 3 for Product'],
         catalogue: '/assets/catalogues/tape-extrusion-catalogue.pdf',
       }
     };
@@ -140,28 +140,29 @@ const TapeExtrusion = () => {
         </div>
         
         <div className="card-wrapper3">
-          <VedioCard
+          {/* <VedioCard
             videoTitle="TAPE STRETCHING LINE – DEMO FILM"
             videoThumbnail={require("../TapeExtrusion/Assets/TapeV.jpg")}
-            videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
-          />
-          <VedioCard
-            videoTitle="TRUNKEY WOVEN SACK PROJECTS"
-            videoThumbnail={require("../TapeExtrusion/Assets/TapeV2.jpg")}
-            videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
-          />
-        </div>
-
-        <div className="card-wrapper3">
+            videoUrl="https://youtu.be/4WIByA5Kn-A?feature=shared"
+          /> */}
           <VedioCard
             videoTitle="WOVEN SACK PROJECTS (WHITE TAPE)"
             videoThumbnail={require("../TapeExtrusion/Assets/TapeV3.jpg")}
-            videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+            videoUrl="https://youtu.be/dKCUuXxLUQced"
           />
           <VedioCard
             videoTitle="WOVEN SACK PROJECTS (NATURAL TAPE)"
             videoThumbnail={require("../TapeExtrusion/Assets/TapeV4.jpg")}
-            videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+            videoUrl="https://youtu.be/iiuTrpKbn1M"
+          />
+          
+        </div>
+
+        <div className="card-wrapper3">
+          <VedioCard
+            videoTitle="TRUNKEY WOVEN SACK PROJECTS"
+            videoThumbnail={require("../TapeExtrusion/Assets/TapeV2.jpg")}
+            videoUrl="https://youtu.be/oiwEg7OB7cA?list=TLGG_E8tFXQFMRowNjAxMjAyNQ"
           />
         </div>
            {/* Add the ModifiedGallery component here */}

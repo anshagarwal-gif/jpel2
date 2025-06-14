@@ -390,7 +390,7 @@ const Bag = () => {
                <VedioCard
           videoTitle=""
           videoThumbnail={require("../Bag-Conversion/Assets/BagV3.jpg")}
-          videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+          videoUrl="https://youtu.be/w3-xYfliIMA?si=qJXT7u8QOqWlN56d"
         />
                <VedioCard
           videoTitle=""

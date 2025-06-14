@@ -142,12 +142,12 @@ const PrintingMachine = () => {
       <VedioCard
     videoTitle="JP FLEX – DEMO FILM"
     videoThumbnail={require("../PrintingMachines/Assets/PM.jpg")}
-    videoUrl="https://youtu.be/F4DjbKUimLE?list=TLGGiaMvZ-PlGsAwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=ADuA7unJcUA&pp=0gcJCckJAYcqIYzv"
   />
     <VedioCard
         videoTitle="6 COLOUR ONLINE FLEXO PRINTING FOR WOVEN SACK"
     videoThumbnail={require("../PrintingMachines/Assets/PM2.jpg")}
-    videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
+    videoUrl="https://www.youtube.com/watch?v=Yoxjns1fG6U"
   />
       
       </div>
