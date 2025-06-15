@@ -124,11 +124,6 @@ router.post('/apply', upload.single('resume'), async (req, res) => {
                 <td style="padding: 12px; border: 1px solid #ddd;">${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</td>
               </tr>
             </table>
-            
-            <div style="margin-top: 20px; padding: 15px; background-color: #e8f5e8; border-left: 4px solid #4caf50;">
-              <p style="margin: 0; font-weight: bold; color: #2e7d32;">📧 Reply directly to this email to respond to the applicant.</p>
-              <p style="margin: 5px 0 0 0; font-size: 12px; color: #666;">Resume file path: ${resumePath || 'Not uploaded'}</p>
-            </div>
           </div>
         `,
         // Attach resume if uploaded
