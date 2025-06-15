@@ -218,6 +218,124 @@ const Career = () => {
 'Ability to multitask and manage time effectively'  
 
       ]
+    },
+    'Production Planning Incharge': {
+      profile: [
+         'Understand programme schedule requirements and create production plans as per order' ,
+        'Plan, schedule, monitor and control material requirements for production, including plans for manufacturing kits review shortage of material and work with supply chain, part inspection team to mitigate material shortage',
+        'Review the production progress on daily basis and manage the data all required part',
+        'Planning all the material requirement as per order',
+        'Develop new vendor for cost reduction & better quality',
+        'Forecast material requirements & and planning to order all material as per demand',
+        'Segregate all the part and distribute to all respective vendors and give them proper guide for reducing machine part error',
+        'Check all material as per order and responsible debit note in case of any malfunctions.',
+        'Providing all part to assembly department as per time'
+
+      ],
+      skills: [
+         'Good knowledge & efficient in MS excel, word, AutoCAD',
+         'B.E Mechanical, Diploma or equivalent',
+         'Prepare Daily, Weekly, Monthly Progress Report',
+         'Maintain Drawing Register & project related documents in order'
+      ]
+    },
+    
+      'Operator - VMC, CNC & Laser Cutting': {
+      profile: [
+        'Take full responsibility for the machine line (MLE) and ensure seamless operation of cutting processes',
+        'Check and maintain the quality of the cutting process and ensure it meets established standards',
+        'Ensure the machine is in good condition and running efficiently to avoid downtime',
+        'Regularly monitor the oil level and other critical machine components',
+        'Verify that all parts being cut meet the required specifications and standards',
+        'Step in to resolve issues or stoppages when required, ensuring minimal impact on production',
+        'Assist with other tasks as required, including working on other production lines or machinery',
+        'Be ready to handle additional responsibilities as required and contribute to the smooth running of the company operations',
+        'This role requires 10 hours of working and may require to extend hours based on production demand'
+      ],
+      skills: [
+        'Diploma/Degree in Mechanical Engineering or related field',
+        'Minimum 1-3 years of experience in a similar role',
+        'Hands-on experience with cutting machines and production lines',
+        'Strong attention to detail and problem-solving skills',
+        'Ability to work in a fast-paced environment and adapt to new challenges',
+        'Working Hours will be 10 hours'
+      ]
+    },
+    'Purchase Coordinator': {
+      profile: [
+      'New Vendor development',
+      'Evaluate vendor quotations and proposals to determine most desirable offer',
+      'Working on STERP software for all activities of purchase data',
+      'To develop suppliers for standard and non-standard items and get better rates from the market',
+      'Vendor finalization with best price & quality',
+      'Negotiate contracts with vendors and suppliers',
+      'Should be able to create Purchase Requisition PR to Purchase Order PO',
+      'Having Good Knowledge of Goods Receipt and invoice procedure',
+      'Deliver the material on time with standard quality',
+      'Knowledge of GST & taxation',
+      'Purchase Invoice record management',
+      'Follow up with suppliers, transporters for prompt delivery of materials & payment',
+      'Develop negotiation strategies to maximize cost savings',
+      'Maintain updated records of purchased products, delivery information, invoices, goods ordered and received etc',
+      'Demonstrated ability to find new suppliers, negotiation of prices and logistic costs',
+      'To material dispatch and taking details on time, material availability in the company verifying all bills, taking full responsibility if there problem in the material This job requires to manage Purchase operations and Coordinate between Production, Stores and Management',
+      'Documentation, filing & maintaining purchase records as per ISO standards',
+      'Maintain daily purchase report data' 
+      ],
+      skills: [
+        'Minimum 3 to 5 years of experience in Engineering field',
+        'Candidate should have Diploma/ Graduate in Material management',
+        'Excellent knowledge on vendor base of market',
+        'Knowledge of market research, data analysis, and forecasting techniques',
+        'Raw Material Planning as per customer requirement',
+        'Proficient in the use of computers for maintaining data / records'
+      ]
+    },
+    'Graphic Designer': {
+       profile: [
+        'Make promotional content of our products & machines with appropriate images, and   graphics',
+        'Constantly edit our marketing materials - Newsletter, product brochures, and catalogues with latest content',
+        'Excellent skills required in Adobe Photoshop, Illustrator, Corel draw, Figma, Canva & other designing 7 editing tools',
+        'Video editing skills are a plus',
+        'Experience of 2+ years'
+       ],
+       skills: [
+        'Proficiency in Adobe Photoshop, Illustrator, CorelDRAW, Figma and Canva',
+        'Strong understanding of design principles: layout, typography, color theory, and branding',
+        'Experience in designing marketing materials such as brochures, flyers, and newsletters',
+        'Knowledge of video editing tools is an advantage',
+        'Creative thinking with attention to detail',
+        'Experience: 2–4 years'
+       ] 
+    },
+    'Machine Operator': {
+      profile: [
+         'Operate and control blown film machinery and equipment',
+          'Set up and adjust machine settings for desired film specifications, such as thickness, width, and length',
+          'Load and feed plastic resin or other raw materials into the machine',
+          'Monitor the extrusion process to ensure smooth and consistent production',
+          'Adjust air pressure and temperature settings to control bubble size and film properties',
+          'Conduct regular quality checks on the film for defects, such as thickness variations or surface imperfections',
+          'Make necessary adjustments to the machine or process parameters to address any issues or deviations',
+          'Troubleshoot and resolve minor mechanical problems or malfunctions that may occur during production',
+          'Follow safety protocols and procedures to maintain a safe working environment',
+          'Keep accurate records of production data, including quantities produced, machine settings, and any quality or operational issues',
+          'Cut, wind, or roll the produced film according to specified dimensions or customer requirements',
+          'Clean and maintain equipment and work area to ensure optimal performance and cleanliness',
+          'Communicate effectively with team members and supervisors regarding production status, issues, and any necessary adjustments',
+          'Adhere to company policies, regulations, and quality standards',
+          'Continuously monitor and optimize production processes to maximize efficiency and minimize waste'
+
+      ],
+      skills: [
+        'Previous experience operating blown film extrusion or similar machinery is often required', 
+        'Ability to understand and interpret machine settings, read technical drawings, and troubleshoot mechanical issues',
+        'Attention to detail and a commitment to producing high-quality film', 
+        'The ability to stand for extended periods, lift materials, and work in a fast-paced environment', 
+        'The ability to communicate effectively with supervisors and other team members',
+        'The ability to identify and resolve issues quickly and efficiently',
+        'A strong commitment to safety procedures and protocols'
+      ]
     }
   };
 
@@ -230,7 +348,12 @@ const Career = () => {
     'Service Engineer',
     'QC Engineer',
     'Sales & Marketing - International Market',
-    'Draughtsman-Mechanical'
+    'Draughtsman-Mechanical',
+    'Production Planning Incharge',
+    'Operator - VMC, CNC & Laser Cutting',
+    'Purchase Coordinator',
+    'Graphic Designer',
+    'Machine Operator',
   ];
 
   const handleApplyNow = (job) => {
