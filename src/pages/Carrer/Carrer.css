@@ -618,3 +618,160 @@
     font-size: 11px;
   }
 }
+/* Toast Notification Styles */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+  min-width: 300px;
+  max-width: 500px;
+  animation: slideInRight 0.3s ease-out;
+  border-left: 4px solid;
+}
+
+.toast-success {
+  border-left-color: #4CAF50;
+}
+
+.toast-error {
+  border-left-color: #e31e24;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 12px;
+}
+
+.toast-icon {
+  font-size: 18px;
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+
+.toast-success .toast-icon {
+  color: #4CAF50;
+}
+
+.toast-error .toast-icon {
+  color: #e31e24;
+}
+
+.toast-message {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.4;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Loader Styles */
+.loader {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 2px solid white;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Form disabled state */
+.form-group input:disabled,
+.form-group textarea:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.file-label:has(input:disabled) {
+  background-color: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.send-message-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.send-message-btn:disabled:hover {
+  background-color: #ccc;
+  transform: none;
+  box-shadow: none;
+}
+
+.close-form-btn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.close-form-btn:disabled:hover {
+  color: #ccc;
+  background-color: transparent;
+}
+
+/* Mobile responsiveness for toast */
+@media (max-width: 768px) {
+  .toast {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    min-width: auto;
+    max-width: none;
+  }
+  
+  .toast-content {
+    padding: 12px 15px;
+  }
+  
+  .toast-message {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .toast {
+    top: 5px;
+    right: 5px;
+    left: 5px;
+  }
+  
+  .toast-content {
+    padding: 10px 12px;
+  }
+  
+  .toast-icon {
+    font-size: 16px;
+  }
+  
+  .toast-message {
+    font-size: 12px;
+  }
+}
