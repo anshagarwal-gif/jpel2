@@ -307,35 +307,6 @@ const Career = () => {
         'Creative thinking with attention to detail',
         'Experience: 2–4 years'
        ] 
-    },
-    'Machine Operator': {
-      profile: [
-         'Operate and control blown film machinery and equipment',
-          'Set up and adjust machine settings for desired film specifications, such as thickness, width, and length',
-          'Load and feed plastic resin or other raw materials into the machine',
-          'Monitor the extrusion process to ensure smooth and consistent production',
-          'Adjust air pressure and temperature settings to control bubble size and film properties',
-          'Conduct regular quality checks on the film for defects, such as thickness variations or surface imperfections',
-          'Make necessary adjustments to the machine or process parameters to address any issues or deviations',
-          'Troubleshoot and resolve minor mechanical problems or malfunctions that may occur during production',
-          'Follow safety protocols and procedures to maintain a safe working environment',
-          'Keep accurate records of production data, including quantities produced, machine settings, and any quality or operational issues',
-          'Cut, wind, or roll the produced film according to specified dimensions or customer requirements',
-          'Clean and maintain equipment and work area to ensure optimal performance and cleanliness',
-          'Communicate effectively with team members and supervisors regarding production status, issues, and any necessary adjustments',
-          'Adhere to company policies, regulations, and quality standards',
-          'Continuously monitor and optimize production processes to maximize efficiency and minimize waste'
-
-      ],
-      skills: [
-        'Previous experience operating blown film extrusion or similar machinery is often required', 
-        'Ability to understand and interpret machine settings, read technical drawings, and troubleshoot mechanical issues',
-        'Attention to detail and a commitment to producing high-quality film', 
-        'The ability to stand for extended periods, lift materials, and work in a fast-paced environment', 
-        'The ability to communicate effectively with supervisors and other team members',
-        'The ability to identify and resolve issues quickly and efficiently',
-        'A strong commitment to safety procedures and protocols'
-      ]
     }
   };
 
@@ -353,7 +324,6 @@ const Career = () => {
     'Operator - VMC, CNC & Laser Cutting',
     'Purchase Coordinator',
     'Graphic Designer',
-    'Machine Operator',
   ];
 
   const handleApplyNow = (job) => {
