@@ -153,20 +153,33 @@ function ScrollTransition({ recyclingData, initialCategory, onlyShowCategory }) 
 
   // Handle wheel events to control scrolling with the dots
   useEffect(() => {
+    let lastWheelTime = 0;
+    
     const handleWheel = (e) => {
       e.preventDefault();
+      e.stopPropagation();
+      
+      const now = Date.now();
+      
+      // Prevent rapid successive wheel events
+      if (now - lastWheelTime < 500) return;
+      
+      // Add threshold to prevent small scroll movements from triggering navigation
+      if (Math.abs(e.deltaY) < 30) return;
       
       // Debounce the scroll event
       if (scrolling.current) return;
+      
+      lastWheelTime = now;
       scrolling.current = true;
       
-      // Determine direction
-      if (e.deltaY > 0) {
+      // Determine direction with more specific threshold
+      if (e.deltaY > 30) {
         // Scroll down
         if (activeSection < slides.length - 1) {
           navigateToSection(activeSection + 1);
         }
-      } else {
+      } else if (e.deltaY < -30) {
         // Scroll up
         if (activeSection > 0) {
           navigateToSection(activeSection - 1);
@@ -176,7 +189,7 @@ function ScrollTransition({ recyclingData, initialCategory, onlyShowCategory }) 
       // Reset the scrolling lock after a delay
       setTimeout(() => {
         scrolling.current = false;
-      }, 800);
+      }, 600);
     };
     
     const container = containerRef.current;
