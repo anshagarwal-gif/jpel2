@@ -5,6 +5,16 @@ const Career = () => {
   const [openJob, setOpenJob] = useState(null); // Changed to null so no job is open by default
   const [showForm, setShowForm] = useState(false);
   const [selectedJob, setSelectedJob] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [toast, setToast] = useState({ show: false, message: '', type: '' });
+
+  // Toast function
+  const showToast = (message, type = 'success') => {
+    setToast({ show: true, message, type });
+    setTimeout(() => {
+      setToast({ show: false, message: '', type: '' });
+    }, 4000);
+  };
 
   // Job details object
   const jobDetails = {
@@ -15,11 +25,11 @@ const Career = () => {
 'Courteous communication with the customer via telephone, email or video call and assisting with any technical, mechanical or electrical problems arising in the machine',  
 'Maintaining the appropriate records of discussion and correspondence with the customers',  
 'Arranging procurement and timely delivery of spare parts by close coordination with the production team and store management',  
-'Know thoroughly about the company’s products and keeping up to date about any changes or updates',  
+'Know thoroughly about the company  products and keeping up to date about any changes or updates',  
 'Leading the team of service engineers and providing them appropriate instructions and training for courteous dealing with the customers',  
-'Deputing service engineer at the customer’s location and analysing his daily activity field reports and guide him accordingly',  
-'Analysing and reviewing service engineer’s reports made during the customer visit and discuss problems, solutions to close the customer complaint',  
-'Managing and reviewing monthly reports of customer’s complaints and the deployed solutions along with service reports with the higher management',  
+'Deputing service engineer at the customers location and analysing his daily activity field reports and guide him accordingly',  
+'Analysing and reviewing service engineers reports made during the customer visit and discuss problems, solutions to close the customer complaint',  
+'Managing and reviewing monthly reports of customers complaints and the deployed solutions along with service reports with the higher management',  
 'Managing monthly reports of spare parts procured, supplied to the customers, including payment and delivery',  
 'Managing quotation, delivery and payments of the spare parts and the service visit charges from the customer',  
 'Minimum 10 to 12 years of experience in relevant field preferably in machine manufacturing industry',  
@@ -180,8 +190,8 @@ const Career = () => {
     },
     'Sales & Marketing - International Market': {
       profile: [
-        'Market our company’s products in South-east Asia Africa South America',  
-'Conduct market research and study peers',  
+        'Market our companys products in South-east Asia Africa South America',  
+        'Conduct market research and study peers',  
 'Communicate with target audiences and build & develop customer relationships',  
 'Bring in Sales from the above regions',  
 'Submit weekly marketing reports to head office'  
@@ -211,7 +221,7 @@ const Career = () => {
 
       ],
       skills: [
-        'ITI Diploma or Bachelor’s degree or equivalent',  
+        'ITI Diploma or Bachelors degree or equivalent',  
 'A minimum of 3 years experience in a similar role',  
 'Math skills and attention to detail',  
 'A strong knowledge of computer assisted design CAD 2D and 3D design software Solid edge Proficient in MS Office and popular design softwares',  
@@ -333,23 +343,46 @@ const Career = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+    setIsLoading(true);
+    
     const formData = new FormData(e.target);
     formData.append("jobTitle", selectedJob);
+    
     try {
       const res = await fetch(`${process.env.REACT_APP_API_URL}/api/apply`, {
         method: 'POST',
         body: formData
       });
       const data = await res.json();
-      alert(data.message);
-      setShowForm(false);
+      
+      if (res.ok) {
+        showToast(data.message || "Application submitted successfully!", "success");
+        setShowForm(false); // Close form after successful submission
+        e.target.reset(); // Reset form
+      } else {
+        showToast(data.message || "Submission failed. Please try again.", "error");
+      }
     } catch (err) {
-      alert("Submission failed. Try again.");
+      showToast("Submission failed. Please check your connection and try again.", "error");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="career-page">
+      {/* Toast Notification */}
+      {toast.show && (
+        <div className={`toast toast-${toast.type}`}>
+          <div className="toast-content">
+            <span className="toast-icon">
+              {toast.type === 'success' ? '✓' : '⚠'}
+            </span>
+            <span className="toast-message">{toast.message}</span>
+          </div>
+        </div>
+      )}
+
       <div className="imageContainer3">
         <img
           className="ExportSection1"
@@ -417,38 +450,50 @@ const Career = () => {
               <div className="form-columns">
                 <div className="form-column">
                   <div className="form-group">
-                    <input type="text" placeholder="Name" name='name' required />
+                    <input type="text" placeholder="Name" name='name' required disabled={isLoading} />
                   </div>
                   <div className="form-group">
-                    <input type="email" placeholder="Email ID" name='email' required />
+                    <input type="email" placeholder="Email ID" name='email' required disabled={isLoading} />
                   </div>
                   <div className="form-group">
-                    <input type="tel" placeholder="Contact No" name='contact' required />
+                    <input type="tel" placeholder="Contact No" name='contact' required disabled={isLoading} />
                   </div>
                   <div className="form-group">
-                    <input type="text" placeholder="Qualification" name='qualification' required />
+                    <input type="text" placeholder="Qualification" name='qualification' required disabled={isLoading} />
                   </div>
                 </div>
                 
                 <div className="form-column">
                   <div className="form-group">
-                    <input   type="file"
-  id="resume"
-  name="resume"
-  className="resume-upload"
-  accept=".pdf,.doc,.docx"
-  required />
+                    <input   
+                      type="file"
+                      id="resume"
+                      name="resume"
+                      className="resume-upload"
+                      accept=".pdf,.doc,.docx"
+                      required 
+                      disabled={isLoading}
+                    />
                     <label htmlFor="resume" className="file-label">Upload Resume</label>
                   </div>
                   <div className="form-group">
-                    <textarea placeholder="Message" rows="6" name='message' required></textarea>
+                    <textarea placeholder="Message" rows="6" name='message' required disabled={isLoading}></textarea>
                   </div>
                 </div>
               </div>
               
               <div className="form-actions">
-                <button type="submit" className="send-message-btn">SEND MESSAGE</button>
-                <button type="button" className="close-form-btn" onClick={() => setShowForm(false)}>✕</button>
+                <button type="submit" className="send-message-btn" disabled={isLoading}>
+                  {isLoading ? (
+                    <>
+                      <span className="loader"></span>
+                      SUBMITTING...
+                    </>
+                  ) : (
+                    'SEND MESSAGE'
+                  )}
+                </button>
+                <button type="button" className="close-form-btn" onClick={() => setShowForm(false)} disabled={isLoading}>✕</button>
               </div>
             </form>
           </div>
