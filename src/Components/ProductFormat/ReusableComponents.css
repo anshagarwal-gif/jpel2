@@ -293,7 +293,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 1040px;
+
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   object-fit: cover;
