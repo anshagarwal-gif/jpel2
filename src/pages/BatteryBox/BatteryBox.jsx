@@ -9,7 +9,7 @@ const BatteryBox = () => {
         const tabContent = {
           'Product': {
             image: require("../BatteryBox/Assets/tab.jpg"),
-            description: 'Note:-  The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+            description: 'Note:-  The picture may show optional equipments that are not part of the standard supply. For detail, refer to the quotation.',
             tableHeaders: [],
             tableRows: [],
             slideshowImages: [require("../BatteryBox/Assets/appli1.jpg"), require("../BatteryBox/Assets/appli1.jpg")],
@@ -33,17 +33,17 @@ const BatteryBox = () => {
           src={require('./Assets/bannermain.jpg')}
         />
         <div >
-        <div className="product-layout">
-      <div className="image-section">
+        <div className="product-layout-battery">
+      <div className="image-section-battery">
         <img 
           src={require('./Assets/leftbanner.jpg')} 
           alt="Jaiko Industries Machine" 
-          className="product-image"
+          className="product-image-battery"
         />
       </div>
       
-      <div className="content-section">
-        <div className="description">
+      <div className="content-section-battery">
+        <div className="description-battery">
           <p>
           Transform the recycling process for car battery boxes with our advanced solutions tailored for recovering high-quality ABS (Acrylonitrile Butadiene Styrene) plastics. Our state-of-the-art recycling machines are specifically engineered to efficiently process used and damaged car battery boxes, ensuring maximum recovery of valuable materials.
           </p>
@@ -67,6 +67,13 @@ const BatteryBox = () => {
           activeTab={activeTab}
           onTabChange={setActiveTab}
         />
+        
+        <ProductWithDownloadCatalogue 
+         image={currentContent.image}
+        description={currentContent.description}
+        tabId={activeTab}
+        tabContent={tabContent}
+      />
    
         <SpecsTable
           headers={currentContent.tableHeaders}

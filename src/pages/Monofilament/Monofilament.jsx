@@ -17,7 +17,7 @@ const Monofilament = () => {
         const tabContent = {
           'Product': {
             image: require("../Monofilament/Assets/tab.jpg"),
-            description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For details , refer to the quotation.',
+            description: 'Note:-The picture may show optional equipments that are not part of the standard supply. For details , refer to the quotation.',
             tableHeaders: ['Technical Specifications','JP 70 MONO','JP 80 MONO','JP 90 MONO'],
             tableRows: [
               ['Max. Output - PP (Kgs/Hr)' ,'150','200','250'],
@@ -72,17 +72,17 @@ const Monofilament = () => {
           src={require('./Assets/bannermain.jpg')}
         />
         <div >
-        <div className="product-layoutFila">
-      <div className="image-sectionFila">
+        <div className="product-layout-mono">
+      <div className="image-section-mono">
         <img 
           src={require('./Assets/leftbanner.jpg')} 
           alt="Jaiko Industries Machine" 
-          className="product-imageFilaMO"
+          className="product-image-mono"
         />
       </div>
       
-      <div className="content-sectionFila">
-        <div className="descriptionFila">
+      <div className="content-section-mono">
+        <div className="description-mono">
           <p>
           JP Group takes pride in offering a diverse range of highly efficient Monofilament Line Machines designed to produce HDPE, PP, and Nylon monofilaments with exceptional quality and performance. These machines are crafted with advanced engineering to cater to industries requiring precision, durability, and efficiency in monofilament production.
           </p>

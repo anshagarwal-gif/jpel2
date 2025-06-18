@@ -73,21 +73,21 @@ const WindingMachine = () => {
           src={require('./Assets/banner.jpg')}
         />
         <div >
-        <div className="product-layout">
-      <div className="image-section">
+        <div className="product-layout-winding">
+      <div className="image-section-winding">
         <img 
           src={require('./Assets/bannerleft.jpg')}
           alt="Jaiko Industries Machine" 
-          className="product-image2"
+          className="product-image-winding"
         />
       </div>
       
-      <div className="content-section">
-        <div className="description3">
+      <div className="content-section-winding">
+        <div className="description-winding">
           <p>
           JP Group offers a comprehensive range of Winding Machines designed for high-quality and efficient tape winding across various industrial applications.
 Winding machines are available for different needs, including the Inverter/Electronic Tape Winder for precise speed and tension control, the Auto Doffing Tape Winder for seamless, automated roll changing, and the Jumbo Winder for high-capacity fibrillated tape winding. The Jumbo Winder is ideal for bulk production in industries such as agriculture (packaging, bale wrapping), rope manufacturing, and sewing yarn.
-These machines support end applications such as woven & leno bags, jumbo bags (Flexible Intermediate Bulk Containers – FIBCs), tarpaulins, carpet backings, geotextiles, wrapping fabrics, ropes, and twines
+These machines support end applications such as woven & leno bags, jumbo bags (Flexible Intermediate Bulk Containers – FIBCs), tarpaulins, carpet backings, geotextiles, wrapping fabrics, ropes, and twines
           </p>
         </div>
       </div>
@@ -119,4 +119,4 @@ These machines support end applications such as woven & leno bags, jumbo bags (F
       </div>
     );
   };
-export default WindingMachine;   
+export default WindingMachine;

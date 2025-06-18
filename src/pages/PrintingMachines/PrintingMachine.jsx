@@ -85,17 +85,12 @@ const PrintingMachine = () => {
           <p>
           High speed, PLC base 4/6/8 color flexo printing machine for Woven Sack having inline Corona Treatment, micro perforation, twist gusseting, cutting/winding system, for HDPE / PP laminated and un-laminated woven fabrics.
 
-            <br></br>
-            <br></br>
             Specially designed Micrometric adjustment system provided at each Printing Station to have fine pressure from Anilox Roll to Printing Drum and from Printing Drum to the final product (Fabric). This will improve the better sharpness of Printing.
 
           
             <br></br>
-            <br></br>
             Individual Gearbox system consists of hardened and ground oil dipped gears with the inbuilt planetary arrangement at each printing station. This increases the sturdiness of the machine which reduces maintenance and downtime.
-            <br></br>
-            <br></br>
-            Easy changeover for a change of direction of printing with the help of same gearbox system is also incorporated
+
           </p>
         </div>
       </div>

@@ -5,69 +5,106 @@
     margin: 0 auto;
     padding: 40px;
     gap: 40px;
-  }
-  
-  .image-section {
+}
+
+.image-section {
     flex: 1;
     min-width: 300px;
-    animation: slideIn 1s ease-in-out; /* Apply the animation */
-  }
-  
-  .product-imageBG {
+    animation: slideIn 1s ease-in-out;
+}
+
+.product-imageBG {
     width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .content-section {
+}
+
+.content-section {
     flex: 2;
     min-width: 300px;
     max-width: 900px;
-  }
-  
-  .description p {
+}
+
+.description p {
     margin: 0 0 16px 0;
     line-height: 1.4;
     color: #444;
     font-size: 30px;
     text-align: left;
-  }
-  
-  /* Keyframes for the left-to-right animation */
-  @keyframes slideIn {
+}
+
+/* Keyframes for the left-to-right animation */
+@keyframes slideIn {
     from {
-      transform: translateX(-100%);
-      opacity: 0;
+        transform: translateX(-100%);
+        opacity: 0;
     }
     to {
-      transform: translateX(0);
-      opacity: 1;
+        transform: translateX(0);
+        opacity: 1;
     }
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
+}
+
+/* Tablet Responsive Design */
+@media (max-width: 1024px) {
     .product-layout {
-      flex-direction: column;
-      padding: 16px;
-      gap: 24px;
+        padding: 30px;
+        gap: 30px;
     }
-  
-    .image-section,
+    
+    .description p {
+        font-size: 24px;
+        line-height: 1.5;
+    }
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    .product-layout {
+        flex-direction: column;
+        padding: 0px;
+        gap: 0; /* Remove gap since image is hidden */
+    }
+
+    /* Hide the left banner/image section on mobile */
+    .image-section {
+        display: none;
+    }
+
     .content-section {
-      width: 100%;
+        width: 100%;
+        max-width: 100%;
     }
-  
+
+    .description p {
+        font-size: 18px;
+        line-height: 1.6;
+        text-align: justify;
+        padding: 10px 0;
+    }
+
     h1 {
-      font-size: 20px;
+        font-size: 20px;
     }
-  
+
     h2 {
-      font-size: 14px;
+        font-size: 14px;
     }
-  }
-  /* Bag.css - Add these styles to your existing CSS file */
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  
+    
+    .description p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 12px 21px 12px 10px
+    }
+}
+
+/* Bag.css - Subtab and slideshow styles */
 
 /* Subtab navigation styling */
 .subtab-navigation {
@@ -80,9 +117,9 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0 20px;
-  }
-  
-  .subtab-button {
+}
+
+.subtab-button {
     padding: 12px 24px;
     border: 1px solid #ddd;
     background-color: #f8f8f8;
@@ -94,53 +131,46 @@
     text-align: center;
     font-weight: 500;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  }
-  
-  .subtab-button:hover {
+}
+
+.subtab-button:hover {
     background-color: #ff3333;
     color: white;
     transform: translateY(-3px);
     box-shadow: 0 5px 8px rgba(255,0,0,0.2);
     border-color: #cc0000;
-  }
-  
-  .subtab-button.active-subtab {
+}
+
+.subtab-button.active-subtab {
     background-color: red;
     color: white;
     border-color: red;
     box-shadow: 0 3px 5px rgba(0,0,0,0.2);
-  }
-  
-  .subtab-button.active-subtab:hover {
+}
+
+.subtab-button.active-subtab:hover {
     background-color: red;
     box-shadow: 0 4px 7px rgba(0,0,0,0.25);
-    border-color:red;
-  }
-  
-  /* Product slideshow styles */
- 
-  
-  .product-slideshow {
+    border-color: red;
+}
+
+/* Product slideshow styles */
+.product-slideshow {
     position: relative;
     width: 100%;
-    
     display: block;
     justify-content: center;
     align-items: center;
-  }
-  
-  .product-slideshow img.product-image {
+}
+
+.product-slideshow img.product-image {
     width: 100%;
-     /* Adjust as needed */
-    
-   
     display: block;
-        
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: opacity 0.5s ease;
-  }
-  
-  .slideshow-indicators {
+}
+
+.slideshow-indicators {
     position: absolute;
     bottom: 15px;
     left: 50%;
@@ -148,54 +178,113 @@
     display: flex;
     gap: 10px;
     z-index: 10;
-  }
-  
-  .indicator {
+}
+
+.indicator {
     width: 12px;
     height: 12px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
     transition: all 0.3s ease;
-  }
-  
-  .indicator.active {
+}
+
+.indicator.active {
     background-color: #ffffff;
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
     transform: scale(1.2);
-  }
-  
-  /* Responsive design for slideshow */
-  @media (max-width: 768px) {
-    .slideshow-indicators {
-      bottom: 10px;
-    }
-    
-    .indicator {
-      width: 10px;
-      height: 10px;
-    }
-    
+}
+
+/* Tablet responsive for subtabs */
+@media (max-width: 1024px) {
     .subtab-navigation {
-      padding: 0 10px;
+        gap: 12px;
+        padding: 0 15px;
     }
     
     .subtab-button {
-      padding: 8px 16px;
-      font-size: 14px;
-      min-width: 100px;
+        padding: 10px 20px;
+        font-size: 15px;
+        min-width: 120px;
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+/* Mobile responsive for subtabs and slideshow */
+@media (max-width: 768px) {
+    .subtab-navigation {
+        gap: 8px;
+        padding: 0 10px;
+        margin: 15px 0;
+    }
+    
     .subtab-button {
-      padding: 6px 12px;
-      font-size: 12px;
-      min-width: 80px;
+        padding: 8px 16px;
+        font-size: 14px;
+        min-width: 100px;
+        border-radius: 4px;
+    }
+    
+    .slideshow-indicators {
+        bottom: 10px;
+        gap: 8px;
     }
     
     .indicator {
-      width: 8px;
-      height: 8px;
+        width: 10px;
+        height: 10px;
     }
-  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .subtab-navigation {
+        gap: 6px;
+        margin: 10px 0;
+    }
+    
+    .subtab-button {
+        padding: 6px 12px;
+        font-size: 12px;
+        min-width: 80px;
+        border-radius: 3px;
+    }
+    
+    .slideshow-indicators {
+        bottom: 8px;
+        gap: 6px;
+    }
+    
+    .indicator {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 768px) {
+    .description2 {
+        font-size: 14px !important;
+        line-height: 1.5;
+        padding: 8px 0;
+    }
+    
+    .card-header p {
+        font-size: 28px !important;
+    }
+    
+    .card-wrapper3 {
+        padding: 10px;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .description2 {
+        font-size: 12px !important;
+      
+    }
+    
+    .card-header p {
+        font-size: 24px !important;
+    }
+}

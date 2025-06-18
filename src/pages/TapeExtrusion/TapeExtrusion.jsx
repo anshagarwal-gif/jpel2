@@ -75,17 +75,17 @@ const TapeExtrusion = () => {
             src={require('./Assets/banner.jpg')}
           />
           <div>
-            <div className="product-layout">
-              <div className="image-section">
+            <div className="product-layout-tape">
+              <div className="image-section-tape">
                 <img 
                   src={require('./Assets/leftbanner.jpg')} 
                   alt="Jaiko Industries Machine" 
-                  className="product-image2"
+                  className="product-image-tape"
                 />
               </div>
               
-              <div className="content-section">
-                <div className="description3">
+              <div className="content-section-tape">
+                <div className="description-tape">
                   <p>
                     JP Group has a comprehensive range of tape extrusion lines for producing high-quality PP/HDPE tapes for a wide range of applications.
                     <br></br>
