@@ -6,6 +6,9 @@ Allow: /ContactUs
  Allow:    /News
  Allow:    /Service
  Allow:    /AboutUs
+ Allow: /product-line
+ Allow:  /carrer
+ Allow: /careers
 
 
  # Sitemaps
