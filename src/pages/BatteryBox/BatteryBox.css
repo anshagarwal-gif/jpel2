@@ -1,72 +1,107 @@
 /* ProductDisplay.css */
-.product-layout {
+.product-layout-battery {
     display: flex;
     max-width: 1800px;
     margin: 0 auto;
     padding: 40px;
     gap: 40px;
-  }
-  
-  .image-section {
+}
+
+.image-section-battery {
     flex: 1;
     min-width: 300px;
-    animation: slideIn 1s ease-in-out; /* Apply the animation */
-  }
-  
-  .product-image {
+    animation: slideIn 1s ease-in-out;
+}
+
+.product-image-battery {
     width: 100%;
     height: auto;
-    
-  
+    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .content-section {
+}
+
+.content-section-battery {
     flex: 2;
     min-width: 300px;
     max-width: 900px;
-    
-  }
-  
-  .description p {
+}
+
+.description-battery p {
     margin: 0 0 16px 0;
     line-height: 1.4;
     color: #444;
     font-size: 30px;
     text-align: left;
-  }
-  
-  /* Keyframes for the left-to-right animation */
-  @keyframes slideIn {
+}
+
+/* Keyframes for the left-to-right animation */
+@keyframes slideIn {
     from {
-      transform: translateX(-100%);
-      opacity: 0;
+        transform: translateX(-100%);
+        opacity: 0;
     }
     to {
-      transform: translateX(0);
-      opacity: 1;
+        transform: translateX(0);
+        opacity: 1;
     }
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .product-layout {
-      flex-direction: column;
-      padding: 16px;
-      gap: 24px;
+}
+
+/* Tablet Responsive Design */
+@media (max-width: 1024px) {
+    .product-layout-battery {
+        padding: 30px;
+        gap: 30px;
     }
-  
-    .image-section,
-    .content-section {
-      width: 100%;
+    
+    .description-battery p {
+        font-size: 24px;
+        line-height: 1.5;
     }
-  
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    .product-layout-battery {
+        flex-direction: column;
+        padding: 0px;
+        gap: 0; /* Remove gap since image is hidden */
+    }
+
+    /* Hide the left banner/image section on mobile */
+    .image-section-battery {
+        display: none;
+    }
+
+    .content-section-battery {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .description-battery p {
+        font-size: 18px;
+        line-height: 1.6;
+        text-align: justify;
+        padding: 10px 0;
+    }
+
     h1 {
-      font-size: 20px;
+        font-size: 20px;
     }
-  
+
     h2 {
-      font-size: 14px;
+        font-size: 14px;
     }
-  }
-  
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .product-layout-battery {
+        padding: 0px;
+    }
+    
+    .description-battery p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 12px 21px 12px 10px;
+    }
+}

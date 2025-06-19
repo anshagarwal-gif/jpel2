@@ -637,7 +637,7 @@
       height: 48px;
       opacity: 0.9;
       transform: translate(-50%, -50%) scale(0.95);
-      top: 35%; /* Position higher up to avoid conflict with caption */
+      top: 48%; /* Position higher up to avoid conflict with caption */
       background-color: rgba(240, 58, 58, 0.9);
     }
     

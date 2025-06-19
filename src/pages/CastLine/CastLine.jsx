@@ -17,7 +17,7 @@ const CastLine = () => {
         const tabContent = {
           'Product': {
             image: require("../CastLine/Assets/tab.jpg"),
-            description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+            description: 'Note:-The picture may show optional equipments that are not part of the standard supply. For detail, refer to the quotation.',
             tableHeaders: ['Technical Specifications','JP-COEX-CF 1800 (3 Layer)','JP-COEX-CF 2300 (3 Layer)','JP-COEX-CF 2300 (3 Layer)','JP-COEX-CF 2300 (5 Layer)'],
             tableRows: [
               ['Screw Dia (mm)' ,'70 | 100 | 70','80 | 100 | 70','80 | 120 | 70','80 | 120 | 100 | 80 '],
@@ -71,19 +71,19 @@ const CastLine = () => {
           src={require('./Assets/bannermain.jpg')}
         />
         <div >
-        <div className="product-layoutFila">
-      <div className="image-sectionFila">
+        <div className="product-layout-cast">
+      <div className="image-section-cast">
         <img 
           src={require('./Assets/leftbanner.jpg')} 
           alt="Jaiko Industries Machine" 
-          className="product-imageFila"
+          className="product-image-cast"
         />
       </div>
       
-      <div className="content-sectionFila">
-        <div className="descriptionFila">
+      <div className="content-section-cast">
+        <div className="description-cast">
           <p>
-          JP Group’s Chill Roll Cast Film Lines are designed to produce high-quality multi-ply films that have become indispensable in the packaging industry. These lines provide versatile solutions for manufacturing a wide range of films used in various packaging applications, including stretch films, cling films, barrier films, masking films, CPP films, and blister films. With capabilities for film thicknesses ranging from 15 to 150 microns, our technology ensures top-notch quality and cost-efficient production.
+          JP Group's Chill Roll Cast Film Lines are designed to produce high-quality multi-ply films that have become indispensable in the packaging industry. These lines provide versatile solutions for manufacturing a wide range of films used in various packaging applications, including stretch films, cling films, barrier films, masking films, CPP films, and blister films. With capabilities for film thicknesses ranging from 15 to 150 microns, our technology ensures top-notch quality and cost-efficient production.
           </p>
         </div>
       </div>

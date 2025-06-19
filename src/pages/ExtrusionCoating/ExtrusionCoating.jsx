@@ -155,17 +155,11 @@ const ExtrusionCoating = () => {
           <p>
           JP Group has a wide range of Extrusion Coating Lines Models to meet a variety of applications.
 
-            <br></br>
-            <br></br>
-          
+       
             For coating thin layer of polyolefin’s (Mainly LDPE / PP) on substrates like Paper, Cotton Cloth, Woven Fabrics, Jute fabric, Aluminum foil, BOPP film, Polyester film, etc. up to 5200 mm Web width applications.
 
           
-            <br></br>
-            <br></br>
-            For coating thin layer of polyolefin’s (Mainly LDPE / PP) on substrates like Paper, Cotton Cloth, Woven Fabrics, Jute fabric, Aluminum foil, BOPP film, Polyester film, etc. up to 5200 mm Web width applications.
-            <br></br>
-            <br></br>
+           
             Tandem Lamination Plant For coating Circular Woven fabric, for producing multilayer laminates up to 5 layers along with the various substrates like Paper, Aluminum foil, Polyester film etc
           </p>
         </div>

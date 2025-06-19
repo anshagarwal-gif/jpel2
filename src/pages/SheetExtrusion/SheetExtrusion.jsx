@@ -17,7 +17,7 @@ const SheetExtrusion = () => {
         const tabContent = {
           'Product': {
             image: require("../SheetExtrusion/Assets/tab.jpg"),
-            description: 'Note:-The picture may show optional equipment’s that are not part of the standard supply. For detail, refer to the quotation.',
+            description: 'Note:-The picture may show optional equipments that are not part of the standard supply. For detail, refer to the quotation.',
             tableHeaders: ['EXTRUDER Ø MM ','DIE (MM)','OUT PUT KGS/HR ','CALENDER DIA X LENGTH (MM)','MAX. SHEET WIDTH (MM)'],
             tableRows: [
               ['70 ' ,'640','HIPS 100-120 PP 70-80','200 X 700 ','540 '],
@@ -83,17 +83,17 @@ const SheetExtrusion = () => {
           src={require('./Assets/bannermain.jpg')}
         />
         <div >
-        <div className="product-layoutFila">
-      <div className="image-sectionFila">
+        <div className="product-layout-sheet">
+      <div className="image-section-sheet">
         <img 
           src={require('./Assets/leftbanner.jpg')} 
           alt="Jaiko Industries Machine" 
-          className="product-imageFila"
+          className="product-image-sheet"
         />
       </div>
       
-      <div className="content-sectionFila">
-        <div className="descriptionFila">
+      <div className="content-section-sheet">
+        <div className="description-sheet">
           <p>
           JP Group offers state-of-the-art Monolayer and Multilayer Sheet Extrusion Lines designed for the manufacturing of HIPS (High Impact Polystyrene), ABS (Acrylonitrile Butadiene Styrene), PP (Polypropylene), PET (Polyethylene Terephthalate), and PVC (Polyvinyl Chloride) sheets. These versatile machines cater to a wide range of applications including thermoforming, vacuum forming, office files, luggage, office furniture, roofing, and various other industries requiring high-quality plastic sheets.
           </p>
