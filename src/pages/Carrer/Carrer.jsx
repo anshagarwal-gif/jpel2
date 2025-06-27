@@ -102,24 +102,6 @@ const Career = () => {
 
       ]
     },
-    'Electrical Supervisor for Motor Manufacturing': {
-      profile: [
-        'Supervising motor manufacturing operations',
-        'Quality control of electrical components',
-        'Team management and training',
-        'Production planning and scheduling',
-        'Troubleshooting electrical issues',
-        'Maintaining production records'
-      ],
-      skills: [
-        'Diploma/Degree in Electrical Engineering',
-        '5-7 years experience in motor manufacturing',
-        'Strong knowledge of electrical systems',
-        'Team management experience',
-        'Quality control expertise',
-        'Problem-solving abilities'
-      ]
-    },
     'Mechanical Design Engineer': {
       profile: [
        'Create BOM for all the existing and new machines as per requirement',  
@@ -317,6 +299,42 @@ const Career = () => {
         'Creative thinking with attention to detail',
         'Experience: 2–4 years'
        ] 
+    },
+    'Electrical Engineer': {
+      profile:[
+        'Perform regular preventive and breakdown maintenance of all plant machines and electrical equipment to ensure uninterrupted production',
+        'Ensure compliance with Gujarat Electricity Board (GEB) safety norms and standards in all electrical operations',
+        'Maintain and update technical documentation of machinery and electrical systems as per ISO and internal audit requirements',
+        'Supervise and guide a team of electrical technicians to ensure timely and accurate task execution',
+        'Conduct electrical panel testing, wiring, and fault analysis to ensure safety and performance',
+        'Coordinate with production and other departments to schedule maintenance activities with minimal disruption',
+        'Assist in installation and commissioning of new machines and electrical panels',
+        'Identify and implement energy-saving initiatives and electrical system upgrades',
+      ],
+      skills:[
+      'Diploma / BE in Electrical Engineering',
+      '2 to 5 years of relevant experience',
+      'Knowledge of industrial machinery or manufacturing plant systems',
+      'Strong problem solving ability',
+      'Willingness to travel. If site support is required',
+      ]
+    },
+    'PLC Programmer': {
+      profile:[
+        'Develop, program, and troubleshoot PLC systems for machinery and plant automation',
+        'Work on new automation developments including PLC logic design, SCADA/HMI integration, and system testing',
+        'Understand and work with analog inputs/outputs e.g., sensors, temperature controllers, pressure transducers',
+        'Configure and manage digital I/O modules including relays, contactors, and communication modules e.g., Evolis or similar systems',
+        'Identify and implement energy-saving initiatives and automation improvements',
+        'Support the electrical team in basic maintenance, troubleshooting, and installation work as required'
+      ],
+      skills:[
+        'Diploma / BE in Electrical Engineering',
+        '2 to 8 years of relevant experience',
+        'Knowledge of industrial machinery or manufacturing plant systems',
+        'Ability to read and understand electrical & instrumentation drawings',
+        'Strong Command of PLC Programming'
+      ]
     }
   };
 
@@ -324,7 +342,6 @@ const Career = () => {
     'Customer Service and Spare Parts Manager',
     'Dispatch Assistant',
     'Technical Writer & Product Marketing',
-    'Electrical Supervisor for Motor Manufacturing',
     'Mechanical Design Engineer',
     'Service Engineer',
     'QC Engineer',
@@ -334,6 +351,8 @@ const Career = () => {
     'Operator - VMC, CNC & Laser Cutting',
     'Purchase Coordinator',
     'Graphic Designer',
+    'Electrical Engineer',
+    'PLC Programmer',
   ];
 
   const handleApplyNow = (job) => {
