@@ -18,18 +18,18 @@ const CareerApplications = () => {
   const [sortDirection, setSortDirection] = useState("asc");
   // Responsive state
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  
+
   // Get proper resume URL based on server structure
   const getResumeUrl = (application) => {
     if (!application) return null;
-    
+
     // First check if resumePath exists
     if (application.resumePath) {
       // Extract just the filename regardless of path format
       const filename = application.resumePath.split(/[\/\\]/).pop();
       return `${process.env.REACT_APP_API_URL}/uploads/${encodeURIComponent(filename)}`;
     }
-    
+
     // Check other possible properties if resumePath doesn't exist
     const possibleProps = ['resumeUrl', 'resume', 'resumeLink', 'resume_url'];
     for (const prop of possibleProps) {
@@ -39,7 +39,7 @@ const CareerApplications = () => {
         return `${process.env.REACT_APP_API_URL}/uploads/${encodeURIComponent(filename)}`;
       }
     }
-    
+
     return null;
   };
 
@@ -47,7 +47,7 @@ const CareerApplications = () => {
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
-      
+
       // Close expanded row on small screens when resizing
       if (window.innerWidth < 576 && expandedRowId !== null) {
         setExpandedRowId(null);
@@ -82,7 +82,7 @@ const CareerApplications = () => {
       ...statusChanges,
       [id]: value
     });
-    
+
     // Save changes immediately
     saveChanges(id, { followupStatus: value });
   };
@@ -93,7 +93,7 @@ const CareerApplications = () => {
       ...spamChanges,
       [id]: spamValue
     });
-    
+
     // Save changes immediately
     saveChanges(id, { isSpam: spamValue });
   };
@@ -102,9 +102,9 @@ const CareerApplications = () => {
     try {
       setSavingId(id);
       await axios.patch(`${process.env.REACT_APP_API_URL}/api/admin/applications/${id}`, changes);
-      
+
       // Update the local data to reflect the change
-      setApplications(applications.map(application => 
+      setApplications(applications.map(application =>
         application._id === id ? { ...application, ...changes } : application
       ));
       if ('isSpam' in changes && viewingSpam) {
@@ -135,12 +135,12 @@ const CareerApplications = () => {
       try {
         // Fetch applications based on current view
         const applicationsRes = await axios.get(
-          viewingSpam 
+          viewingSpam
             ? `${process.env.REACT_APP_API_URL}/api/admin/applications?spam=true`
             : `${process.env.REACT_APP_API_URL}/api/admin/applications`
         );
         setApplications(applicationsRes.data);
-        
+
         // Fetch spam count
         const spamCountRes = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/applications/spam/count`);
         setSpamCount(spamCountRes.data.count);
@@ -148,12 +148,12 @@ const CareerApplications = () => {
         console.error("Error fetching data:", error);
       }
     };
-    
+
     fetchData();
   }, [viewingSpam]);
-    
+
   // Filter applications based on search term
-  const filteredApplications = applications.filter(app => 
+  const filteredApplications = applications.filter(app =>
     app.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
     app.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
     app.contactNumber?.includes(searchTerm) ||
@@ -163,7 +163,7 @@ const CareerApplications = () => {
   // Apply sorting
   const sortedApplications = [...filteredApplications].sort((a, b) => {
     let aValue, bValue;
-    
+
     // Determine the field to sort by
     switch (sortField) {
       case "id":
@@ -193,7 +193,7 @@ const CareerApplications = () => {
       default:
         return 0;
     }
-    
+
     // Handle string comparison
     if (typeof aValue === "string" && typeof bValue === "string") {
       if (sortDirection === "asc") {
@@ -202,7 +202,7 @@ const CareerApplications = () => {
         return bValue.localeCompare(aValue);
       }
     }
-    
+
     // Handle numeric comparison
     if (sortDirection === "asc") {
       return aValue - bValue;
@@ -229,28 +229,33 @@ const CareerApplications = () => {
   // Export functions
   const exportToCSV = () => {
     let csvContent = "data:text/csv;charset=utf-8,";
-    
+
     // Add header row
     csvContent += "Name,Email,Contact Number,Position,Status\n";
-    
+
     // Add data rows
     sortedApplications.forEach(item => {
       const name = item.name ? `"${item.name.replace(/"/g, '""')}"` : "";
       const email = item.email ? `"${item.email.replace(/"/g, '""')}"` : "";
       const contactNo = item.contact || "";
       const position = item.jobTitle || "";
-      
+
       // Use the status from statusChanges if available, otherwise use the item's status or default
       const status = statusChanges[item._id] || item.followupStatus || "Unread";
-      
+
       csvContent += `${name},${email},${contactNo},${position},${status}\n`;
     });
-    
+
     // Create and trigger download
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "career_applications.csv");
+
+    // Add timestamp to filename
+    const now = new Date();
+    const timestamp = now.toISOString().replace(/[:.]/g, '-').slice(0, 19);
+    link.setAttribute("download", `career_applications_${timestamp}.csv`);
+
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -284,8 +289,8 @@ const CareerApplications = () => {
               <span className="spam-count">{spamCount}</span>
               <span>spam records {viewingSpam ? "showing" : "excluded"}</span>
             </span>
-            <a 
-              href="#" 
+            <a
+              href="#"
               className={`check-spam ${viewingSpam ? 'viewing-spam' : ''}`}
               onClick={(e) => {
                 e.preventDefault();
@@ -293,7 +298,7 @@ const CareerApplications = () => {
               }}
             >
               {viewingSpam ? "Show Normal Records" : "Check Spam Records"}
-            </a> 
+            </a>
           </p>
         </div>
       </header>
@@ -303,9 +308,9 @@ const CareerApplications = () => {
           <button className="action-button" onClick={exportToCSV}>CSV</button>
         </div>
         <div className="search-container">
-          <input 
-            type="text" 
-            placeholder="Search..." 
+          <input
+            type="text"
+            placeholder="Search..."
             className="search-input"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -379,13 +384,13 @@ const CareerApplications = () => {
                 const resumeUrl = getResumeUrl(application);
                 // Use the actual index for display
                 const displayIndex = indexOfFirstRecord + index + 1;
-                
+
                 return (
                   <React.Fragment key={index}>
                     <tr>
                       {shouldRenderColumn("id") && (
                         <td className="add-row" data-label="ID">
-                          <button 
+                          <button
                             className="add-button"
                             onClick={() => toggleExpandRow(index)}
                           >
@@ -397,7 +402,7 @@ const CareerApplications = () => {
                       {shouldRenderColumn("followup") && (
                         <td data-label="FOLLOWUP">
                           <div className="status-dropdown">
-                            <select 
+                            <select
                               value={statusChanges[application._id] || application.followupStatus || "Unread"}
                               onChange={(e) => handleStatusChange(application._id, e.target.value)}
                               disabled={savingId === application._id}
@@ -447,9 +452,9 @@ const CareerApplications = () => {
                       {shouldRenderColumn("resume") && (
                         <td data-label="RESUME">
                           {resumeUrl ? (
-                            <a 
-                              href={resumeUrl} 
-                              target="_blank" 
+                            <a
+                              href={resumeUrl}
+                              target="_blank"
                               rel="noopener noreferrer"
                               className="view-resume-link"
                               aria-label="View resume"
@@ -475,7 +480,7 @@ const CareerApplications = () => {
                           <div className="details-panel">
                             <div className="details-header">
                               <h3>Details for {displayIndex} {application.name}</h3>
-                              <button 
+                              <button
                                 className="close-details"
                                 onClick={() => setExpandedRowId(null)}
                                 aria-label="Close details"
@@ -492,7 +497,7 @@ const CareerApplications = () => {
                                 <div className="details-row">
                                   <div className="details-label">Followup:</div>
                                   <div className="details-value">
-                                    <select 
+                                    <select
                                       value={statusChanges[application._id] || application.followupStatus || "Unread"}
                                       onChange={(e) => handleStatusChange(application._id, e.target.value)}
                                       disabled={savingId === application._id}
@@ -537,9 +542,9 @@ const CareerApplications = () => {
                                   <div className="details-value">
                                     {resumeUrl ? (
                                       <div>
-                                        <a 
+                                        <a
                                           href={resumeUrl}
-                                          target="_blank" 
+                                          target="_blank"
                                           rel="noopener noreferrer"
                                           className="view-resume-link details-resume-link"
                                         >
@@ -561,9 +566,9 @@ const CareerApplications = () => {
                                 <div className="details-row">
                                   <div className="details-label">Spam Filter:</div>
                                   <div className="details-value">
-                                    <select 
-                                      value={spamChanges[application._id] !== undefined ? 
-                                        (spamChanges[application._id] ? "Spam" : "Not Spam") : 
+                                    <select
+                                      value={spamChanges[application._id] !== undefined ?
+                                        (spamChanges[application._id] ? "Spam" : "Not Spam") :
                                         (application.isSpam ? "Spam" : "Not Spam")
                                       }
                                       onChange={(e) => handleSpamChange(application._id, e.target.value)}
@@ -600,8 +605,8 @@ const CareerApplications = () => {
           Showing page {currentPage} of {totalPages || 1}
         </div>
         <div className="pagination">
-          <button 
-            className="page-btn prev" 
+          <button
+            className="page-btn prev"
             onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
           >
@@ -610,7 +615,7 @@ const CareerApplications = () => {
           <button className="page-btn active">
             {currentPage}
           </button>
-          <button 
+          <button
             className="page-btn next"
             onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages || totalPages === 0}
