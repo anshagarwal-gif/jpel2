@@ -210,7 +210,7 @@ const AdminDashboard = () => {
     let csvContent = "data:text/csv;charset=utf-8,";
     
     // Add header row
-    csvContent += "Name,Email,Contact Number,Status\n";
+    csvContent += "Name,Email,Contact Number,Status,Timestamp\n";
     
     // Add data rows - including status from statusChanges
     sortedInquiries.forEach(item => {
@@ -221,9 +221,9 @@ const AdminDashboard = () => {
       const contactNo = item.contactNumber || "";
       // Include status changes in CSV
       const status = statusChanges[item._id] || item.followupStatus || "Pending";
-      
+      const timestamp=item.createdAt ? new Date(item.createdAt).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) : "";
       // Add row to CSV
-      csvContent += `${name},${email},${contactNo},${status}\n`;
+      csvContent += `${name},${email},${contactNo},${status},${timestamp}\n`;
     });
     
     // Create and trigger download

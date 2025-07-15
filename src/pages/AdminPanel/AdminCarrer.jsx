@@ -231,7 +231,7 @@ const CareerApplications = () => {
     let csvContent = "data:text/csv;charset=utf-8,";
 
     // Add header row
-    csvContent += "Name,Email,Contact Number,Position,Status\n";
+    csvContent += "Name,Email,Contact Number,Position,Status,Timestamp\n";
 
     // Add data rows
     sortedApplications.forEach(item => {
@@ -242,8 +242,9 @@ const CareerApplications = () => {
 
       // Use the status from statusChanges if available, otherwise use the item's status or default
       const status = statusChanges[item._id] || item.followupStatus || "Unread";
+       const timestamp = item.createdAt ? new Date(item.createdAt).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) : "";
 
-      csvContent += `${name},${email},${contactNo},${position},${status}\n`;
+      csvContent += `${name},${email},${contactNo},${position},${status},"${timestamp}"\n`;
     });
 
     // Create and trigger download
