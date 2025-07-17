@@ -65,7 +65,7 @@ export const ProductImage = ({ image, images, description }) => {
 export const SpecsTable = ({ headers, rows }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
-  
+
   // Function to handle viewport changes
   const handleResize = () => {
     setIsMobile(window.innerWidth <= 480);
@@ -76,14 +76,14 @@ export const SpecsTable = ({ headers, rows }) => {
   useEffect(() => {
     // Initial check
     handleResize();
-    
+
     // Add event listener
     window.addEventListener('resize', handleResize);
-    
+
     // Clean up
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  
+
   // For very small screens, render a card-style layout
   if (isMobile) {
     return (
@@ -101,7 +101,7 @@ export const SpecsTable = ({ headers, rows }) => {
       </div>
     );
   }
-  
+
   // For tablets and larger screens, use a responsive table
   return (
     <div className="specs-table-container">
@@ -185,8 +185,25 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
   };
 
   const handleSubmit = async () => {
+    // Manual validation for required fields
+    const requiredFields = [
+      'name',
+      'companyName',
+      'email',
+      'contactNumber',
+      'city',
+      'state',
+      'country'
+    ];
+    for (let field of requiredFields) {
+      if (!formData[field] || formData[field].trim() === '') {
+        alert(`Please fill the ${field.replace(/([A-Z])/g, ' $1')} field.`);
+        return;
+      }
+    }
+
     const currentTab = tabContent[activeTab]; // Get the current tab content
-    
+
     // Fetch the user's IP address
     let visitorIP = "";
     try {
@@ -196,7 +213,7 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
     } catch (error) {
       console.error("Error fetching IP:", error);
     }
-  
+
     // Get the current URL and extract the text of the end URL
     const url = window.location.href;
     const endText = url.split("/").pop(); // Get the last part of the URL
@@ -216,7 +233,7 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
       endText: endText,
       message: formData.message
     };
-  
+
     console.log("Sending email data: ", emailData);
 
     try {
@@ -267,7 +284,7 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
               required
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="companyName">Company Name</label>
             <input
@@ -277,10 +294,10 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
               value={formData.companyName}
               onChange={handleInputChange}
               placeholder="Enter your company name"
-                  required
+              required
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="email">Email ID</label>
             <input
@@ -293,7 +310,7 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
               required
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="contactNumber">Contact No</label>
             <input
@@ -303,10 +320,10 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
               value={formData.contactNumber}
               onChange={handleInputChange}
               placeholder="Enter your contact number"
-                  required
+              required
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="city">City</label>
             <input
@@ -316,10 +333,10 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
               value={formData.city}
               onChange={handleInputChange}
               placeholder="Enter your city"
-                  required
+              required
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="state">State</label>
             <input
@@ -329,10 +346,10 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
               value={formData.state}
               onChange={handleInputChange}
               placeholder="Enter your state"
-                  required
+              required
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="country">Country</label>
             <input
@@ -342,10 +359,10 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
               value={formData.country}
               onChange={handleInputChange}
               placeholder="Enter your country"
-                  required
+              required
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="message">Message (Optional)</label>
             <textarea
@@ -357,7 +374,7 @@ const DownloadCatalogueModal = ({ onClose, activeTab, tabContent }) => {
               rows="3"
             ></textarea>
           </div>
-          
+
           <button className="submit-button" onClick={handleSubmit}>Submit</button>
         </div>
       </div>
