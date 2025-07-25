@@ -95,7 +95,7 @@ const BBBnews = () => {
       { threshold: 0.1, rootMargin: '50px' }
     );
 
-    const elements = document.querySelectorAll('.animate-on-scroll');
+    const elements = document.querySelectorAll('.bbb-animate-on-scroll');
     elements.forEach(el => observer.observe(el));
 
     return () => observer.disconnect();
@@ -113,21 +113,21 @@ const BBBnews = () => {
 
   return (
     <>
-      <div className="events-container">
+      <div className="bbb-events-container">
         {/* Main Title */}
-        <h1 className="events-title">
+        <h1 className="bbb-events-title">
           {eventContent.title}
         </h1>
 
         {/* Content Container */}
-        <div className="events-content">
+        <div className="bbb-events-content">
           {/* Media Grid Section */}
-          <div className="animate-on-scroll opacity-0 translate-y-10 transition-all duration-700 ease-out delay-200"
+          <div className="bbb-animate-on-scroll opacity-0 translate-y-10 transition-all duration-700 ease-out delay-200"
             data-id="images"
             style={isVisible.images ? { opacity: 1, transform: 'translateY(0)' } : {}}>
-            <div className="media-grid">
+            <div className="bbb-media-grid">
               {/* Left side - Two videos stacked */}
-              <div className="video-column">
+              <div className="bbb-video-column">
                 <div className="bbb-video-container">
                   <video
                     src={mediaItems[0].src}
@@ -153,7 +153,7 @@ const BBBnews = () => {
               </div>
 
               {/* Right side - Single image */}
-              <div className="image-column">
+              <div className="bbb-image-column">
                 <div className="bag-image-container">
                   <img
                     src={mediaItems[2].src}
@@ -167,18 +167,18 @@ const BBBnews = () => {
 
           {/* Text Content */}
           <div className="bbb-text-content">
-            <h2 className="content-title">
+            <h2 className="bbb-content-title">
               {eventContent.secondaryTitle}
             </h2>
 
-            <p className="content-description">
+            <p className="bbb-content-description">
               {eventContent.description}
             </p>
 
             {/* Read More Button */}
             <button
               onClick={openModal}
-              className="read-more-btn"
+              className="bbb-read-more-btn"
             >
               Read More
             </button>
@@ -191,46 +191,46 @@ const BBBnews = () => {
         <div className="bbb-modal-overlay" onClick={closeModal}>
           <div className="bbb-modal-container" onClick={(e) => e.stopPropagation()}>
             {/* Modal Header with Image */}
-            <div className="modal-header">
-              <div className="modal-header-content">
+            <div className="bbb-modal-header">
+              <div className="bbb-modal-header-content">
                 {/* Header Image */}
-                <div className="modal-header-image">
+                <div className="bbb-modal-header-image">
                   <img
                     src={BBB}
                     alt="JP Group Partnership"
-                    className="header-image"
+                    className="bbb-header-image"
                   />
-                  <div className="header-image-overlay"></div>
-                  <div className="header-text-overlay">
-                    <h2 className="modal-title">{eventContent.title}</h2>
+                  <div className="bbb-header-image-overlay"></div>
+                  <div className="bbb-header-text-overlay">
+                    <h2 className="bbb-modal-title">{eventContent.title}</h2>
                   </div>
                 </div>
               </div>
-              <button onClick={closeModal} className="modal-close-btn">
-                <X className="close-icon" />
+              <button onClick={closeModal} className="bbb-modal-close-btn">
+                <X className="bbb-close-icon" />
               </button>
             </div>
 
             {/* Modal Content */}
-            <div className="modal-content">
+            <div className="bbb-modal-content">
               {detailedContent.sections.map((section, index) => (
-                <div key={index} className="modal-section">
+                <div key={index} className="bbb-modal-section">
                   {section.title && (
-                    <h3 className="section-title">{section.title}</h3>
+                    <h3 className="bbb-section-title">{section.title}</h3>
                   )}
 
                   {section.content && (
-                    <p className="section-content">{section.content}</p>
+                    <p className="bbb-section-content">{section.content}</p>
                   )}
 
                   {section.quote && (
-                    <div className="quote-container">
-                      <blockquote className="quote-text">
+                    <div className="bbb-quote-container">
+                      <blockquote className="bbb-quote-text">
                         "{section.quote.text}"
                       </blockquote>
-                      <div className="quote-author">
-                        <span className="author-name">{section.quote.author}</span>
-                        <span className="author-position">({section.quote.position})</span>
+                      <div className="bbb-quote-author">
+                        <span className="bbb-author-name">{section.quote.author}</span>
+                        <span className="bbb-author-position">({section.quote.position})</span>
                       </div>
                     </div>
                   )}
@@ -238,24 +238,24 @@ const BBBnews = () => {
               ))}
 
               {/* Contact Section */}
-              <div className="contactinf-section">
-                <h3 className="section-title">Contact Information</h3>
-                <p className="contact-intro">{detailedContent.contact.title}</p>
+              <div className="bbb-contactinf-section">
+                <h3 className="bbb-section-title">Contact Information</h3>
+                <p className="bbb-contact-intro">{detailedContent.contact.title}</p>
 
-                <div className="contact-card">
-                  <div className="contact-person">
-                    <h4 className="contact-name">{detailedContent.contact.person}</h4>
-                    <p className="contact-position">{detailedContent.contact.position}</p>
+                <div className="bbb-contact-card">
+                  <div className="bbb-contact-person">
+                    <h4 className="bbb-contact-name">{detailedContent.contact.person}</h4>
+                    <p className="bbb-contact-position">{detailedContent.contact.position}</p>
                   </div>
 
-                  <div className="contact-details">
-                    <a href={`tel:${detailedContent.contact.phone}`} className="contact-link">
-                      <Phone className="contact-icon" />
+                  <div className="bbb-contact-details">
+                    <a href={`tel:${detailedContent.contact.phone}`} className="bbb-contact-link">
+                      <Phone className="bbb-contact-icon" />
                       <span>{detailedContent.contact.phone}</span>
                     </a>
 
-                    <a href={`mailto:${detailedContent.contact.email}`} className="contact-link">
-                      <Mail className="contact-icon" />
+                    <a href={`mailto:${detailedContent.contact.email}`} className="bbb-contact-link">
+                      <Mail className="bbb-contact-icon" />
                       <span>{detailedContent.contact.email}</span>
                     </a>
                   </div>
