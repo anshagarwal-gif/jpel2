@@ -3,6 +3,7 @@ import Cardflip1 from "../Components/Cardflip1";
 import VedioCard from "../Components/VedioCard";
 import NCardflip from "../Components/NCardflip";
 import MagazineLayout from "../Components/MazineLayout";
+import BBBnews from "../Components/BBB-news/BBB-news";
 
 
 const News = () => {
@@ -70,6 +71,12 @@ const News = () => {
           src={require('../assets/Newstop.png')}
         />
       </div>
+      
+      {/* Events Header Component */}
+      <BBBnews
+        
+      />
+      
       <div className="card-wrapper" >
      <div className="card-wrapper2">
      <Cardflip1
@@ -94,12 +101,12 @@ const News = () => {
   </div>
       <div className="card-wrapper3">
       <VedioCard
-    videoTitle="INDIAPLAST 28 FEB - 4 MAR 2019 - SHORT FILM"
+    videoTitle="INDIAPLAST 28 FEB - 4 MAR 2019 - SHORT FILM"
     videoThumbnail={require("../assets/newevent3.jpg")}
     videoUrl="https://www.youtube.com/watch?v=F4DjbKUimLE"
   />
     <VedioCard
-    videoTitle="JP GROUP – CORPORATE FILM"
+    videoTitle="JP GROUP – CORPORATE FILM"
     videoThumbnail={require("../assets/newevent4.jpg")}
     videoUrl="https://youtu.be/3qPc2eCi_lg?list=TLGGPacicNLv7CEwNjAxMjAyNQ"
   />
@@ -112,7 +119,7 @@ const News = () => {
     videoUrl="https://youtu.be/EkEcWSVMw_0?si=Pvm_0xEBH-3IYWah"
   />
     <VedioCard
-    videoTitle="TURNKEY PROJECT FOR PP/HDPE WOVEN SACK (SHORT FILM)"
+    videoTitle="TURNKEY PROJECT FOR PP/HDPE WOVEN SACK (SHORT FILM)"
     videoThumbnail={require("../assets/newevent4.jpg")}
     videoUrl="https://youtu.be/oiwEg7OB7cA?list=TLGG_E8tFXQFMRowNjAxMjAyNQ"
   />
@@ -120,12 +127,12 @@ const News = () => {
       </div>
       <div className="card-wrapper3">
       <VedioCard
-    videoTitle="DEMO – TAPE STRETCHING LINE AND CIRCULER LOOM FOR PP/HDPE WOVEN SACK"
+    videoTitle="DEMO – TAPE STRETCHING LINE AND CIRCULER LOOM FOR PP/HDPE WOVEN SACK"
     videoThumbnail={require("../assets/newevent4.jpg")}
     videoUrl="https://www.youtube.com/watch?v=dKCUuXxLUQc&list=TLGGTXeUEHHl_6owNjAxMjAyNQ"
   />
     <VedioCard
-    videoTitle="INDIAPLAST-2019 EXHIBITION SHORT FILM"
+    videoTitle="INDIAPLAST-2019 EXHIBITION SHORT FILM"
     videoThumbnail={require("../assets/newevent4.jpg")}
     videoUrl="https://www.youtube.com/watch?v=F4DjbKUimLE"
   />
@@ -133,12 +140,12 @@ const News = () => {
       </div>
       <div className="card-wrapper3">
       <VedioCard
-    videoTitle="FEIPLASTIC 2019 – JP GROUP & TABATEX EXHIBITION SHORT FILM"
+    videoTitle="FEIPLASTIC 2019 – JP GROUP & TABATEX EXHIBITION SHORT FILM"
     videoThumbnail={require("../assets/newevent4.jpg")}
     videoUrl="https://www.youtube.com/watch?v=3NfoZQZ4VIw"
   />
     <VedioCard
-    videoTitle="PLASTINDIA – 2015 – SHORT FILM"
+    videoTitle="PLASTINDIA – 2015 – SHORT FILM"
     videoThumbnail={require("../assets/newevent4.jpg")}
     videoUrl="https://www.youtube.com/watch?v=5RrHCT24aiU"
   />
