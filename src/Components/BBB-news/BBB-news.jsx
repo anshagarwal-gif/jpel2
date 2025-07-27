@@ -44,7 +44,7 @@ const BBBnews = () => {
     sections: [
       {
         title: "A Strategic Collaboration for Innovation",
-        content: "Founded in 2011 and listed on the NEEQ in 2015, Gachn International brings extensive expertise. With over 200 national patents and a reputation for innovation Gachn has become a trusted partner for various industries including paper sanitary products and cement packaging. Their latest product the FKO008-III is a 3rd generation model for block bottom valve bag making machine that showcases their commitment to quality. Featuring numerous patented technologies that distinguish it in the polypropylene (PP) woven valve bag production sector."
+        content: "Founded in 2011 and listed on the NEEQ in 2015, Gachn International brings extensive expertise. With over 200 national patents and a reputation for innovation, Gachn has become a trusted partner for various industries including paper sanitary products and cement packaging. Their latest product the FKO008-III is a 3rd generation model for block bottom valve bag making machine that showcases their commitment to quality. Featuring numerous patented technologies that distinguish it in the polypropylene (PP) woven valve bag production sector."
       },
       {
         content: "JP Group that is well recognized for its industry knowledge and focus on the customers will lead the sales, after-sales & service for this state-of-the-art machine in India. This partnership combines JP Group's strong presence and trust in India with Gachn's emerging technology promising a smooth experience for customers seeking efficient and reliable packaging solutions."
@@ -65,7 +65,7 @@ const BBBnews = () => {
       },
       {
         title: "A Proven Track Record",
-        content: "Gachn's technology has already powered over 50 successful projects worldwide including installations in Uzbekistan and China. This collaboration marks a significant step in expanding its presence in India with JP Group at the forefront of meeting the increasing demand for high-performance packaging equipment."
+        content: "Gachn's technology has already powered over 50 successful projects worldwide including installations in Uzbekistan, China, Egypt and countries in Africa. This collaboration marks a significant step in expanding its presence in India with JP Group at the forefront of meeting the increasing demand for high-performance packaging equipment."
       },
       {
         title: "Looking Ahead",
