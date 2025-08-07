@@ -335,6 +335,27 @@ const Career = () => {
         'Ability to read and understand electrical & instrumentation drawings',
         'Strong Command of PLC Programming'
       ]
+    },
+    'Accountant':{
+      profile: [
+        'Bank Entries & Bank Reconciliation',
+        'Managing Purchase & sales entry of other units assigned by superior',
+        'Calculating and filing GST and TDS returns',
+        'Handling Daily Fund Transfer Internal/External',
+        'Preparing daily fund position report',
+        'Salary Accounting in Tally and Reconciling Salary Payments',
+        'Audit coordination and support',
+        'To handling purchase/Sales order, invoice, or payment discrepancies and documentation',
+        'Check all the transactions in bank statements to identify the nature of payment',
+        'Verify invoice against purchase order in the integrated Tally ERP system'
+      ],
+      skills: [
+        'B.com/M.com, MBA finance with 3 - 5 years of experience preferred',
+        'Should be Well-versed in handling All type of Accounting and Auditing Matters',
+        'Proficient in M.S Office Excel, Word, for preparation of various reports. Tally ERP-9, Tax and GST',
+        'Work profile Tally, Accounting, Data Entry Sales - Purchase - Cash - Bank etc',
+        'Good communication skills & Excellent maths Skills',
+      ]
     }
   };
 
@@ -353,6 +374,7 @@ const Career = () => {
     'Graphic Designer',
     'Electrical Engineer',
     'PLC Programmer',
+    'Accountant',
   ];
 
   const handleApplyNow = (job) => {
