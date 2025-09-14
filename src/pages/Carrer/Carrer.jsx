@@ -42,15 +42,43 @@ const Career = () => {
 
       ],
       skills: [
-       'Minimum 10 to 12 years of experience in relevant field preferably in machine manufacturing industry',  
-'Good communication and managerial skills required',  
-'Diploma/BE or ME Mechanical engineer or equivalent',  
-'Good experience with managing customer relations',  
-'Good computer skills required including Microsoft office and ERP system',  
-'Flexible and self-motivated individual with a positive and proactive approach',  
-'Excellent organizational and time management skills',  
+      'Minimum 10 to 12 years of experience in relevant field preferably in machine manufacturing industry',  
+      'Good communication and managerial skills required',  
+      'Diploma/BE or ME Mechanical engineer or equivalent',  
+      'Good experience with managing customer relations',  
+      'Good computer skills required including Microsoft office and ERP system',  
+      'Flexible and self-motivated individual with a positive and proactive approach',  
+      'Excellent organizational and time management skills',  
       ]
 
+    },
+    'Exim Manager': {
+      profile: [
+        'Documentation and Compliance:',
+        'Prepare and review export documents, including invoices, shipping documents, customs declarations, and certificates of origin',
+        'Ensure compliance with international trade regulations, export controls, and customs requirements',
+        'Coordinate with freight forwarders, shipping lines, and customs brokers to facilitate smooth export processes',
+        'Order Processing and Logistics:',
+        'Process export orders, including order entry, shipment scheduling, and coordinating delivery arrangements',
+        'Monitor and track shipments to ensure on-time delivery and resolve any issues or delays',
+        'Coordinate with internal departments, such as production, finance, and customer service, to ensure smooth order fulfilment',
+        'Customer Support:',
+        'Assist customers with export-related inquiries, order status, and documentation requirements',
+        'Maintain effective communication with customers, ensuring their satisfaction and addressing any concerns or issues promptly',
+        'Provide guidance to customers on export regulations, documentation, and shipping options',
+
+      ],
+      skills: [
+      '3 Yr.+ Experienced Candidate in EXIM (Export and Import) with knowledge of Advance License Application, EODC, and EPCG can only apply',
+      'Solid understanding of international trade regulations, export procedures, and customs compliance',
+      'Proficiency in preparing and reviewing export documentation',
+      'Knowledge of logistics and supply chain processes, including freight forwarding and shipping procedures',
+      'Strong organizational skills and attention to detail',
+      'Excellent communication and interpersonal skills',
+      'Proficiency in using computer software and systems relevant to export operations',
+      'Ability to work effectively in a team and collaborate with cross-functional departments',
+
+      ]
     },
     'Dispatch Assistant': {
       profile: [
@@ -361,6 +389,7 @@ const Career = () => {
 
   const openings = [
     'Customer Service and Spare Parts Manager',
+    'Exim Manager',
     'Dispatch Assistant',
     'Technical Writer & Product Marketing',
     'Mechanical Design Engineer',
