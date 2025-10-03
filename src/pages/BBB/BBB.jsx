@@ -39,11 +39,11 @@ const BBB = () => {
         require("./Assets/BBB-app.jpg")
       ],
       applicationPoints: [
-        'Durable Ropes & Twines: Strong and versatile for industrial and household use.',
-        'Flexible Toothbrush Bristles: Ideal for effective and gentle oral care.',
-        'Strong Fishing Nets: High tensile strength for professional fishing needs.',
-        'Protective Mosquito Nets: Lightweight and long-lasting insect protection.',
-        'Lifelike Doll & Wig Hair: Perfect for realistic appearances and styling.'
+        'Cement & Building Materials – Moisture-resistant, tamper-proof, box-shaped bags ideal for cement, lime, and gypsum.',
+        'Chemicals & Minerals – Laminated, leak-proof sacks ensuring safe storage and transport of powders like PVC, TiO₂, and fertilizers.',
+        'Animal Feed & Pet Food – Durable, pilfer-resistant packaging with premium shelf appeal for feed and pet food products.',
+        'Agricultural Produce & Seeds – Sturdy, water-resistant bags protecting grains, seeds, and fertilizers during storage and handling.',
+        'Food & Industrial Powders – Hygienic, pilfer-resistant, stack-friendly solution for flour, starch, sugar, and food-grade powders.',
       ],
       catalogue: '/path-to-tab1-catalogue.pdf'
     }
