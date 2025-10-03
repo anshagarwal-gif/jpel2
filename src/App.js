@@ -28,6 +28,7 @@ import Bag from './pages/Bag-Conversion/Bag';
 import AdminLogin from './pages/AdminPanel/AdminLogin';
 import AdminDashboard from './pages/AdminPanel/AdminDashboard';
 import ProtectedRoute from './ProtectedRoute';
+import BBB from './pages/BBB/BBB';
 
 import { useEffect } from 'react';
 import ScrollToTop from './Components/ScrollToTop';
@@ -69,6 +70,7 @@ function AppLayout() {
           <Route path="/PET" element={<PET />} />
           <Route path="/Flexible" element={<Flexible />} />
           <Route path="/Bag-Conversion" element={<Bag />} />
+          <Route path="/BBB" element={<BBB />} />
 
           {/* Admin Routes */}
           <Route path="/admin/login" element={<AdminLogin />} />

@@ -18,6 +18,7 @@ import recyclingimg6 from '../../pages/PlasticRecycling/Assets/recycling6.jpg';
 import recyclingimg7 from '../../pages/PlasticRecycling/Assets/recycling7.jpg';
 import recyclingimg8 from '../../pages/PlasticRecycling/Assets/recycling8.jpg';
 import recyclingimg9 from '../../pages/PlasticRecycling/Assets/recycling-9.jpg';
+import recyclingimg10 from '../../pages/PlasticRecycling/Assets/recycling10.png';
 
 function ScrollTransition({ recyclingData, initialCategory, onlyShowCategory }) {
   const [activeSection, setActiveSection] = useState(0);
@@ -36,6 +37,7 @@ function ScrollTransition({ recyclingData, initialCategory, onlyShowCategory }) 
     "ExtrusionCoating": recyclingimg0,
     "PrintingMachine": recyclingimg4,
     "Bag-Conversion": recyclingimg5,
+    "BBB": recyclingimg10,
     "WovenSack": recyclingimg1_2,
     "PET": recyclingimg2_2,
     "BatteryBox": recyclingimg3_2,

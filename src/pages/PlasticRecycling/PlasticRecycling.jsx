@@ -53,6 +53,11 @@ const PlasticRecycling = () => {
                         subtitle: "Bag Conversion Machines",
                         link: "/Bag-Conversion",
                         description: "Transforming fabric into finished bags for various applications."
+                    },
+                    {
+                        subtitle: "Block Bottom Sack Conversion Line",
+                        link: "/BBB",
+                        description: "JP Group x Gachn Group (A Strategic Collaboration for Innovation)"
                     }
                 ]
             }

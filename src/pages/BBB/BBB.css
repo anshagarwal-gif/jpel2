@@ -1,0 +1,236 @@
+/* ProductDisplay.css */
+.product-layout-mono {
+    display: flex;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 30px;
+    gap: 40px;
+}
+
+/* Highlighted red text */
+.highlight-red {
+    color: red;
+    font-weight: bold;
+}
+
+/* Subheading for second table */
+.subheading {
+    font-size: 30px;
+    /* slightly larger */
+    font-weight: 600;
+    /* make it bolder */
+    color: #222;
+    margin: 30px 0 15px;
+    /* add spacing above and below */
+    text-align: left;
+    padding-left: 30px;
+    /* aligns nicely with content */
+    border-left: 4px solid red;
+    /* optional stylish left border */
+}
+
+
+.subheading {
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.image-section-mono {
+    flex: 1;
+    min-width: 300px;
+    animation: slideIn 1s ease-in-out;
+}
+
+.product-image-mono {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content-section-mono {
+    flex: 2;
+    min-width: 300px;
+    max-width: 900px;
+    margin-top: 70px;
+}
+
+.description-mono p {
+    margin: 0 0 16px 0;
+    line-height: 1.4;
+    color: #444;
+    font-size: 30px;
+    text-align: left;
+}
+
+/* Keyframes for the left-to-right animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Tablet Responsive Design */
+@media (max-width: 1024px) {
+    .product-layout-mono {
+        padding: 25px;
+        gap: 30px;
+    }
+
+    .content-section-mono {
+        margin-top: 50px;
+    }
+
+    .description-mono p {
+        font-size: 24px;
+        line-height: 1.5;
+    }
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    .product-layout-mono {
+        flex-direction: column;
+        padding: 0px;
+        gap: 0;
+        /* Remove gap since image is hidden */
+    }
+
+    /* Hide the left banner/image section on mobile */
+    .image-section-mono {
+        display: none;
+    }
+
+    .content-section-mono {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 0;
+        /* Remove top margin on mobile */
+    }
+
+    .description-mono p {
+        font-size: 18px;
+        line-height: 1.6;
+        text-align: justify;
+        padding: 10px 0;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 14px;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .product-layout-mono {
+        padding: 0px;
+    }
+
+    .content-section-mono {
+        margin-top: 0;
+    }
+
+    .description-mono p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 12px 21px 12px 19px;
+    }
+
+    /* BBB-specific compact mobile table styles */
+    .specs-table-mobile {
+        margin-right: 21px;
+        padding: 5px;
+    }
+
+    .specs-card {
+        border: 2px solid #e5e7eb;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background: white;
+    }
+
+    .specs-card-item {
+        display: flex;
+        border-bottom: 1px solid #e5e7eb;
+        min-height: 40px;
+        /* Reduced from 50px for more compact look */
+    }
+
+    .specs-card-item:last-child {
+        border-bottom: none;
+    }
+
+    .specs-card-header {
+        flex: 0 0 45%;
+        background-color: #f9fafb;
+        padding: 0.5rem;
+        /* Reduced from 0.75rem for more compact look */
+        font-weight: 600;
+        border-right: 1px solid #e5e7eb;
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        /* Reduced from 14px for more compact text */
+        color: #374151;
+        line-height: 1.2;
+        /* Added for better text wrapping */
+    }
+
+    .specs-card-value {
+        flex: 0 0 55%;
+        padding: 0.5rem;
+        /* Reduced from 0.75rem for more compact look */
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        /* Reduced from 14px for more compact text */
+        color: #1f2937;
+        word-wrap: break-word;
+        line-height: 1.2;
+        /* Reduced from 1.4 for more compact text */
+    }
+
+    /* First row of each card with red background */
+    .specs-card .specs-card-item:first-child .specs-card-header {
+        background-color: #dc2626;
+        color: white;
+        font-weight: 700;
+        font-size: 12px;
+        /* Ensure consistent compact size */
+    }
+
+    /* Subheading mobile styles */
+    .subheading {
+        font-size: 18px;
+        /* Reduced from 20px for more compact look */
+        padding-left: 1rem;
+        margin: 15px 0 8px;
+        /* Reduced margins for more compact spacing */
+        border-left: 3px solid red;
+    }
+
+    /* Description2 mobile styles */
+    .description2 {
+        padding: 0.5rem 1rem;
+        /* Reduced padding for more compact look */
+        font-size: 12px;
+        /* Reduced from 14px for more compact text */
+        margin: 0.5rem 0;
+        /* Reduced margin for more compact spacing */
+        text-align: center;
+    }
+}

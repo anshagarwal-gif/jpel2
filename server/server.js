@@ -198,6 +198,7 @@ newSubmission.save()
     ExtrusionCoating:["Extrusion Coating Line.pdf","Extrusion Coatling Line - POLYCOAT.pdf","Extrusion Coating - Leno Lamination.pdf"],
     PrintingMachine:["Flexo Printing Machine.pdf"],
     BagConversion:["Converting machine.pdf"],
+    BBB:["JP Group & Gachan Catalogue.pdf"],
     WovenSack:["Plastic Washing Cleaning & Recycling Line.pdf"],
     PET:["PET Washing Line.pdf"],
     Monofilament:["Monofilament Plant.pdf"],
