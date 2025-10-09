@@ -200,8 +200,17 @@ const EXHIBITION = () => {
     { src: require("../assets/K-2022/K-7.jpg"), title: "K-GERMANY 2022" },
     { src: require("../assets/K-2022/K-8.jpg"), title: "K-GERMANY 2022" },
     { src: require("../assets/K-2022/K-9.jpg"), title: "K-GERMANY 2022" },
-
   ];
+  const Cardimage2025 = [
+    { src: require("../assets/K-2025/K-5.jpg"), title: "K-GERMANY 2025" },
+    { src: require("../assets/K-2025/K-2.jpg"), title: "K-GERMANY 2025" },
+    { src: require("../assets/K-2025/K-4.jpg"), title: "K-GERMANY 2025" },
+    { src: require("../assets/K-2025/K-1.jpg"), title: "K-GERMANY 2025" },
+    { src: require("../assets/K-2025/K-6.jpg"), title: "K-GERMANY 2025" },
+    { src: require("../assets/K-2025/K-7.jpg"), title: "K-GERMANY 2025" },
+  ];
+
+  
   const openModal = (imageSrc, title) => {
     setModalImage(imageSrc);
     setModalTitle(title);
@@ -362,6 +371,11 @@ const EXHIBITION = () => {
       <div className="card-wrapper" >
      
      
+      <Cardflip1
+       cardInfo="Click to explore K-GERMANY 2025"
+       cardTitle="K-GERMANY 2025"
+       thumbnailImage={require("../assets/K-2025/K-3.jpg")}
+       galleryImages={Cardimage2025}/>
       <Cardflip1
        cardInfo="Click to explore K-GERMANY 2022"
        cardTitle="K-GERMANY 2022"
