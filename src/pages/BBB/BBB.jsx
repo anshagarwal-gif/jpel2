@@ -31,7 +31,7 @@ const BBB = () => {
         ['Speed', 'upto 130 (Bags/min)'],
         [
           'Air Source',
-          'Air Pressure 0.6MPa, Working pressure 0.5MPa, Air consumption 0.3m³/min'
+          'Air Source: Air Pressure ≥ 0.6MPa, Working pressure ≥ 0.5MPa, Air consumption < 350L/min'
         ]
       ],
       slideshowImages: [

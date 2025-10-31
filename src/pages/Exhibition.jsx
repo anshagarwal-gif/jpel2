@@ -208,6 +208,11 @@ const EXHIBITION = () => {
     { src: require("../assets/K-2025/K-1.jpg"), title: "K-GERMANY 2025" },
     { src: require("../assets/K-2025/K-6.jpg"), title: "K-GERMANY 2025" },
     { src: require("../assets/K-2025/K-7.jpg"), title: "K-GERMANY 2025" },
+    { src: require("../assets/K-2025/K-8.jpg"), title: "K-GERMANY 2025" },
+    { src: require("../assets/K-2025/K-9.jpg"), title: "K-GERMANY 2025" },
+    { src: require("../assets/K-2025/K-10.jpg"), title: "K-GERMANY 2025" },
+    { src: require("../assets/K-2025/K-11.jpg"), title: "K-GERMANY 2025" },
+    { src: require("../assets/K-2025/K-12.jpg"), title: "K-GERMANY 2025" },
   ];
 
   
