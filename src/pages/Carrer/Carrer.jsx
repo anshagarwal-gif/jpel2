@@ -384,6 +384,26 @@ const Career = () => {
         'Work profile Tally, Accounting, Data Entry Sales - Purchase - Cash - Bank etc',
         'Good communication skills & Excellent maths Skills',
       ]
+    },
+    'Service Engineer - Converting Machinery': {
+      profile: [
+        'Carry out on-site installation and commissioning of BCS, Valve Bag, and other    converting machines',
+        'Attend customer sites for breakdown, preventive, and maintenance services',
+        'Diagnose and repair mechanical problems in machines',
+        'Conduct routine inspections to ensure proper machine functioning',
+        'Train customer operators and maintenance teams on machine operation',
+        'Submit service reports and feedback after every visit',
+        'Follow safety and company standards during all service activities',
+        'Assist production team during periods without site visits',
+
+      ],
+      skills: [
+        '3-5 years of Experience needed in woven sacks industry',
+        'Strong Mechanical & Troubleshooting Skills',
+        'Experience in Machine Installation & Maintenance',
+        'Good Communication & Customer Handling Skills',
+        'Ability to Travel and Work Independently'
+      ]
     }
   };
 
@@ -404,6 +424,7 @@ const Career = () => {
     'Electrical Engineer',
     'PLC Programmer',
     'Accountant',
+    'Service Engineer - Converting Machinery',
   ];
 
   const handleApplyNow = (job) => {
