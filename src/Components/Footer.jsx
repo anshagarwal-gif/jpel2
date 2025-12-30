@@ -71,7 +71,7 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <div className="footer-bottom">
-        <p>&copy; 2025 JP Extrusiontech (Pvt) Ltd. All Rights Reserved.</p>
+        <p>&copy; {new Date().getFullYear()} JP Extrusiontech (Pvt) Ltd. All Rights Reserved.</p>
       </div>
     </footer>
   );
