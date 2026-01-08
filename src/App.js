@@ -29,6 +29,9 @@ import AdminLogin from './pages/AdminPanel/AdminLogin';
 import AdminDashboard from './pages/AdminPanel/AdminDashboard';
 import ProtectedRoute from './ProtectedRoute';
 import BBB from './pages/BBB/BBB';
+import OOSForm from './Components/OOSForm';
+import IOTServices from './pages/IOTServices/IOTServices';
+import SparePartServices from './pages/SparePartServices/SparePartServices';
 
 import { useEffect } from 'react';
 import ScrollToTop from './Components/ScrollToTop';
@@ -71,6 +74,9 @@ function AppLayout() {
           <Route path="/Flexible" element={<Flexible />} />
           <Route path="/Bag-Conversion" element={<Bag />} />
           <Route path="/BBB" element={<BBB />} />
+          <Route path="/oos-form" element={<OOSForm />} />
+          <Route path="/iot-services" element={<IOTServices />} />
+          <Route path="/spare-part-services" element={<SparePartServices />} />
 
           {/* Admin Routes */}
           <Route path="/admin/login" element={<AdminLogin />} />

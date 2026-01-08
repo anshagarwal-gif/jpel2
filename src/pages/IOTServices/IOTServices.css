@@ -1,0 +1,354 @@
+/* IOTServices.css */
+.iot-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: white;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-bottom: 4rem;
+}
+
+.main-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 400;
+  color: #e0e0e0;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+/* Stats Section */
+.stats-section {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+  color: white;
+}
+
+.stat-number {
+  display: block;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: #e31e24;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #b0b0b0;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #e31e24;
+}
+
+/* Core Features Section */
+.core-features-section {
+  width: 100%;
+  margin-bottom: 5rem;
+  background: #2c3e50;
+  color: white;
+  padding: 4rem 2rem;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.core-features-section .section-title {
+  color: white;
+}
+
+.core-features-section .section-title::after {
+  background: #e31e24;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.feature-item h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.feature-item p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+/* Platform Overview */
+.platform-overview {
+  width: 100%;
+  margin-bottom: 5rem;
+}
+
+.overview-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.overview-content p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.key-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.feature-point {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #e31e24;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Why Choose Section */
+.why-choose-section {
+  width: 100%;
+  margin-bottom: 5rem;
+  background: linear-gradient(135deg, #e31e24 0%, #c41e3a 100%);
+  color: white;
+  padding: 4rem 2rem;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.why-choose-section .section-title {
+  color: white;
+}
+
+.why-choose-section .section-title::after {
+  background: white;
+}
+
+.why-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.why-content h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.why-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.advantages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.advantages span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Machines Section */
+.machines-section {
+  width: 100%;
+  margin-bottom: 5rem;
+}
+
+.machines-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.machine-type {
+  text-align: center;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-top: 4px solid #e31e24;
+}
+
+.machine-type h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.machine-type p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Target Section */
+.target-section {
+  width: 100%;
+  margin-bottom: 5rem;
+}
+
+.target-content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.target-group {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.target-group h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #e31e24;
+  margin-bottom: 1rem;
+}
+
+.target-group p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stats-section {
+    gap: 2rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .machines-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .key-features {
+    grid-template-columns: 1fr;
+  }
+  
+  .advantages {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .target-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-section,
+  .core-features-section,
+  .why-choose-section {
+    padding: 3rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .iot-content {
+    padding: 0 10px;
+  }
+  
+  .hero-section,
+  .core-features-section,
+  .why-choose-section {
+    padding: 2rem 1rem;
+  }
+  
+  .machine-type,
+  .target-group {
+    padding: 1.5rem;
+  }
+}

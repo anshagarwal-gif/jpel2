@@ -16,6 +16,8 @@ import Homepageanimation from '../Components/Homepageanimation';
 import MachineRange from '../Components/MachineRange';
 import CoperateFilm from '../Components/CoperateFilm/CoperateFilm';
 import BannerGIF from '../Components/BannerGIF/BannerGIF';
+import OOSButton from '../Components/OOSButton';
+import OOSForm from '../Components/OOSForm';
 
 const Home = () => {
    // Initialize AOS
@@ -70,7 +72,7 @@ const Home = () => {
       {/* <Rotation data-aos="fade-left" /> */}
     
     <MachineRange/>
-    <div className='CoperateFilm'>    
+    <div className='CoperateFilm'>
       <CoperateFilm
     thumbnailUrl={require("../Components/CoperateFilm/Assets/cop.jpg")}
     videoUrl="https://www.youtube.com/embed/3qPc2eCi_lg?autohide=1&autoplay=0&mute=0&controls=1&fs=1&loop=1&modestbranding=1&playlist=3qPc2eCi_lg&rel=0&showinfo=1&theme=light&wmode=&playsinline=0"/>

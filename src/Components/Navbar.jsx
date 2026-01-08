@@ -118,6 +118,12 @@ const Navbar = () => {
         { to: '/PlasticRecycling/sheet-film-extrusion', label: 'SHEET/FILM EXTRUSION' },
     ];
 
+    // Spares & Services dropdown items
+    const sparesServicesItems = [
+        // { to: '/Service', label: 'IOT SERVICES' },
+        { to: '/Service', label: 'SPARE PART SERVICES' },
+    ];
+
     const navLinks = [
         { to: '/', label: 'HOME' },
         { to: '/Aboutus', label: 'ABOUT US' },
@@ -126,7 +132,11 @@ const Navbar = () => {
             isDropdown: true,
             items: productLineItems
         },
-        { to: '/Service', label: 'SPARES & SERVICES' },
+        { 
+            label: 'SPARES & SERVICES', 
+            isDropdown: true,
+            items: sparesServicesItems
+        },
         { to: '/news', label: 'NEWS & EVENTS' },
         { to: '/Exhibition', label: 'EXHIBITIONS' },
         { to: '/Carrer', label: 'CAREERS' },
