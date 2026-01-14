@@ -18,6 +18,7 @@ import CoperateFilm from '../Components/CoperateFilm/CoperateFilm';
 import BannerGIF from '../Components/BannerGIF/BannerGIF';
 import OOSButton from '../Components/OOSButton';
 import OOSForm from '../Components/OOSForm';
+import ServicesShowcase from '../Components/ServicesShowcase';
 
 const Home = () => {
    // Initialize AOS
@@ -72,6 +73,7 @@ const Home = () => {
       {/* <Rotation data-aos="fade-left" /> */}
     
     <MachineRange/>
+    <ServicesShowcase/>
     <div className='CoperateFilm'>
       <CoperateFilm
     thumbnailUrl={require("../Components/CoperateFilm/Assets/cop.jpg")}
