@@ -15,7 +15,7 @@ const IOTServices = () => {
   {/* Hero Section */}
   <div className="hero-section">
     <h1 className="main-title">Revolutionize Your Operations with JP Nexus</h1>
-    <p className="hero-subtitle">Real-time loom monitoring, predictive insights, and unmatched efficiency — all in one intelligent platform.</p>
+    <p className="hero-subtitle">Real-time monitoring, predictive insights, and unmatched efficiency — all in one intelligent platform.</p>
     
     {/* Stats Section */}
     <div className="stats-section">
@@ -41,7 +41,7 @@ const IOTServices = () => {
       <div className="feature-item">
         <div className="feature-icon">📊</div>
         <h3>Real-time Monitoring</h3>
-        <p>Monitor every loom performance in real-time with instant alerts and notifications.</p>
+        <p>Monitor machines performance in real-time with instant alerts and notifications.</p>
       </div>
       
       <div className="feature-item">
@@ -59,7 +59,7 @@ const IOTServices = () => {
       <div className="feature-item">
         <div className="feature-icon">👁️</div>
         <h3>Complete Visibility</h3>
-        <p>Track all aspects of your textile operations from anywhere, anytime.</p>
+        <p>Track necessary aspects of your operations from anywhere, anytime.</p>
       </div>
     </div>
   </section>
@@ -91,21 +91,6 @@ const IOTServices = () => {
         <span>Plug-and-scale architecture</span>
         <span>Machine-agnostic design</span>
         <span>Data ownership stays with you</span>
-      </div>
-    </div>
-  </section>
-
-  {/* Supported Machines */}
-  <section className="machines-section">
-    <h2 className="section-title">Supported Machines</h2>
-    <div className="machines-content">
-      <div className="machine-type">
-        <h3>Tape Extrusion Lines</h3>
-        <p>Machine speed & output monitoring • Denier consistency tracking • Pressure monitoring (P1, P2, P3) • Power consumption analysis</p>
-      </div>
-      <div className="machine-type">
-        <h3>Circular Looms</h3>
-        <p>Production meters tracking • Warp & weft break analysis • Efficiency & PPM monitoring • Operator performance insights</p>
       </div>
     </div>
   </section>
