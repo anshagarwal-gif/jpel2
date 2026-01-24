@@ -224,10 +224,12 @@ const ServicesShowcase = () => {
 
               <div className="panel-content">
                 <div className="content-wrapper">
-                  <div className="service-badge">
-                    <div className="badge-icon">{service.icon}</div>
-                    <span className="badge-text">Online Order System</span>
-                  </div>
+                  {service.id !== 2 && (
+                    <div className="service-badge">
+                      <div className="badge-icon">{service.icon}</div>
+                      <span className="badge-text">Online Order System</span>
+                    </div>
+                  )}
 
                   <div className="service-header">
                     <h3 className="service-title">{service.title}</h3>
@@ -310,15 +312,17 @@ const ServicesShowcase = () => {
                   </div>
 
 
-                  <div className="service-actions">
-                    <button
-                      className="action-primary"
-                      onClick={() => navigate('/oos-form')}
-                    >
-                      <span>Get Started</span>
-                      <FaArrowRight className="button-icon" />
-                    </button>
-                  </div>
+                  {service.id !== 2 && (
+                    <div className="service-actions">
+                      <button
+                        className="action-primary"
+                        onClick={() => navigate('/oos-form')}
+                      >
+                        <span>Get Started</span>
+                        <FaArrowRight className="button-icon" />
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
 
