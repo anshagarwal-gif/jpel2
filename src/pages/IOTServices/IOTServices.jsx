@@ -1,123 +1,186 @@
-import "./IOTServices.css"
-import Card from '../../Components/ServiceCard';
-import header from "../Services/Assets/header.jpg";
+import "./IOTServices.css";
+import { useNavigate } from 'react-router-dom';
+import { FaChartLine, FaChartBar, FaBolt, FaEye, FaCheckCircle, FaIndustry, FaPlug, FaServer, FaShieldAlt, FaArrowRight } from 'react-icons/fa';
 
 const IOTServices = () => {
-    return(
-<div>
-<div className="imageContainer2">
-        <img   alt="header"
-          src={header}
-        />
-      </div>
+  const navigate = useNavigate();
+  
+  return (
+    <div className="iot-services-page">
+      {/* Hero Section */}
+      <section className="iot-hero">
+        <div className="iot-hero-container">
+          <div className="hero-accent"></div>
+          <h1 className="iot-hero-title">
+            Revolutionize Your Operations with<br /><span className="title-gradient">JP Nexus</span>
+          </h1>
+          <p className="iot-hero-subtitle">
+            Real-time monitoring, predictive insights, and unmatched efficiency — all in one intelligent platform.
+          </p>
+        </div>
+      </section>
 
-<div className="iot-content">
-  {/* Hero Section */}
-  <div className="hero-section">
-    <h1 className="main-title">Revolutionize Your Operations with JP Nexus</h1>
-    <p className="hero-subtitle">Real-time monitoring, predictive insights, and unmatched efficiency — all in one intelligent platform.</p>
-    
-    {/* Stats Section */}
-    <div className="stats-section">
-      <div className="stat-item">
-        <span className="stat-number">37+</span>
-        <span className="stat-label">Countries Exported</span>
-      </div>
-      <div className="stat-item">
-        <span className="stat-number">35+</span>
-        <span className="stat-label">Years of Experience</span>
-      </div>
-      <div className="stat-item">
-        <span className="stat-number">6533+</span>
-        <span className="stat-label">Installations</span>
+      {/* Core Features Section */}
+      <section className="iot-features-section">
+        <div className="iot-section-container">
+          <div className="section-header">
+            <h2 className="iot-section-title">Core Features</h2>
+            <p className="iot-section-subtitle">JP Nexus Capabilities</p>
+          </div>
+          
+          <div className="features-grid">
+            <div className="feature-card">
+              <div className="feature-icon-wrapper">
+                <FaChartLine className="feature-icon" />
+              </div>
+              <h3 className="feature-title">Real-time Monitoring</h3>
+              <p className="feature-description">
+                Monitor machine performance in real-time with instant alerts and notifications.
+              </p>
+            </div>
+            
+            <div className="feature-card">
+              <div className="feature-icon-wrapper">
+                <FaChartBar className="feature-icon" />
+              </div>
+              <h3 className="feature-title">Advanced Analytics</h3>
+              <p className="feature-description">
+                Get detailed insights and reports on production efficiency and machine performance.
+              </p>
+            </div>
+            
+            <div className="feature-card">
+              <div className="feature-icon-wrapper">
+                <FaBolt className="feature-icon" />
+              </div>
+              <h3 className="feature-title">High Performance</h3>
+              <p className="feature-description">
+                Optimize production speed and reduce downtime with intelligent monitoring.
+              </p>
+            </div>
+            
+            <div className="feature-card">
+              <div className="feature-icon-wrapper">
+                <FaEye className="feature-icon" />
+              </div>
+              <h3 className="feature-title">Complete Visibility</h3>
+              <p className="feature-description">
+                Track necessary aspects of your operations from anywhere, anytime.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Overview Section */}
+      <section className="iot-overview-section">
+        <div className="iot-section-container">
+          <div className="section-header">
+            <h2 className="iot-section-title">What is JP Nexus?</h2>
+            <p className="iot-section-subtitle">Factory-ready IoT monitoring and analytics platform</p>
+          </div>
+          
+          <div className="overview-content">
+            <p className="overview-text">
+              JP Nexus is a factory-ready IoT monitoring and analytics platform purpose-built for the Woven Sack and Plastic Proccesing Industry gateways and provides comprehensive insights.
+            </p>
+            
+            <div className="key-features-grid">
+              <div className="key-feature-item">
+                <FaCheckCircle className="check-icon" />
+                <span>Live machine data & performance analytics</span>
+              </div>
+              <div className="key-feature-item">
+                <FaCheckCircle className="check-icon" />
+                <span>Shift-wise and machine-wise reports</span>
+              </div>
+              <div className="key-feature-item">
+                <FaCheckCircle className="check-icon" />
+                <span>Operator accountability & efficiency insights</span>
+              </div>
+              <div className="key-feature-item">
+                <FaCheckCircle className="check-icon" />
+                <span>Modular platform supporting multiple machine types</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Section */}
+      <section className="iot-why-section">
+        <div className="iot-section-container">
+          <div className="section-header">
+            <h2 className="iot-section-title white-text">Why Choose JP Nexus?</h2>
+            <p className="iot-section-subtitle white-text">Built for Industry, Not Just Software</p>
+          </div>
+          
+          <div className="why-content">
+            <p className="why-description">
+              JP Nexus is engineered with textile domain expertise, shop-floor realities, and scalable industrial architecture.
+            </p>
+            
+            <div className="advantages-grid">
+              <div className="advantage-card">
+                <FaIndustry className="advantage-icon" />
+                <span>Industrial-grade reliability</span>
+              </div>
+              <div className="advantage-card">
+                <FaPlug className="advantage-icon" />
+                <span>Plug-and-scale architecture</span>
+              </div>
+              <div className="advantage-card">
+                <FaServer className="advantage-icon" />
+                <span>Machine-agnostic design</span>
+              </div>
+              <div className="advantage-card">
+                <FaShieldAlt className="advantage-icon" />
+                <span>Data ownership stays with you</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Target Section */}
+      <section className="iot-target-section">
+        <div className="iot-section-container">
+          <div className="section-header">
+            <h2 className="iot-section-title">Perfect For</h2>
+          </div>
+          
+          <div className="target-grid">
+            <div className="target-card">
+              <h4 className="target-title">Industries</h4>
+              <p className="target-description">
+                Textile manufacturers • Woven sack plants • PP tape extrusion units
+              </p>
+            </div>
+            <div className="target-card">
+              <h4 className="target-title">Professionals</h4>
+              <p className="target-description">
+                Factory owners & directors • Production managers • Process engineers
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer Section */}
+      <div className="services-footer">
+        <div className="footer-content">
+          <div className="footer-text">
+            <h3>Ready to Transform Your Operations?</h3>
+            <p>Join thousands of satisfied customers who trust our expertise</p>
+          </div>
+          <button className="footer-cta" onClick={() => navigate('/iot-form')}>
+            <span>Start Your Journey</span>
+            <FaArrowRight />
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-
-  {/* Core Features */}
-  <section className="core-features-section">
-    <h2 className="section-title">Core Features (JP Nexus Capabilities)</h2>
-    <div className="features-grid">
-      <div className="feature-item">
-        <div className="feature-icon">📊</div>
-        <h3>Real-time Monitoring</h3>
-        <p>Monitor machines performance in real-time with instant alerts and notifications.</p>
-      </div>
-      
-      <div className="feature-item">
-        <div className="feature-icon">📈</div>
-        <h3>Advanced Analytics</h3>
-        <p>Get detailed insights and reports on production efficiency and machine performance.</p>
-      </div>
-      
-      <div className="feature-item">
-        <div className="feature-icon">⚡</div>
-        <h3>High Performance</h3>
-        <p>Optimize production speed and reduce downtime with intelligent monitoring.</p>
-      </div>
-      
-      <div className="feature-item">
-        <div className="feature-icon">👁️</div>
-        <h3>Complete Visibility</h3>
-        <p>Track necessary aspects of your operations from anywhere, anytime.</p>
-      </div>
-    </div>
-  </section>
-
-  {/* Platform Overview */}
-  <section className="platform-overview">
-    <h2 className="section-title">What is JP Nexus?</h2>
-    <div className="overview-content">
-      <p>JP Nexus is a factory-ready IoT monitoring and analytics platform purpose-built for the textile and plastics industry. It connects directly to machines via industrial gateways and provides comprehensive insights.</p>
-      
-      <div className="key-features">
-        <div className="feature-point">✓ Live machine data & performance analytics</div>
-        <div className="feature-point">✓ Shift-wise and machine-wise reports</div>
-        <div className="feature-point">✓ Operator accountability & efficiency insights</div>
-        <div className="feature-point">✓ Modular platform supporting multiple machine types</div>
-      </div>
-    </div>
-  </section>
-
-  {/* Why Choose JP Nexus */}
-  <section className="why-choose-section">
-    <h2 className="section-title">Why Choose JP Nexus?</h2>
-    <div className="why-content">
-      <h3>Built for Industry, Not Just Software</h3>
-      <p>JP Nexus is engineered with textile domain expertise, shop-floor realities, and scalable industrial architecture.</p>
-      
-      <div className="advantages">
-        <span>Industrial-grade reliability</span>
-        <span>Plug-and-scale architecture</span>
-        <span>Machine-agnostic design</span>
-        <span>Data ownership stays with you</span>
-      </div>
-    </div>
-  </section>
-
-  {/* Target Industries */}
-  <section className="target-section">
-    <h2 className="section-title">Perfect For</h2>
-    <div className="target-content">
-      <div className="target-group">
-        <h4>Industries</h4>
-        <p>Textile manufacturers • Woven sack plants • PP tape extrusion units</p>
-      </div>
-      <div className="target-group">
-        <h4>Professionals</h4>
-        <p>Factory owners & directors • Production managers • Process engineers</p>
-      </div>
-    </div>
-  </section>
-</div>
-
-<div className="service-card">
-<Card email="iot@jpel.in" phone="+91 9426813311" theme="JP Nexus IoT Platform" />
-</div>
-
-</div>
-
-    );
-
+  );
 };
+
 export default IOTServices;

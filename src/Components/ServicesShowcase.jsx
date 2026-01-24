@@ -126,13 +126,23 @@ const ServicesShowcase = () => {
               {service.id === 1 ? (
                 <div
                   className={`panel-background ${service.id === 1 ? 'spares-white-bg' : 'iot-white-bg'}`}
-                  style={service.id === 1 ? { backgroundImage: `url(${sparesBackground})` } : {}}
+                  style={service.id === 1 ? { 
+                    backgroundImage: `url(${sparesBackground})`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  } : {}}
                 ></div>
               ) : (
                 service.id === 2 ? (
                   <div
                     className={`panel-background ${service.id === 1 ? 'spares-white-bg' : 'iot-white-bg'}`}
-                    style={service.id === 1 ? { backgroundImage: `url(${sparesBackground})` } : {}}
+                    style={service.id === 1 ? { 
+                      backgroundImage: `url(${sparesBackground})`,
+                      backgroundRepeat: 'no-repeat',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    } : {}}
                   ></div>
                 ) : (
                   <div className="panel-background">
@@ -261,6 +271,31 @@ const ServicesShowcase = () => {
                     </div>
                   )}
 
+                  {service.id === 2 && service.backgroundImages && (
+                    <div className="spares-images-container mobile-only">
+                      {service.backgroundImages.map((bgImage, idx) => (
+                        <div
+                          key={idx}
+                          className={`spares-image-wrapper ${idx === service.activeBackgroundIndex ? 'active' : ''}`}
+                        >
+                          <img
+                            src={bgImage}
+                            alt={service.title}
+                            className="spares-image"
+                          />
+                        </div>
+                      ))}
+                      <div className="spares-image-indicators">
+                        {service.backgroundImages.map((_, idx) => (
+                          <div
+                            key={idx}
+                            className={`spares-indicator ${idx === service.activeBackgroundIndex ? 'active' : ''}`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   <p className="service-description">
                     {service.description}
                   </p>
@@ -337,7 +372,7 @@ const ServicesShowcase = () => {
               <h3>Ready to Transform Your Operations?</h3>
               <p>Join thousands of satisfied customers who trust our expertise</p>
             </div>
-            <button className="footer-cta">
+            <button className="footer-cta" onClick={() => navigate('/iot-form')}>
               <span>Start Your Journey</span>
               <FaArrowRight />
             </button>

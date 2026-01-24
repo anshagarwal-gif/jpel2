@@ -122,6 +122,7 @@ const Navbar = () => {
     const sparesServicesItems = [
         // { to: '/Service', label: 'IOT SERVICES' },
         { to: '/Service', label: 'SPARE PART SERVICES' },
+        { to: '/iot-services', label: 'IoT Services' },
     ];
 
     const navLinks = [
