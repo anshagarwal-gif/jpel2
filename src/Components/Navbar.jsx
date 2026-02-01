@@ -121,7 +121,7 @@ const Navbar = () => {
     // Spares & Services dropdown items
     const sparesServicesItems = [
         // { to: '/Service', label: 'IOT SERVICES' },
-        { to: '/Service', label: 'SPARE PART SERVICES' },
+        { to: '/Service', label: 'Spare Part Services' },
         { to: '/iot-services', label: 'IoT Services' },
     ];
 
