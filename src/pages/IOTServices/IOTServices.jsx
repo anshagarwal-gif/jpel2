@@ -92,7 +92,7 @@ const IOTServices = () => {
               </div>
               <div className="key-feature-item">
                 <FaCheckCircle className="check-icon" />
-                <span>Shift-wise and machine-wise reports</span>
+                <span>Shift-wise and machine-wise real-time reports</span>
               </div>
               <div className="key-feature-item">
                 <FaCheckCircle className="check-icon" />
@@ -127,15 +127,11 @@ const IOTServices = () => {
               </div>
               <div className="advantage-card">
                 <FaPlug className="advantage-icon" />
-                <span>Plug-and-scale architecture</span>
+                <span>Plug & scale architecture</span>
               </div>
               <div className="advantage-card">
                 <FaServer className="advantage-icon" />
                 <span>Machine-agnostic design</span>
-              </div>
-              <div className="advantage-card">
-                <FaShieldAlt className="advantage-icon" />
-                <span>Data ownership stays with you</span>
               </div>
             </div>
           </div>

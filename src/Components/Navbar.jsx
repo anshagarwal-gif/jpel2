@@ -134,7 +134,7 @@ const Navbar = () => {
             items: productLineItems
         },
         { 
-            label: 'SPARES & SERVICES', 
+            label: 'SERVICES', 
             isDropdown: true,
             items: sparesServicesItems
         },
