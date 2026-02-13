@@ -214,6 +214,23 @@ const EXHIBITION = () => {
     { src: require("../assets/K-2025/K-11.jpg"), title: "K-GERMANY 2025" },
     { src: require("../assets/K-2025/K-12.jpg"), title: "K-GERMANY 2025" },
   ];
+  const Cardimage202602 = [
+    { src: require("../assets/Plastindia-2026/DSC08772-2.jpg"), title: "Plastindia 2026" },
+    { src: require("../assets/Plastindia-2026/DSC08692.jpg"), title: "Plastindia 2026" },
+    { src: require("../assets/Plastindia-2026/DSC08724.jpg"), title: "Plastindia 2026" },
+    { src: require("../assets/Plastindia-2026/DSC09263.jpg"), title: "Plastindia 2026" },
+    { src: require("../assets/Plastindia-2026/DSC09265.jpg"), title: "Plastindia 2026" },
+    { src: require("../assets/Plastindia-2026/DSC09321.jpg"), title: "Plastindia 2026" },
+    { src: require("../assets/Plastindia-2026/DSC09325.jpg"), title: "Plastindia 2026" },
+    { src: require("../assets/Plastindia-2026/DSC09427.jpg"), title: "Plastindia 2026" },
+    { src: require("../assets/Plastindia-2026/DSC09448.jpg"), title: "Plastindia 2026" },
+    { src: require("../assets/Plastindia-2026/IMG_4156.jpg"), title: "Plastindia 2026" },
+    { src: require("../assets/Plastindia-2026/IMG_4212.jpg"), title: "Plastindia 2026" },
+    { src: require("../assets/Plastindia-2026/IMG_4221.jpg"), title: "Plastindia 2026" },
+    { src: require("../assets/Plastindia-2026/IMG_4245.jpg"), title: "Plastindia 2026" },
+  ];
+
+  
 
   
   const openModal = (imageSrc, title) => {
@@ -320,14 +337,18 @@ const EXHIBITION = () => {
       <div className="card-wrapper" >
      
     
-    
+       <Cardflip1
+      cardInfo="Click to explore PlastIndia 2026"
+      cardTitle="PlastIndia 2026"
+      thumbnailImage={require("../assets/Plastindia-2026/DSC00723.jpg")}
+      galleryImages={Cardimage202602}/>
+
       <Cardflip1
       cardInfo="Click to explore PlastIndia 2018"
       cardTitle="PlastIndia 2018"
       thumbnailImage={require("../assets/Plastindia-2018/plastindia-2018-6.jpg")}
       galleryImages={Cardimage11}/>
-      
-     
+
       <Cardflip1
       cardInfo="Click to explore PlastIndia 2015"
       cardTitle="PlastIndia 2015"
@@ -340,7 +361,6 @@ const EXHIBITION = () => {
       thumbnailImage={require("../assets/Plastindia-2012/plastindia-2012-11.jpg")}
       galleryImages={Cardimage9}/>
 
-        
         <Cardflip1
         cardInfo="Click to explore PlastIndia 2009"
         cardTitle="PlastIndia 2009"
