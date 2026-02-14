@@ -665,7 +665,6 @@
 
 /* Service Header */
 .service-header {
-  margin-bottom: 15px;
   position: relative;
   z-index: 1;
 }
@@ -852,7 +851,6 @@
 
 .service-panel.right .features-list {
   padding-left: 0;
-  padding-right: 20px;
 }
 
 .service-panel.right .animated-line {
@@ -1502,7 +1500,6 @@
   }
   
   .feature-icon {
-    margin-right: 15px !important;
     margin-left: 0 !important;
   }
   
