@@ -215,19 +215,17 @@ const EXHIBITION = () => {
     { src: require("../assets/K-2025/K-12.jpg"), title: "K-GERMANY 2025" },
   ];
   const Cardimage202602 = [
-    { src: require("../assets/Plastindia-2026/DSC08772-2.jpg"), title: "Plastindia 2026" },
     { src: require("../assets/Plastindia-2026/DSC08692.jpg"), title: "Plastindia 2026" },
     { src: require("../assets/Plastindia-2026/DSC08724.jpg"), title: "Plastindia 2026" },
+    { src: require("../assets/Plastindia-2026/DSC08772-2.jpg"), title: "Plastindia 2026" },
     { src: require("../assets/Plastindia-2026/DSC09263.jpg"), title: "Plastindia 2026" },
     { src: require("../assets/Plastindia-2026/DSC09265.jpg"), title: "Plastindia 2026" },
-    { src: require("../assets/Plastindia-2026/DSC09321.jpg"), title: "Plastindia 2026" },
-    { src: require("../assets/Plastindia-2026/DSC09325.jpg"), title: "Plastindia 2026" },
+    { src: require("../assets/Plastindia-2026/DSC09363.jpg"), title: "Plastindia 2026" },
     { src: require("../assets/Plastindia-2026/DSC09427.jpg"), title: "Plastindia 2026" },
-    { src: require("../assets/Plastindia-2026/DSC09448.jpg"), title: "Plastindia 2026" },
-    { src: require("../assets/Plastindia-2026/IMG_4156.jpg"), title: "Plastindia 2026" },
+    { src: require("../assets/Plastindia-2026/IMG_4144.jpg"), title: "Plastindia 2026" },
+    { src: require("../assets/Plastindia-2026/IMG_4200.jpg"), title: "Plastindia 2026" },
     { src: require("../assets/Plastindia-2026/IMG_4212.jpg"), title: "Plastindia 2026" },
     { src: require("../assets/Plastindia-2026/IMG_4221.jpg"), title: "Plastindia 2026" },
-    { src: require("../assets/Plastindia-2026/IMG_4245.jpg"), title: "Plastindia 2026" },
   ];
 
   
@@ -340,7 +338,7 @@ const EXHIBITION = () => {
        <Cardflip1
       cardInfo="Click to explore PlastIndia 2026"
       cardTitle="PlastIndia 2026"
-      thumbnailImage={require("../assets/Plastindia-2026/DSC00723.jpg")}
+      thumbnailImage={require("../assets/Plastindia-2026/DSC08912-2.jpg")}
       galleryImages={Cardimage202602}/>
 
       <Cardflip1
