@@ -51,7 +51,7 @@ const PlasticRecycling = () => {
                     },
                     {
                         subtitle: "Bag Conversion Machines",
-                        link: "/Bag-Conversion",
+                        link: "/BagConversion",
                         description: "Transforming fabric into finished bags for various applications."
                     },
                     {

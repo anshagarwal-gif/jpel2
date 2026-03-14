@@ -198,7 +198,6 @@ app.post("/send-email", (req, res) => {
     ExtrusionCoating: ["Extrusion Coating Line.pdf", "Extrusion Coatling Line - POLYCOAT.pdf", "Extrusion Coating - Leno Lamination.pdf"],
     PrintingMachine: ["Flexo Printing Machine.pdf"],
     BagConversion: ["Converting machine.pdf", "Cutting & Sealing Machine.pdf"],
-    "Bag-Conversion": ["Converting machine.pdf", "Cutting & Sealing Machine.pdf"],
     BBB: ["JP Group & Gachan Catalogue.pdf"],
     WovenSack: ["Recycling Lines.pdf", "Plastic Washing Cleaning & Recycling Line.pdf"],
     PET: ["PET Washing Line.pdf"],

@@ -73,7 +73,7 @@ function AppLayout() {
           <Route path="/CastLine" element={<CastLine />} />
           <Route path="/PET" element={<PET />} />
           <Route path="/Flexible" element={<Flexible />} />
-          <Route path="/Bag-Conversion" element={<Bag />} />
+          <Route path="/BagConversion" element={<Bag />} />
           <Route path="/BBB" element={<BBB />} />
           <Route path="/oos-form" element={<OOSForm />} />
           <Route path="/iot-form" element={<IOTForm />} />
