@@ -42,7 +42,7 @@ const Footer = () => {
             <Link to="/CircularLoom"><li>Circular Weaving Machine</li></Link>
             <Link to="/ExtrusionCoating"><li>Extrusion Coating Lines</li></Link>
             <Link to="/PrintingMachine"><li>Flexographic Printing Machines</li></Link>     
-            <Link to="/Bag-Conversion"><li>Bag Conversion Lines</li></Link>
+            <Link to="/BagConversion"><li>Bag Conversion Lines</li></Link>
             <Link to="/BBB"><li>Block Bottom Sack Conversion Line</li></Link>
             <Link to="/WovenSack"><li>Recycling Lines</li></Link>
             <Link to="/PET"><li>PET Washing Line</li></Link>

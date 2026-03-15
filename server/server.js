@@ -197,7 +197,7 @@ app.post("/send-email", (req, res) => {
     CircularLoom: ["4 Shuttle Circular Loom.pdf", "6 Shuttle Circular Loom.pdf", "8,10 & 12 Shuttle Circular Loom_20_02_2025.pdf", "Inside Lamination.pdf"],
     ExtrusionCoating: ["Extrusion Coating Line.pdf", "Extrusion Coatling Line - POLYCOAT.pdf", "Extrusion Coating - Leno Lamination.pdf"],
     PrintingMachine: ["Flexo Printing Machine.pdf"],
-    BagConversion: ["Converting machine.pdf", "Cutting & Sealing Machine.pdf"],
+    BagConversion: ["Converting machine.pdf", "Cutting & Pressing Machines.pdf"],
     BBB: ["JP Group & Gachan Catalogue.pdf"],
     WovenSack: ["Recycling Lines.pdf", "Plastic Washing Cleaning & Recycling Line.pdf"],
     PET: ["PET Washing Line.pdf"],

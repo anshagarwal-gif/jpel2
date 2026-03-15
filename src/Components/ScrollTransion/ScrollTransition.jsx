@@ -36,7 +36,7 @@ function ScrollTransition({ recyclingData, initialCategory, onlyShowCategory }) 
     "CircularLoom": recyclingimg1,
     "ExtrusionCoating": recyclingimg0,
     "PrintingMachine": recyclingimg4,
-    "Bag-Conversion": recyclingimg5,
+    "BagConversion": recyclingimg5,
     "BBB": recyclingimg10,
     "WovenSack": recyclingimg1_2,
     "PET": recyclingimg2_2,
