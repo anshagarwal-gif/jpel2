@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 
 import "../BatteryBox/BatteryBox.css"
@@ -25,6 +26,10 @@ const BatteryBox = () => {
         const currentContent = tabContent[activeTab];
     return(
 <div>
+<Helmet>
+  <title>Battery Box Recycling Lines | JP Extrusiontech</title>
+  <meta name="description" content="Advanced ABS plastic recovery machines for used car battery boxes, ensuring maximum material recovery with state-of-the-art processing." />
+</Helmet>
 
 <div className="imageContainer1">
         <img

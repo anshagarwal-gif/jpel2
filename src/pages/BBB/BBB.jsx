@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import {
   Navigation,
   SpecsTable,
@@ -71,6 +72,10 @@ const BBB = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Block Bottom Sack Conversion Lines | JP Extrusiontech</title>
+        <meta name="description" content="AD VALVE™ block bottom bag making machine with heat sealing technology and AI visual detection. For cement, chemicals, food and agricultural packaging." />
+      </Helmet>
       <div className="imageContainer1">
         <img
           className="ExportSection"

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import "../CastLine/CastLine.css"
 import VedioCard from "../../Components/VedioCard";
@@ -63,6 +64,10 @@ const CastLine = () => {
         const currentContent = tabContent[activeTab];
     return(
 <div>
+<Helmet>
+  <title>Multilayer Cast Film Lines | JP Extrusiontech</title>
+  <meta name="description" content="Chill Roll Cast Film Lines producing stretch films, cling films, barrier films, masking films, CPP, and blister films. Film thickness 15–150 microns." />
+</Helmet>
 
 <div className="imageContainer1">
         <img

@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "JP Extrusiontech",
+  "name": "J P Extrusiontech (Pvt) Ltd.",
+  "description": "Manufacturer and exporter of plastic processing machinery since 1987. Ankleshwar, Gujarat, India.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,12 +9,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "favicon.ico",
+      "src": "logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "favicon.ico",
+      "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }

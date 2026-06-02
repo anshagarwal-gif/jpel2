@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow } from '../../Components/ProductFormat/ReusableComponents';
 import "../WindingMachine/WindingMachine.css"
 
@@ -65,6 +66,10 @@ const WindingMachine = () => {
   
     return (
       <div>
+        <Helmet>
+          <title>Winding Machines | JP Extrusiontech</title>
+          <meta name="description" content="Inverter, Auto Doffing, and Jumbo Winders for efficient PP/HDPE tape winding. For woven & leno bags, FIBCs, tarpaulins, ropes and twines." />
+        </Helmet>
            {/* First Image and Title */}
            <div className="imageContainer1">
         <img

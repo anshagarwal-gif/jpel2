@@ -1,4 +1,5 @@
-import React, { useState }  from "react";  
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';  
 import { Navigation, SpecsTable, Applications, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import './CircularLoom.css'
 import VedioCard from "../../Components/VedioCard";
@@ -128,6 +129,10 @@ const CircularLoom = () => {
   
   return(
     <div>
+      <Helmet>
+        <title>Circular Weaving Machines | JP Extrusiontech</title>
+        <meta name="description" content="4 to 12-shuttle circular looms for weaving PP/HDPE tubular and flat fabrics. For woven sacks, FIBCs, tarpaulins, and geo & agro textiles." />
+      </Helmet>
       <div className="imageContainer1">
         <img
           className="ExportSection"

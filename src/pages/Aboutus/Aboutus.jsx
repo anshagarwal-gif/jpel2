@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import './Aboutus.css';
 
 const Aboutus = () => {
@@ -185,6 +186,10 @@ Co-Ex Lamination for Flexible Packaging having Extruders of 90+70 and width 1450
 
   return (
     <div>
+      <Helmet>
+        <title>About J P Extrusiontech | Established 1987, Ankleshwar, Gujarat</title>
+        <meta name="description" content="Established in 1987 in Ankleshwar, Gujarat. 70,000 sq.m. manufacturing facility, 35+ years of innovation in plastic processing machinery design and export." />
+      </Helmet>
       <div className="imageContainer3">
         <img
           className="ExportSection"

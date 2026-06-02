@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import VedioCard from "../../Components/VedioCard";
 import "../PET/PET.css";
@@ -25,6 +26,10 @@ const PET = () => {
         const currentContent = tabContent[activeTab];
     return(
 <div>
+<Helmet>
+  <title>PET Washing Lines | JP Extrusiontech</title>
+  <meta name="description" content="Advanced recycling lines for HDPE/PP tapes, woven fabric cuttings, and general-purpose plastics including LDPE, LLDPE, HIPS, PP, and HDPE." />
+</Helmet>
 
 <div className="imageContainer1">
         <img

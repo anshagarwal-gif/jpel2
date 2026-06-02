@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Navigation, SpecsTable, Applications, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import "../TapeExtrusion/TapeExtrusion.css";
 import PhotoGallery from '../../Components/PhotoGallery/PhotoGallery';
@@ -67,6 +68,10 @@ const TapeExtrusion = () => {
   
     return (
       <div>
+        <Helmet>
+          <title>Tape Stretching Lines | JP Extrusiontech</title>
+          <meta name="description" content="PP/HDPE tape extrusion lines, 150–900 kg/hr output. For woven & leno bags, FIBCs, tarpaulins, carpet backings, geotextiles, ropes and twines." />
+        </Helmet>
         {/* First Image and Title */}
         <div className="imageContainer1">
           <img

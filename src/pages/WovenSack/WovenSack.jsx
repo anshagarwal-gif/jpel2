@@ -1,4 +1,5 @@
-import React, { useState }  from "react";  
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';  
 import { Navigation, SpecsTable, Applications, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import './WovenSack.css'
 import VedioCard from "../../Components/VedioCard";
@@ -90,6 +91,10 @@ const WovenSack = () => {
     const currentContent = tabContent[activeTab];
     return(
       <div>
+        <Helmet>
+          <title>PP/PE Recycling Lines | JP Extrusiontech</title>
+          <meta name="description" content="Recycling systems for washing and processing PP/PE films and bags into high-quality recycled materials. Handles diverse contamination with minimal material loss." />
+        </Helmet>
         <div className="imageContainer1">
         <img
           className="ExportSection"

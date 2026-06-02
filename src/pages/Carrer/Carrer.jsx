@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import "../Carrer/Carrer.css";
 
 const Career = () => {
@@ -462,6 +463,10 @@ const Career = () => {
 
   return (
     <div className="career-page">
+      <Helmet>
+        <title>Careers | JP Extrusiontech</title>
+        <meta name="description" content="Job openings at J P Extrusiontech Pvt. Ltd., Ankleshwar, Gujarat. Join India's leading plastic processing machinery manufacturer." />
+      </Helmet>
       {/* Toast Notification */}
       {toast.show && (
         <div className={`toast toast-${toast.type}`}>

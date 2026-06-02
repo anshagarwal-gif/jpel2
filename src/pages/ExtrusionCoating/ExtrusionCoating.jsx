@@ -1,4 +1,5 @@
-import React, { useState }  from "react";  
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';  
 import { Navigation, SpecsTable, Applications, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import './ExtrusionCoating.css'
 import VedioCard from "../../Components/VedioCard";
@@ -134,6 +135,10 @@ const ExtrusionCoating = () => {
     const currentContent = tabContent[activeTab];
     return(
       <div>
+        <Helmet>
+          <title>Extrusion Coating Lines | JP Extrusiontech</title>
+          <meta name="description" content="Extrusion coating and lamination lines up to 5200 mm web width. Coats LDPE/PP on woven fabrics, paper, aluminum foil, BOPP film, and polyester film." />
+        </Helmet>
         <div className="imageContainer1">
         <img
           className="ExportSection"

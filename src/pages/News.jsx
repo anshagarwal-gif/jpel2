@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from 'react-helmet-async';
 import Cardflip1 from "../Components/Cardflip1";
 import VedioCard from "../Components/VedioCard";
 import NCardflip from "../Components/NCardflip";
@@ -64,6 +65,10 @@ const News = () => {
     
     return (
         <div>
+        <Helmet>
+          <title>News & Press | JP Extrusiontech</title>
+          <meta name="description" content="Latest news, press coverage, and trade publications featuring J P Extrusiontech Pvt. Ltd., manufacturer of plastic processing machinery." />
+        </Helmet>
 <div className="imageContainer1">
         <img
           className="ExportSection"

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import '../PrintingMachines/PrintingMachine.css'
 import VedioCard from "../../Components/VedioCard";
@@ -63,6 +64,10 @@ const PrintingMachine = () => {
         const currentContent = tabContent[activeTab];
     return(
 <div>
+<Helmet>
+  <title>Flexographic Printing Machines | JP Extrusiontech</title>
+  <meta name="description" content="High-speed PLC-based 4/6/8-colour flexo printing machines for HDPE/PP woven sacks with inline corona treatment and micrometric adjustment system." />
+</Helmet>
 
 <div className="imageContainer1">
         <img

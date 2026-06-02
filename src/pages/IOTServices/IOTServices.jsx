@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import "./IOTServices.css";
 import { useNavigate } from 'react-router-dom';
 import { FaChartLine, FaChartBar, FaBolt, FaEye, FaCheckCircle, FaIndustry, FaPlug, FaServer, FaShieldAlt, FaArrowRight } from 'react-icons/fa';
@@ -7,6 +8,10 @@ const IOTServices = () => {
   
   return (
     <div className="iot-services-page">
+      <Helmet>
+        <title>JP Nexus IoT Services | JP Extrusiontech</title>
+        <meta name="description" content="Real-time monitoring, predictive insights, and advanced analytics for JP Extrusiontech machinery through JP Nexus — the intelligent IoT platform." />
+      </Helmet>
       {/* Hero Section */}
       <section className="iot-hero">
         <div className="iot-hero-container">

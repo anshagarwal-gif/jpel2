@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import "../SheetExtrusion/SheetExtrusion.css"
 import VedioCard from "../../Components/VedioCard";
@@ -75,6 +76,10 @@ const SheetExtrusion = () => {
         const currentContent = tabContent[activeTab];
     return(
 <div>
+<Helmet>
+  <title>Multilayer Sheet Lines | JP Extrusiontech</title>
+  <meta name="description" content="Monolayer and multilayer sheet extrusion lines for HIPS, ABS, PP, PET, and PVC sheets. For thermoforming, vacuum forming, luggage, office furniture, and roofing." />
+</Helmet>
 
 <div className="imageContainer1">
         <img

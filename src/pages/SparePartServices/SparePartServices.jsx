@@ -1,4 +1,5 @@
-import React from "react"; 
+import React from "react";
+import { Helmet } from 'react-helmet-async'; 
 import "./SparePartServices.css"
 import Card from '../../Components/ServiceCard';
 import OOSButton from '../../Components/OOSButton';
@@ -7,6 +8,10 @@ import header from "../Services/Assets/header.jpg";
 const SparePartServices = () => {
     return(
 <div>
+<Helmet>
+  <title>Spare Part Services | JP Extrusiontech</title>
+  <meta name="description" content="Genuine spare parts for all JP Extrusiontech machinery. Critical and routine maintenance spares with quick delivery and expert technical support." />
+</Helmet>
 <div className="imageContainer2">
         <img   alt="header"
           src={header}

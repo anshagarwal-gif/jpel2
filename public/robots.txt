@@ -1,17 +1,4 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
-Allow: /ContactUs
- Allow:    /Exhibition
- Allow:    /News
- Allow:    /Service
- Allow:    /AboutUs
- Allow: /product-line
- Allow:  /carrer
- Allow: /careers
+Disallow: /admin/
 
-
- # Sitemaps
-Sitemap: https://www.jpel.in/sitemap.xml
-    
-
+Sitemap: https://jpel.in/sitemap.xml

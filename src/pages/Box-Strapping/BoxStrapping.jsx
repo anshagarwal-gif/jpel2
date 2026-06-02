@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import "../Box-Strapping/BoxStrapping.css"
 import VedioCard from "../../Components/VedioCard";
@@ -67,6 +68,10 @@ const BoxStrapping = () => {
         const currentContent = tabContent[activeTab];
     return(
 <div>
+<Helmet>
+  <title>PP/PET Box Strapping Lines | JP Extrusiontech</title>
+  <meta name="description" content="PP and PET box strapping production lines. PET line processes 100% PET flakes or virgin granules with Dehumidified Air Dryer and Crystallizer." />
+</Helmet>
 
 <div className="imageContainer1">
         <img

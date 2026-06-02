@@ -1,4 +1,5 @@
-import React  from "react";  
+import React from "react";
+import { Helmet } from 'react-helmet-async';
 
 import "../ContactUs/ContactUs.css"
 import Card from '../../Components/ServiceCard';
@@ -26,8 +27,12 @@ const ContactUs = () => {
       ];
 
     return(
-        
+
         <div>
+          <Helmet>
+            <title>Contact JP Extrusiontech | Ankleshwar, Gujarat</title>
+            <meta name="description" content="Contact JP Extrusiontech Pvt. Ltd. — GIDC Industrial Estate, Ankleshwar, Gujarat 393002. Phone: +91 99090 47164. Email: info@jpel.in." />
+          </Helmet>
        {/* First Image and Title */}
       <div className="imageContainer1">
         <img

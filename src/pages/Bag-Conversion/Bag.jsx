@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from 'react-helmet-async';
 import { Navigation, SpecsTable, Applications, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import './Bag.css';
 import VedioCard from "../../Components/VedioCard";
@@ -276,6 +277,10 @@ const Bag = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Bag Conversion Lines | JP Extrusiontech</title>
+        <meta name="description" content="High-speed woven sack conversion lines for bottom-folded PP/HDPE bags. JPBCL-850 handles cutting, bottom folding, sewing, and stacking." />
+      </Helmet>
       <div className="imageContainer1">
         <img
           className="ExportSection"

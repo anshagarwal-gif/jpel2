@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // Basic Swiper CSS
 import "swiper/css/navigation"; // Navigation styles
@@ -31,6 +32,10 @@ const Home = () => {
   }, []);
   return (
     <div>
+      <Helmet>
+        <title>J P Extrusiontech (Pvt) Ltd. | Plastic Processing Machinery Since 1987</title>
+        <meta name="description" content="Manufacturer and exporter of plastic processing machinery since 1987. Woven packaging, recycling, extrusion and converting lines from Ankleshwar, Gujarat, India." />
+      </Helmet>
       <BannerGIF/>
       {/* <ScrollReveal  baseOpacity={0}
   enableBlur={true}

@@ -1,4 +1,5 @@
-import React, { useState } from "react";  // Import the CSS file for styling
+import React, { useState } from "react";
+import { Helmet } from 'react-helmet-async';
 import Cardflip1 from "../Components/Cardflip1";
 import Exhibition from "../Components/Exhibition"; // Import the Exhibition component
 
@@ -243,6 +244,10 @@ const EXHIBITION = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Exhibitions | JP Extrusiontech</title>
+        <meta name="description" content="JP Extrusiontech's trade show and exhibition participation, showcasing plastic processing machinery from Ankleshwar, Gujarat, India." />
+      </Helmet>
       {/* First Image and Title */}
       <div className="imageContainer1">
         <img

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import "../Monofilament/Monofilament.css"
 import VedioCard from "../../Components/VedioCard";
@@ -64,6 +65,10 @@ const Monofilament = () => {
         
     return(
 <div>
+<Helmet>
+  <title>Monofilament Lines | JP Extrusiontech</title>
+  <meta name="description" content="HDPE, PP, and Nylon monofilament extrusion lines. Applications include ropes, twines, toothbrush bristles, fishing nets, and mosquito nets." />
+</Helmet>
 
 <div className="imageContainer1">
         <img

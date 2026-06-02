@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Navigation, ProductImage, SpecsTable, Applications, ApplicationsSlideshow, ProductWithDownloadCatalogue } from '../../Components/ProductFormat/ReusableComponents';
 import "../Flexible/Flexible.css"
 import VedioCard from "../../Components/VedioCard";
@@ -27,6 +28,10 @@ const  Flexible = () => {
         const currentContent = tabContent[activeTab];
     return(
 <div>
+<Helmet>
+  <title>Flexible Packaging Lines | JP Extrusiontech</title>
+  <meta name="description" content="Extrusion coating for flexible packaging applying LDPE, LLDPE, PP, EVA, EVOH onto BOPP, paper, aluminum foil, CPP, polyester, and METPET substrates." />
+</Helmet>
 
 <div className="imageContainer1">
         <img
