@@ -65,7 +65,7 @@ app.post("/send-email2", async (req, res) => {
     // Email to owner/admin about the inquiry
     const ownerMailOptions = {
       from: email, // Sender email (customer's email)
-      to: ["rakesh@jpel.in", "info@jpel.in"], // Your email addresses
+      to: ["rakesh@jpel.in", "info@jpel.in", "jpel@jpel.in"], // Your email addresses
       subject: "New Inquiry Received | J P Extrusiontech Private Limited",
       html: `
         <div style="font-family: Arial, sans-serif; border: 2px dashed #000; padding: 20px; max-width: 600px; margin: auto; background-color: #F7F7F7;">
@@ -220,7 +220,8 @@ app.post("/send-email", (req, res) => {
   const ownerMailOptions = {
     from: email, // Sender email
     to: ["rakesh@jpel.in",
-      "info@jpel.in"], // Owner's email from environment variable
+      "info@jpel.in",
+      "jpel@jpel.in"], // Owner's email from environment variable
     subject: "Download Catalogue | J P Extrusiontech Private Limited",
     html: `
     <div style="font-family: Arial, sans-serif; border: 2px dashed #000; padding: 20px; max-width: 600px; margin: auto; background-color: #F7F7F7;">
