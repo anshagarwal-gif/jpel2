@@ -61,7 +61,19 @@ const News = () => {
         { src: require("../assets/newevent1.jpg"), title: "Best Brand 2021 Award from The Economic Times"},
         { src: require("../assets/newevent2.jpg"), title: "Best Brand 2019 Award from The Economic Times"},
 
-      ]
+      ];
+      const Cardimage6 = [
+        { src: require("../assets/Blood donation camp - 2026/Artboard 1.jpg"), title: "Blood Donation Camp – 2026" },
+        { src: require("../assets/Blood donation camp - 2026/Artboard 2.jpg"), title: "Blood Donation Camp – 2026" },
+        { src: require("../assets/Blood donation camp - 2026/Artboard 3.jpg"), title: "Blood Donation Camp – 2026" },
+        { src: require("../assets/Blood donation camp - 2026/Artboard 4.jpg"), title: "Blood Donation Camp – 2026" },
+        { src: require("../assets/Blood donation camp - 2026/Artboard 5.jpg"), title: "Blood Donation Camp – 2026" },
+        { src: require("../assets/Blood donation camp - 2026/Artboard 6.jpg"), title: "Blood Donation Camp – 2026" },
+        { src: require("../assets/Blood donation camp - 2026/Artboard 7.jpg"), title: "Blood Donation Camp – 2026" },
+        { src: require("../assets/Blood donation camp - 2026/Artboard 10.jpg"), title: "Blood Donation Camp – 2026" },
+        { src: require("../assets/Blood donation camp - 2026/Artboard 11.jpg"), title: "Blood Donation Camp – 2026" },
+        { src: require("../assets/Blood donation camp - 2026/Artboard 12.jpg"), title: "Blood Donation Camp – 2026" },
+      ];
     
     return (
         <div>
@@ -204,7 +216,12 @@ const News = () => {
         thumbnailImage={require("../assets/International yoga day-2018/international-day-of-yoga-2018-1.jpg")}
         galleryImages={Cardimage4}
       />
-      
+      <Cardflip1
+        cardInfo="Blood Donation Camp – 2026"
+        cardTitle=""
+        thumbnailImage={require("../assets/Blood donation camp - 2026/cover.jpg")}
+        galleryImages={Cardimage6}
+      />      
      
       </div>
         </div>
